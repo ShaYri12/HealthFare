@@ -1,0 +1,30 @@
+
+.pounds{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.pounds p{
+    color: #002C20 !important;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16.8px;
+    letter-spacing: 0.12px;
+}
+
+.pounds input{
+    display: flex;
+    flex-grow: 1;
+    border: 1px solid #000000;
+    border-radius: 84px;
+    height: 54px;
+    width: 100% !important;
+    padding: 18px 30px 18px 30px;
+    gap: 10px;
+}
+
+.feet-inches{
+    display: flex;
+    gap: 20px;
+}

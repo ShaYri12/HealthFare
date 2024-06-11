@@ -19,7 +19,7 @@
     font-size: 16px;
     font-weight: 300;
     line-height: 24px;
-    color: #484E5A !important;
+    color: #484E5A;
 }
 
 .language {
@@ -34,7 +34,7 @@
     font-size: 14px;
     line-height: 16.8px;
     letter-spacing: 0.12px;
-    color: #002C20;
+    color: #002C20 !important;
     text-transform: uppercase;
 }
 

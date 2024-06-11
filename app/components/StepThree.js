@@ -39,7 +39,7 @@ const StepThree = ({ prevStep, nextStep, handleChange, values }) => {
         <button className='back-btn back-btn-stepthree' onClick={prevStep}>
           <img src="/assets/arrow.svg" alt="arrow" /> Back
         </button>
-        <button className='long-btn long-btn-stepthree' onClick={nextStep}>Start Your Journey</button>
+        <button className='long-btn long-btn-stepthree' onClick={nextStep}>Continue Your Journey</button>
         <button className='arrow-btn arrow-btn-stepthree' onClick={nextStep}><img src="/assets/arrow.svg" alt=""/></button>
       </div>
 
