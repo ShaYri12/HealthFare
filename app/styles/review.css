@@ -30,16 +30,16 @@
     font-weight: 700;
 }
 
-.stars{
+.review .stars{
     display: flex;
     gap: 9.8px
 }
-.stars img{
+.review .stars img{
     width: 49px;
     height: 49px;
 }
 
-.trustpilot{
+.review .trustpilot{
     display: flex;
     align-items: center;
     gap: 4.9px;
@@ -48,7 +48,7 @@
     line-height: 31.85px;
 }
 
-.trustpilot img{
+.review .trustpilot img{
     height: 29.4px !important;
     width: 31.06px !important;
 }

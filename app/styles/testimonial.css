@@ -1,68 +1,98 @@
 .testimonialContainer {
-    max-width: 28rem;
     margin: 0 auto;
-    background-color: #1D4ED8; /* bg-blue-700 */
+    background-color: #124296;
     color: white;
-    border-radius: 0.5rem; /* rounded-lg */
-    padding: 1.5rem; /* p-6 */
+    border-radius: 0.5rem;
+    padding: 50px 30px 50px 30px;
     position: relative;
+    margin-bottom: 80px;
   }
   
   .testimonialHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem; /* mb-4 */
+    padding-bottom: 30px;
   }
   
   .testimonialHeader h2 {
-    font-size: 0.875rem; /* text-sm */
-    font-weight: 600; /* font-semibold */
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 34px;
+    letter-spacing: 0.15px;
+    padding: 0;
   }
   
   .testimonialNavigation {
     display: flex;
-    gap: 0.5rem; /* space-x-2 */
+    gap: 7.5px;
   }
   
   .navButton {
-    background-color: white;
-    color: #1D4ED8; /* text-blue-700 */
-    border-radius: 9999px; /* rounded-full */
-    padding: 0.5rem; /* p-2 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 30px;
+    max-width: 30px;
+    background-color: transparent;
+    border: 1px solid white;
+    padding: 11.25px;
+    color: white;
+    border-radius: 63.75px;
+    gap: 4.5px;
+    cursor: pointer;
+  }
+
+  .navButton:hover {
+    color: #000000;
+    background-color: #ffffff;
+  }
+
+  .navButton:hover img {
+    filter: invert(1) brightness(0);
   }
   
-  .navIcon {
-    width: 1rem; /* w-4 */
-    height: 1rem; /* h-4 */
+  .textimonial-next{
+    transform: scaleX(-1);
   }
   
   .testimonialContent {
     display: flex;
     flex-direction: column;
-    gap: 1rem; /* space-y-4 */
+    gap: 30px;
   }
   
   .ratingSource {
     display: flex;
     align-items: center;
-    gap: 0.5rem; /* space-x-2 */
+    font-size: 22px;
+    font-weight: 500;
+    gap: 30px;
   }
   
   .rating {
     display: flex;
   }
-  
-  .ratingStars {
-    color: #FBBF24; /* text-yellow-400 */
+
+  .rating img{
+    width: 20px;
+    height: 20px;
   }
   
   .testimonialText {
-    font-size: 0.875rem; /* text-sm */
+    color: white !important;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 25.6px;
+    letter-spacing: -2%;
+    padding-bottom: 20px;
   }
   
   .testimonialAuthor {
-    font-size: 0.875rem; /* text-sm */
-    font-weight: 600; /* font-semibold */
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16.8px;
+    letter-spacing: -2px;
+    color: white !important;
   }
   

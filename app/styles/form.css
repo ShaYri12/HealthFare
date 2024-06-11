@@ -42,7 +42,6 @@
     margin: 10px 0;
     padding: 10px;
     width: 100%;
-    max-width: 300px;
     border: 1px solid #ccc;
     border-radius: 5px;
   }
@@ -118,11 +117,15 @@
 }
 
 .back-btn:hover{
-  background-color: #909baf;
+  background-color: #909baf !important;
 }
 
 .back-btn img{
   transform: scaleX(1);
   width: 12px;
   height: 12px;
+}
+
+.back-noteligible{
+  flex-grow: 1 !important;
 }

@@ -1,0 +1,22 @@
+.input-form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-label-full{
+    width: 100%;
+}
+
+.input-group{
+    display: flex;
+    gap: 20px;
+}
+
+.input-label input{
+    border: 1px solid #E3E3E4;
+    border-radius: 84px;
+    padding: 18px 30px 18px 30px;
+    gap: 10px;
+    height: 54px;
+}
