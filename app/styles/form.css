@@ -1,0 +1,128 @@
+.backgroundimg{
+  position: absolute;
+  width: 759px;
+  height: 760px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  
+  .formContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -5px 20px 50px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    gap: 30px;
+    background-color: #FFFFFF !important;
+  }
+
+  .logo{
+    width: 188.88px;
+    height: 44px;
+    display: flex;
+    align-items: start;
+    margin-top: 47px;
+    margin-left: 50px;
+  }
+
+  .logo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  input {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+.btn-group{
+    display: flex;
+    gap: 10px
+}
+
+.btn-group .long-btn{
+    flex-grow: 1;
+}
+
+.btn-group button{
+  height: 61px;
+  border: 1px !important;
+  padding: 10px 25px 10px 25px;
+  gap: 6px;
+  border-radius: 85px !important;
+  border: none;
+  border-radius: 5px;
+  background-color: #38B64B;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 41.24px;
+}
+
+.arrow-btn img{
+  transform: scaleX(-1);
+  width: 12px;
+}
+  
+.btn-group button:hover {
+  background-color: #2d9e3e;
+}
+  
+
+.btn-group .long-btn{
+  height: 51px;
+  padding: 10px 25px 10px 25px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 30.93px;
+}
+
+.btn-group .arrow-btn{
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding: 20px !important;
+}
+
+.back-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 61px;
+  border-radius: 85px;
+  border: 1px;
+  padding: 10px 20px 10px 20px;
+  gap: 6px;
+  background-color: #A0ACC3 !important;
+  color: white;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 41.24px;
+  transition: background-color 0.2s ease-in-out;
+  margin-bottom: 80px;
+}
+
+.back-btn:hover{
+  background-color: #909baf;
+}
+
+.back-btn img{
+  transform: scaleX(1);
+  width: 12px;
+  height: 12px;
+}

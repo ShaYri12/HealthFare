@@ -1,0 +1,252 @@
+.step-form{
+    padding: 0px 60px !important;
+}
+
+.step-form h2{
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 44px;
+    letter-spacing: -2px;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.step-form h2 p{
+    display: inline;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 22px;
+    letter-spacing: -2px;
+    color: #484E5A !important;
+}
+
+
+.step-form h2 span{
+    color: #38B64B;
+}
+
+.step-form p{
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+    color: #484E5A;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.review-inline{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px, 20px, 0px, 20px;
+    font-family: 'Roboto' !important;
+    font-size: 16.96px !important;
+}
+
+.review-stepthree{
+    margin-bottom: 80px;   
+}
+
+.review-inline h3{
+    font-family: 'Roboto' !important;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 31.85px;
+}
+
+.review-inline p{
+    font-family: 'Roboto' !important;
+    font-weight: 700;
+    line-height: 36.75px;
+    font-size: 15px;
+    color: #000000;
+}
+
+.review-inline p span{
+    font-weight: 400 !important;
+}
+
+.stars{
+    display: flex;
+    gap: 2px
+}
+.stars img{
+    width: 28.27px;
+    height: 28.27px;
+}
+
+.trustpilot{
+    display: flex;
+    align-items: center;
+    gap: 5.65px;
+}
+
+.trustpilot span{
+    font-family: 'Roboto' !important;
+    font-weight: 700;
+    font-size: 16.96px;
+    line-height: 36.75px;
+}
+
+.trustpilot img{
+    width: 19.79px;
+}
+
+
+.card{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    border: 2px solid #181818;
+    padding: 50px 30px 50px 30px;
+    gap:30px;
+}
+
+.card .card-top{
+    display: flex;
+    gap:20px;
+}
+
+.card-title-price{
+    display: flex;
+    flex-direction: column;
+}
+
+.title-price-stepthree{
+    gap: 10px !important;
+}
+
+.savings{
+    display: flex;
+    gap: 10px;
+}
+
+.savings p, .savings span{
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22.5px;
+    color: #124296 !important;
+    display: flex;
+}
+
+.savings span{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: -0.88px;   
+}
+
+.savings span p{
+    font-weight: 400 !important;
+    font-size: 10px !important;
+    line-height: 10px !important;
+    letter-spacing: -3% !important;
+}
+
+.card-title-price h3{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21.6px;
+    letter-spacing: 0.12px;
+    color: #002C20;
+    text-transform: uppercase;
+}
+
+.price-desc{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card-info{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.card-info span{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 0px 7px 0px;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+    color: #484E5A !important;
+}
+
+.cart-btn, .add-cart-btn{
+    background-color: #124296 !important;
+}
+
+.cart-btn img{
+    width: 20px !important;
+    height: 20px !important;
+    padding: 0 !important;
+    margin: 0 !important    ;
+}
+
+.btn-group-stepthree{
+    display: flex;
+    gap: 5px !important;
+}
+
+.back-btn-stepthree{
+    margin-bottom: 0 !important;
+}
+
+.long-btn-stepthree{
+    height: 61px !important;
+}
+
+.arrow-btn-stepthree{
+    display: flex;
+    justify-content: center;
+    height: 60px !important;
+    width: 60px !important;
+}
+
+.card .quantity-control {
+    display: flex;
+    align-items: center;
+  }
+  
+  .card .quantity-btn {
+    position: relative;
+    background-color: white;
+    color: #181818;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black !important;
+    max-height: 51px;
+    cursor: pointer;
+    padding: 0 15px;
+    gap: 10px;
+  }
+
+  .card .quantity-increase{
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+  }
+
+  .card .quantity-dicrease{
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+  }
+  
+  .card .quantity-btn:hover {
+    background-color: #bbbbbb9d;
+  }
+  
+  .card .quantity-control span {
+    display: flex;
+    font-size: 16px;
+    border-top: 1px solid black !important;
+    border-bottom: 1px solid black !important;
+    padding: 14px;
+    gap: 10px;
+  }
+  

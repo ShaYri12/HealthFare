@@ -1,0 +1,149 @@
+.step-form{
+    padding: 0px 60px !important;
+}
+
+.step-form h2{
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 44px;
+    letter-spacing: -2px;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.step-form h2 span{
+    color: #38B64B;
+}
+
+.step-form p{
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+    color: #484E5A !important;
+}
+
+.language {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.language p {
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16.8px;
+    letter-spacing: 0.12px;
+    color: #002C20;
+    text-transform: uppercase;
+}
+
+.language-btns{
+    display: flex;
+}
+
+.language button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 51px;
+    margin: 0 5px;
+    padding: 10px 20px 10px 20px;
+    border: 1px solid #000000;
+    border-radius: 84px;
+    background: white;
+    cursor: pointer;
+    color: black;
+    Gap: 10px;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 30.93px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.language button.active {
+    background: #124296;
+    color: white;
+}
+
+.language button:hover {
+    background: #124296;
+    color: white;
+}
+
+.language img {
+    border-radius: 50px;
+    width: 20px;
+    height: 20px;
+}
+
+.location{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.location p{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16.8px;
+    letter-spacing: 0.12px;
+    color: #002C20;
+    text-transform: uppercase;
+}
+
+.location select{
+    display: flex;
+    height: 54px;
+    border-radius: 84px;
+    border: 1px solid black;
+    padding: 14px 30px 14px 30px !important;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 26px;
+    color: #002C20;
+    letter-spacing: -1%;
+    cursor: pointer;
+    appearance: none; /* Remove default arrow */
+    -webkit-appearance: none; /* Remove default arrow in Safari */
+    -moz-appearance: none; /* Remove default arrow in Firefox */
+    background-image: url('/assets/carret.png');
+    background-repeat: no-repeat;
+    background-position: right 30px center; /* Adjust position */
+}
+
+
+.location select option:focus{
+    background: #124296 !important;
+    color: #002C20;
+}
+
+
+.agreement{
+    display: flex;
+    align-items: start;
+    gap: 10px;
+}
+
+.agreement input{
+    margin-top: 0;
+    width: fit-content;
+    cursor: pointer;
+    
+}
+
+.agreement input[type="radio"]{
+    width: 30px;
+    height: 30px;
+}
+
+.agreement p{
+    color: #484E5A;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+}
+.agreement p a{
+    color: #484E5A;
+}
