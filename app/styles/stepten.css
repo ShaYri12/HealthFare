@@ -45,8 +45,25 @@
     gap: 10px
 }
 
-.additional-suppliments p{
+.additional-suppliments{
+    display: flex;
+    flex-direction: row;
+}
+
+.additional-suppliments span{
+    display: flex;
+    flex-direction: column;
     width: 50%;
+}
+
+@media screen and (max-width: 576px){
+    .additional-suppliments{
+        flex-direction: column;
+        width: 100%;
+    }
+    .additional-suppliments span{
+        width: max-content;
+    }
 }
 
 .additional-suppliments p, .included-card span p{

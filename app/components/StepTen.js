@@ -61,9 +61,11 @@ const StepTen = ({ prevStep, nextStep, handleChange, values }) => {
       <div className='additional-suppliments'>
         <span>
             <h3>Additional Supplements</h3>
-            <button>Add Supplements <img src="/assets/arrowblue.svg" alt=""/></button>
+            <p>(No additional supplements selected)</p>
         </span>
-        <p>(No additional supplements selected)</p>
+        <span>
+          <button>Add Supplements <img src="/assets/arrowblue.svg" alt=""/></button>
+        </span>
       </div>
 
       <div className='included-card'>

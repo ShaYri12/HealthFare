@@ -225,6 +225,10 @@
 }
 
 .long-btn-stepthree{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px !important;
     height: 61px !important;
     font-size: 20px !important;
 }
