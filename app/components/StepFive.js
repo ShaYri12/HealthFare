@@ -8,21 +8,19 @@ import Review from './Review';
 const slides = [
   {
     id: '1',
-    img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+    beforeImg: '/assets/before1.png',
+    afterImg: '/assets/after1.png',
   },
   {
     id: '2',
-    img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+    beforeImg: '/assets/before2.png',
+    afterImg: '/assets/after2.png',
   }
 ];
 
 const StepFive = ({ nextStep, prevStep, handleNotEligible, handleChange, values }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [position, setPosition] = useState(50);
-
-  const updateSlide = (index) => {
-    setCurrentIndex(index);
-  };
 
   const prevSlide = () => {
     setCurrentIndex((currentIndex > 0) ? currentIndex - 1 : slides.length - 1);
@@ -71,13 +69,13 @@ const StepFive = ({ nextStep, prevStep, handleNotEligible, handleChange, values 
           <div className="image-container">
             <img
               className="image-before slider-image"
-              src={currentSlide.img}
-              alt="color photo"
+              src={currentSlide.beforeImg}
+              alt="Before"
             />
             <img
               className="image-after slider-image"
-              src={currentSlide.img}
-              alt="black and white"
+              src={currentSlide.afterImg}
+              alt="After"
             />
           </div>
           <input
@@ -89,66 +87,10 @@ const StepFive = ({ nextStep, prevStep, handleNotEligible, handleChange, values 
             className="slider"
             onChange={handleSliderChange}
           />
-          <div className="slider-line" aria-hidden="true"></div>
-          <div className="slider-button" aria-hidden="true">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="30"
-              height="30"
-              fill="currentColor"
-              viewBox="0 0 256 256"
-            >
-              <rect width="256" height="256" fill="none"></rect>
-              <line
-                x1="128"
-                y1="40"
-                x2="128"
-                y2="216"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              ></line>
-              <line
-                x1="96"
-                y1="128"
-                x2="16"
-                y2="128"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              ></line>
-              <polyline
-                points="48 160 16 128 48 96"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              ></polyline>
-              <line
-                x1="160"
-                y1="128"
-                x2="240"
-                y2="128"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              ></line>
-              <polyline
-                points="208 96 240 128 208 160"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              ></polyline>
-            </svg>
+          <div className="slider-line" style={{ left: `${position}%` }}></div>
+          <div className="slider-button" style={{ left: `${position}%` }}>
+            <span className="slider-text before-text"><img src="/assets/arrow.svg" alt=""/> BEFORE</span>
+            <span className="slider-text after-text"><img src="/assets/arrow.svg" alt=""/> AFTER</span>
           </div>
         </div>
         <div className="slider-navigation slider-navigation-sm">

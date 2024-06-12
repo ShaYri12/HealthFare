@@ -7,10 +7,6 @@ iframe {
   max-height: 300px;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-}
 
 main {
   display: grid;
@@ -29,8 +25,8 @@ main {
 
 .image-container {
   position: relative;
-  max-width: 800px;
-  max-height: 90vh;
+  max-width: 100%;
+  max-height: 100vh;
   aspect-ratio: 1/1;
 }
 
@@ -45,7 +41,6 @@ main {
   position: absolute;
   inset: 0;
   width: var(--position);
-  filter: grayscale(100%)
 }
 
 .slider {
@@ -66,11 +61,10 @@ main {
 .slider-line {
   position: absolute;
   inset: 0;
-  width: .2rem;
+  width: 0.57px;
   height: 100%;
   background-color: #fff;
-  /* z-index: 10; */
-  left: var(--position);
+  left: var(--position) !important;
   transform: translateX(-50%);
   pointer-events: none;
 }
@@ -78,15 +72,45 @@ main {
 .slider-button {
   position: absolute;
   background-color: #fff;
-  color: black;
-  padding: .5rem;
-  border-radius: 100vw;
+  border-radius: 0.57px !important;
   display: grid;
   place-items: center;
   top: 50%;
   left: var(--position);
   transform: translate(-50%, -50%);
   pointer-events: none;
-  /* z-index: 100; */
-  box-shadow: 1px 1px 1px hsl(0, 50%, 2%, .5);
+}
+
+.before-text, .after-text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    color: #fff;
+    padding: 6.78px 11.31px 6.78px 11.31px !important;
+    border-radius: 106.96px ;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30.93px;
+    height: 44.57px;
+    width: 94px;
+    gap: 3.39px;
+}
+
+.before-text img, .after-text img{
+    width: 10px;
+}
+
+.after-text img{
+    transform: scaleX(-1);
+}
+
+.before-text{
+  left: 50%;
+  background-color: #f8f7f52a;
+  border: 1px solid #fff;
+}
+.after-text{
+  right: 50%;
+  background-color: #124296;
 }
