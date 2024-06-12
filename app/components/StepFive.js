@@ -77,21 +77,23 @@ const StepFive = ({ nextStep, prevStep, handleNotEligible, handleChange, values 
               src={currentSlide.afterImg}
               alt="After"
             />
-          </div>
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value={position}
-            aria-label="Percentage of before photo shown"
-            className="slider"
-            onChange={handleSliderChange}
-          />
-          <div className="slider-line" style={{ left: `${position}%` }}></div>
-          <div className="slider-button" style={{ left: `${position}%` }}>
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value={position}
+              aria-label="Percentage of before photo shown"
+              className="slider"
+              onChange={handleSliderChange}
+            />
+            <div className="slider-line" style={{ left: `${position}%` }}></div>
+            <div className="slider-button" style={{ left: `${position}%` }}>
             <span className="slider-text before-text"><img src="/assets/arrow.svg" alt=""/> BEFORE</span>
             <span className="slider-text after-text"><img src="/assets/arrow.svg" alt=""/> AFTER</span>
           </div>
+          </div>
+          
+          
         </div>
         <div className="slider-navigation slider-navigation-sm">
           <button id="prev" className="navButton slider-prev" onClick={prevSlide}>
