@@ -1,0 +1,64 @@
+.condition-select{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.condition-option{
+    display: flex;
+    gap: 10px;
+    border: 1px solid #E3E3E4;
+    border-radius: 84px;
+    padding: 18px 30px 18px 30px;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    color: #484E5A;
+}
+
+.condition-option input:active .condition-option{
+    border: 1px solid #181818 !important;
+}
+
+.condition-option input{
+    margin:0;
+    width: 20px;
+}
+
+.condition-option label, .condition-option input{
+    cursor: pointer;
+}
+
+.condition-option .last{
+    margin:0;
+    width: 35px !important;
+}
+
+.condition-option input[type="checkbox"] {
+    display: none; /* Hide the default checkbox */
+  }
+  
+  .condition-option input[type="checkbox"] + label {
+    display: inline-block;
+    position: relative;
+    padding-left: 33px; /* Adjust this value based on your image size */
+    cursor: pointer;
+  }
+  
+  .condition-option input[type="checkbox"] + label::before {
+    content: "";
+    display: inline-block;
+    width: 20px; /* Adjust this value based on your image size */
+    height: 20px; /* Adjust this value based on your image size */
+    background: url("/assets/unchecked.svg") no-repeat; /* Specify your unchecked image URL */
+    background-size: contain; /* Ensure the image fits within the box */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .condition-option input[type="checkbox"]:checked + label::before {
+    background: url("/assets/checkmark.svg") no-repeat; /* Specify your checked image URL */
+    background-size: contain; /* Ensure the image fits within the box */
+  }

@@ -1,0 +1,109 @@
+.additional-suppliments, .included-card{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border: 2px solid #E3E3E4;
+    border-radius: 10px;
+    gap: 20px !important;
+}
+
+.additional-suppliments span{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px
+}
+
+.additional-suppliments span button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+    border: 1px solid #124296;
+    border-radius: 85px;
+    padding: 5px 20px 5px 20px;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30.93px;
+    color: #124296;
+}
+
+.additional-suppliments span h3{
+    width: 50%;
+}
+
+.additional-suppliments span h3, .included-card h3{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21.6px;
+    letter-spacing: 0.12px;
+    color: #002C20 !important;
+    text-transform: uppercase;
+}
+
+.included-card span{
+    display: flex;
+    gap: 10px
+}
+
+.additional-suppliments p{
+    width: 50%;
+}
+
+.additional-suppliments p, .included-card span p{
+    font-weight: 300;
+    font-style: 16px;
+    line-height: 24px;
+}
+
+.total-cost{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    border: 2px solid #181818;
+    border-radius: 10px;
+    padding: 30px;
+    gap: 10px;
+}
+
+.total-cost h2{
+    padding: 0;
+}
+
+.total-cost h3{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21.6px;
+    letter-spacing: 0.12px;
+    color:#002C20 !important;
+}
+
+.total-cost h2{
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 37.5px;
+    letter-spacing: 0.12px;
+    color:#002C20 !important;
+}
+
+.btn-group .proceed-btn{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 15px;
+    height: 61px !important;
+    padding: 10px 25px 10px 25px;
+    font-size: 20px !important;
+    font-weight: 400;
+    line-height: 41.24px;
+  }
+
+  .pay-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    gap: 12.47px;
+
+  }
