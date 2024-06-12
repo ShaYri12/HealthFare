@@ -27,6 +27,21 @@
     display: flex;
     gap: 7.5px;
   }
+
+  .testimonialNavigation-sm{
+    display: none;
+  }
+
+  @media screen and (max-width: 576px) {
+    .testimonialNavigation{
+        display: none !important;
+    }
+
+    .testimonialNavigation-sm{
+      display: flex !important;
+      margin-top: 34px;
+    }
+  }
   
   .navButton {
     display: flex;

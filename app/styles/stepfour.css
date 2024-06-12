@@ -29,9 +29,20 @@
     gap: 20px;
 }
 
+@media screen and (max-width: 576px){
+    .feet-inches{
+        flex-direction: column;
+    }
+    .feet-option, .inches-option{
+        display: flex;
+        flex-direction: column;
+        gap:10px;
+    }
+
+  }
+
 .feet-option p, .inches-option p{
     color: #002C20 !important;
-
 }
 
 .feet-option select, .inches-option select{

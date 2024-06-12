@@ -23,7 +23,7 @@ const StepOne = ({ nextStep, prevStep, handleChange, values }) => {
         </div>
         <div className='btn-group btn-group-stepthree'>
             <button className='back-btn back-btn-stepthree back-noteligible' onClick={prevStep}>
-                <img src="/assets/arrow.svg" alt="arrow" /> Back
+                <img src="/assets/arrow.svg" alt="arrow" /> Home
             </button>
         </div>
 

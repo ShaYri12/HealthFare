@@ -61,6 +61,15 @@ const Testimonial = () => {
         </p>
         <p className="testimonialAuthor">{currentTestimonial.author}</p>
       </div>
+      
+      <div className="testimonialNavigation testimonialNavigation-sm">
+        <button id="prev" className="navButton textimonial-prev" onClick={prevTestimonial}>
+          <img src="/assets/arrow.svg" alt=""/>
+        </button>
+        <button id="next" className="navButton textimonial-next" onClick={nextTestimonial}>
+          <img src="/assets/arrow.svg" alt=""/>
+        </button>
+      </div>
     </div>
   );
 };

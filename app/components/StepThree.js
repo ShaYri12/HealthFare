@@ -3,6 +3,7 @@ import '../styles/stepthree.css';
 import '../styles/form.css';
 import StepThreeCard from './StepThreeCard';
 
+
 const StepThree = ({ prevStep, nextStep, handleChange, values }) => {
 
   const cardsData = [
@@ -46,7 +47,7 @@ const StepThree = ({ prevStep, nextStep, handleChange, values }) => {
         </div>
       </div>
 
-      <div className='review-inline review-stepthree'>
+      <div className='review-inline review-md review-stepthree'>
           <h3>Excellent</h3>
           <div className='stars'>
               <img src="/assets/star.png" alt="star"/>
@@ -60,6 +61,21 @@ const StepThree = ({ prevStep, nextStep, handleChange, values }) => {
               <img src="/assets/star-trustpilot.svg" alt="trust"/> <span>Trustpilot</span>
           </div>
       </div>
+
+      <div className='review review-sm'>
+        <h3>Excellent</h3>
+        <div className='stars'>
+            <img src="/assets/star.png" alt="star"/>
+            <img src="/assets/star.png" alt="star"/>
+            <img src="/assets/star.png" alt="star"/>
+            <img src="/assets/star.png" alt="star"/>
+            <img src="/assets/star.png" alt="star"/>
+        </div>
+        <p>Based on <b>456 reviews</b></p>
+        <div className='trustpilot'>
+            <img src="/assets/star-trustpilot.svg" alt="trust"/> Trustpilot
+        </div>
+    </div>
     </div>
   );
 };

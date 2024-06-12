@@ -38,12 +38,15 @@ const StepFive = ({ nextStep, prevStep, handleNotEligible, handleChange, values 
         <h2><span>Congratulations! </span> You’re Pre-Qualified!</h2>
         <p> Please provide the upcoming information to complete your pre-qualification. </p>
       </div>
+
       <div className='btn-group btn-group-stepthree'>
         <button className='back-btn back-btn-stepthree' onClick={prevStep}>
           <img src="/assets/arrow.svg" alt="arrow" /> Back
         </button>
-        <button className='long-btn long-btn-stepthree' onClick={nextStep}>Continue Your Journey</button>
-        <button className='arrow-btn arrow-btn-stepthree' onClick={handleNotEligible}><img src="/assets/arrow.svg" alt=""/></button>
+        <div className='forward-btns'>
+          <button className='long-btn long-btn-stepthree' onClick={nextStep}>Continue Your Journey</button>
+          <button className='arrow-btn arrow-btn-stepthree' onClick={handleNotEligible}><img src="/assets/arrow.svg" alt=""/></button>
+        </div>
       </div>
       
       <div className='transformation-box'>
@@ -59,6 +62,14 @@ const StepFive = ({ nextStep, prevStep, handleNotEligible, handleChange, values 
           </div>
         </div>
         <img src={currentSlide.img} alt="Transformation" className="slider-image" />
+        <div className="slider-navigation slider-navigation-sm">
+          <button id="prev" className="navButton slider-prev" onClick={prevSlide}>
+            <img src="/assets/arrow.svg" alt=""/>
+          </button>
+          <button id="next" className="navButton slider-next" onClick={nextSlide}>
+            <img src="/assets/arrow.svg" alt=""/>
+          </button>
+        </div>
       </div>
 
       <Review/>

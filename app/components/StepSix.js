@@ -154,14 +154,14 @@ const StepSix = ({ nextStep, prevStep, handleChange, values }) => {
       </div>
       {questions[currentQuestion].form}
 
-      <div className="btn-group btn-group-stepthree">
-        <button className="back-btn back-btn-stepthree" onClick={prevInfo}>
+      <div className='btn-group btn-group-stepthree'>
+        <button className='back-btn back-btn-stepthree' onClick={prevInfo}>
           <img src="/assets/arrow.svg" alt="arrow" /> Back
         </button>
-        <button className="long-btn long-btn-stepthree" onClick={nextInfo}> Continue Your Journey </button>
-        <button className="arrow-btn arrow-btn-stepthree" onClick={nextInfo}>
-          <img src="/assets/arrow.svg" alt="" />
-        </button>
+        <div className='forward-btns'>
+          <button className='long-btn long-btn-stepthree' onClick={nextInfo}>Continue Your Journey</button>
+          <button className='arrow-btn arrow-btn-stepthree' onClick={nextInfo}><img src="/assets/arrow.svg" alt=""/></button>
+        </div>
       </div>
 
       <Review />

@@ -33,6 +33,20 @@
     font-weight: 400 !important;
 }
 
+.review-sm{
+    display: none !important;
+}
+
+@media screen and (max-width: 576px) {
+    .review-md{
+        display: none !important;
+    }
+
+    .review-sm{
+        display: flex !important;
+    }
+  }
+
 .stars{
     display: flex;
     gap: 2px
@@ -165,6 +179,7 @@
 .cart-buttons{
     display: flex;
     gap: 5px;
+    width: 100%;
 }
 
 .cart-btn, .add-cart-btn{
@@ -211,6 +226,7 @@
 
 .long-btn-stepthree{
     height: 61px !important;
+    font-size: 20px !important;
 }
 
 .arrow-btn-stepthree{
@@ -218,6 +234,7 @@
     justify-content: center;
     height: 60px !important;
     width: 60px !important;
+    font-size: 20px !important;
 }
 
 .card .quantity-control {

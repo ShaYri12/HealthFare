@@ -56,3 +56,16 @@
   .navButton:hover img {
     filter: invert(1) brightness(0);
   }
+
+  .slider-navigation-sm{
+    display: none;
+  }
+
+  @media screen and (max-width: 576px){
+    .slider-navigation{
+      display: none !important;
+    }
+    .slider-navigation-sm{
+      display: flex !important;
+    }
+  }
