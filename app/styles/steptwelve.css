@@ -1,0 +1,86 @@
+.schedule-section{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 80px;
+}
+
+.schedule-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.schedule-header button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 30px;
+    max-width: 30px;
+    border: 0.56px solid #002C20 !important;
+    padding: 10.5px;
+    border-radius: 63.75px;
+    gap: 7.5px;
+    cursor: pointer;
+}
+
+.schedule-header h3{
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: 0.12px;
+    color: #002C20;
+}
+
+.schedule-header button img{
+    filter: invert(1) brightness(0);
+}
+
+.schedule-header button .right-arrow{
+    transform: scaleX(-1);
+}
+
+.selected-time{
+    display: flex;
+    border: 1px solid #E3E3E4;
+    border-radius: 84px;
+    background-color: #E3E3E4;
+    padding: 18px 30px 18px 30px;
+    gap: 10px;
+}
+
+  .times {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .time-options{
+    display: flex;
+    flex-direction: column;
+    gap: 15px
+  }
+  
+  .time {
+    display: flex;
+    border: 1px solid #E3E3E4;
+    border-radius: 84px;
+    background-color: white;
+    padding: 18px 30px 18px 30px;
+    gap: 10px;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+
+  .time.active{
+    border: 1px solid #181818 !important;
+    background-color: #38B64B;
+    color: #fff !important;
+  }
+
+  .time:hover{
+    cursor: pointer;
+  }
+  

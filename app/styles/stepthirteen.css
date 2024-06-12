@@ -1,0 +1,49 @@
+.title-info span{
+    text-transform: uppercase;
+}
+
+.assistance{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.assistance h3{
+    font-weight: 600;
+    font-size: 18px !important;
+    line-height: 23.4px;
+    letter-spacing: 0.12px;
+    color: #002C20;
+    text-transform: uppercase;
+}
+
+.assistance p{
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    color: #484E5A;
+}
+
+.assistance p span{
+    font-weight: 600;
+    color: #181818 !important;
+}
+
+.final-btn{
+    gap: 5px !important;
+    padding-bottom: 80px;
+}
+
+.whatsapp-btn{
+    height: 61px !important;
+    font-weight: 400;
+    font-size: 20px !important;
+    line-height: 41.24px;
+
+}
+
+.whatsapp-btn img{
+    width: 30px;
+    height: 30px;
+    transform: scaleX(1) !important;
+}

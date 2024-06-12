@@ -61,18 +61,17 @@ const StepEleven = ({ prevStep, nextStep, handleChange, values }) => {
       ))}
 
       <div className="thank-you">
-        <div className='thanking'>
-            <h3>Thank You for Your Purchase!</h3>
-            <p>
+        <h3>Thank You for Your Purchase!</h3>
+        <p>
             Thank you for choosing our Semaglutide - 3-Month Treatment Plan. Your
             order has been successfully processed and a confirmation email has
             been sent to you.
-            </p>
-        </div>
-        <div className='btn-group'>
+        </p>
+      </div>
+
+      <div className='btn-group'>
             <button className='long-btn' onClick={nextStep}>Start Your Journey</button>
             <button className='arrow-btn' onClick={nextStep}><img src="/assets/arrow.svg" alt=""/></button>
-        </div>
       </div>
 
       <Testimonial />

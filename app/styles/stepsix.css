@@ -47,3 +47,32 @@
     margin:0;
     width: 20px;
 }
+
+.gender-option input[type="radio"] {
+    display: none; /* Hide the default checkbox */
+  }
+
+.gender-option input[type="radio"] + label {
+    display: inline-block;
+    position: relative;
+    padding-left: 33px; /* Adjust this value based on your image size */
+    cursor: pointer;
+  }
+  
+  .gender-option input[type="radio"] + label::before {
+    content: "";
+    display: inline-block;
+    width: 20px; /* Adjust this value based on your image size */
+    height: 20px; /* Adjust this value based on your image size */
+    background: url("/assets/unchecked.svg") no-repeat; /* Specify your unchecked image URL */
+    background-size: contain; /* Ensure the image fits within the box */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .gender-option input[type="radio"]:checked + label::before {
+    background: url("/assets/checkmark.svg") no-repeat; /* Specify your checked image URL */
+    background-size: contain; /* Ensure the image fits within the box */
+  }
