@@ -1,0 +1,27 @@
+.thank-you{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.thanking{
+    display: flex;
+    flex-direction: column;
+    gap: 20px
+}
+
+.thank-you h3{
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 44px;
+    letter-spacing: -2px;
+    color: #002C20;
+    text-transform: uppercase;
+}
+
+.thank-you p{
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    color: #484E5A !important;
+}
