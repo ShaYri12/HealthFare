@@ -2,9 +2,20 @@
 import '../styles/stepthree.css';
 import '../styles/form.css';
 import StepThreeCard from './StepThreeCard';
-
+import React, { useState } from 'react';
 
 const StepThree = ({ prevStep, nextStep, handleChange, values }) => {
+  const [cart, setCart] = useState([]);
+
+  const addToCart = (item) => {
+    setCart(prevCart => [...prevCart, item]);
+    console.log('Cart:', [...cart, item]); // Log the updated cart for debugging
+  };
+
+  const removeFromCart = (title) => {
+    setCart(prevCart => prevCart.filter(item => item.title !== title));
+    console.log('Updated Cart:', cart.filter(item => item.title !== title)); // Log the updated cart for debugging
+  };
 
   const cardsData = [
     {
@@ -34,7 +45,13 @@ const StepThree = ({ prevStep, nextStep, handleChange, values }) => {
         <h2>Would you like to add any additional supplements? <div>(optional)</div></h2>
       </div>
       {cardsData.map((card, index) => (
-        <StepThreeCard key={index} {...card} nextStep={nextStep} />
+        <StepThreeCard
+          key={index}
+          {...card}
+          addToCart={addToCart}
+          removeFromCart={removeFromCart}
+          nextStep={nextStep}
+        />
       ))}
 
       <div className='btn-group btn-group-stepthree'>
@@ -42,40 +59,39 @@ const StepThree = ({ prevStep, nextStep, handleChange, values }) => {
           <img src="/assets/arrow.svg" alt="arrow" /> Back
         </button>
         <div className='forward-btns'>
-          <button className='long-btn long-btn-stepthree' onClick={nextStep}>Continue Your Journey</button>
-          <button className='arrow-btn arrow-btn-stepthree' onClick={nextStep}><img src="/assets/arrow.svg" alt=""/></button>
+          <button className='long-btn long-btn-stepthree' onClick={nextStep}>Skip</button>
         </div>
       </div>
 
       <div className='review-inline review-md review-stepthree'>
-          <h3>Excellent</h3>
-          <div className='stars'>
-              <img src="/assets/star.png" alt="star"/>
-              <img src="/assets/star.png" alt="star"/>
-              <img src="/assets/star.png" alt="star"/>
-              <img src="/assets/star.png" alt="star"/>
-              <img src="/assets/star.png" alt="star"/>
-          </div>
-          <p className='reviews'>456 <span>reviews on</span></p>
-          <div className='trustpilot'>
-              <img src="/assets/star-trustpilot.svg" alt="trust"/> <span>Trustpilot</span>
-          </div>
+        <h3>Excellent</h3>
+        <div className='stars'>
+          <img src="/assets/star.png" alt="star"/>
+          <img src="/assets/star.png" alt="star"/>
+          <img src="/assets/star.png" alt="star"/>
+          <img src="/assets/star.png" alt="star"/>
+          <img src="/assets/star.png" alt="star"/>
+        </div>
+        <p className='reviews'>456 <span>reviews on</span></p>
+        <div className='trustpilot'>
+          <img src="/assets/star-trustpilot.svg" alt="trust"/> <span>Trustpilot</span>
+        </div>
       </div>
 
       <div className='review review-sm'>
         <h3>Excellent</h3>
         <div className='stars'>
-            <img src="/assets/star.png" alt="star"/>
-            <img src="/assets/star.png" alt="star"/>
-            <img src="/assets/star.png" alt="star"/>
-            <img src="/assets/star.png" alt="star"/>
-            <img src="/assets/star.png" alt="star"/>
+          <img src="/assets/star.png" alt="star"/>
+          <img src="/assets/star.png" alt="star"/>
+          <img src="/assets/star.png" alt="star"/>
+          <img src="/assets/star.png" alt="star"/>
+          <img src="/assets/star.png" alt="star"/>
         </div>
         <p>Based on <b>456 reviews</b></p>
         <div className='trustpilot'>
-            <img src="/assets/star-trustpilot.svg" alt="trust"/> Trustpilot
+          <img src="/assets/star-trustpilot.svg" alt="trust"/> Trustpilot
         </div>
-    </div>
+      </div>
     </div>
   );
 };

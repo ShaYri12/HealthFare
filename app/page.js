@@ -37,10 +37,15 @@ const Home = () => {
 
   const [showNotEligible, setShowNotEligible] = useState(false);
 
-  const nextStep = () => setStep(step + 1);
+  const nextStep = () => {
+    setStep(step + 1);
+    window.scrollTo(0, 0);
+  };
+
   const prevStep = () => {
-    setStep(step - 1)
-    setShowNotEligible(false)
+    setStep(step - 1);
+    setShowNotEligible(false);
+    window.scrollTo(0, 0);
   };
   const handleChange = input => e => setFormValues({ ...formValues, [input]: e.target.value });
   const handleSubmit = () => alert(JSON.stringify(formValues));

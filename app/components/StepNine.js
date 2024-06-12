@@ -31,6 +31,10 @@ const StepNine = ({ nextStep, prevStep, handleChange, values }) => {
             <div
               className="condition-option"
               key={condition.id}
+              onClick={() => {
+                document.getElementById(condition.id).click();
+                nextStep();
+              }}
               style={{
                 border: selectedCondition === condition.id ? "1px solid black" : "",
               }}

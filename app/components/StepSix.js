@@ -90,15 +90,24 @@ const StepSix = ({ nextStep, prevStep, handleChange, values }) => {
       form: (
         <form className="input-form">
           <div className="gender-select">
-            <div className="gender-option">
+            <div className="gender-option" onClick={() => {
+              document.getElementById('male').click();
+              nextInfo();
+            }}>
               <input type="radio" id="male" name="gender" />
               <label htmlFor="male"> Male </label>
             </div>
-            <div className="gender-option">
+            <div className="gender-option" onClick={() => {
+              document.getElementById('female').click();
+              nextInfo();
+            }}>
               <input type="radio" id="female" name="gender" />
               <label htmlFor="female"> Female </label>
             </div>
-            <div className="gender-option">
+            <div className="gender-option" onClick={() => {
+              document.getElementById('prefer-not-to-say').click();
+              nextInfo();
+            }}>
               <input type="radio" id="prefer-not-to-say" name="gender" />
               <label htmlFor="prefer-not-to-say"> Prefer not to answer </label>
             </div>
@@ -131,6 +140,7 @@ const StepSix = ({ nextStep, prevStep, handleChange, values }) => {
   const nextInfo = () => {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
+      window.scrollTo(0, 0);
     } else {
       nextStep();
     }
@@ -139,6 +149,7 @@ const StepSix = ({ nextStep, prevStep, handleChange, values }) => {
   const prevInfo = () => {
     if (currentQuestion > 0) {
       setCurrentQuestion(currentQuestion - 1);
+      window.scrollTo(0, 0);
     } else {
       prevStep();
     }

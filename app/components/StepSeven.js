@@ -74,6 +74,7 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values }) => {
   const nextInfo = () => {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
+      window.scrollTo(0, 0);
     } else {
       nextStep();
     }
@@ -82,6 +83,7 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values }) => {
   const prevInfo = () => {
     if (currentQuestion > 0) {
       setCurrentQuestion(currentQuestion - 1);
+      window.scrollTo(0, 0);
     } else {
       prevStep();
     }

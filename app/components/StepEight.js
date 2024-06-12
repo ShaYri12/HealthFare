@@ -47,6 +47,9 @@ const StepEight = ({ nextStep, prevStep, handleChange, values }) => {
             <div
               className="condition-option"
               key={condition.id}
+              onClick={() => {
+                document.getElementById(condition.id).click();
+              }}
               style={{
                 border: selectedConditions.includes(condition.id)
                   ? "1px solid black"
