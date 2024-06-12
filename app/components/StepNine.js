@@ -6,13 +6,11 @@ import "../styles/form.css";
 import Review from "./Review";
 
 const StepNine = ({ nextStep, prevStep, handleChange, values }) => {
-  const [selectedConditions, setSelectedConditions] = useState([]);
+  const [selectedCondition, setSelectedCondition] = useState(null);
 
-  const handleCheckboxChange = (condition) => {
-    setSelectedConditions((prevSelectedConditions) =>
-      prevSelectedConditions.includes(condition)
-        ? prevSelectedConditions.filter((c) => c !== condition)
-        : [...prevSelectedConditions, condition]
+  const handleCheckboxChange = (conditionId) => {
+    setSelectedCondition((prevSelectedCondition) =>
+      prevSelectedCondition === conditionId ? null : conditionId
     );
   };
 
@@ -34,16 +32,14 @@ const StepNine = ({ nextStep, prevStep, handleChange, values }) => {
               className="condition-option"
               key={condition.id}
               style={{
-                border: selectedConditions.includes(condition.id)
-                  ? "1px solid black"
-                  : "",
+                border: selectedCondition === condition.id ? "1px solid black" : "",
               }}
             >
               <input
                 type="radio"
                 id={condition.id}
                 name="condition"
-                checked={selectedConditions.includes(condition.id)}
+                checked={selectedCondition === condition.id}
                 onChange={() => handleCheckboxChange(condition.id)}
               />
               <label htmlFor={condition.id}> {condition.label} </label>
