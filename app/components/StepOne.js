@@ -49,13 +49,13 @@ const StepOne = ({ nextStep, handleChange, values }) => {
                 </select>
             </div>
             <div className='btn-group'>
-                <button className='long-btn' onClick={nextStep}>Start Your Journey</button>
-                <button className='arrow-btn' onClick={nextStep}><img src="/assets/arrow.svg" alt=""/></button>
+                <button className='long-btn long-btn-stepthree' onClick={nextStep}>Start Your Journey</button>
+                <button className='arrow-btn arrow-btn-stepthree' onClick={nextStep}><img src="/assets/arrow.svg" alt=""/></button>
             </div>
 
             <div className="agreement">
-                <input type="radio" id="agreement" name="agreement" />
-                <p htmlFor="agreement">I acknowledge the <a href="#">Refund Policy</a>, <a href="#">Terms & Conditions</a>, <a href="#">Notice of Privacy Practices</a>, and <a href="#">Consent to Telehealth</a>.</p>
+                <input type="checkbox" id="agreement" name="agreement" />
+                <label htmlFor="agreement">I acknowledge the <a href="#">Refund Policy</a>, <a href="#">Terms & Conditions</a>, <a href="#">Notice of Privacy Practices</a>, and <a href="#">Consent to Telehealth</a>.</label>
             </div>
 
             <Review/>

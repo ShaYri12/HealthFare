@@ -37,11 +37,12 @@
       }
     }
 
-    @media screen and (max-width: 426px) {
+    @media screen and (max-width: 576px) {
       .container{
         padding: 0 !important; 
       }
     }
+
   .logo{
     width: 188.88px;
     height: 44px;
@@ -49,6 +50,13 @@
     align-items: start;
     margin-top: 47px;
     margin-left: 50px;
+  }
+
+  @media screen and (max-width: 576px){
+    .logo{
+      width: 180px;
+      margin-left: 25px;
+    }
   }
 
   .logo img{
@@ -70,6 +78,13 @@
     text-transform: uppercase;
 }
 
+@media screen and (max-width: 576px){
+  .step-form h2{
+    font-size: 30px;
+    line-height: 31.5px;
+  }
+}
+
 .step-form h2 span{
     color: #38B64B;
 }
@@ -81,10 +96,15 @@
     color: #484E5A;
 }
 
-@media screen and (max-width: 617px) {
+@media screen and (max-width: 576px) {
   .step-form{
       padding: 0 30px !important;
   }
+
+  .step-form p br{
+    display: none;
+  }
+
 }
   
   input {
@@ -100,9 +120,16 @@
     gap: 10px
 }
 
+@media screen and (max-width: 576px) {
+  .btn-group{
+      gap: 5px
+  }
+}
+
 .btn-group .long-btn{
     flex-grow: 1;
 }
+
 
 .btn-group button{
   height: 61px;

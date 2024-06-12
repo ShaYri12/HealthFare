@@ -3,9 +3,9 @@
 .review-inline{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start !important;
+    flex-wrap: wrap;
     gap: 15px;
-    padding: 20px, 20px, 0px, 20px;
     font-family: 'Roboto' !important;
     font-size: 16.96px !important;
 }
@@ -17,7 +17,7 @@
     line-height: 31.85px;
 }
 
-.review-inline p{
+.review-inline .reviews{
     font-family: 'Roboto' !important;
     font-weight: 700;
     line-height: 36.75px;
@@ -25,7 +25,7 @@
     color: #000000;
 }
 
-.review-inline p span{
+.review-inline .reviews span{
     font-weight: 400 !important;
 }
 
@@ -65,10 +65,22 @@
     gap:30px;
 }
 
+@media screen and (max-width: 576px) {
+    .card{
+        padding: 30px 20px 30px 20px;
+    }
+  }
+
 .card .card-top{
     display: flex;
-    gap:20px;
+    gap:10px;
 }
+
+@media screen and (max-width: 576px) {
+    .card .card-top{
+        flex-direction: column;
+    }
+  }
 
 .card-title-price{
     display: flex;
@@ -113,11 +125,11 @@
 }
 
 .card-title-price h2{
-    font-weight: 600;
-    padding: 0;
-    font-size: 45px;
-    line-height: 45px;
-    letter-spacing: -2px;
+    font-weight: 600 !important;
+    padding: 0 !important;
+    font-size: 45px !important;
+    line-height: 45px !important;
+    letter-spacing: -2px !important;
     color: #38B64B;
 }
 

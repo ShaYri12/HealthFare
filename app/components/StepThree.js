@@ -54,7 +54,7 @@ const StepThree = ({ prevStep, nextStep, handleChange, values }) => {
               <img src="/assets/star.png" alt="star"/>
               <img src="/assets/star.png" alt="star"/>
           </div>
-          <p>456 <span>reviews on</span></p>
+          <p className='reviews'>456 <span>reviews on</span></p>
           <div className='trustpilot'>
               <img src="/assets/star-trustpilot.svg" alt="trust"/> <span>Trustpilot</span>
           </div>

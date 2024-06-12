@@ -21,7 +21,7 @@
     line-height: 31.85px;
 }
 
-.review-inline p{
+.review-inline .reviews{
     font-family: 'Roboto' !important;
     font-weight: 700;
     line-height: 36.75px;
@@ -29,7 +29,7 @@
     color: #000000;
 }
 
-.review-inline p span{
+.review-inline .reviews span{
     font-weight: 400 !important;
 }
 
@@ -69,6 +69,12 @@
     gap:30px;
 }
 
+@media screen and (max-width: 576px) {
+    .card{
+        padding: 30px 20px 30px 20px;
+    }
+  }
+  
 .card .card-top{
     display: flex;
     gap:20px;
