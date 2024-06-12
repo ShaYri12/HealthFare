@@ -1,7 +1,9 @@
+
 .backgroundimg{
   position: absolute;
   width: 759px;
   height: 760px;
+  object-fit: cover;
 }
 
 .container {
@@ -11,6 +13,7 @@
     justify-content: center;
     padding-top: 80px;
     padding-bottom: 80px;
+    width: 100%;
   }
   
   .formContainer {
@@ -24,6 +27,15 @@
     margin-right: auto;
     margin-left: auto;
   }
+
+    @media screen and (max-width: 768px) {
+      .backgroundimg{
+        width: 100%;; 
+      }
+      .formContainer {
+        width: 100%;
+      }
+    }
 
     @media screen and (max-width: 426px) {
       .container{
@@ -44,6 +56,36 @@
     height: 100%;
     object-fit: cover;
   }
+
+  .step-form{
+    padding: 0px 60px;
+}
+
+.step-form h2{
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 44px;
+    letter-spacing: -2px;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.step-form h2 span{
+    color: #38B64B;
+}
+
+.step-form p{
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+    color: #484E5A;
+}
+
+@media screen and (max-width: 617px) {
+  .step-form{
+      padding: 0 20px !important;
+  }
+}
   
   input {
     margin: 10px 0;

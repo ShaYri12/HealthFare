@@ -1,27 +1,3 @@
-.step-form{
-    padding: 0px 60px !important;
-}
-
-.step-form h2{
-    font-size: 40px;
-    font-weight: 600;
-    line-height: 44px;
-    letter-spacing: -2px;
-    padding-bottom: 20px;
-    text-transform: uppercase;
-}
-
-.step-form h2 span{
-    color: #38B64B;
-}
-
-.step-form p{
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 24px;
-    color: #484E5A;
-}
-
 .language {
     display: flex;
     flex-direction: column;
