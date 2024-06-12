@@ -27,7 +27,6 @@
 .feet-inches{
     display: flex;
     gap: 20px;
-    width: 100% !important;
 }
 
 .feet-option p, .inches-option p{
@@ -44,7 +43,12 @@
     appearance: none; /* Remove default arrow */
     -webkit-appearance: none; /* Remove default arrow in Safari */
     -moz-appearance: none; /* Remove default arrow in Firefox */
+    width: -webkit-fill-available;
     background-image: url('/assets/carret.png');
     background-repeat: no-repeat;
     background-position: right 30px center; /* Adjust position */
+}
+
+.feet-option, .inches-option{
+    width: 100%;
 }

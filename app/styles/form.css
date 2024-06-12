@@ -21,8 +21,15 @@
     width: 600px;
     gap: 30px;
     background-color: #FFFFFF !important;
+    margin-right: auto;
+    margin-left: auto;
   }
 
+    @media screen and (max-width: 426px) {
+      .container{
+        padding: 0 !important; 
+      }
+    }
   .logo{
     width: 188.88px;
     height: 44px;
