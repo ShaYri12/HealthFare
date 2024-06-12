@@ -92,8 +92,6 @@ const StepFive = ({ nextStep, prevStep, handleNotEligible, handleChange, values 
             <span className="slider-text after-text"><img src="/assets/arrow.svg" alt=""/> AFTER</span>
           </div>
           </div>
-          
-          
         </div>
         <div className="slider-navigation slider-navigation-sm">
           <button id="prev" className="navButton slider-prev" onClick={prevSlide}>

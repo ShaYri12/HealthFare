@@ -40,6 +40,7 @@ main {
 .image-before {
   position: absolute;
   inset: 0;
+  object-fit: cover;
   width: var(--position);
 }
 
