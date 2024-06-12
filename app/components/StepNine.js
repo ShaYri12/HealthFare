@@ -1,6 +1,7 @@
 'use client';
 import { useState } from "react";
 import "../styles/stepeight.css";
+import '../styles/stepnine.css'
 import "../styles/form.css";
 import Review from "./Review";
 
@@ -39,7 +40,7 @@ const StepNine = ({ nextStep, prevStep, handleChange, values }) => {
               }}
             >
               <input
-                type="checkbox"
+                type="radio"
                 id={condition.id}
                 name="condition"
                 checked={selectedConditions.includes(condition.id)}
@@ -51,14 +52,14 @@ const StepNine = ({ nextStep, prevStep, handleChange, values }) => {
         </div>
       </form>
       
-      <div className="btn-group btn-group-stepthree">
-        <button className="back-btn back-btn-stepthree" onClick={prevStep}>
+      <div className='btn-group btn-group-stepthree'>
+        <button className='back-btn back-btn-stepthree' onClick={prevStep}>
           <img src="/assets/arrow.svg" alt="arrow" /> Back
         </button>
-        <button className="long-btn long-btn-stepthree" onClick={nextStep}> Continue Your Journey </button>
-        <button className="arrow-btn arrow-btn-stepthree" onClick={nextStep}>
-          <img src="/assets/arrow.svg" alt="" />
-        </button>
+        <div className='forward-btns'>
+          <button className='long-btn long-btn-stepthree' onClick={nextStep}>Continue Your Journey</button>
+          <button className='arrow-btn arrow-btn-stepthree' onClick={nextStep}><img src="/assets/arrow.svg" alt=""/></button>
+        </div>
       </div>
 
       <Review />

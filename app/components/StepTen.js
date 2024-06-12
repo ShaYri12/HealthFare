@@ -99,14 +99,14 @@ const StepTen = ({ prevStep, nextStep, handleChange, values }) => {
         <h2>$1599.99</h2>
       </div>
 
-      <div className="btn-group btn-group-stepthree">
-        <button className="back-btn back-btn-stepthree" onClick={prevStep}>
+      <div className='btn-group btn-group-stepthree'>
+        <button className='back-btn back-btn-stepthree' onClick={prevStep}>
           <img src="/assets/arrow.svg" alt="arrow" /> Back
         </button>
-        <button className="long-btn long-btn-stepthree proceed-btn" onClick={nextStep}> <img src="/assets/secure.svg" alt=""/> Proceed to Payment </button>
-        <button className="arrow-btn arrow-btn-stepthree" onClick={nextStep}>
-          <img src="/assets/arrow.svg" alt="" />
-        </button>
+        <div className='forward-btns'>
+          <button className='long-btn long-btn-stepthree' onClick={nextStep}><img src="/assets/secure.svg" alt=""/> Proceed to Payment </button>
+          <button className='arrow-btn arrow-btn-stepthree' onClick={nextStep}><img src="/assets/arrow.svg" alt=""/></button>
+        </div>
       </div>
 
       <div className='pay-img'>

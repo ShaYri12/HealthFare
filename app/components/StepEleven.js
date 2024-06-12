@@ -69,9 +69,8 @@ const StepEleven = ({ prevStep, nextStep, handleChange, values }) => {
         </p>
       </div>
 
-      <div className='btn-group'>
-            <button className='long-btn' onClick={nextStep}>Start Your Journey</button>
-            <button className='arrow-btn' onClick={nextStep}><img src="/assets/arrow.svg" alt=""/></button>
+      <div className='btn-group btn-group-stepthree'>
+            <button className='long-btn long-btn-stepthree' onClick={nextStep}>Schedule Your Appointment</button>
       </div>
 
       <Testimonial />

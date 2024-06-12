@@ -1,42 +1,10 @@
-.input-form{
+.condition-select{
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.input-label-full{
-    width: 100%;
-}
-
-.input-group{
-    display: flex;
-    gap: 20px;
-}
-
-@media screen and (max-width: 576px){
-    .input-group{
-        flex-direction: column;
-        
-    }
-}
-
-
-
-.input-label input{
-    border: 1px solid #E3E3E4;
-    border-radius: 84px;
-    padding: 18px 30px 18px 30px;
-    gap: 10px;
-    height: 54px;
-}
-
-.gender-select{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.gender-option{
+.condition-option{
     display: flex;
     gap: 10px;
     border: 1px solid #E3E3E4;
@@ -48,27 +16,36 @@
     color: #484E5A;
 }
 
-.gender-option label, .gender-option input{
-    cursor: pointer;
+.condition-option input:active .condition-option{
+    border: 1px solid #181818 !important;
 }
 
-.gender-option input{
+.condition-option input{
     margin:0;
     width: 20px;
 }
 
-.gender-option input[type="radio"] {
-    display: none; /* Hide the default checkbox */
-  }
+.condition-option label, .condition-option input{
+    cursor: pointer;
+}
 
-.gender-option input[type="radio"] + label {
+.condition-option .last{
+    margin:0;
+    width: 35px !important;
+}
+
+.condition-option input[type="radio"] {
+    display: none; /* Hide the default radio */
+  }
+  
+  .condition-option input[type="radio"] + label {
     display: inline-block;
     position: relative;
     padding-left: 33px; /* Adjust this value based on your image size */
     cursor: pointer;
   }
   
-  .gender-option input[type="radio"] + label::before {
+  .condition-option input[type="radio"] + label::before {
     content: "";
     display: inline-block;
     width: 20px; /* Adjust this value based on your image size */
@@ -81,7 +58,8 @@
     transform: translateY(-50%);
   }
   
-  .gender-option input[type="radio"]:checked + label::before {
+  .condition-option input[type="radio"]:checked + label::before {
     background: url("/assets/checkmark.svg") no-repeat; /* Specify your checked image URL */
     background-size: contain; /* Ensure the image fits within the box */
   }
+  
