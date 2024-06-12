@@ -30,20 +30,21 @@ const StepThree = ({ prevStep, nextStep, handleChange, values }) => {
   return (
     <div className="formContainer step-form">
       <div className="title-info">
-        <h2>Would you like to add any additional supplements? <p>(optional)</p></h2>
+        <h2>Would you like to add any additional supplements? <div>(optional)</div></h2>
       </div>
       {cardsData.map((card, index) => (
         <StepThreeCard key={index} {...card} nextStep={nextStep} />
       ))}
+
       <div className='btn-group btn-group-stepthree'>
         <button className='back-btn back-btn-stepthree' onClick={prevStep}>
           <img src="/assets/arrow.svg" alt="arrow" /> Back
         </button>
-        <button className='long-btn long-btn-stepthree' onClick={nextStep}>Continue Your Journey</button>
-        <button className='arrow-btn arrow-btn-stepthree' onClick={nextStep}><img src="/assets/arrow.svg" alt=""/></button>
+        <div className='forward-btns'>
+          <button className='long-btn long-btn-stepthree' onClick={nextStep}>Continue Your Journey</button>
+          <button className='arrow-btn arrow-btn-stepthree' onClick={nextStep}><img src="/assets/arrow.svg" alt=""/></button>
+        </div>
       </div>
-
-      
 
       <div className='review-inline review-stepthree'>
           <h3>Excellent</h3>

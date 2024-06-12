@@ -74,11 +74,18 @@
         padding: 30px 20px 30px 20px;
     }
   }
-  
+
 .card .card-top{
     display: flex;
     gap:20px;
 }
+
+
+@media screen and (max-width: 576px) {
+    .card .card-top{
+        flex-direction: column;
+    }
+  }
 
 .card-title-price{
     display: flex;
@@ -137,6 +144,12 @@
     gap: 24px;
 }
 
+@media screen and (max-width: 576px) {
+    .card-info{
+        gap: 10px
+    }
+  }
+
 .card-info span{
     display: flex;
     align-items: center;
@@ -146,6 +159,12 @@
     font-weight: 300;
     line-height: 24px;
     color: #484E5A !important;
+}
+
+
+.cart-buttons{
+    display: flex;
+    gap: 5px;
 }
 
 .cart-btn, .add-cart-btn{
@@ -159,10 +178,32 @@
     margin: 0 !important    ;
 }
 
+
+.forward-btns{
+    display: flex;
+    gap: 5px !important;
+    width: 100%;
+}
 .btn-group-stepthree{
     display: flex;
     gap: 5px !important;
 }
+
+
+@media screen and (max-width: 576px) {
+    .btn-group-stepthree{
+        flex-direction: column;
+    }
+    .long-btn-stepthree{
+        order: 1;
+    }
+    .arrow-btn-stepthree{
+        order: 2;
+    }
+    .back-btn-stepthree{
+        order: 3
+    }
+  }
 
 .back-btn-stepthree{
     margin-bottom: 0 !important;
@@ -196,6 +237,7 @@
     cursor: pointer;
     padding: 0 15px;
     gap: 10px;
+    flex-grow: 1;
   }
 
   .card .quantity-increase{
@@ -219,5 +261,8 @@
     border-bottom: 1px solid black !important;
     padding: 14px;
     gap: 10px;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
   }
   

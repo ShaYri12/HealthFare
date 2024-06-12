@@ -32,12 +32,14 @@ const StepTwoCard = ({ imgSrc, title, price, desc, nextStep }) => {
             <span>{quantity}</span>
             <button className='quantity-btn quantity-dicrease' onClick={increaseQuantity}>+</button>
         </div>
-        <button className="long-btn add-cart-btn">
-          Add to cart
-        </button>
-        <button className="arrow-btn cart-btn">
-          <img src="/assets/cart.svg" alt="cart" />
-        </button>
+        <div className='cart-buttons'>
+          <button className="long-btn add-cart-btn">
+            Add to cart
+          </button>
+          <button className="arrow-btn cart-btn">
+            <img src="/assets/cart.svg" alt="cart" />
+          </button>
+        </div>
       </div>
     </div>
   );

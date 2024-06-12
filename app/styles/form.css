@@ -89,6 +89,15 @@
     color: #38B64B;
 }
 
+.step-form h2 div{
+    display: inline;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 22px;
+    letter-spacing: -2%;
+    color: #484E5A;
+}
+
 .step-form p{
     font-size: 16px;
     font-weight: 300;

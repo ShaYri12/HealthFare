@@ -85,7 +85,7 @@
 .card-title-price{
     display: flex;
     flex-direction: column;
-    gap: 5px
+    gap: 10px
 }
 
 .savings{
@@ -172,6 +172,12 @@
     flex-direction: column;
     gap: 24px;
 }
+
+@media screen and (max-width: 576px) {
+    .card-info{
+        gap: 10px
+    }
+  }
 
 .card-info span{
     display: flex;
