@@ -2,17 +2,19 @@
 import '../styles/stepeleven.css';
 import '../styles/form.css';
 import Testimonial from './Testimonial';
+import { useTranslation } from 'react-i18next';
 
 const StepEleven = ({ prevStep, nextStep, handleChange, values }) => {
+  const { t } = useTranslation();
 
   const cardsData = [
     {
       imgSrc: "/assets/step2-product1.svg",
-      title: "Semaglutide (3-Month treatment Plan)",
-      price: "$889.99",
-      monthlyPrice: "$296",
-      description: "Lose up to 25lbs",
-      savings: "$1500" // example value for savings
+      title: t('stepEleven.title'),
+      price: t('stepEleven.price'),
+      monthlyPrice: t('stepEleven.monthlyPrice'),
+      description: t('stepEleven.description'),
+      savings: t('stepEleven.savings')
     },
   ];
 
@@ -27,10 +29,10 @@ const StepEleven = ({ prevStep, nextStep, handleChange, values }) => {
             <div className="card-title-price">
               {card.savings && (
                 <div className="savings">
-                  <p>Total Savings</p>
+                  <p>{t('stepEleven.savingsTitle')}</p>
                   <span>
                     {card.savings}
-                    <p>/year</p>
+                    <p>{t('stepEleven.savingsPerYear')}</p>
                   </span>
                 </div>
               )}
@@ -39,7 +41,7 @@ const StepEleven = ({ prevStep, nextStep, handleChange, values }) => {
                 <h2>{card.price}</h2>
                 <p>
                   {card.monthlyPrice}
-                  <span>/month*</span>
+                  <span>{t('stepEleven.monthlyLabel')}</span>
                 </p>
               </span>
               <p className="lose">{card.description}</p>
@@ -49,16 +51,12 @@ const StepEleven = ({ prevStep, nextStep, handleChange, values }) => {
       ))}
 
       <div className="thank-you">
-        <h3>Thank You for Your Purchase!</h3>
-        <p>
-            Thank you for choosing our Semaglutide - 3-Month Treatment Plan. Your
-            order has been successfully processed and a confirmation email has
-            been sent to you.
-        </p>
+        <h3>{t('stepEleven.thankYou.title')}</h3>
+        <p>{t('stepEleven.thankYou.message')}</p>
       </div>
 
       <div className='btn-group btn-group-stepthree'>
-            <button className='long-btn long-btn-stepthree' onClick={nextStep}>Schedule Your Appointment</button>
+        <button className='long-btn long-btn-stepthree' onClick={nextStep}>{t('stepEleven.scheduleAppointment')}</button>
       </div>
 
       <Testimonial />

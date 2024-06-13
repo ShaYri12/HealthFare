@@ -226,6 +226,21 @@ const resources = {
         totalCostAmount: "$1599.99",
         back: "Back",
         proceedToPayment: "Proceed to Payment"
+      },
+      stepEleven: {
+        title: "Semaglutide (3-Month Treatment Plan)",
+        price: "$889.99",
+        monthlyPrice: "$296",
+        description: "Lose up to 25lbs",
+        savings: "$1500", // example value for savings
+        savingsTitle: "Total Savings",
+        savingsPerYear: "/year",
+        thankYou: {
+          title: "Thank You for Your Purchase!",
+          message:
+            "Thank you for choosing our Semaglutide - 3-Month Treatment Plan. Your order has been successfully processed, and a confirmation email has been sent to you."
+        },
+        scheduleAppointment: "Schedule Your Appointment"
       }
       
       // Add translations for other steps...
@@ -455,7 +470,22 @@ const resources = {
         totalCostAmount: "1599,99 $",
         back: "Volver",
         proceedToPayment: "Continuar al pago"
-      }
+      },
+      stepEleven: {
+        title: "Semaglutida (Plan de Tratamiento de 3 meses)",
+        price: "889,99 $",
+        monthlyPrice: "296 $",
+        description: "Pierda hasta 25 libras",
+        savings: "1500 $", // valor de ejemplo para el ahorro
+        savingsTitle: "Ahorro Total",
+        savingsPerYear: "/año",
+        thankYou: {
+          title: "¡Gracias por su compra!",
+          message:
+            "Gracias por elegir nuestro Plan de Tratamiento de Semaglutida de 3 meses. Su pedido ha sido procesado correctamente y se ha enviado un correo electrónico de confirmación."
+        },
+        scheduleAppointment: "Programar su cita"
+      },
       // Add translations for other steps...
     }
   },
@@ -683,6 +713,21 @@ const resources = {
         totalCostAmount: "1599,99 $",
         back: "Voltar",
         proceedToPayment: "Prosseguir para o pagamento"
+      },
+      stepEleven: {
+        title: "Semaglutida (Plano de Tratamento de 3 meses)",
+        price: "889,99 $",
+        monthlyPrice: "296 $",
+        description: "Perca até 25 libras",
+        savings: "1500 $", // valor de exemplo para economia
+        savingsTitle: "Economia Total",
+        savingsPerYear: "/ano",
+        thankYou: {
+          title: "Obrigado pela sua compra!",
+          message:
+            "Obrigado por escolher nosso Plano de Tratamento de Semaglutida de 3 meses. Seu pedido foi processado com sucesso e um e-mail de confirmação foi enviado para você."
+        },
+        scheduleAppointment: "Agendar sua consulta"
       }
       // Adicione traduções para outros passos, se necessário...
     }
