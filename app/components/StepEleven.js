@@ -20,36 +20,6 @@ const StepEleven = ({ prevStep, nextStep, handleChange, values }) => {
 
   return (
     <div className="formContainer step-form">
-      {cardsData.map((card, index) => (
-        <div className="card" key={index}>
-          <div className="card-top">
-            <div className="card-img">
-              <img src={card.imgSrc} alt={card.title} />
-            </div>
-            <div className="card-title-price">
-              {card.savings && (
-                <div className="savings">
-                  <p>{t('stepEleven.savingsTitle')}</p>
-                  <span>
-                    {card.savings}
-                    <p>{t('stepEleven.savingsPerYear')}</p>
-                  </span>
-                </div>
-              )}
-              <h3>{card.title}</h3>
-              <span>
-                <h2>{card.price}</h2>
-                <p>
-                  {card.monthlyPrice}
-                  <span>{t('stepEleven.monthlyLabel')}</span>
-                </p>
-              </span>
-              <p className="lose">{card.description}</p>
-            </div>
-          </div>
-        </div>
-      ))}
-
       <div className="thank-you">
         <h3>{t('stepEleven.thankYou.title')}</h3>
         <p>{t('stepEleven.thankYou.message')}</p>
