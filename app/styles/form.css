@@ -144,7 +144,6 @@
 
 
 .btn-group button{
-  height: 61px;
   border: 1px !important;
   padding: 10px 25px 10px 25px;
   gap: 6px;
@@ -171,7 +170,6 @@
   
 
 .btn-group .long-btn{
-  height: 51px;
   padding: 10px 25px 10px 25px;
   font-size: 15px;
   font-weight: 400;
@@ -181,7 +179,6 @@
 .btn-group .arrow-btn{
   display: flex;
   align-items: center;
-  height: 50px;
   padding: 20px !important;
 }
 
@@ -189,7 +186,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 61px;
   border-radius: 85px;
   border: 1px;
   padding: 10px 20px 10px 20px;

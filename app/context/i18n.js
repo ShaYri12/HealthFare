@@ -13,6 +13,11 @@ const resources = {
         markTestimonial: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores ratione, sint reprehenderit beatae cum tempore tempora numquam quo fugiat quidem quisquam adipisci harum eos ad repellat qui, expedita totam? Error!',
         markAuthor: 'MARK'
       },
+      notEligible: {
+        title: "Unfortunately, You Are Not Eligible",
+        message: "Your BMI is below 27. This program requires a BMI of 27 or higher for participation. Message: Thank you for your interest. Based on your BMI, you do not qualify for this program at this time.",
+        backButton: "Home"
+      },
       review: {
         excellent: "Excellent",
         reviewsOn: "reviews on",
@@ -277,6 +282,11 @@ const resources = {
         markTestimonial: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores ratione, sint reprehenderit beatae cum tempore tempora numquam quo fugiat quidem quisquam adipisci harum eos ad repellat qui, expedita totam? Error!',
         markAuthor: 'MARK'
       },
+      notEligible: {
+        title: "Lamentablemente, no eres elegible",
+        message: "Tu IMC es inferior a 27. Este programa requiere un IMC de 27 o superior para participar. Mensaje: Gracias por tu interés. Según tu IMC, actualmente no calificas para este programa.",
+        backButton: "Inicio"
+      },
       review: {
         excellent: "Excelente",
         reviewsOn: "reseñas en",
@@ -539,6 +549,11 @@ const resources = {
         alexAuthor: 'ALEX',
         markTestimonial: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores ratione, sint reprehenderit beatae cum tempore tempora numquam quo fugiat quidem quisquam adipisci harum eos ad repellat qui, expedita totam? Error!',
         markAuthor: 'MARK'
+      },
+      notEligible: {
+        title: "Infelizmente, Você Não é Elegível",
+        message: "Seu IMC está abaixo de 27. Este programa requer um IMC de 27 ou superior para participação. Mensagem: Obrigado pelo seu interesse. Com base no seu IMC, você não se qualifica para este programa no momento.",
+        backButton: "Início"
       },
       review: {
         excellent: "Excelente",

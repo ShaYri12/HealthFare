@@ -233,14 +233,12 @@
     align-items: center;
     justify-content: center;
     gap: 15px !important;
-    min-height: 61px !important;
     font-size: 20px !important;
 }
 
 .arrow-btn-stepthree{
     display: flex;
     justify-content: center;
-    min-height: 60px !important;
     width: 60px !important;
     font-size: 20px !important;
 }
