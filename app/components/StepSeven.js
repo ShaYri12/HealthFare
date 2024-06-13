@@ -1,11 +1,13 @@
 'use client';
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import "../styles/stepsix.css";
-import "../styles/stepseven.css";
+import "../styles/stepseven.css"; // Ensure this file exists
 import "../styles/form.css";
 import Review from "./Review";
 
 const StepSeven = ({ nextStep, prevStep, handleChange, values }) => {
+  const { t } = useTranslation(); // 'stepSeven' matches the namespace in i18n.js
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
   const questions = [
@@ -13,8 +15,8 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values }) => {
       form: (
         <form className="input-form">
           <div className="input-label-full input-label">
-            <label className="label">List any medications you are currently taking.</label>
-            <input className="input-border" type="text" placeholder="e.g., Metformin" />
+            <label className="label">{t('stepSeven.question1.label')}</label>
+            <input className="input-border" type="text" placeholder={t('stepSeven.question1.placeholder')} />
           </div>
         </form>
       ),
@@ -23,8 +25,8 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values }) => {
       form: (
         <form className="input-form">
           <div className="input-label-full input-label">
-            <label className="label">List any allergies to medications.</label>
-            <input className="input-border" type="text" placeholder="e.g., Penicillin" />
+            <label className="label">{t('stepSeven.question2.label')}</label>
+            <input className="input-border" type="text" placeholder={t('stepSeven.question2.placeholder')} />
           </div>
         </form>
       ),
@@ -33,8 +35,8 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values }) => {
       form: (
         <form className="input-form">
           <div className="input-label-full input-label">
-            <label className="label">Do you have any chronic medical conditions? If so, please specify.</label>
-            <input className="input-border" type="text" placeholder="e.g., Hypertension, Diabetes" />
+            <label className="label">{t('stepSeven.question3.label')}</label>
+            <input className="input-border" type="text" placeholder={t('stepSeven.question3.placeholder')} />
           </div>
         </form>
       ),
@@ -43,8 +45,8 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values }) => {
       form: (
         <form className="input-form">
           <div className="input-label-full input-label">
-            <label className="label">Are you currently taking any prescription or over-the-counter diet aids? If so, please specify</label>
-            <input className="input-border" type="text" placeholder=" e.g., Garcinia Cambogia, Orlistat" />
+            <label className="label">{t('stepSeven.question4.label')}</label>
+            <input className="input-border" type="text" placeholder={t('stepSeven.question4.placeholder')} />
           </div>
         </form>
       ),
@@ -53,8 +55,8 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values }) => {
       form: (
         <form className="input-form">
           <div className="input-label-full input-label">
-            <label className="label">Please list any antibiotics you are currently taking.</label>
-            <input className="input-border" type="text" placeholder="e.g., Amoxicillin" />
+            <label className="label">{t('stepSeven.question5.label')}</label>
+            <input className="input-border" type="text" placeholder={t('stepSeven.question5.placeholder')} />
           </div>
         </form>
       ),
@@ -63,8 +65,8 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values }) => {
       form: (
         <form className="input-form">
           <div className="input-label-full input-label">
-            <label className="label">Have you taken Semaglutide, Tirzepatide, or any other weight loss medications before? If so, please list them.</label>
-            <input className="input-border" type="text" placeholder="e.g., Semaglutide, Tirzepatide" />
+            <label className="label">{t('stepSeven.question6.label')}</label>
+            <input className="input-border" type="text" placeholder={t('stepSeven.question6.placeholder')} />
           </div>
         </form>
       ),
@@ -92,24 +94,25 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values }) => {
   return (
     <div className="formContainer step-form">
       <div className="label-info">
-        <h2>Medical Information</h2>
-        <p>Please provide the following details about your medical history and current health status.</p>
+        <h2>{t('stepSeven.medicalInfo.title')}</h2>
+        <p>{t('stepSeven.medicalInfo.subTitle')}</p>
       </div>
       {questions[currentQuestion].form}
 
       <div className='btn-group btn-group-stepthree'>
         <button className='back-btn back-btn-stepthree' onClick={prevInfo}>
-          <img src="/assets/arrow.svg" alt="arrow" /> Back
+          <img src="/assets/arrow.svg" alt="arrow" /> {t('stepSeven.back')}
         </button>
         <div className='forward-btns'>
-          <button className='long-btn long-btn-stepthree' onClick={nextInfo}>Continue Your Journey</button>
+          <button className='long-btn long-btn-stepthree' onClick={nextInfo}>{t('stepSeven.continueJourney')}</button>
           <button className='arrow-btn arrow-btn-stepthree' onClick={nextInfo}><img src="/assets/arrow.svg" alt=""/></button>
+          </div>
         </div>
+  
+        <Review />
       </div>
-
-      <Review />
-    </div>
-  );
-};
-
-export default StepSeven;
+    );
+  };
+  
+  export default StepSeven;
+  

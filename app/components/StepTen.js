@@ -1,26 +1,28 @@
 'use client';
+import { useTranslation } from 'react-i18next';
 import '../styles/stepten.css';
 import '../styles/form.css';
 import Review from "./Review";
 
-const StepTen = ({ prevStep, nextStep, handleChange, values }) => {
+const StepTen = ({ prevStep, nextStep }) => {
+  const { t } = useTranslation();
 
   const cardsData = [
     {
       imgSrc: "/assets/step2-product1.svg",
-      title: "Semaglutide (3-Month treatment Plan)",
-      price: "$889.99",
-      monthlyPrice: "$296",
-      description: "Lose up to 25lbs",
-      savings: "$1500" // example value for savings
+      title: t('stepTen.productTitle'),
+      price: t('stepTen.productPrice'),
+      monthlyPrice: t('stepTen.productMonthlyPrice'),
+      description: t('stepTen.productDescription'),
+      savings: t('stepTen.productSavings')
     },
   ];
 
   return (
     <div className="formContainer step-form">
       <div className="title-info">
-        <h2>Order Summary</h2>
-        <p>Review Your Treatment Plan and Included Services</p>
+        <h2>{t('stepTen.orderSummary')}</h2>
+        <p>{t('stepTen.reviewText')}</p>
       </div>
       {cardsData.map((card, index) => (
         <div className='card' key={index}>
@@ -31,14 +33,14 @@ const StepTen = ({ prevStep, nextStep, handleChange, values }) => {
             <div className='card-title-price'>
               {card.savings && (
                 <div className='savings'>
-                  <p>Total Savings</p>
-                  <span>{card.savings}<p>/year</p></span>
+                  <p>{t('stepTen.totalSavings')}</p>
+                  <span>{card.savings}<p>{t('stepTen.perYear')}</p></span>
                 </div>
               )}
               <h3>{card.title}</h3>
               <span>
                 <h2>{card.price}</h2>
-                <p>{card.monthlyPrice}<span>/month*</span></p>
+                <p>{card.monthlyPrice}<span>{t('stepTen.perMonth')}</span></p>
               </span>
               <p className='lose'>{card.description}</p>
             </div>
@@ -48,53 +50,53 @@ const StepTen = ({ prevStep, nextStep, handleChange, values }) => {
 
       <div className='additional-suppliments'>
         <span>
-            <h3>Additional Supplements</h3>
-            <p>(No additional supplements selected)</p>
+            <h3>{t('stepTen.additionalSupplements')}</h3>
+            <p>({t('stepTen.noSupplementsSelected')})</p>
         </span>
         <span>
-          <button>Add Supplements <img src="/assets/arrowblue.svg" alt=""/></button>
+          <button>{t('stepTen.addSupplements')} <img src="/assets/arrowblue.svg" alt=""/></button>
         </span>
       </div>
 
       <div className='included-card'>
-        <h3>What's Included</h3>
+        <h3>{t('stepTen.whatsIncluded')}</h3>
         <span>
             <img src="/assets/checkmark.svg" alt="checkmark" />
-            <p>Provider Evaluation: Included</p>
+            <p>{t('stepTen.providerEvaluation')}</p>
         </span>
         <span>
             <img src="/assets/checkmark.svg" alt="checkmark" />
-            <p>Medication Adjustments: Included</p>
+            <p>{t('stepTen.medicationAdjustments')}</p>
         </span>
         <span>
             <img src="/assets/checkmark.svg" alt="checkmark" />
-            <p>On-Going Check-Ins: Included</p>
+            <p>{t('stepTen.onGoingCheckIns')}</p>
         </span>
         <span>
             <img src="/assets/checkmark.svg" alt="checkmark" />
-            <p>Nutrition Plan: Included</p>
+            <p>{t('stepTen.nutritionPlan')}</p>
         </span>
         <span>
             <img src="/assets/checkmark.svg" alt="checkmark" />
-            <p>Syringes: Included</p>
+            <p>{t('stepTen.syringes')}</p>
         </span>
         <span>
             <img src="/assets/checkmark.svg" alt="checkmark" />
-            <p>Shipping: Free</p>
+            <p>{t('stepTen.shipping')}</p>
         </span>
       </div>
 
       <div className='total-cost'>
-        <h3>TOTAL COST</h3>
-        <h2>$1599.99</h2>
+        <h3>{t('stepTen.totalCost')}</h3>
+        <h2>{t('stepTen.totalCostAmount')}</h2>
       </div>
 
       <div className='btn-group btn-group-stepthree'>
         <button className='back-btn back-btn-stepthree' onClick={prevStep}>
-          <img src="/assets/arrow.svg" alt="arrow" /> Back
+          <img src="/assets/arrow.svg" alt="arrow" /> {t('stepTen.back')}
         </button>
         <div className='forward-btns'>
-          <button className='long-btn long-btn-stepthree' onClick={nextStep}><img src="/assets/secure.svg" alt=""/> Proceed to Payment </button>
+          <button className='long-btn long-btn-stepthree' onClick={nextStep}><img src="/assets/secure.svg" alt=""/> {t('stepTen.proceedToPayment')} </button>
           <button className='arrow-btn arrow-btn-stepthree' onClick={nextStep}><img src="/assets/arrow.svg" alt=""/></button>
         </div>
       </div>
@@ -107,7 +109,6 @@ const StepTen = ({ prevStep, nextStep, handleChange, values }) => {
         <img src="/assets/pay5.svg" alt=""/>
         <img src="/assets/pay6.svg" alt=""/>
       </div>
-
 
       <Review/>
     </div>

@@ -13,6 +13,11 @@ const resources = {
         markTestimonial: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores ratione, sint reprehenderit beatae cum tempore tempora numquam quo fugiat quidem quisquam adipisci harum eos ad repellat qui, expedita totam? Error!',
         markAuthor: 'MARK'
       },
+      review: {
+        excellent: "Excellent",
+        reviewsOn: "reviews on",
+        basedOn: "Based on",
+      },
       stepOne: {
         title: "BEGIN YOUR TRANSFORMATION TODAY",
         description: "Embark on a journey to a healthier, happier you. Get started now and take the first step towards transforming your life.",
@@ -24,8 +29,6 @@ const resources = {
       stepTwo: {
         title: "Which medication are you interested in?",
         description: "After completing your digital health visit with one of our licensed physicians, they will review your medical history and clinical information. Based on your selection, they will approve the appropriate treatment plan for you.",
-        excellent: "Excellent",
-        reviewsOn: "reviews on",
         back: "Back",
         startLosingWeight: "Start Losing Weight",
         cards: [
@@ -69,8 +72,6 @@ const resources = {
           title: "Detox Cleanse",
           description: "Support digestive health and eliminate toxins with our gentle and effective detox cleanse supplement."
         },
-        excellent: "Excellent",
-        reviewsOn: "reviews on",
         back: "Back",
         skip: "Skip"
       },
@@ -85,7 +86,148 @@ const resources = {
         inchesPlaceholder: "e.g. 8",
         continueJourney: "Continue your journey",
         back: "Back"
+      },
+      stepFive: {
+        title: "Congratulations! You’re Pre-Qualified!",
+        subtitle: "Please provide the upcoming information to complete your pre-qualification.",
+        continueJourney: "Continue Your Journey",
+        back: "Back",
+        beforeText: "BEFORE",
+        afterText: "AFTER",
+        inspiringTransformations: "Inspiring Transformations"
+      },
+      stepSix: {
+        question1: {
+          title: "What’s your name?",
+          firstName: "FIRST NAME",
+          lastName: "LAST NAME",
+          firstNamePlaceholder: "e.g., John",
+          lastNamePlaceholder: "e.g., Doe"
+        },
+        question2: {
+          title: "What’s your address?",
+          streetAddress: "STREET ADDRESS",
+          streetAddressPlaceholder: "e.g., 123 Main St",
+          city: "CITY",
+          cityPlaceholder: "e.g., Los Angeles",
+          zipCode: "ZIP CODE",
+          zipCodePlaceholder: "e.g., 90001",
+          state: "STATE",
+          select: "Select..."
+        },
+        question3: {
+          title: "What’s your date of birth?",
+          month: "MONTH",
+          day: "DAY",
+          year: "YEAR"
+        },
+        question4: {
+          title: "What’s your gender?",
+          male: "Male",
+          female: "Female",
+          preferNotToSay: "Prefer not to answer"
+        },
+        question5: {
+          title: "What’s your phone?",
+          phonePlaceholder: "e.g., (123) 456-7890"
+        },
+        question6: {
+          title: "What’s your email?",
+          emailPlaceholder: "e.g., johndoe@example.com"
+        },
+        back: "Back",
+        continueJourney: "Continue Your Journey"
+      },
+      stepSeven: {
+        medicalInfo: {
+          title: "Medical Information",
+          subTitle: "Please provide the following details about your medical history and current health status."
+        },
+        question1: {
+          label: "List any medications you are currently taking.",
+          placeholder: "e.g., Metformin"
+        },
+        question2: {
+          label: "List any allergies to medications.",
+          placeholder: "e.g., Penicillin"
+        },
+        question3: {
+          label: "Do you have any chronic medical conditions? If so, please specify.",
+          placeholder: "e.g., Hypertension, Diabetes"
+        },
+        question4: {
+          label: "Are you currently taking any prescription or over-the-counter diet aids? If so, please specify.",
+          placeholder: "e.g., Garcinia Cambogia, Orlistat"
+        },
+        question5: {
+          label: "Please list any antibiotics you are currently taking.",
+          placeholder: "e.g., Amoxicillin"
+        },
+        question6: {
+          label: "Have you taken Semaglutide, Tirzepatide, or any other weight loss medications before? If so, please list them.",
+          placeholder: "e.g., Semaglutide, Tirzepatide"
+        },
+        back: "Back",
+        continueJourney: "Continue Your Journey"
+      },
+      stepEight: {
+        title: 'Health Conditions',
+        description: 'Please indicate if you are currently diagnosed with any of the following conditions. (select multiple)',
+        none: 'None',
+        highBloodPressure: 'High Blood Pressure',
+        preDiabetes: 'Pre-Diabetes',
+        type2Diabetes: 'Type 2 Diabetes',
+        hypothyroidism: 'Hypothyroidism',
+        crohnsDisease: "Crohn's Disease",
+        elevatedTriglycerides: 'Elevated Triglycerides',
+        lupus: 'Lupus',
+        antibiotics: 'Antibiotics',
+        bariatricSurgery: 'Bariatric Surgery',
+        hypoglycemia: 'Hypoglycemia',
+        type1Diabetes: 'Type 1 Diabetes',
+        cancerTreatment: 'Cancer Treatment',
+        thyroidCancer: 'Thyroid Cancer',
+        breastfeeding: 'Breastfeeding',
+        pregnant: 'Pregnant',
+        pancreatitis: 'Pancreatitis within the past 6 months, or a history of pancreatitis caused by taking a GLP-1',
+        back: 'Back',
+        continueJourney: 'Continue Your Journey'
+      },
+      stepNine: {
+        title: 'Stay Informed with SMS Notifications',
+        description: 'Would you like to receive SMS notifications about your program?',
+        notify: 'Yes, I agree to receive SMS notifications.',
+        doNotNotify: 'No, I prefer not to receive SMS notifications.',
+        back: 'Back',
+        continueJourney: 'Continue Your Journey'
+      },
+      stepTen: {
+        productTitle: "Semaglutide (3-Month treatment Plan)",
+        productPrice: "$889.99",
+        productMonthlyPrice: "$296",
+        productDescription: "Lose up to 25lbs",
+        productSavings: "$1500",
+        orderSummary: "Order Summary",
+        reviewText: "Review Your Treatment Plan and Included Services",
+        totalSavings: "Total Savings",
+        perYear: "/year",
+        perMonth: "/month*",
+        additionalSupplements: "Additional Supplements",
+        noSupplementsSelected: "(No additional supplements selected)",
+        addSupplements: "Add Supplements",
+        whatsIncluded: "What's Included",
+        providerEvaluation: "Provider Evaluation: Included",
+        medicationAdjustments: "Medication Adjustments: Included",
+        onGoingCheckIns: "On-Going Check-Ins: Included",
+        nutritionPlan: "Nutrition Plan: Included",
+        syringes: "Syringes: Included",
+        shipping: "Shipping: Free",
+        totalCost: "TOTAL COST",
+        totalCostAmount: "$1599.99",
+        back: "Back",
+        proceedToPayment: "Proceed to Payment"
       }
+      
       // Add translations for other steps...
     }
   },
@@ -100,6 +242,11 @@ const resources = {
         markTestimonial: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores ratione, sint reprehenderit beatae cum tempore tempora numquam quo fugiat quidem quisquam adipisci harum eos ad repellat qui, expedita totam? Error!',
         markAuthor: 'MARK'
       },
+      review: {
+        excellent: "Excelente",
+        reviewsOn: "reseñas en",
+        basedOn: "Basado en",
+      },
       stepOne: {
         title: "COMIENCE SU TRANSFORMACIÓN HOY",
         description: "Emprenda un viaje hacia una vida más saludable y feliz. Comience ahora y dé el primer paso hacia la transformación de su vida.",
@@ -111,8 +258,6 @@ const resources = {
       stepTwo: {
         title: "¿En qué medicamento está interesado?",
         description: "Después de completar su visita de salud digital con uno de nuestros médicos con licencia, revisarán su historial médico e información clínica. Según su selección, aprobarán el plan de tratamiento adecuado para usted.",
-        excellent: "Excelente",
-        reviewsOn: "reseñas en",
         back: "Volver",
         startLosingWeight: "Comenzar a perder peso",
         cards: [
@@ -156,8 +301,6 @@ const resources = {
           title: "Limpieza Detox",
           description: "Apoye la salud digestiva y elimine toxinas con nuestro suave y efectivo suplemento de limpieza detox."
         },
-        excellent: "Excelente",
-        reviewsOn: "reseñas en",
         back: "Volver",
         skip: "Omitir"
       },
@@ -172,6 +315,146 @@ const resources = {
         inchesPlaceholder: "por ejemplo, 8",
         continueJourney: "Continuar su viaje",
         back: "Volver"
+      },
+      stepFive: {
+        title: "¡Felicidades! ¡Estás precalificado!",
+        subtitle: "Proporcione la próxima información para completar su precalificación.",
+        continueJourney: "Continuar su viaje",
+        back: "Volver",
+        beforeText: "ANTES",
+        afterText: "DESPUÉS",
+        inspiringTransformations: "Transformaciones inspiradoras"
+      },
+      stepSix: {
+        question1: {
+          title: "¿Cuál es tu nombre?",
+          firstName: "NOMBRE",
+          lastName: "APELLIDO",
+          firstNamePlaceholder: "ej., Juan",
+          lastNamePlaceholder: "ej., Pérez"
+        },
+        question2: {
+          title: "¿Cuál es tu dirección?",
+          streetAddress: "DIRECCIÓN",
+          streetAddressPlaceholder: "ej., Calle Principal 123",
+          city: "CIUDAD",
+          cityPlaceholder: "ej., Buenos Aires",
+          zipCode: "CÓDIGO POSTAL",
+          zipCodePlaceholder: "ej., 1234",
+          state: "ESTADO",
+          select: "Seleccionar..."
+        },
+        question3: {
+          title: "¿Cuál es tu fecha de nacimiento?",
+          month: "MES",
+          day: "DÍA",
+          year: "AÑO"
+        },
+        question4: {
+          title: "¿Cuál es tu género?",
+          male: "Masculino",
+          female: "Femenino",
+          preferNotToSay: "Prefiero no decirlo"
+        },
+        question5: {
+          title: "¿Cuál es tu teléfono?",
+          phonePlaceholder: "ej., (123) 456-7890"
+        },
+        question6: {
+          title: "¿Cuál es tu correo electrónico?",
+          emailPlaceholder: "ej., juanperez@example.com"
+        },
+        back: "Volver",
+        continueJourney: "Continuar tu viaje"
+      },
+      stepSeven: {
+        medicalInfo: {
+          title: "Información Médica",
+          subTitle: "Por favor proporciona los siguientes detalles sobre tu historial médico y estado de salud actual."
+        },
+        question1: {
+          label: "Enumera cualquier medicamento que estés tomando actualmente.",
+          placeholder: "ej., Metformina"
+        },
+        question2: {
+          label: "Enumera cualquier alergia a medicamentos.",
+          placeholder: "ej., Penicilina"
+        },
+        question3: {
+          label: "¿Tienes alguna enfermedad crónica? Si es así, por favor especifícala.",
+          placeholder: "ej., Hipertensión, Diabetes"
+        },
+        question4: {
+          label: "¿Estás tomando actualmente algún medicamento recetado o de venta libre para dietas? Si es así, por favor especifícalo.",
+          placeholder: "ej., Garcinia Cambogia, Orlistat"
+        },
+        question5: {
+          label: "Enumera cualquier antibiótico que estés tomando actualmente.",
+          placeholder: "ej., Amoxicilina"
+        },
+        question6: {
+          label: "¿Has tomado Semaglutida, Tirzepatida u otros medicamentos para la pérdida de peso anteriormente? Si es así, por favor indícalos.",
+          placeholder: "ej., Semaglutida, Tirzepatida"
+        },
+        back: "Volver",
+        continueJourney: "Continuar tu viaje"
+      },
+      stepEight: {
+        title: 'Condiciones de Salud',
+        description: 'Indique si actualmente está diagnosticado con alguna de las siguientes condiciones. (seleccione múltiples)',
+        none: 'Ninguna',
+        highBloodPressure: 'Presión Arterial Alta',
+        preDiabetes: 'Pre-Diabetes',
+        type2Diabetes: 'Diabetes Tipo 2',
+        hypothyroidism: 'Hipotiroidismo',
+        crohnsDisease: 'Enfermedad de Crohn',
+        elevatedTriglycerides: 'Triglicéridos Elevados',
+        lupus: 'Lupus',
+        antibiotics: 'Antibióticos',
+        bariatricSurgery: 'Cirugía Bariátrica',
+        hypoglycemia: 'Hipoglucemia',
+        type1Diabetes: 'Diabetes Tipo 1',
+        cancerTreatment: 'Tratamiento de Cáncer',
+        thyroidCancer: 'Cáncer de Tiroides',
+        breastfeeding: 'Lactancia Materna',
+        pregnant: 'Embarazada',
+        pancreatitis: 'Pancreatitis en los últimos 6 meses, o historial de pancreatitis causada por la toma de un GLP-1',
+        back: 'Volver',
+        continueJourney: 'Continuar su Viaje'
+      },
+      stepNine: {
+        title: 'Manténgase Informado con Notificaciones SMS',
+        description: '¿Le gustaría recibir notificaciones SMS sobre su programa?',
+        notify: 'Sí, acepto recibir notificaciones SMS.',
+        doNotNotify: 'No, prefiero no recibir notificaciones SMS.',
+        back: 'Volver',
+        continueJourney: 'Continuar su Viaje'
+      },
+      stepTen: {
+        productTitle: "Semaglutida (Plan de tratamiento de 3 meses)",
+        productPrice: "889,99 $",
+        productMonthlyPrice: "296 $",
+        productDescription: "Pierda hasta 25 libras",
+        productSavings: "1500 $",
+        orderSummary: "Resumen del Pedido",
+        reviewText: "Revise su plan de tratamiento y servicios incluidos",
+        totalSavings: "Ahorro Total",
+        perYear: "/año",
+        perMonth: "/mes*",
+        additionalSupplements: "Suplementos Adicionales",
+        noSupplementsSelected: "(No se han seleccionado suplementos adicionales)",
+        addSupplements: "Agregar suplementos",
+        whatsIncluded: "Qué incluye",
+        providerEvaluation: "Evaluación del proveedor: Incluida",
+        medicationAdjustments: "Ajustes de medicación: Incluidos",
+        onGoingCheckIns: "Seguimientos continuos: Incluidos",
+        nutritionPlan: "Plan de nutrición: Incluido",
+        syringes: "Jeringas: Incluidas",
+        shipping: "Envío: Gratis",
+        totalCost: "COSTO TOTAL",
+        totalCostAmount: "1599,99 $",
+        back: "Volver",
+        proceedToPayment: "Continuar al pago"
       }
       // Add translations for other steps...
     }
@@ -187,6 +470,11 @@ const resources = {
         markTestimonial: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores ratione, sint reprehenderit beatae cum tempore tempora numquam quo fugiat quidem quisquam adipisci harum eos ad repellat qui, expedita totam? Error!',
         markAuthor: 'MARK'
       },
+      review: {
+        excellent: "Excelente",
+        reviewsOn: "avaliações em",
+        basedOn: "Baseado em",
+      },
       stepOne: {
         title: "COMECE SUA TRANSFORMAÇÃO HOJE",
         description: "Embarque em uma jornada para uma vida mais saudável e feliz. Comece agora e dê o primeiro passo para transformar sua vida.",
@@ -198,8 +486,6 @@ const resources = {
       stepTwo: {
         title: "Em qual medicamento você está interessado?",
         description: "Após completar sua visita de saúde digital com um de nossos médicos licenciados, eles revisarão seu histórico médico e informações clínicas. Com base em sua seleção, eles aprovarão o plano de tratamento apropriado para você.",
-        excellent: "Excelente",
-        reviewsOn: "avaliações em",
         back: "Voltar",
         startLosingWeight: "Começar a perder peso",
         cards: [
@@ -243,8 +529,6 @@ const resources = {
           title: "Limpeza Detox",
           description: "Apoie a saúde digestiva e elimine toxinas com nosso suave e eficaz suplemento de limpeza detox."
         },
-        excellent: "Excelente",
-        reviewsOn: "avaliações em",
         back: "Voltar",
         skip: "Pular"
       },
@@ -259,6 +543,146 @@ const resources = {
         inchesPlaceholder: "por exemplo, 8",
         continueJourney: "Continue sua jornada",
         back: "Voltar"
+      },
+      stepFive: {
+        title: "Parabéns! Você está Pré-Qualificado!",
+        subtitle: "Forneça as informações a seguir para concluir sua pré-qualificação.",
+        continueJourney: "Continuar sua jornada",
+        back: "Voltar",
+        beforeText: "ANTES",
+        afterText: "DEPOIS",
+        inspiringTransformations: "Transformações inspiradoras"
+      },
+      stepSix: {
+        question1: {
+          title: "Qual é o seu nome?",
+          firstName: "PRIMEIRO NOME",
+          lastName: "SOBRENOME",
+          firstNamePlaceholder: "ex., João",
+          lastNamePlaceholder: "ex., Silva"
+        },
+        question2: {
+          title: "Qual é o seu endereço?",
+          streetAddress: "ENDEREÇO",
+          streetAddressPlaceholder: "ex., Rua Principal 123",
+          city: "CIDADE",
+          cityPlaceholder: "ex., São Paulo",
+          zipCode: "CÓDIGO POSTAL",
+          zipCodePlaceholder: "ex., 12345-678",
+          state: "ESTADO",
+          select: "Selecionar..."
+        },
+        question3: {
+          title: "Qual é a sua data de nascimento?",
+          month: "MÊS",
+          day: "DIA",
+          year: "ANO"
+        },
+        question4: {
+          title: "Qual é o seu gênero?",
+          male: "Masculino",
+          female: "Feminino",
+          preferNotToSay: "Prefiro não dizer"
+        },
+        question5: {
+          title: "Qual é o seu telefone?",
+          phonePlaceholder: "ex., (11) 98765-4321"
+        },
+        question6: {
+          title: "Qual é o seu email?",
+          emailPlaceholder: "ex., joaodasilva@example.com"
+        },
+        back: "Voltar",
+        continueJourney: "Continuar sua jornada"
+      },
+      stepSeven: {
+        medicalInfo: {
+          title: "Informações Médicas",
+          subTitle: "Por favor forneça os seguintes detalhes sobre seu histórico médico e estado de saúde atual."
+        },
+        question1: {
+          label: "Liste todos os medicamentos que você está tomando atualmente.",
+          placeholder: "ex., Metformina"
+        },
+        question2: {
+          label: "Liste todas as alergias a medicamentos.",
+          placeholder: "ex., Penicilina"
+        },
+        question3: {
+          label: "Você possui alguma condição médica crônica? Se sim, por favor especifique.",
+          placeholder: "ex., Hipertensão, Diabetes"
+        },
+        question4: {
+          label: "Você está tomando atualmente algum auxílio dietético de venda livre ou prescrição? Se sim, por favor especifique.",
+          placeholder: "ex., Garcinia Cambogia, Orlistat"
+        },
+        question5: {
+          label: "Liste todos os antibióticos que você está tomando atualmente.",
+          placeholder: "ex., Amoxicilina"
+        },
+        question6: {
+          label: "Você já tomou Semaglutida, Tirzepatida ou outros medicamentos para perda de peso antes? Se sim, liste-os por favor.",
+          placeholder: "ex., Semaglutida, Tirzepatida"
+        },
+        back: "Voltar",
+        continueJourney: "Continuar sua jornada"
+      },
+      stepEight: {
+        title: 'Condições de Saúde',
+        description: 'Indique se você está atualmente diagnosticado com alguma das seguintes condições. (selecione várias)',
+        none: 'Nenhuma',
+        highBloodPressure: 'Pressão Alta',
+        preDiabetes: 'Pré-Diabetes',
+        type2Diabetes: 'Diabetes Tipo 2',
+        hypothyroidism: 'Hipotireoidismo',
+        crohnsDisease: 'Doença de Crohn',
+        elevatedTriglycerides: 'Triglicerídeos Elevados',
+        lupus: 'Lúpus',
+        antibiotics: 'Antibióticos',
+        bariatricSurgery: 'Cirurgia Bariátrica',
+        hypoglycemia: 'Hipoglicemia',
+        type1Diabetes: 'Diabetes Tipo 1',
+        cancerTreatment: 'Tratamento de Câncer',
+        thyroidCancer: 'Câncer de Tireoide',
+        breastfeeding: 'Amamentação',
+        pregnant: 'Grávida',
+        pancreatitis: 'Pancreatite nos últimos 6 meses, ou histórico de pancreatite causada pelo uso de um GLP-1',
+        back: 'Voltar',
+        continueJourney: 'Continuar sua Jornada'
+      },
+      stepNine: {
+        title: 'Fique Informado com Notificações SMS',
+        description: 'Você gostaria de receber notificações SMS sobre seu programa?',
+        notify: 'Sim, concordo em receber notificações SMS.',
+        doNotNotify: 'Não, prefiro não receber notificações SMS.',
+        back: 'Voltar',
+        continueJourney: 'Continuar sua Jornada'
+      },
+      stepTen: {
+        productTitle: "Semaglutida (Plano de tratamento de 3 meses)",
+        productPrice: "889,99 $",
+        productMonthlyPrice: "296 $",
+        productDescription: "Perca até 25 libras",
+        productSavings: "1500 $",
+        orderSummary: "Resumo do Pedido",
+        reviewText: "Revise o seu plano de tratamento e serviços incluídos",
+        totalSavings: "Economia Total",
+        perYear: "/ano",
+        perMonth: "/mês*",
+        additionalSupplements: "Suplementos adicionais",
+        noSupplementsSelected: "(Nenhum suplemento adicional selecionado)",
+        addSupplements: "Adicionar suplementos",
+        whatsIncluded: "O que está incluído",
+        providerEvaluation: "Avaliação do provedor: Incluída",
+        medicationAdjustments: "Ajustes de medicação: Incluídos",
+        onGoingCheckIns: "Acompanhamentos contínuos: Incluídos",
+        nutritionPlan: "Plano de nutrição: Incluído",
+        syringes: "Seringas: Incluídas",
+        shipping: "Envio: Grátis",
+        totalCost: "CUSTO TOTAL",
+        totalCostAmount: "1599,99 $",
+        back: "Voltar",
+        proceedToPayment: "Prosseguir para o pagamento"
       }
       // Adicione traduções para outros passos, se necessário...
     }

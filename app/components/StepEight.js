@@ -1,10 +1,13 @@
 'use client';
 import { useState } from "react";
+import { useTranslation } from 'react-i18next';
 import "../styles/stepeight.css";
 import "../styles/form.css";
 import Review from "./Review";
 
 const StepEight = ({ nextStep, prevStep, handleChange, values }) => {
+  const { t } = useTranslation();
+
   const [selectedConditions, setSelectedConditions] = useState([]);
 
   const handleCheckboxChange = (condition) => {
@@ -16,33 +19,30 @@ const StepEight = ({ nextStep, prevStep, handleChange, values }) => {
   };
 
   const conditions = [
-    { id: "none", label: "None" },
-    { id: "highbp", label: "High Blood Pressure" },
-    { id: "pre-diabetes", label: "Pre-Diabetes" },
-    { id: "type-2-diabetes", label: "Type 2 Diabetes" },
-    { id: "hypothyroidism", label: "Hypothyroidism" },
-    { id: "crohn-disease", label: "Crohn's Disease" },
-    { id: "elevated-triglycerides", label: "Elevated Triglycerides" },
-    { id: "lupus", label: "Lupus" },
-    { id: "antibiotics", label: "Antibiotics" },
-    { id: "bariatric-surgery", label: "Bariatric Surgery" },
-    { id: "hypoglycemia", label: "Hypoglycemia" },
-    { id: "type-1-diabetes", label: "Type 1 Diabetes" },
-    { id: "cancer-treatment", label: "Cancer Treatment" },
-    { id: "thyroid-cancer", label: "Thyroid Cancer" },
-    { id: "breastfeeding", label: "Breastfeeding" },
-    { id: "pregnant", label: "Pregnant" },
-    { id: "pancreatitis", label: "Pancreatitis within the past 6 months, or a history of pancreatitis caused by taking a GLP-1" }
+    { id: "none", labelKey: "none" },
+    { id: "highbp", labelKey: "highBloodPressure" },
+    { id: "pre-diabetes", labelKey: "preDiabetes" },
+    { id: "type-2-diabetes", labelKey: "type2Diabetes" },
+    { id: "hypothyroidism", labelKey: "hypothyroidism" },
+    { id: "crohn-disease", labelKey: "crohnsDisease" },
+    { id: "elevated-triglycerides", labelKey: "elevatedTriglycerides" },
+    { id: "lupus", labelKey: "lupus" },
+    { id: "antibiotics", labelKey: "antibiotics" },
+    { id: "bariatric-surgery", labelKey: "bariatricSurgery" },
+    { id: "hypoglycemia", labelKey: "hypoglycemia" },
+    { id: "type-1-diabetes", labelKey: "type1Diabetes" },
+    { id: "cancer-treatment", labelKey: "cancerTreatment" },
+    { id: "thyroid-cancer", labelKey: "thyroidCancer" },
+    { id: "breastfeeding", labelKey: "breastfeeding" },
+    { id: "pregnant", labelKey: "pregnant" },
+    { id: "pancreatitis", labelKey: "pancreatitis" }
   ];
 
   return (
     <div className="formContainer step-form">
       <div className="label-info">
-        <h2>Health Conditions</h2>
-        <p>
-          Please indicate if you are currently diagnosed with any of the
-          following conditions. (select multiple)
-        </p>
+        <h2>{t('stepEight.title')}</h2>
+        <p>{t('stepEight.description')}</p>
       </div>
       <form className="input-form">
         <div className="condition-select">
@@ -73,7 +73,7 @@ const StepEight = ({ nextStep, prevStep, handleChange, values }) => {
                 htmlFor={condition.id}
               >
                 {" "}
-                {condition.label}{" "}
+                {t(`stepEight.${condition.labelKey}`)}{" "}
               </label>
             </div>
           ))}
@@ -82,11 +82,11 @@ const StepEight = ({ nextStep, prevStep, handleChange, values }) => {
 
       <div className="btn-group btn-group-stepthree">
         <button className="back-btn back-btn-stepthree" onClick={prevStep}>
-          <img src="/assets/arrow.svg" alt="arrow" /> Back
+          <img src="/assets/arrow.svg" alt="arrow" /> {t('stepEight.back')}
         </button>
         <div className="forward-btns">
           <button className="long-btn long-btn-stepthree" onClick={nextStep}>
-            Continue Your Journey
+            {t('stepEight.continueJourney')}
           </button>
           <button className="arrow-btn arrow-btn-stepthree" onClick={nextStep}>
             <img src="/assets/arrow.svg" alt="" />

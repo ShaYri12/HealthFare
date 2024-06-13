@@ -64,7 +64,7 @@ const StepTwo = ({ prevStep, nextStep, handleChange, values }) => {
         <p>{t('stepTwo.description')}</p>
       </div>
       <div className='review-inline'>
-          <h3>{t('stepTwo.excellent')}</h3>
+          <h3>{t('review.excellent')}</h3>
           <div className='stars'>
               <img src="/assets/star.png" alt="star"/>
               <img src="/assets/star.png" alt="star"/>
@@ -72,7 +72,7 @@ const StepTwo = ({ prevStep, nextStep, handleChange, values }) => {
               <img src="/assets/star.png" alt="star"/>
               <img src="/assets/star.png" alt="star"/>
           </div>
-          <p className='reviews'>456 <span>{t('stepTwo.reviewsOn')}</span></p>
+          <p className='reviews'>456 <span>{t('review.reviewsOn')}</span></p>
           <div className='trustpilot'>
               <img src="/assets/star-trustpilot.svg" alt="trust"/> <span>Trustpilot</span>
           </div>

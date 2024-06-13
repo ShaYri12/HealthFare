@@ -60,7 +60,7 @@ const StepThree = ({ prevStep, nextStep, handleChange, values }) => {
       </div>
 
       <div className='review-inline review-md review-stepthree'>
-        <h3>{t('stepThree.excellent')}</h3> {/* Translate Excellent using t function */}
+        <h3>{t('review.excellent')}</h3> {/* Translate Excellent using t function */}
         <div className='stars'>
           <img src="/assets/star.png" alt="star"/>
           <img src="/assets/star.png" alt="star"/>
@@ -68,14 +68,14 @@ const StepThree = ({ prevStep, nextStep, handleChange, values }) => {
           <img src="/assets/star.png" alt="star"/>
           <img src="/assets/star.png" alt="star"/>
         </div>
-        <p className='reviews'>456 <span>{t('stepThree.reviewsOn')}</span></p> {/* Translate reviewsOn using t function */}
+        <p className='reviews'>456 <span>{t('review.reviewsOn')}</span></p> {/* Translate reviewsOn using t function */}
         <div className='trustpilot'>
           <img src="/assets/star-trustpilot.svg" alt="trust"/> <span>Trustpilot</span>
         </div>
       </div>
 
       <div className='review review-sm'>
-        <h3>{t('stepThree.excellent')}</h3> {/* Translate Excellent using t function */}
+        <h3>{t('review.excellent')}</h3> {/* Translate Excellent using t function */}
         <div className='stars'>
           <img src="/assets/star.png" alt="star"/>
           <img src="/assets/star.png" alt="star"/>
@@ -83,9 +83,9 @@ const StepThree = ({ prevStep, nextStep, handleChange, values }) => {
           <img src="/assets/star.png" alt="star"/>
           <img src="/assets/star.png" alt="star"/>
         </div>
-        <p>{t('stepThree.basedOn')} <b>456 {t('stepThree.reviews')}</b></p> {/* Translate basedOn, reviews using t function */}
+        <p>{t('review.basedOn')} <b>456 {t('review.reviews')}</b></p>
         <div className='trustpilot'>
-          <img src="/assets/star-trustpilot.svg" alt="trust"/> {t('stepThree.trustpilot')}
+          <img src="/assets/star-trustpilot.svg" alt="trust"/> Trustpilot
         </div>
       </div>
     </div>

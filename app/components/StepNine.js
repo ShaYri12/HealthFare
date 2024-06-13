@@ -1,11 +1,14 @@
 'use client';
 import { useState } from "react";
+import { useTranslation } from 'react-i18next';
 import "../styles/stepeight.css";
-import '../styles/stepnine.css'
+import "../styles/stepnine.css";
 import "../styles/form.css";
 import Review from "./Review";
 
-const StepNine = ({ nextStep, prevStep, handleChange, values }) => {
+const StepNine = ({ nextStep, prevStep }) => {
+  const { t } = useTranslation();
+
   const [selectedCondition, setSelectedCondition] = useState(null);
 
   const handleCheckboxChange = (conditionId) => {
@@ -15,15 +18,15 @@ const StepNine = ({ nextStep, prevStep, handleChange, values }) => {
   };
 
   const conditions = [
-    { id: "notify", label: "Yes, I agree to receive SMS notifications." },
-    { id: "do-not-notify", label: "No, I prefer not to receive SMS notifications." },
+    { id: "notify", label: t('stepNine.notify') },
+    { id: "do-not-notify", label: t('stepNine.doNotNotify') },
   ];
 
   return (
     <div className="formContainer step-form">
       <div className="label-info">
-        <h2>Stay Informed with SMS Notifications</h2>
-        <p>Would you like to receive SMS notifications about your program?</p>
+        <h2>{t('stepNine.title')}</h2>
+        <p>{t('stepNine.description')}</p>
       </div>
       <form className="input-form">
         <div className="condition-select">
@@ -57,7 +60,7 @@ const StepNine = ({ nextStep, prevStep, handleChange, values }) => {
           <img src="/assets/arrow.svg" alt="arrow" /> Back
         </button>
         <div className='forward-btns'>
-          <button className='long-btn long-btn-stepthree' onClick={nextStep}>Continue Your Journey</button>
+          <button className='long-btn long-btn-stepthree' onClick={nextStep}>{t('stepNine.continueJourney')}</button>
           <button className='arrow-btn arrow-btn-stepthree' onClick={nextStep}><img src="/assets/arrow.svg" alt=""/></button>
         </div>
       </div>
