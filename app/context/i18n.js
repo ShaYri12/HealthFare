@@ -241,6 +241,22 @@ const resources = {
             "Thank you for choosing our Semaglutide - 3-Month Treatment Plan. Your order has been successfully processed, and a confirmation email has been sent to you."
         },
         scheduleAppointment: "Schedule Your Appointment"
+      },
+      stepTwelve: {
+          title: "Schedule Your Appointment",
+          chooseTime: "Choose a Time to Consult with Our Licensed Provider"
+      },
+      stepThirteen: {
+        title: "Appointment Confirmed!",
+        confirmationMessage: "Thank you for scheduling your appointment! You're taking an exciting step on your weight loss journey. Our team will be in touch soon to provide further details and answer any questions you may have.",
+        assistanceTitle: "Need Assistance?",
+        assistanceMessage: "If you have any questions or need further assistance, feel free to reach out to us via WhatsApp or call us at 561-631-5134. We're here to help!",
+        whatsappBtn: "Chat with Us on WhatsApp",
+        doctorText: {
+          title: "Need help? Chat with me",
+          support: "Customer Support",
+          online: "I'm Online"
+        }
       }
       
       // Add translations for other steps...
@@ -486,6 +502,22 @@ const resources = {
         },
         scheduleAppointment: "Programar su cita"
       },
+      stepTwelve: {
+        title: "Programa tu cita",
+        chooseTime: "Elige una hora para consultar con nuestro proveedor con licencia"
+      },
+      stepThirteen: {
+        title: "¡Cita Confirmada!",
+        confirmationMessage: "¡Gracias por programar tu cita! Estás dando un paso emocionante en tu viaje de pérdida de peso. Nuestro equipo se pondrá en contacto pronto para brindarte más detalles y responder cualquier pregunta que puedas tener.",
+        assistanceTitle: "¿Necesitas ayuda?",
+        assistanceMessage: "Si tienes alguna pregunta o necesitas ayuda adicional, no dudes en comunicarte con nosotros a través de WhatsApp o llámanos al 561-631-5134. ¡Estamos aquí para ayudarte!",
+        whatsappBtn: "Chatea con nosotros en WhatsApp",
+        doctorText: {
+          title: "¿Necesitas ayuda? Chatea conmigo",
+          support: "Soporte al Cliente",
+          online: "Estoy en línea"
+        }
+      }
       // Add translations for other steps...
     }
   },
@@ -728,6 +760,22 @@ const resources = {
             "Obrigado por escolher nosso Plano de Tratamento de Semaglutida de 3 meses. Seu pedido foi processado com sucesso e um e-mail de confirmação foi enviado para você."
         },
         scheduleAppointment: "Agendar sua consulta"
+      },
+      stepTwelve: {
+        title: "Agende sua consulta",
+        chooseTime: "Escolha um horário para consultar com nosso provedor licenciado"
+      },
+      stepThirteen: {
+        title: "Consulta Confirmada!",
+        confirmationMessage: "Obrigado por agendar sua consulta! Você está dando um passo emocionante em sua jornada de perda de peso. Nossa equipe entrará em contato em breve para fornecer mais detalhes e responder quaisquer perguntas que você possa ter.",
+        assistanceTitle: "Precisa de Ajuda?",
+        assistanceMessage: "Se você tiver alguma dúvida ou precisar de assistência adicional, sinta-se à vontade para nos contatar via WhatsApp ou ligar para nós no 561-631-5134. Estamos aqui para ajudar!",
+        whatsappBtn: "Converse conosco no WhatsApp",
+        doctorText: {
+          title: "Precisa de ajuda? Fale comigo",
+          support: "Suporte ao Cliente",
+          online: "Estou Online"
+        }
       }
       // Adicione traduções para outros passos, se necessário...
     }
