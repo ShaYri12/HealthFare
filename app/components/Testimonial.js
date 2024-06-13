@@ -1,23 +1,28 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next'; // Import useTranslation hook
 import '../styles/testimonial.css';
 
-const testimonials = [
-  {
-    rating: '5',
-    source: 'Google',
-    text: 'After struggling with my weight for years, I finally found a solution that works. The Tirzepatide program helped me lose 25 pounds in 9 weeks. The structured approach, combined with the caring and professional support, made it so manageable. I learned to make healthier choices and stay active. Now, I\'m living a healthier lifestyle and feeling fantastic. This program exceeded my expectations and gave me the tools I needed to succeed!',
-    author: 'ALEX'
-  },
-  {
-    rating: '5',
-    source: 'Facebook',
-    text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores ratione, sint reprehenderit beatae cum tempore tempora numquam quo fugiat quidem quisquam adipisci harum eos ad repellat qui, expedita totam? Error!',
-    author: 'MARK'
-  },
-  // Add more testimonials here
-];
-
 const Testimonial = () => {
+  const { t } = useTranslation(); // Initialize useTranslation hook
+
+  const testimonials = [
+    {
+      rating: '5',
+      source: 'Google',
+      text: t('testimonial.alexTestimonial'),
+      author: 'ALEX'
+    },
+    {
+      rating: '5',
+      source: 'Facebook',
+      text: t('testimonial.markTestimonial'),
+      author: 'MARK'
+    },
+    // Add more testimonials here
+  ];
+
+  
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const updateTestimonial = (index) => {
@@ -37,7 +42,7 @@ const Testimonial = () => {
   return (
     <div className="testimonialContainer">
       <div className="testimonialHeader">
-        <h2>REAL STORIES, REAL RESULTS</h2>
+        <h2>{t('testimonial.realStories')}</h2> {/* Translate the header */}
         <div className="testimonialNavigation">
           <button id="prev" className="navButton textimonial-prev" onClick={prevTestimonial}>
             <img src="/assets/arrow.svg" alt=""/>
@@ -49,12 +54,12 @@ const Testimonial = () => {
       </div>
       <div id="testimonial" className="testimonialContent">
         <div className="ratingSource">
-            <div className="rating">
-                {[...Array(parseInt(currentTestimonial.rating))].map((_, i) => (
-                <img key={i} src="/assets/star-white.svg" alt="Star" className="ratingStars"/>
-                ))}
-            </div>
-          <span>{currentTestimonial.source}</span>
+          <div className="rating">
+            {[...Array(parseInt(currentTestimonial.rating))].map((_, i) => (
+              <img key={i} src="/assets/star-white.svg" alt="Star" className="ratingStars"/>
+            ))}
+          </div>
+          <span>{t(`testimonial.${currentTestimonial.source.toLowerCase()}`)}</span> {/* Translate the source */}
         </div>
         <p className="testimonialText">
           {currentTestimonial.text}

@@ -2,10 +2,12 @@
 import '../styles/stepthree.css';
 import '../styles/form.css';
 import StepThreeCard from './StepThreeCard';
+import { useTranslation } from 'react-i18next'; // Import useTranslation hook
 import React, { useState } from 'react';
 
 const StepThree = ({ prevStep, nextStep, handleChange, values }) => {
   const [cart, setCart] = useState([]);
+  const { t } = useTranslation(); // Initialize useTranslation hook
 
   const addToCart = (item) => {
     setCart(prevCart => [...prevCart, item]);
@@ -15,29 +17,29 @@ const StepThree = ({ prevStep, nextStep, handleChange, values }) => {
   const cardsData = [
     {
       imgSrc: "/assets/step3-product1.svg",
-      title: "Metabolic Booster",
+      title: t('stepThree.product1.title'), // Translate title using t function
       price: "$889.99",
-      desc: "Enhance your metabolism and increase energy levels with this potent blend of natural ingredients.",
+      desc: t('stepThree.product1.description'), // Translate description using t function
     },
     {
       imgSrc: "/assets/step3-product2.svg",
-      title: "Appetite Suppressant",
+      title: t('stepThree.product2.title'), // Translate title using t function
       price: "$889.99",
       savings: "$360",
-      desc: "Reduce cravings and control hunger with our effective, natural appetite suppressant formula.",
+      desc: t('stepThree.product2.description'), // Translate description using t function
     },
     {
       imgSrc: "/assets/step3-product3.svg",
-      title: "Detox Cleanse",
+      title: t('stepThree.product3.title'), // Translate title using t function
       price: "$889.99",
-      desc: "Support digestive health and eliminate toxins with our gentle and effective detox cleanse supplement.",
+      desc: t('stepThree.product3.description'), // Translate description using t function
     },
   ];
 
   return (
     <div className="formContainer step-form">
       <div className="title-info">
-        <h2>Would you like to add any additional supplements? <div>(optional)</div></h2>
+        <h2>{t('stepThree.title')}</h2> {/* Translate title using t function */}
       </div>
       {cardsData.map((card, index) => (
         <StepThreeCard
@@ -50,15 +52,15 @@ const StepThree = ({ prevStep, nextStep, handleChange, values }) => {
 
       <div className='btn-group btn-group-stepthree'>
         <button className='back-btn back-btn-stepthree' onClick={prevStep}>
-          <img src="/assets/arrow.svg" alt="arrow" /> Back
+          <img src="/assets/arrow.svg" alt="arrow" /> {t('stepThree.back')} {/* Translate Back button using t function */}
         </button>
         <div className='forward-btns'>
-          <button className='long-btn long-btn-stepthree' onClick={nextStep}>Skip</button>
+          <button className='long-btn long-btn-stepthree' onClick={nextStep}>{t('stepThree.skip')}</button> {/* Translate Skip button using t function */}
         </div>
       </div>
 
       <div className='review-inline review-md review-stepthree'>
-        <h3>Excellent</h3>
+        <h3>{t('stepThree.excellent')}</h3> {/* Translate Excellent using t function */}
         <div className='stars'>
           <img src="/assets/star.png" alt="star"/>
           <img src="/assets/star.png" alt="star"/>
@@ -66,14 +68,14 @@ const StepThree = ({ prevStep, nextStep, handleChange, values }) => {
           <img src="/assets/star.png" alt="star"/>
           <img src="/assets/star.png" alt="star"/>
         </div>
-        <p className='reviews'>456 <span>reviews on</span></p>
+        <p className='reviews'>456 <span>{t('stepThree.reviewsOn')}</span></p> {/* Translate reviewsOn using t function */}
         <div className='trustpilot'>
           <img src="/assets/star-trustpilot.svg" alt="trust"/> <span>Trustpilot</span>
         </div>
       </div>
 
       <div className='review review-sm'>
-        <h3>Excellent</h3>
+        <h3>{t('stepThree.excellent')}</h3> {/* Translate Excellent using t function */}
         <div className='stars'>
           <img src="/assets/star.png" alt="star"/>
           <img src="/assets/star.png" alt="star"/>
@@ -81,9 +83,9 @@ const StepThree = ({ prevStep, nextStep, handleChange, values }) => {
           <img src="/assets/star.png" alt="star"/>
           <img src="/assets/star.png" alt="star"/>
         </div>
-        <p>Based on <b>456 reviews</b></p>
+        <p>{t('stepThree.basedOn')} <b>456 {t('stepThree.reviews')}</b></p> {/* Translate basedOn, reviews using t function */}
         <div className='trustpilot'>
-          <img src="/assets/star-trustpilot.svg" alt="trust"/> Trustpilot
+          <img src="/assets/star-trustpilot.svg" alt="trust"/> {t('stepThree.trustpilot')}
         </div>
       </div>
     </div>

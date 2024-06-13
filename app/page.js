@@ -15,6 +15,8 @@ import StepTwelve from './components/StepTwelve';
 import StepThirteen from './components/StepThirteen';
 import NotEligible from './components/NotEligible'
 import ProgressBar from './components/ProgressBar';
+import { I18nextProvider } from 'react-i18next';
+import i18n from './context/i18n';
 import './styles/form.css';
 
 const Home = () => {
@@ -71,6 +73,7 @@ const Home = () => {
   ];
 
   return (
+    <I18nextProvider i18n={i18n}>
     <div className="container">
       <img className="backgroundimg" src="/assets/backgroundimg.png" alt="Background" />
       <div className="formContainer">
@@ -81,6 +84,7 @@ const Home = () => {
         {showNotEligible ? <NotEligible prevStep={prevStep} /> : steps[step - 1]}
       </div>
     </div>
+    </I18nextProvider>
   );
 };
 
