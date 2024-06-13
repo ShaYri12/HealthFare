@@ -245,6 +245,10 @@
     font-size: 20px !important;
 }
 
+.card-suppliment:hover{
+    cursor: pointer;
+}
+
 .card .quantity-control {
     display: flex;
     align-items: center;

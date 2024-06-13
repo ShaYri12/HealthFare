@@ -12,10 +12,6 @@ const StepTen = ({ prevStep, nextStep, handleChange, values }) => {
       price: "$889.99",
       monthlyPrice: "$296",
       description: "Lose up to 25lbs",
-      features: [
-        "5mg/2ml Injection (Same as Ozempic & Wegovy)",
-        "Weekly application - total of 12 applications"
-      ],
       savings: "$1500" // example value for savings
     },
   ];
@@ -23,8 +19,8 @@ const StepTen = ({ prevStep, nextStep, handleChange, values }) => {
   return (
     <div className="formContainer step-form">
       <div className="title-info">
-        <h2>Stay Informed with SMS Notifications</h2>
-        <p>Would you like to receive SMS notifications about your program?</p>
+        <h2>Order Summary</h2>
+        <p>Review Your Treatment Plan and Included Services</p>
       </div>
       {cardsData.map((card, index) => (
         <div className='card' key={index}>
@@ -46,14 +42,6 @@ const StepTen = ({ prevStep, nextStep, handleChange, values }) => {
               </span>
               <p className='lose'>{card.description}</p>
             </div>
-          </div>
-          <div className='card-info'>
-            {card.features.map((feature, index) => (
-              <span key={index}>
-                <img src="/assets/checkmark.svg" alt="checkmark" />
-                <p>{feature}</p>
-              </span>
-            ))}
           </div>
         </div>
       ))}

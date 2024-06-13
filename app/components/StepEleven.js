@@ -12,10 +12,6 @@ const StepEleven = ({ prevStep, nextStep, handleChange, values }) => {
       price: "$889.99",
       monthlyPrice: "$296",
       description: "Lose up to 25lbs",
-      features: [
-        "5mg/2ml Injection (Same as Ozempic & Wegovy)",
-        "Weekly application - total of 12 applications"
-      ],
       savings: "$1500" // example value for savings
     },
   ];
@@ -48,14 +44,6 @@ const StepEleven = ({ prevStep, nextStep, handleChange, values }) => {
               </span>
               <p className="lose">{card.description}</p>
             </div>
-          </div>
-          <div className="card-info">
-            {card.features.map((feature, index) => (
-              <span key={index}>
-                <img src="/assets/checkmark.svg" alt="checkmark" />
-                <p>{feature}</p>
-              </span>
-            ))}
           </div>
         </div>
       ))}

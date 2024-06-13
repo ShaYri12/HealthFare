@@ -12,11 +12,6 @@ const StepThree = ({ prevStep, nextStep, handleChange, values }) => {
     console.log('Cart:', [...cart, item]); // Log the updated cart for debugging
   };
 
-  const removeFromCart = (title) => {
-    setCart(prevCart => prevCart.filter(item => item.title !== title));
-    console.log('Updated Cart:', cart.filter(item => item.title !== title)); // Log the updated cart for debugging
-  };
-
   const cardsData = [
     {
       imgSrc: "/assets/step3-product1.svg",
@@ -49,7 +44,6 @@ const StepThree = ({ prevStep, nextStep, handleChange, values }) => {
           key={index}
           {...card}
           addToCart={addToCart}
-          removeFromCart={removeFromCart}
           nextStep={nextStep}
         />
       ))}

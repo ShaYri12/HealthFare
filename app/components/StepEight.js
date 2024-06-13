@@ -39,7 +39,10 @@ const StepEight = ({ nextStep, prevStep, handleChange, values }) => {
     <div className="formContainer step-form">
       <div className="label-info">
         <h2>Health Conditions</h2>
-        <p>Please indicate if you are currently diagnosed with any of the following conditions. (select multiple)</p>
+        <p>
+          Please indicate if you are currently diagnosed with any of the
+          following conditions. (select multiple)
+        </p>
       </div>
       <form className="input-form">
         <div className="condition-select">
@@ -63,19 +66,31 @@ const StepEight = ({ nextStep, prevStep, handleChange, values }) => {
                 checked={selectedConditions.includes(condition.id)}
                 onChange={() => handleCheckboxChange(condition.id)}
               />
-              <label htmlFor={condition.id}> {condition.label} </label>
+              <label
+                onClick={() => {
+                  document.getElementById(condition.id).click();
+                }}
+                htmlFor={condition.id}
+              >
+                {" "}
+                {condition.label}{" "}
+              </label>
             </div>
           ))}
         </div>
       </form>
-      
-      <div className='btn-group btn-group-stepthree'>
-        <button className='back-btn back-btn-stepthree' onClick={prevStep}>
+
+      <div className="btn-group btn-group-stepthree">
+        <button className="back-btn back-btn-stepthree" onClick={prevStep}>
           <img src="/assets/arrow.svg" alt="arrow" /> Back
         </button>
-        <div className='forward-btns'>
-          <button className='long-btn long-btn-stepthree' onClick={nextStep}>Continue Your Journey</button>
-          <button className='arrow-btn arrow-btn-stepthree' onClick={nextStep}><img src="/assets/arrow.svg" alt=""/></button>
+        <div className="forward-btns">
+          <button className="long-btn long-btn-stepthree" onClick={nextStep}>
+            Continue Your Journey
+          </button>
+          <button className="arrow-btn arrow-btn-stepthree" onClick={nextStep}>
+            <img src="/assets/arrow.svg" alt="" />
+          </button>
         </div>
       </div>
 

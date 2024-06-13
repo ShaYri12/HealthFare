@@ -31,11 +31,10 @@
 
 .final-btn{
     gap: 5px !important;
-    padding-bottom: 80px;
 }
 
 .whatsapp-btn{
-    min-height: 61px !important;
+    height: 61px !important;
     font-weight: 400;
     font-size: 20px !important;
     line-height: 41.24px;
@@ -43,7 +42,17 @@
 
 @media screen and (max-width: 576px){
     .whatsapp-btn{
-        min-height: 61px !important;
+        height: auto !important;
+        font-weight: 400 !important;
+        font-size: 16px !important;
+        line-height: 32.99px;
+    }
+}
+
+@media screen and (max-width: 401px){
+    .whatsapp-btn{
+        min-height: fit-content !important;
+        height: auto;
         font-weight: 400 !important;
         font-size: 16px !important;
         line-height: 32.99px;
@@ -54,4 +63,117 @@
     width: 30px;
     height: 30px;
     transform: scaleX(1) !important;
+}
+
+.doctor{
+    height: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #124296;
+    color: #fff;
+    border-radius: 84px;
+    gap: 10px;
+    padding: 15px;
+    margin: 0 20px 80px 20px;
+}
+
+@media screen and (max-width: 576px) {
+    .doctor{
+        margin: 0 0 80px 0;
+    }
+}
+
+@media screen and (max-width: 422px) {
+    .doctor{
+        flex-direction: column;
+    }
+}
+
+.doctor .doctor-texts{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.doctor .doctor-texts h3{
+    font-weight: 600;
+    font-size: 20px !important;
+    line-height: 23.4px;
+    letter-spacing: 0.12px;
+    color: #fff;
+    padding-right: 18px !important;
+}
+
+@media screen and (max-width: 576px) {
+    .doctor .doctor-texts h3{
+        font-size: 16px !important;
+    }
+}
+
+
+.doctor img{
+    width: 100px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50px;
+}
+
+.doctor .doctor-texts p{
+    color: #d3d6df !important;
+    font-weight: 400 !important;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+@media screen and (max-width: 576px) {
+    .doctor .doctor-texts p{
+        font-size: 14px;
+    }
+}
+
+.doctor .doctor-texts span{
+    font-weight: 400 !important;
+    font-size: 16px;
+    line-height: 24px;
+    background-color: #38B64B;
+    border-radius: 84px;
+    padding: 0 8px;
+    width: fit-content;
+}
+
+@media screen and (max-width: 576px) {
+    .doctor .doctor-texts span{
+        font-size: 14px;
+    }
+}
+
+.doctor .popup{
+    position: absolute;
+    background-color: rgb(251, 34, 70);
+    color: #fff;
+    right: 0;
+    border-radius: 50%;
+    padding: 3px 9px;
+    top: 0;
+}
+
+
+@media screen and (max-width: 422px) {
+    .doctor .doctor-texts{
+        text-align: center;
+    }
+
+    .doctor .doctor-texts h3{
+        padding: 0 !important;
+    }
+
+    .doctor .doctor-texts span{
+        margin: 0 auto;
+    }
+
+    .doctor .popup{
+        top: 5%;
+        right: 2%;
+    }
 }

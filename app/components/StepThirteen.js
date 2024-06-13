@@ -26,6 +26,16 @@ const StepOne = ({ nextStep, handleChange, values }) => {
                 <button className='arrow-btn whatsapp-btn' onClick={nextStep}><img src="/assets/whatsapp.svg" alt=""/></button>
                 <button className='long-btn whatsapp-btn' onClick={nextStep}>Chat with Us on WhatsApp</button>
             </div>
+
+            <div className='doctor'>
+                <img src="/assets/doctor.jpg" alt="doctorImg" />
+                <span className='doctor-texts'>
+                    <h3>Need help? Chat with me</h3>
+                    <p>Customer Support</p>
+                    <span>I'm Online</span>
+                </span>
+                <span className='popup'>1</span>
+            </div>
         </div>
     );
 };
