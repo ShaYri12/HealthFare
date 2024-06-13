@@ -225,7 +225,11 @@ const resources = {
         totalCost: "TOTAL COST",
         totalCostAmount: "$1599.99",
         back: "Back",
-        proceedToPayment: "Proceed to Payment"
+        proceedToPayment: "Proceed to Payment",
+        features: {
+          feature1: "5mg/2ml Injection (Same as Ozempic & Wegovy)",
+          feature2: "Weekly application - total of 12 applications"
+        }
       },
       stepEleven: {
         title: "Semaglutide (3-Month Treatment Plan)",
@@ -485,7 +489,11 @@ const resources = {
         totalCost: "COSTO TOTAL",
         totalCostAmount: "1599,99 $",
         back: "Volver",
-        proceedToPayment: "Continuar al pago"
+        proceedToPayment: "Continuar al pago",
+        features: {
+          feature1: "Inyección de 5 mg / 2 ml (igual que Ozempic y Wegovy)",
+          feature2: "Aplicación semanal - total de 12 aplicaciones"
+        }
       },
       stepEleven: {
         title: "Semaglutida (Plan de Tratamiento de 3 meses)",
@@ -744,7 +752,11 @@ const resources = {
         totalCost: "CUSTO TOTAL",
         totalCostAmount: "1599,99 $",
         back: "Voltar",
-        proceedToPayment: "Prosseguir para o pagamento"
+        proceedToPayment: "Prosseguir para o pagamento",
+        features: {
+          feature1: "Injeção de 5 mg / 2 ml (mesmo que Ozempic e Wegovy)",
+          feature2: "Aplicação semanal - total de 12 aplicações"
+        }
       },
       stepEleven: {
         title: "Semaglutida (Plano de Tratamento de 3 meses)",
