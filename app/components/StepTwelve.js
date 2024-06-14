@@ -9,6 +9,8 @@ const StepTwelve = ({ nextStep, handleChange, values }) => {
   const [selectedDay, setSelectedDay] = useState('');
   const [selectedTime, setSelectedTime] = useState("12:45 PM");
 
+  const [showModal, setShowModal] = useState(false); // State to control modal visibility
+
   useEffect(() => {
     const today = new Date();
     const nextDay = new Date(today);
@@ -42,7 +44,16 @@ const StepTwelve = ({ nextStep, handleChange, values }) => {
 
   const handleTimeSelection = (time) => {
     setSelectedTime(time);
-    nextStep();
+    setShowModal(true); // Show modal when time is selected
+  };
+
+  const confirmAppointment = () => {
+    setShowModal(false); // Close modal
+    nextStep(); // Proceed to next step after confirmation
+  };
+
+  const closeModal = () => {
+    setShowModal(false); // Close modal without confirming
   };
 
   return (
@@ -72,6 +83,22 @@ const StepTwelve = ({ nextStep, handleChange, values }) => {
           </div>
         </div>
       </div>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <h3>Confirm Your Appointment</h3>
+            <p>{selectedDay} - {selectedTime}</p>
+            <div className='btn-group'>
+              <div className='forward-btns'>
+                <button className='cancel-btn' onClick={closeModal}>Cancel</button>
+                <button className='confirm-btn' onClick={confirmAppointment}>Confirm</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

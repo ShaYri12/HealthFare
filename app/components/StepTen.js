@@ -5,7 +5,9 @@ import '../styles/stepten.css';
 import '../styles/form.css';
 import Review from "./Review";
 
-const StepTen = ({ prevStep, nextStep, handleChange, values }) => {
+const StepTen = ({ prevStep, nextStep, handleChange, values, addSuppliment, cart }) => {
+
+  console.log("cart item", cart)
   const { t } = useTranslation();
 
   const cardsData = [
@@ -26,8 +28,7 @@ const StepTen = ({ prevStep, nextStep, handleChange, values }) => {
   return (
     <div className="formContainer step-form">
       <div className="title-info">
-        <h2>Stay Informed with SMS Notifications</h2>
-        <p>Would you like to receive SMS notifications about your program?</p>
+        <h2>Checkout</h2>
       </div>
       {cardsData.map((card, index) => (
         <div className='card' key={index}>
@@ -60,16 +61,45 @@ const StepTen = ({ prevStep, nextStep, handleChange, values }) => {
           </div>
         </div>
       ))}
-
-      <div className='additional-suppliments'>
+      
+      {cart.length == 0 ? (
+        <div className='additional-suppliments'>
+          <span>
+              <h3>{t('stepTen.additionalSupplements')}</h3>
+              <p>{t('stepTen.noSupplementsSelected')}</p>
+          </span>
+          <span>
+            <button>{t('stepTen.addSupplements')} <img src="/assets/arrowblue.svg" alt=""/></button>
+          </span>
+        </div>
+      ): (
+      <div className='additional-suppliments cart-added'>
         <span>
             <h3>{t('stepTen.additionalSupplements')}</h3>
-            <p>{t('stepTen.noSupplementsSelected')}</p>
         </span>
+        <div className='supplements-card all-added-supplements'>
+            {cart.map((item, index) => (
+              <div className='card'>
+                <div className='card-top'>
+                  <div className='card-img'>
+                    <img src={item.imgSrc} alt={item.title} />
+                  </div>
+                  <div className='card-title-price title-price-stepthree'>
+                    <h3>{item.title}</h3>
+                    <div className='price-desc'>
+                      <h3>{item.price}</h3>
+                      <p>{item.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         <span>
-          <button>{t('stepTen.addSupplements')} <img src="/assets/arrowblue.svg" alt=""/></button>
+          <button onClick={addSuppliment}>{t('stepTen.addSupplements')} <img src="/assets/arrowblue.svg" alt=""/></button>
         </span>
       </div>
+      )}
 
       <div className='included-card'>
         <h3>{t('stepTen.whatsIncluded')}</h3>

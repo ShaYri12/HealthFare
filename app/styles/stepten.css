@@ -50,6 +50,15 @@
     flex-direction: row;
 }
 
+.all-added-supplements{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.cart-added{
+    flex-direction: column;
+}
+
 .additional-suppliments span{
     display: flex;
     flex-direction: column;

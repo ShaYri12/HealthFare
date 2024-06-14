@@ -1,15 +1,8 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 
-const StepThreeCard = ({ imgSrc, title, price, desc, addToCart, nextStep }) => {
+const StepThreeCard = ({ imgSrc, title, price, desc, addToCart, originalStep, nextStep }) => {
   const [quantity, setQuantity] = useState(1);
-  const [inCart, setInCart] = useState(false);
-
-  useEffect(() => {
-    if (quantity === 0 && inCart) {
-      setInCart(false);
-    }
-  }, [quantity]);
 
   const handleAddToCart = () => {
     if (quantity > 0) {
@@ -17,13 +10,14 @@ const StepThreeCard = ({ imgSrc, title, price, desc, addToCart, nextStep }) => {
         imgSrc: imgSrc,
         title: title,
         price: price,
+        desc: desc,
         quantity: quantity,
       };
-      addToCart(item);
-      setInCart(true);
-      nextStep();
+      addToCart(item); // Notify parent component (StepThree) about the added item
+      nextStep(); // Proceed to the next step
     } else {
       console.log('Quantity should be greater than zero to add to cart.');
+      // Optionally, you could display an error message or alert the user.
     }
   };
 

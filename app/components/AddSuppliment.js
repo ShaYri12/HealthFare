@@ -1,11 +1,50 @@
 'use client';
 import '../styles/stepthree.css';
 import '../styles/form.css';
-import StepThreeCard from './StepThreeCard';
 import { useTranslation } from 'react-i18next'; // Import useTranslation hook
 import React, { useState } from 'react';
 
-const StepThree = ({ prevStep, nextStep, originalStep, handleChange, values, cartitem }) => {
+
+const StepThreeCard = ({ imgSrc, title, price, desc, addToCart, handleOrignalStep }) => {
+    const [quantity, setQuantity] = useState(1);
+  
+    const handleAddToCart = () => {
+      if (quantity > 0) {
+        const item = {
+          imgSrc: imgSrc,
+          title: title,
+          price: price,
+          desc: desc,
+          quantity: quantity,
+        };
+        addToCart(item); // Notify parent component (StepThree) about the added item
+        handleOrignalStep(); // Proceed to the next step
+      } else {
+        console.log('Quantity should be greater than zero to add to cart.');
+        // Optionally, you could display an error message or alert the user.
+      }
+    };
+  
+    return (
+      <div className='card card-suppliment' onClick={handleAddToCart}>
+        <div className='card-top'>
+          <div className='card-img'>
+            <img src={imgSrc} alt={title} />
+          </div>
+          <div className='card-title-price title-price-stepthree'>
+            <h3>{title}</h3>
+            <div className='price-desc'>
+              <h3>{price}</h3>
+              <p>{desc}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+
+const StepThree = ({handleOrignalStep, handleChange, values, cartitem }) => {
   const [cart, setCart] = useState([]);
   const { t } = useTranslation(); // Initialize useTranslation hook
 
@@ -47,16 +86,16 @@ const StepThree = ({ prevStep, nextStep, originalStep, handleChange, values, car
           key={index}
           {...card}
           addToCart={addToCart}
-          nextStep={nextStep}
+          handleOrignalStep={handleOrignalStep}
         />
       ))}
 
       <div className='btn-group btn-group-stepthree'>
-        <button className='back-btn back-btn-stepthree' onClick={prevStep}>
-          <img src="/assets/arrow.svg" alt="arrow" /> {t('stepThree.back')} {/* Translate Back button using t function */}
+        <button className='back-btn back-btn-stepthree' onClick={handleOrignalStep}>
+          <img src="/assets/arrow.svg" alt="arrow" /> {t('stepThree.back')}
         </button>
         <div className='forward-btns'>
-          <button className='long-btn long-btn-stepthree' onClick={nextStep}>{t('stepThree.skip')}</button> {/* Translate Skip button using t function */}
+          <button className='long-btn long-btn-stepthree' onClick={handleOrignalStep}>{t('stepFour.continueJourney')}</button> {/* Translate Skip button using t function */}
         </div>
       </div>
 

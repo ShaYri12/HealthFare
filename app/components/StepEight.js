@@ -11,11 +11,30 @@ const StepEight = ({ nextStep, prevStep, handleChange, values }) => {
   const [selectedConditions, setSelectedConditions] = useState([]);
 
   const handleCheckboxChange = (condition) => {
-    setSelectedConditions((prevSelectedConditions) =>
-      prevSelectedConditions.includes(condition)
-        ? prevSelectedConditions.filter((c) => c !== condition)
-        : [...prevSelectedConditions, condition]
-    );
+    if (condition === "none") {
+      setSelectedConditions(["none"]); // Select "none" only
+      nextStep()
+    } else {
+      if (selectedConditions.includes("none")) {
+        setSelectedConditions([condition]); // Replace "none" with the selected condition
+      } else {
+        setSelectedConditions((prevSelectedConditions) =>
+          prevSelectedConditions.includes(condition)
+            ? prevSelectedConditions.filter((c) => c !== condition)
+            : [...prevSelectedConditions, condition]
+        );
+      }
+    }
+  };
+
+  const handleNextStep = () => {
+    if (selectedConditions.includes("none")) {
+      nextStep(); // Directly proceed to next step
+    } else {
+      // Handle other conditions or proceed normally
+      // Add additional logic if needed before proceeding
+      nextStep();
+    }
   };
 
   const conditions = [
@@ -85,10 +104,10 @@ const StepEight = ({ nextStep, prevStep, handleChange, values }) => {
           <img src="/assets/arrow.svg" alt="arrow" /> {t('stepEight.back')}
         </button>
         <div className="forward-btns">
-          <button className="long-btn long-btn-stepthree" onClick={nextStep}>
+          <button className="long-btn long-btn-stepthree" onClick={handleNextStep}>
             {t('stepEight.continueJourney')}
           </button>
-          <button className="arrow-btn arrow-btn-stepthree" onClick={nextStep}>
+          <button className="arrow-btn arrow-btn-stepthree" onClick={handleNextStep}>
             <img src="/assets/arrow.svg" alt="" />
           </button>
         </div>

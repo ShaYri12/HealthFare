@@ -15,6 +15,7 @@ import StepTwelve from './components/StepTwelve';
 import StepThirteen from './components/StepThirteen';
 import NotEligible from './components/NotEligible'
 import ProgressBar from './components/ProgressBar';
+import AddSuppliment from './components/AddSuppliment'
 import { I18nextProvider } from 'react-i18next';
 import i18n from './context/i18n';
 import './styles/form.css';
@@ -38,6 +39,13 @@ const Home = () => {
   });
 
   const [showNotEligible, setShowNotEligible] = useState(false);
+  const [showAddSuppliment, setShowAddSuppliment] = useState(false);
+  const [cart, setCart] = useState([]);
+
+  const cartitem = (item) => {
+    setCart(prevCart => [...prevCart, item]);
+  };
+
 
   const nextStep = () => {
     setStep(step + 1);
@@ -56,17 +64,26 @@ const Home = () => {
     setShowNotEligible(true); 
   };
 
+  const handleAddSuppliment = () => {
+    setShowAddSuppliment(true); 
+  };
+
+  const handleOrignalStep = () => {
+    setStep(10); 
+    setShowAddSuppliment(false); 
+  };
+
   const steps = [
     <StepOne nextStep={nextStep} handleChange={handleChange} values={formValues} />,
     <StepTwo nextStep={nextStep} prevStep={prevStep} handleChange={handleChange} values={formValues} />,
-    <StepThree prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} />,
+    <StepThree prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} cartitem={cartitem} />,
     <StepFour prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} />,
     <StepFive prevStep={prevStep} handleNotEligible={handleNotEligible} nextStep={nextStep} handleChange={handleChange} values={formValues} />,
     <StepSix prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} />,
     <StepSeven prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} />,
     <StepEight prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} />,
     <StepNine prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} />,
-    <StepTen prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} />,
+    <StepTen prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} cart={cart} addSuppliment={handleAddSuppliment}/>,
     <StepEleven prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} />,
     <StepTwelve prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} />,
     <StepThirteen prevStep={prevStep} handleSubmit={handleSubmit} handleChange={handleChange} values={formValues} />,
@@ -81,7 +98,7 @@ const Home = () => {
         <div className="logo">
           <img src="/assets/logo.webp" alt="Logo" />
         </div>
-        {showNotEligible ? <NotEligible prevStep={prevStep} /> : steps[step - 1]}
+        {showAddSuppliment ? <AddSuppliment handleOrignalStep={handleOrignalStep} cartitem={cartitem}/> : showNotEligible ? <NotEligible prevStep={prevStep} /> : steps[step - 1]}
       </div>
     </div>
     </I18nextProvider>
