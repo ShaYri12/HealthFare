@@ -88,7 +88,7 @@ const StepTwelve = ({ nextStep, handleChange, values }) => {
       {showModal && (
         <div className="modal">
           <div className="modal-content">
-            <h3>{t('stepTwelve.confirmAppointment')}Confirm Your Appointment</h3>
+            <h3>{t('stepTwelve.confirmAppointment')}</h3>
             <p>{selectedDay} - {selectedTime}</p>
             <div className='btn-group'>
               <div className='forward-btns'>
