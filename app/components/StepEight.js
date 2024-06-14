@@ -9,32 +9,41 @@ const StepEight = ({ nextStep, prevStep, handleChange, values }) => {
   const { t } = useTranslation();
 
   const [selectedConditions, setSelectedConditions] = useState([]);
+  const [formData, setFormData] = useState({ selectedConditions: [] });
 
   const handleCheckboxChange = (condition) => {
     if (condition === "none") {
       setSelectedConditions(["none"]); // Select "none" only
-      nextStep()
+      setFormData({ ...formData, selectedConditions: ["none"] });
+      nextStep();
     } else {
+      let updatedConditions;
       if (selectedConditions.includes("none")) {
-        setSelectedConditions([condition]); // Replace "none" with the selected condition
+        updatedConditions = [condition]; // Replace "none" with the selected condition
       } else {
-        setSelectedConditions((prevSelectedConditions) =>
-          prevSelectedConditions.includes(condition)
-            ? prevSelectedConditions.filter((c) => c !== condition)
-            : [...prevSelectedConditions, condition]
-        );
+        updatedConditions = selectedConditions.includes(condition)
+          ? selectedConditions.filter((c) => c !== condition)
+          : [...selectedConditions, condition];
       }
+      setSelectedConditions(updatedConditions);
+      setFormData({ ...formData, selectedConditions: updatedConditions });
     }
   };
 
-  const handleNextStep = () => {
-    if (selectedConditions.includes("none")) {
-      nextStep(); // Directly proceed to next step
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (selectedConditions.length === 0) {
+      alert("You have not selected any thing")
     } else {
-      // Handle other conditions or proceed normally
-      // Add additional logic if needed before proceeding
+      // Save form values or perform any necessary actions
+      console.log("Form data:", formData);
       nextStep();
     }
+  };
+
+  const handleNextStep = (event) => {
+    event.preventDefault();
+    handleSubmit(event);
   };
 
   const conditions = [
@@ -63,55 +72,55 @@ const StepEight = ({ nextStep, prevStep, handleChange, values }) => {
         <h2>{t('stepEight.title')}</h2>
         <p>{t('stepEight.description')}</p>
       </div>
-      <form className="input-form">
-        <div className="condition-select">
-          {conditions.map((condition) => (
-            <div
-              className="condition-option"
-              key={condition.id}
-              onClick={() => {
-                document.getElementById(condition.id).click();
-              }}
-              style={{
-                border: selectedConditions.includes(condition.id)
-                  ? "1px solid black"
-                  : "",
-              }}
-            >
-              <input
-                type="checkbox"
-                id={condition.id}
-                name="condition"
-                checked={selectedConditions.includes(condition.id)}
-                onChange={() => handleCheckboxChange(condition.id)}
-              />
-              <label
+      <form onSubmit={handleSubmit}>
+        <div className="input-form">
+          <div className="condition-select">
+            {conditions.map((condition) => (
+              <div
+                className="condition-option"
+                key={condition.id}
                 onClick={() => {
                   document.getElementById(condition.id).click();
                 }}
-                htmlFor={condition.id}
+                style={{
+                  border: selectedConditions.includes(condition.id)
+                    ? "1px solid black"
+                    : "",
+                }}
               >
-                {" "}
-                {t(`stepEight.${condition.labelKey}`)}{" "}
-              </label>
-            </div>
-          ))}
+                <input
+                  type="checkbox"
+                  id={condition.id}
+                  name="condition"
+                  checked={selectedConditions.includes(condition.id)}
+                  onChange={() => handleCheckboxChange(condition.id)}
+                />
+                <label
+                  onClick={() => {
+                    document.getElementById(condition.id).click();
+                  }} 
+                >
+                  {t(`stepEight.${condition.labelKey}`)}
+                </label>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="btn-group btn-group-stepthree">
+          <button type="button" className="back-btn back-btn-stepthree" onClick={prevStep}>
+            <img src="/assets/arrow.svg" alt="arrow" /> {t('stepEight.back')}
+          </button>
+          <div className="forward-btns">
+            <button type="submit" className="long-btn long-btn-stepthree">
+              {t('stepEight.continueJourney')}
+            </button>
+            <button type="button" className="arrow-btn arrow-btn-stepthree" onClick={handleNextStep}>
+              <img src="/assets/arrow.svg" alt="" />
+            </button>
+          </div>
         </div>
       </form>
-
-      <div className="btn-group btn-group-stepthree">
-        <button className="back-btn back-btn-stepthree" onClick={prevStep}>
-          <img src="/assets/arrow.svg" alt="arrow" /> {t('stepEight.back')}
-        </button>
-        <div className="forward-btns">
-          <button className="long-btn long-btn-stepthree" onClick={handleNextStep}>
-            {t('stepEight.continueJourney')}
-          </button>
-          <button className="arrow-btn arrow-btn-stepthree" onClick={handleNextStep}>
-            <img src="/assets/arrow.svg" alt="" />
-          </button>
-        </div>
-      </div>
 
       <Review />
     </div>

@@ -199,7 +199,7 @@
 
 
 .forward-btns{
-    display: flex;
+    display: flex !important;
     gap: 5px !important;
     width: 100%;
 }
@@ -286,7 +286,7 @@
     font-size: 16px;
     border-top: 1px solid black !important;
     border-bottom: 1px solid black !important;
-    padding: 14px;
+    padding: 10px;
     gap: 10px;
     flex-grow: 1;
     align-items: center;

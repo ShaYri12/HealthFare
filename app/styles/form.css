@@ -118,6 +118,10 @@
   }
 
 }
+
+.input-form{
+  padding-bottom: 20px !important;
+}
   
   input {
     margin: 10px 0;

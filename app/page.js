@@ -21,7 +21,7 @@ import i18n from './context/i18n';
 import './styles/form.css';
 
 const Home = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(10);
   const [formValues, setFormValues] = useState({
     stepOne: '',
     stepTwo: '',

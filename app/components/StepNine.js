@@ -10,11 +10,23 @@ const StepNine = ({ nextStep, prevStep }) => {
   const { t } = useTranslation();
 
   const [selectedCondition, setSelectedCondition] = useState(null);
+  const [formData, setFormData] = useState({ selectedCondition: null });
 
   const handleCheckboxChange = (conditionId) => {
-    setSelectedCondition((prevSelectedCondition) =>
-      prevSelectedCondition === conditionId ? null : conditionId
-    );
+    const newSelectedCondition = selectedCondition === conditionId ? null : conditionId;
+    setSelectedCondition(newSelectedCondition);
+    setFormData({ selectedCondition: newSelectedCondition });
+    nextStep();
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (selectedCondition === null) {
+      alert("You have not selected any thing")
+    } else {
+      console.log("Form data:", formData);
+      nextStep();
+    }
   };
 
   const conditions = [
@@ -28,42 +40,43 @@ const StepNine = ({ nextStep, prevStep }) => {
         <h2>{t('stepNine.title')}</h2>
         <p>{t('stepNine.description')}</p>
       </div>
-      <form className="input-form">
-        <div className="condition-select">
-          {conditions.map((condition) => (
-            <div
-              className="condition-option"
-              key={condition.id}
-              onClick={() => {
-                document.getElementById(condition.id).click();
-                nextStep();
-              }}
-              style={{
-                border: selectedCondition === condition.id ? "1px solid black" : "",
-              }}
-            >
-              <input
-                type="radio"
-                id={condition.id}
-                name="condition"
-                checked={selectedCondition === condition.id}
-                onChange={() => handleCheckboxChange(condition.id)}
-              />
-              <label htmlFor={condition.id}> {condition.label} </label>
-            </div>
-          ))}
+      <form onSubmit={handleSubmit}>
+        <div className="input-form">
+          <div className="condition-select">
+            {conditions.map((condition) => (
+              <div
+                className="condition-option"
+                key={condition.id}
+                onClick={() => {
+                  document.getElementById(condition.id).click();
+                }}
+                style={{
+                  border: selectedCondition === condition.id ? "1px solid black" : "",
+                }}
+              >
+                <input
+                  type="radio"
+                  id={condition.id}
+                  name="condition"
+                  checked={selectedCondition === condition.id}
+                  onChange={() => handleCheckboxChange(condition.id)}
+                />
+                <label htmlFor={condition.id}> {condition.label} </label>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <div className='btn-group btn-group-stepthree'>
+          <button type="button" className='back-btn back-btn-stepthree' onClick={prevStep}>
+            <img src="/assets/arrow.svg" alt="arrow" /> {t('stepNine.back')}
+          </button>
+          <div className='forward-btns'>
+            <button type="submit" className='long-btn long-btn-stepthree'>{t('stepNine.continueJourney')}</button>
+            <button type="button" className='arrow-btn arrow-btn-stepthree' onClick={handleSubmit}><img src="/assets/arrow.svg" alt=""/></button>
+          </div>
         </div>
       </form>
-      
-      <div className='btn-group btn-group-stepthree'>
-        <button className='back-btn back-btn-stepthree' onClick={prevStep}>
-          <img src="/assets/arrow.svg" alt="arrow" /> Back
-        </button>
-        <div className='forward-btns'>
-          <button className='long-btn long-btn-stepthree' onClick={nextStep}>{t('stepNine.continueJourney')}</button>
-          <button className='arrow-btn arrow-btn-stepthree' onClick={nextStep}><img src="/assets/arrow.svg" alt=""/></button>
-        </div>
-      </div>
 
       <Review />
     </div>

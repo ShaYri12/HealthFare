@@ -111,6 +111,9 @@ const StepTen = ({ prevStep, nextStep, handleChange, values, addSuppliment, cart
                     </div>
                   </div>
                 </div>
+                <span className='popup'>
+                  {item.quantity}
+                </span>
               </div>
             ))}
           </div>

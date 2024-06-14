@@ -56,6 +56,22 @@
     gap: 20px;
 }
 
+.card{
+    position: relative;
+}
+
+.card .popup{
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    background-color: #38B64B;
+    width: auto;
+    padding: 4px 9px;
+    color: #fff;
+    border-radius: 50%;
+}
+
+
 .cart-added{
     flex-direction: column;
 }

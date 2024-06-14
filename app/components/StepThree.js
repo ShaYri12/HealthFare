@@ -1,18 +1,32 @@
 'use client';
-import '../styles/stepthree.css';
-import '../styles/form.css';
-import StepThreeCard from './StepThreeCard';
-import { useTranslation } from 'react-i18next'; // Import useTranslation hook
 import React, { useState } from 'react';
+import StepThreeCard from './StepThreeCard';
+import '../styles/stepthree.css'
+import { useTranslation } from 'react-i18next'; // Import useTranslation hook
 
-const StepThree = ({ prevStep, nextStep, originalStep, handleChange, values, cartitem }) => {
+const StepThree = ({ prevStep, nextStep, handleChange, values, cartitem  }) => {
   const [cart, setCart] = useState([]);
   const { t } = useTranslation(); // Initialize useTranslation hook
 
   const addToCart = (item) => {
-    setCart(prevCart => [...prevCart, item]);
-    cartitem(item)
-    console.log('Cart:', [...cart, item]); // Log the updated cart for debugging
+    // Check if the item is already in the cart
+    const existingItem = cart.find(cartItem => cartItem.title === item.title);
+    if (existingItem) {
+      // Update quantity of existing item in cart
+      const updatedCart = cart.map(cartItem =>
+        cartItem.title === item.title ? { ...cartItem, quantity: cartItem.quantity + item.quantity } : cartItem
+      );
+      setCart(updatedCart);
+      cartitem(updatedCart)
+    } else {
+      // Add new item to cart
+      setCart([...cart, item]);
+      cartitem(item)
+    }
+  };
+
+  const resetCart = () => {
+    setCart([]);
   };
 
   const cardsData = [
@@ -47,7 +61,10 @@ const StepThree = ({ prevStep, nextStep, originalStep, handleChange, values, car
           key={index}
           {...card}
           addToCart={addToCart}
-          nextStep={nextStep}
+          nextStep={nextStep} // Ensure you have nextStep defined in your actual code
+          quantityInCart={cart.find(item => item.title === card.title)?.quantity || 0}
+          cart={cart} // Pass cart and setCart down to StepThreeCard
+          setCart={setCart}
         />
       ))}
 

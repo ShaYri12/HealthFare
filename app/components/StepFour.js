@@ -1,12 +1,38 @@
 'use client';
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next'; // Import useTranslation hook
+import { useTranslation } from 'react-i18next';
 import '../styles/stepfour.css';
 import '../styles/form.css';
 import Testimonial from './Testimonial';
 
 const StepFour = ({ nextStep, prevStep, handleChange, values }) => {
-  const { t } = useTranslation(); // Initialize useTranslation hook
+  const { t } = useTranslation();
+  const [formData, setFormData] = useState({
+    pounds: values.pounds || '',
+    feet: values.feet || '',
+    inches: values.inches || '',
+  });
+
+  const handleInputChange = (field) => (e) => {
+    const value = e.target.value;
+    setFormData({
+      ...formData,
+      [field]: value,
+    });
+    handleChange(field)(e); // Call the provided handleChange function to update values
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const { pounds, feet, inches } = formData;
+
+    if (pounds && feet && inches) {
+      console.log('Form data:', formData);
+      nextStep();
+    } else {
+      alert("All fields are required");
+    }
+  };
 
   return (
     <div className="formContainer step-form">
@@ -14,57 +40,61 @@ const StepFour = ({ nextStep, prevStep, handleChange, values }) => {
         <h2>{t('stepFour.calculateBMI')}</h2>
         <p>{t('stepFour.calculateBMIDescription')}</p>
       </div>
-      <div className="pounds">
-        <p>{t('stepFour.pounds')}</p>
-        <input
-          type="number"
-          placeholder={t('stepFour.poundsPlaceholder')}
-        />
-      </div>
-      <div className='feet-inches'>
-        <div className="feet-option">
-          <p>{t('stepFour.feet')}</p>
-          <select onChange={handleChange("feet")} value={values.feet}>
-            <option value="">{t('stepFour.feetPlaceholder')}</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-          </select>
+      <form onSubmit={handleSubmit} className='input-form'>
+        <div className="pounds">
+          <p>{t('stepFour.pounds')}</p>
+          <input
+            type="number"
+            placeholder={t('stepFour.poundsPlaceholder')}
+            value={formData.pounds}
+            onChange={handleInputChange('pounds')}
+            required
+          />
         </div>
-        <div className="inches-option">
-          <p>{t('stepFour.inches')}</p>
-          <select onChange={handleChange("inches")} value={values.inches}>
-            <option value="">{t('stepFour.inchesPlaceholder')}</option>
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-          </select>
+        <div className='feet-inches'>
+          <div className="feet-option">
+            <p>{t('stepFour.feet')}</p>
+            <select onChange={handleInputChange("feet")} value={formData.feet}>
+              <option value="">{t('stepFour.feetPlaceholder')}</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+            </select>
+          </div>
+          <div className="inches-option">
+            <p>{t('stepFour.inches')}</p>
+            <select onChange={handleInputChange("inches")} value={formData.inches}>
+              <option value="">{t('stepFour.inchesPlaceholder')}</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+            </select>
+          </div>
         </div>
-      </div>
-      <div className='btn-group btn-group-stepthree'>
-        <button className='back-btn back-btn-stepthree' onClick={prevStep}>
-          <img src="/assets/arrow.svg" alt="arrow" /> {t('stepFour.back')}
-        </button>
-        <div className='forward-btns'>
-          <button className='long-btn long-btn-stepthree' onClick={nextStep}>{t('stepFour.continueJourney')}</button>
-          <button className='arrow-btn arrow-btn-stepthree' onClick={nextStep}><img src="/assets/arrow.svg" alt=""/></button>
+        <div className='btn-group btn-group-stepthree'>
+          <button type="button" className='back-btn back-btn-stepthree' onClick={prevStep}>
+            <img src="/assets/arrow.svg" alt="arrow" /> {t('stepFour.back')}
+          </button>
+          <div className='forward-btns'>
+            <button type='submit' className='long-btn long-btn-stepthree'>{t('stepFour.continueJourney')}</button>
+            <button type="submit" className='arrow-btn arrow-btn-stepthree' onClick={handleSubmit}><img src="/assets/arrow.svg" alt=""/></button>
+          </div>
         </div>
-      </div>
-
+      </form>
       <Testimonial/>
     </div>
   );
