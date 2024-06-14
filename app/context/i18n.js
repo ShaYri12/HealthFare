@@ -78,7 +78,9 @@ const resources = {
           description: "Support digestive health and eliminate toxins with our gentle and effective detox cleanse supplement."
         },
         back: "Back",
-        skip: "Skip"
+        skip: "Skip",
+        addToCart: "Add to cart",
+        inCart: "In cart"
       },
       stepFour: {
         calculateBMI: "Calculate your Body Mass Index (BMI)",
@@ -350,7 +352,9 @@ const resources = {
           description: "Apoye la salud digestiva y elimine toxinas con nuestro suave y efectivo suplemento de limpieza detox."
         },
         back: "Volver",
-        skip: "Omitir"
+        skip: "Omitir",
+        addToCart: "Añadir a la cesta",
+        inCart: "En el carrito"
       },
       stepFour: {
         calculateBMI: "Calcule su Índice de Masa Corporal (IMC)",
@@ -621,7 +625,9 @@ const resources = {
           description: "Apoie a saúde digestiva e elimine toxinas com nosso suave e eficaz suplemento de limpeza detox."
         },
         back: "Voltar",
-        skip: "Pular"
+        skip: "Pular",
+        addToCart: "Adicionar ao carrinho",
+        inCart: "No carrinho"
       },
       stepFour: {
         calculateBMI: "Calcule seu Índice de Massa Corporal (IMC)",

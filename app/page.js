@@ -102,7 +102,7 @@ const Home = () => {
         <div className="logo">
           <img src="/assets/logo.webp" alt="Logo" />
         </div>
-        {showAddSuppliment ? <AddSuppliment handleOrignalStep={handleOrignalStep} cartitem={cartitem}/> : showNotEligible ? <NotEligible prevStep={prevStep} /> : steps[step - 1]}
+        {showAddSuppliment ? <AddSuppliment handleOrignalStep={handleOrignalStep} cartitem={cartitem} cart2={cart} setCart2={setCart}/> : showNotEligible ? <NotEligible prevStep={prevStep} /> : steps[step - 1]}
       </div>
     </div>
     </I18nextProvider>
