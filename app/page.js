@@ -87,7 +87,7 @@ const Home = () => {
     <StepSeven prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} />,
     <StepEight prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} />,
     <StepNine prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} />,
-    <StepTen prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} cart={cart} cart2={cart2} addSuppliment={handleAddSuppliment}/>,
+    <StepTen prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} cart={cart} cart2={cart2} setCart={setCart} addSuppliment={handleAddSuppliment} />,
     <StepEleven prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} />,
     <StepTwelve prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} />,
     <StepThirteen prevStep={prevStep} handleSubmit={handleSubmit} handleChange={handleChange} values={formValues} />,
@@ -102,7 +102,7 @@ const Home = () => {
         <div className="logo">
           <img src="/assets/logo.webp" alt="Logo" />
         </div>
-        {showAddSuppliment ? <AddSuppliment handleOrignalStep={handleOrignalStep} cartitem={cartitem} cart2={cart} setCart2={setCart}/> : showNotEligible ? <NotEligible prevStep={prevStep} /> : steps[step - 1]}
+        {showAddSuppliment ? <AddSuppliment handleOrignalStep={handleOrignalStep} cartitem={cartitem}/> : showNotEligible ? <NotEligible prevStep={prevStep} /> : steps[step - 1]}
       </div>
     </div>
     </I18nextProvider>

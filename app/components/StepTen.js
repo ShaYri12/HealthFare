@@ -1,15 +1,46 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import '../styles/stepten.css';
 import '../styles/form.css';
 import Review from "./Review";
 
-const StepTen = ({ prevStep, nextStep, handleChange, values, addSuppliment, cart, cart2 }) => {
-
-  console.log("cart item 1", cart)
-  console.log("cart item 2", cart2)
+const StepTen = ({ prevStep, nextStep, handleChange, values, addSuppliment, cart, setCart, cart2 }) => {
   const { t } = useTranslation();
+
+  // Initialize quantities state for items in the cart
+  const [quantities, setQuantities] = useState(cart.map(item => item.quantity || 1));
+
+  // Handlers for increasing and decreasing quantity
+  const increaseQuantity = (index) => {
+    const newQuantities = [...quantities];
+    newQuantities[index] += 1;
+    setQuantities(newQuantities);
+    const newCart = [...cart];
+    newCart[index].quantity = newQuantities[index];
+    setCart(newCart);
+  };
+
+  const decreaseQuantity = (index) => {
+    if (quantities[index] > 1) {
+      const newQuantities = [...quantities];
+      newQuantities[index] -= 1;
+      setQuantities(newQuantities);
+      const newCart = [...cart];
+      newCart[index].quantity = newQuantities[index];
+      setCart(newCart);
+    }
+  };
+
+  // Function to remove a supplement from the cart
+  const removeSupplement = (index) => {
+    const newCart = [...cart];
+    newCart.splice(index, 1);
+    setCart(newCart);
+    const newQuantities = [...quantities];
+    newQuantities.splice(index, 1);
+    setQuantities(newQuantities);
+  };
 
   // Function to calculate total cost from cart and cart2
   const calculateTotalCost = () => {
@@ -81,7 +112,7 @@ const StepTen = ({ prevStep, nextStep, handleChange, values, addSuppliment, cart
         </div>
       ))}
       
-      {cart.length == 0 ? (
+      {cart.length === 0 ? (
         <div className='additional-suppliments'>
           <span>
               <h3>{t('stepTen.additionalSupplements')}</h3>
@@ -91,14 +122,18 @@ const StepTen = ({ prevStep, nextStep, handleChange, values, addSuppliment, cart
             <button className='add-suppliment' onClick={addSuppliment}>{t('stepTen.addSupplements')} <img src="/assets/arrowblue.svg" alt=""/></button>
           </span>
         </div>
-      ): (
-      <div className='additional-suppliments cart-added'>
-        <span>
-            <h3>{t('stepTen.additionalSupplements')}</h3>
-        </span>
-        <div className='supplements-card all-added-supplements'>
+      ) : (
+        <div className='additional-suppliments cart-added'>
+          <span>
+              <h3>{t('stepTen.additionalSupplements')}</h3>
+          </span>
+          <div className='supplements-card all-added-supplements'>
             {cart.map((item, index) => (
-              <div className='card'>
+              <div className='card' key={index}>
+                <span className='remove-suppliment' onClick={() => removeSupplement(index)}>
+                  <svg width="20px" height="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10.5859 12L2.79297 4.20706L4.20718 2.79285L12.0001 10.5857L19.793 2.79285L21.2072 4.20706L13.4143 12L21.2072 19.7928L19.793 21.2071L12.0001 13.4142L4.20718 21.2071L2.79297 19.7928L10.5859 12Z"></path></svg>
+                </span>
+
                 <div className='card-top'>
                   <div className='card-img'>
                     <img src={item.imgSrc} alt={item.title} />
@@ -109,18 +144,22 @@ const StepTen = ({ prevStep, nextStep, handleChange, values, addSuppliment, cart
                       <h3>{item.price}</h3>
                       <p>{item.desc}</p>
                     </div>
+                    <div className="btn-group btn-group-stepthree quantity">
+                      <div className='quantity-control'>
+                          <button className='quantity-btn quantity-increase' onClick={() => decreaseQuantity(index)}>-</button>
+                          <span>{quantities[index]}</span>
+                          <button className='quantity-btn quantity-dicrease' onClick={() => increaseQuantity(index)}>+</button>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <span className='popup'>
-                  {item.quantity}
-                </span>
               </div>
             ))}
           </div>
-        <span>
-          <button className='add-suppliment' onClick={addSuppliment}>{t('stepTen.addSupplements')} <img src="/assets/arrowblue.svg" alt=""/></button>
-        </span>
-      </div>
+          <span>
+            <button className='add-suppliment' onClick={addSuppliment}>{t('stepTen.addSupplements')} <img src="/assets/arrowblue.svg" alt=""/></button>
+          </span>
+        </div>
       )}
 
       <div className='included-card'>
@@ -152,32 +191,32 @@ const StepTen = ({ prevStep, nextStep, handleChange, values, addSuppliment, cart
       </div>
 
       <div className='total-cost'>
-      <h3>{t('stepTen.totalCost')}</h3>
-      <h2>{calculateTotalCost()}</h2>
-    </div>
-
-    <div className='btn-group btn-group-stepthree'>
-      <button className='back-btn back-btn-stepthree' onClick={prevStep}>
-        <img src="/assets/arrow.svg" alt="arrow" /> {t('stepTen.back')}
-      </button>
-      <div className='forward-btns'>
-        <button className='long-btn long-btn-stepthree' onClick={nextStep}><img src="/assets/secure.svg" alt=""/> {t('stepTen.proceedToPayment')} </button>
-        <button className='arrow-btn arrow-btn-stepthree' onClick={nextStep}><img src="/assets/arrow.svg" alt=""/></button>
+        <h3>{t('stepTen.totalCost')}</h3>
+        <h2>{calculateTotalCost()}</h2>
       </div>
-    </div>
 
-    <div className='pay-img'>
-      <img src="/assets/pay1.svg" alt=""/>
-      <img src="/assets/pay2.svg" alt=""/>
-      <img src="/assets/pay3.svg" alt=""/>
-      <img src="/assets/pay4.svg" alt=""/>
-      <img src="/assets/pay5.svg" alt=""/>
-      <img src="/assets/pay6.svg" alt=""/>
-    </div>
+      <div className='btn-group btn-group-stepthree'>
+        <button className='back-btn back-btn-stepthree' onClick={prevStep}>
+          <img src="/assets/arrow.svg" alt="arrow" /> {t('stepTen.back')}
+        </button>
+        <div className='forward-btns'>
+          <button className='long-btn long-btn-stepthree' onClick={nextStep}><img src="/assets/secure.svg" alt=""/> {t('stepTen.proceedToPayment')} </button>
+          <button className='arrow-btn arrow-btn-stepthree' onClick={nextStep}><img src="/assets/arrow.svg" alt=""/></button>
+        </div>
+      </div>
 
-    <Review/>
-  </div>
-);
+      <div className='pay-img'>
+        <img src="/assets/pay1.svg" alt=""/>
+        <img src="/assets/pay2.svg" alt=""/>
+        <img src="/assets/pay3.svg" alt=""/>
+        <img src="/assets/pay4.svg" alt=""/>
+        <img src="/assets/pay5.svg" alt=""/>
+        <img src="/assets/pay6.svg" alt=""/>
+      </div>
+
+      <Review/>
+    </div>
+  );
 };
 
 export default StepTen;
