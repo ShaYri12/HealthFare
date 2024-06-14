@@ -55,8 +55,13 @@
     flex-direction: column;
     gap: 20px;
 }
+
 .cart-added{
     flex-direction: column;
+}
+
+.add-suppliment{
+    cursor: pointer;
 }
 
 .additional-suppliments span{

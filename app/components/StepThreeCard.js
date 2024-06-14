@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 
-const StepThreeCard = ({ imgSrc, title, price, desc, addToCart, originalStep, nextStep }) => {
+const StepThreeCard = ({ imgSrc, title, price, desc, addToCart, nextStep }) => {
   const [quantity, setQuantity] = useState(1);
 
   const handleAddToCart = () => {

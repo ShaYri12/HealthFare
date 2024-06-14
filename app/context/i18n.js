@@ -253,7 +253,10 @@ const resources = {
       },
       stepTwelve: {
           title: "Schedule Your Appointment",
-          chooseTime: "Choose a Time to Consult with Our Licensed Provider"
+          chooseTime: "Choose a Time to Consult with Our Licensed Provider",
+          confirmAppointment: 'Confirm Your Appointment',
+          cancel: 'Cancel',
+          confirm: 'Confirm'
       },
       stepThirteen: {
         title: "Appointment Confirmed!",
@@ -522,7 +525,10 @@ const resources = {
       },
       stepTwelve: {
         title: "Programa tu cita",
-        chooseTime: "Elige una hora para consultar con nuestro proveedor con licencia"
+        chooseTime: "Elige una hora para consultar con nuestro proveedor con licencia",
+        confirmAppointment: 'Confirma tu Cita',
+        cancel: 'Cancelar',
+        confirm: 'Confirmar'
       },
       stepThirteen: {
         title: "¡Cita Confirmada!",
@@ -790,7 +796,10 @@ const resources = {
       },
       stepTwelve: {
         title: "Agende sua consulta",
-        chooseTime: "Escolha um horário para consultar com nosso provedor licenciado"
+        chooseTime: "Escolha um horário para consultar com nosso provedor licenciado",
+        confirmAppointment: 'Confirme seu Agendamento',
+        cancel: 'Cancelar',
+        confirm: 'Confirmar'
       },
       stepThirteen: {
         title: "Consulta Confirmada!",

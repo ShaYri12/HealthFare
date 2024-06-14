@@ -41,9 +41,13 @@ const Home = () => {
   const [showNotEligible, setShowNotEligible] = useState(false);
   const [showAddSuppliment, setShowAddSuppliment] = useState(false);
   const [cart, setCart] = useState([]);
+  const [cart2, setCart2] = useState([]);
 
   const cartitem = (item) => {
     setCart(prevCart => [...prevCart, item]);
+  };
+  const cartitem2 = (item) => {
+    setCart2(prevCart2 => [...prevCart2, item]);
   };
 
 
@@ -75,7 +79,7 @@ const Home = () => {
 
   const steps = [
     <StepOne nextStep={nextStep} handleChange={handleChange} values={formValues} />,
-    <StepTwo nextStep={nextStep} prevStep={prevStep} handleChange={handleChange} values={formValues} />,
+    <StepTwo nextStep={nextStep} prevStep={prevStep} handleChange={handleChange} values={formValues} cartitem2={cartitem2} />,
     <StepThree prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} cartitem={cartitem} />,
     <StepFour prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} />,
     <StepFive prevStep={prevStep} handleNotEligible={handleNotEligible} nextStep={nextStep} handleChange={handleChange} values={formValues} />,
@@ -83,7 +87,7 @@ const Home = () => {
     <StepSeven prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} />,
     <StepEight prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} />,
     <StepNine prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} />,
-    <StepTen prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} cart={cart} addSuppliment={handleAddSuppliment}/>,
+    <StepTen prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} cart={cart} cart2={cart2} addSuppliment={handleAddSuppliment}/>,
     <StepEleven prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} />,
     <StepTwelve prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} values={formValues} />,
     <StepThirteen prevStep={prevStep} handleSubmit={handleSubmit} handleChange={handleChange} values={formValues} />,

@@ -1,12 +1,19 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import '../styles/steptwo.css';
 import '../styles/form.css';
 import StepTwoCard from './StepTwoCard';
 
-const StepTwo = ({ prevStep, nextStep, handleChange, values }) => {
+const StepTwo = ({ prevStep, nextStep, handleChange, values, cartitem2 }) => {
   const { t } = useTranslation();
+  const [cart2, setCart2] = useState([]);
+
+  const addToCart = (item) => {
+    setCart2(prevCart => [...prevCart2, item]);
+    cartitem2(item)
+    console.log('Cart:', [...cart2, item]); // Log the updated cart for debugging
+  };
 
   const cardsData = [
     {
@@ -78,7 +85,7 @@ const StepTwo = ({ prevStep, nextStep, handleChange, values }) => {
           </div>
       </div>
       {cardsData.map((card, index) => (
-        <StepTwoCard key={index} {...card} nextStep={nextStep} />
+        <StepTwoCard key={index} {...card} nextStep={nextStep} addToCart={addToCart} />
       ))}
       <button className='back-btn' onClick={prevStep}>
         <img src="/assets/arrow.svg" alt="arrow" /> {t('stepTwo.back')}

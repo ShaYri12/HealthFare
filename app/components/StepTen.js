@@ -5,59 +5,78 @@ import '../styles/stepten.css';
 import '../styles/form.css';
 import Review from "./Review";
 
-const StepTen = ({ prevStep, nextStep, handleChange, values, addSuppliment, cart }) => {
+const StepTen = ({ prevStep, nextStep, handleChange, values, addSuppliment, cart, cart2 }) => {
 
-  console.log("cart item", cart)
+  console.log("cart item 1", cart)
+  console.log("cart item 2", cart2)
   const { t } = useTranslation();
 
-  const cardsData = [
-    {
-      imgSrc: "/assets/step2-product1.svg",
-      title: t('stepTen.productTitle'),
-      price: t('stepTen.productPrice'),
-      monthlyPrice: t('stepTen.productMonthlyPrice'),
-      description: t('stepTen.productDescription'),
-      features: [
-        t('stepTen.features.feature1'),
-        t('stepTen.features.feature2')
-      ],
-      savings: t('stepTen.productSavings')
-    },
-  ];
+  // Function to calculate total cost from cart and cart2
+  const calculateTotalCost = () => {
+    let total = 0;
+
+    // Calculate total from cart2 (medication items)
+    cart2.forEach(item => {
+      const itemPrice = parseFloat(item.medication.price.replace(/[$,]/g, ''));
+      const itemQuantity = item.quantity || 1; // Default to 1 if quantity is not provided or falsy
+      total += itemPrice * itemQuantity;
+    });
+
+    // Calculate total from cart (additional supplements)
+    cart.forEach(item => {
+      const itemPrice = parseFloat(item.price.replace(/[$,]/g, ''));
+      const itemQuantity = item.quantity || 1; // Default to 1 if quantity is not provided or falsy
+      total += itemPrice * itemQuantity;
+    });
+
+    // Check if total is NaN (Not a Number)
+    if (isNaN(total)) {
+      console.error("Total calculation resulted in NaN. Check item prices and quantities.");
+      return "Error"; // Return an error message or handle accordingly
+    }
+
+    return total.toFixed(2); // Return total as a string with 2 decimal places
+  };
 
   return (
     <div className="formContainer step-form">
       <div className="title-info">
         <h2>Checkout</h2>
       </div>
-      {cardsData.map((card, index) => (
+      {cart2.map((item, index) => (
         <div className='card' key={index}>
           <div className='card-top'>
             <div className='card-img'>
-              <img src={card.imgSrc} alt={card.title} />
+              <img src={item.medication.imgSrc} alt={item.medication.title} />
             </div>
             <div className='card-title-price'>
-              {card.savings && (
+              {item.medication.savings && (
                 <div className='savings'>
                   <p>{t('stepTen.totalSavings')}</p>
-                  <span>{card.savings}<p>{t('stepTen.perYear')}</p></span>
+                  <span>{item.medication.savings}<p>{t('stepTen.perYear')}</p></span>
                 </div>
               )}
-              <h3>{card.title}</h3>
+              <h3>{item.medication.title}</h3>
               <span>
-                <h2>{card.price}</h2>
-                <p>{card.monthlyPrice}<span>{t('stepTen.perMonth')}</span></p>
+                <h2>{item.medication.price}</h2>
+                <p>{item.medication.monthlyPrice}<span>{t('stepTen.perMonth')}</span></p>
               </span>
-              <p className='lose'>{card.description}</p>
+              <p className='lose'>{item.medication.description}</p>
             </div>
           </div>
           <div className='card-info'>
-            {card.features.map((feature, index) => (
-              <span key={index}>
-                <img src="/assets/checkmark.svg" alt="checkmark" />
-                <span>{feature}</span>
-              </span>
-            ))}
+            {/* Checking if item.medication.features exists and is an array */}
+            {Array.isArray(item.medication.features) && item.medication.features.length > 0 ? (
+              item.medication.features.map((feature, idx) => (
+                <span key={idx}>
+                  <img src="/assets/checkmark.svg" alt="checkmark" />
+                  <span>{feature}</span>
+                </span>
+              ))
+            ) : (
+              // Render a placeholder or handle case where features are not available
+              <span>No features available</span>
+            )}
           </div>
         </div>
       ))}
@@ -69,7 +88,7 @@ const StepTen = ({ prevStep, nextStep, handleChange, values, addSuppliment, cart
               <p>{t('stepTen.noSupplementsSelected')}</p>
           </span>
           <span>
-            <button>{t('stepTen.addSupplements')} <img src="/assets/arrowblue.svg" alt=""/></button>
+            <button className='add-suppliment' onClick={addSuppliment}>{t('stepTen.addSupplements')} <img src="/assets/arrowblue.svg" alt=""/></button>
           </span>
         </div>
       ): (
@@ -96,7 +115,7 @@ const StepTen = ({ prevStep, nextStep, handleChange, values, addSuppliment, cart
             ))}
           </div>
         <span>
-          <button onClick={addSuppliment}>{t('stepTen.addSupplements')} <img src="/assets/arrowblue.svg" alt=""/></button>
+          <button className='add-suppliment' onClick={addSuppliment}>{t('stepTen.addSupplements')} <img src="/assets/arrowblue.svg" alt=""/></button>
         </span>
       </div>
       )}
@@ -131,7 +150,7 @@ const StepTen = ({ prevStep, nextStep, handleChange, values, addSuppliment, cart
 
       <div className='total-cost'>
       <h3>{t('stepTen.totalCost')}</h3>
-      <h2>{t('stepTen.totalCostAmount')}</h2>
+      <h2>{calculateTotalCost()}</h2>
     </div>
 
     <div className='btn-group btn-group-stepthree'>
