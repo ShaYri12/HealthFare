@@ -63,7 +63,7 @@
 .card .remove-suppliment{
     position: absolute;
     top: 5%;
-    left: 90%;
+    right: 5%;
     width: auto;
     padding: 5px;
     color: red;
