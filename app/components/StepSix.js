@@ -224,7 +224,14 @@ const StepSix = ({ nextStep, prevStep, handleChange, values }) => {
       form: (
         <form onSubmit={handleSubmit} className="input-form">
           <div className="input-label-full input-label">
-            <input type="number" value={formData.phone} onChange={handleInputChange('phone')} placeholder={t('stepSix.question5.phonePlaceholder')} required/>
+          <input 
+            type="text" 
+            value={formData.phone} 
+            onChange={handleInputChange('phone')} 
+            placeholder={t('stepSix.question5.phonePlaceholder')} 
+            maxLength={10} 
+            required 
+          />
           </div>
           <div className='btn-group btn-group-stepthree'>
             <button type="button" className='back-btn back-btn-stepthree' onClick={prevInfo}>

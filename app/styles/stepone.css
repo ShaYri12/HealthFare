@@ -51,6 +51,7 @@
   border-radius: 50px;
   width: 20px;
   height: 20px;
+  object-fit: cover;
 }
 
 .location select {
@@ -129,4 +130,11 @@
 .agreement input[type="checkbox"]:checked + label::before {
   background: url("/assets/checkmark.svg") no-repeat; /* Specify your checked image URL */
   background-size: contain; /* Ensure the image fits within the box */
+}
+
+
+.error{
+  color: red !important;
+  font-weight: 400 !important;
+  margin-top: -13px !important;
 }

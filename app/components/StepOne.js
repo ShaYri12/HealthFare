@@ -12,6 +12,7 @@ const StepOne = ({ nextStep, handleChange, values }) => {
     location: values.location || '',
     agreement: values.agreement || false,
   });
+  const [errors, setErrors] = useState({});
 
   const handleLanguage = (language) => {
     setActivebtn(language);
@@ -30,18 +31,22 @@ const StepOne = ({ nextStep, handleChange, values }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const { location, agreement } = formData;
+    const newErrors = {};
 
-    if (location && agreement) {
+    if (!location) {
+      newErrors.location = t('error.selectError');
+    }
+
+    if (!agreement) {
+      newErrors.agreement = t('error.agreementError');
+    }
+
+    if (Object.keys(newErrors).length === 0) {
       console.log('Form data:', formData);
       nextStep();
     } else {
-      if (!agreement) {
-        alert(t('error.agreementError'));
-      } else {
-        alert(t('error.fillError'));
-      }
+      setErrors(newErrors);
     }
-    
   };
 
   return (
@@ -54,13 +59,13 @@ const StepOne = ({ nextStep, handleChange, values }) => {
         <p>{t('stepOne.languagePrompt')}</p>
         <div className='language-btns'>
           <button className={`${activebtn === 'en' ? 'active' : ''}`} onClick={() => handleLanguage('en')}>
-            <img src="/assets/eng.png" alt="eng" />English
+            <img src="/assets/usa.jpeg" alt="eng" />English
           </button>
           <button className={`${activebtn === 'es' ? 'active' : ''}`} onClick={() => handleLanguage('es')}>
             <img src="/assets/esp.png" alt="esp" />Español
           </button>
           <button className={`${activebtn === 'pt' ? 'active' : ''}`} onClick={() => handleLanguage('pt')}>
-            <img src="/assets/por.png" alt="por" />Português
+            <img src="/assets/brazil.webp" alt="por" />Português
           </button>
         </div>
       </div>
@@ -80,7 +85,8 @@ const StepOne = ({ nextStep, handleChange, values }) => {
             <option value="Georgia">Georgia</option>
             <option value="Idaho">Idaho</option>
           </select>
-        </div>
+          </div>
+          {errors.location && <p className='error'>{errors.location}</p>}
         <div className="agreement">
           <input
             type="checkbox"
@@ -91,7 +97,8 @@ const StepOne = ({ nextStep, handleChange, values }) => {
             required
           />
           <label htmlFor="agreement">{t('stepOne.acknowledgement')}</label>
-        </div>
+          </div>
+          {errors.agreement && <p className='error'>{errors.agreement}</p>}
         <div className='btn-group'>
           <button type='submit' className='long-btn long-btn-stepthree' onClick={handleSubmit}>{t('stepOne.startJourney')}</button>
           <button type='submit' className='arrow-btn arrow-btn-stepthree' onClick={handleSubmit}><img src="/assets/arrow.svg" alt="arrow" /></button>
