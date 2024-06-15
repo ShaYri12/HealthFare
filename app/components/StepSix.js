@@ -228,8 +228,11 @@ const StepSix = ({ nextStep, prevStep, handleChange, values }) => {
             type="text" 
             value={formData.phone} 
             onChange={handleInputChange('phone')} 
+            onInput={(e) => {
+              e.target.value = e.target.value.replace(/\D/g, '').slice(0, 10);
+              handleInputChange('phone')(e);
+            }} 
             placeholder={t('stepSix.question5.phonePlaceholder')} 
-            maxLength={10} 
             required 
           />
           </div>

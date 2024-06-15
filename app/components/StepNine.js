@@ -11,18 +11,19 @@ const StepNine = ({ nextStep, prevStep }) => {
 
   const [selectedCondition, setSelectedCondition] = useState(null);
   const [formData, setFormData] = useState({ selectedCondition: null });
+  const [error, setError] = useState('');
 
   const handleCheckboxChange = (conditionId) => {
     const newSelectedCondition = selectedCondition === conditionId ? null : conditionId;
     setSelectedCondition(newSelectedCondition);
     setFormData({ selectedCondition: newSelectedCondition });
-    nextStep();
+    setError(''); // Clear error message when a condition is selected
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (selectedCondition === null) {
-      alert(t('error.selectError'))
+      setError(t('error.selectError'));
     } else {
       console.log("Form data:", formData);
       nextStep();
@@ -65,6 +66,7 @@ const StepNine = ({ nextStep, prevStep }) => {
               </div>
             ))}
           </div>
+          {error && <p className="error">{error}</p>}
         </div>
         
         <div className='btn-group btn-group-stepthree'>

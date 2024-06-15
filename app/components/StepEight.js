@@ -10,6 +10,7 @@ const StepEight = ({ nextStep, prevStep, handleChange, values }) => {
 
   const [selectedConditions, setSelectedConditions] = useState([]);
   const [formData, setFormData] = useState({ selectedConditions: [] });
+  const [error, setError] = useState('');
 
   const handleCheckboxChange = (condition) => {
     if (condition === "none") {
@@ -28,12 +29,13 @@ const StepEight = ({ nextStep, prevStep, handleChange, values }) => {
       setSelectedConditions(updatedConditions);
       setFormData({ ...formData, selectedConditions: updatedConditions });
     }
+    setError(''); // Clear error message when a condition is selected
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (selectedConditions.length === 0) {
-      alert(t('error.selectError'))
+      setError(t('error.selectError'));
     } else {
       // Save form values or perform any necessary actions
       console.log("Form data:", formData);
@@ -105,6 +107,7 @@ const StepEight = ({ nextStep, prevStep, handleChange, values }) => {
               </div>
             ))}
           </div>
+          {error && <p className="error">{error}</p>}
         </div>
 
         <div className="btn-group btn-group-stepthree">
