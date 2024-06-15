@@ -5,7 +5,7 @@ import '../styles/stepone.css';
 import '../styles/form.css';
 import Review from './Review';
 
-const NotEligible = ({ nextStep, prevStep, handleChange, values }) => {
+const NotEligible = ({ nextStep, handleEligible, handleChange, values }) => {
     const { t } = useTranslation();
 
     return (
@@ -15,7 +15,7 @@ const NotEligible = ({ nextStep, prevStep, handleChange, values }) => {
           <p>{t('notEligible.message')}</p>
         </div>
         <div className='btn-group btn-group-stepthree'>
-            <button className='back-btn back-btn-stepthree back-noteligible' onClick={prevStep}>
+            <button className='back-btn back-btn-stepthree back-noteligible' onClick={handleEligible}>
                 <img src="/assets/arrow.svg" alt="arrow" /> {t('notEligible.backButton')}
             </button>
         </div>

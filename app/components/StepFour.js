@@ -5,7 +5,7 @@ import '../styles/stepfour.css';
 import '../styles/form.css';
 import Testimonial from './Testimonial';
 
-const StepFour = ({ nextStep, prevStep, handleChange, values }) => {
+const StepFour = ({ nextStep, prevStep, handleChange, values, handleNotEligible }) => {
   const { t } = useTranslation();
   const [formData, setFormData] = useState({
     pounds: values.pounds || '',
@@ -19,7 +19,6 @@ const StepFour = ({ nextStep, prevStep, handleChange, values }) => {
       ...formData,
       [field]: value,
     });
-    handleChange(field)(e); // Call the provided handleChange function to update values
   };
 
   const handleSubmit = (event) => {
@@ -27,8 +26,20 @@ const StepFour = ({ nextStep, prevStep, handleChange, values }) => {
     const { pounds, feet, inches } = formData;
 
     if (pounds && feet && inches) {
+      const heightInInches = parseInt(feet) * 12 + parseInt(inches);
+      const bmi = (parseInt(pounds) / (heightInInches * heightInInches)) * 703;
+
+      // Store the calculated BMI directly in Home component's state
+      handleChange('stepFour')({ bmi: bmi.toFixed(2) });
+
       console.log('Form data:', formData);
-      nextStep();
+      console.log('Calculated BMI:', bmi.toFixed(2));
+
+      if (bmi >= 27) {
+        nextStep();
+      } else {
+        handleNotEligible();
+      }
     } else {
       alert(t('error.fillError'));
     }
@@ -91,7 +102,7 @@ const StepFour = ({ nextStep, prevStep, handleChange, values }) => {
           </button>
           <div className='forward-btns'>
             <button type='submit' className='long-btn long-btn-stepthree'>{t('stepFour.continueJourney')}</button>
-            <button type="submit" className='arrow-btn arrow-btn-stepthree' onClick={handleSubmit}><img src="/assets/arrow.svg" alt=""/></button>
+            <button type="button" className='arrow-btn arrow-btn-stepthree' onClick={handleSubmit}><img src="/assets/arrow.svg" alt=""/></button>
           </div>
         </div>
       </form>

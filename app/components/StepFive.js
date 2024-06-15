@@ -21,7 +21,7 @@ const slides = [
   }
 ];
 
-const StepFive = ({ nextStep, prevStep, handleNotEligible, handleChange, values }) => {
+const StepFive = ({ nextStep, prevStep, handleChange, values }) => {
   const { t } = useTranslation(); // 'stepFive' corresponds to the section in i18n.js
   const [currentIndex, setCurrentIndex] = useState(0);
   const [position, setPosition] = useState(50);
@@ -53,7 +53,7 @@ const StepFive = ({ nextStep, prevStep, handleNotEligible, handleChange, values 
         </button>
         <div className='forward-btns'>
           <button className='long-btn long-btn-stepthree' onClick={nextStep}>{t('stepFive.continueJourney')}</button>
-          <button className='arrow-btn arrow-btn-stepthree' onClick={handleNotEligible}><img src="/assets/arrow.svg" alt=""/></button>
+          <button className='arrow-btn arrow-btn-stepthree' onClick={nextStep}><img src="/assets/arrow.svg" alt=""/></button>
         </div>
       </div>
       
