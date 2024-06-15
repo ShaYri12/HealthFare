@@ -35,8 +35,13 @@ const StepOne = ({ nextStep, handleChange, values }) => {
       console.log('Form data:', formData);
       nextStep();
     } else {
-      alert("All fields are required");
+      if (!agreement) {
+        alert(t('error.agreementError'));
+      } else {
+        alert(t('error.fillError'));
+      }
     }
+    
   };
 
   return (
@@ -88,7 +93,7 @@ const StepOne = ({ nextStep, handleChange, values }) => {
           <label htmlFor="agreement">{t('stepOne.acknowledgement')}</label>
         </div>
         <div className='btn-group'>
-          <button type='submit' className='long-btn long-btn-stepthree'>{t('stepOne.startJourney')}</button>
+          <button type='submit' className='long-btn long-btn-stepthree' onClick={handleSubmit}>{t('stepOne.startJourney')}</button>
           <button type='submit' className='arrow-btn arrow-btn-stepthree' onClick={handleSubmit}><img src="/assets/arrow.svg" alt="arrow" /></button>
         </div>
       </form>

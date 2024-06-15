@@ -49,7 +49,7 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values }) => {
         nextStep();
       }
     } else {
-      alert("All fields are required");
+      alert(t('error.fillError'));
     }
   };
 
@@ -71,7 +71,7 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values }) => {
         nextStep();
       }
     } else {
-      alert("All fields are required");
+      alert(t('error.fillError'));
     }
   };
 
@@ -81,7 +81,7 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values }) => {
         <form onSubmit={handleSubmit} className="input-form">
           <div className="input-label-full input-label">
             <label className="label">{t('stepSeven.question1.label')}</label>
-            <input className="input-border" type="text" value={formData.question1} onChange={handleInputChange('question1')} placeholder={t('stepSeven.question1.placeholder')} required />
+            <input className="input-border"  type="text" pattern="[A-Za-z]+" title={t('error.textError')} value={formData.question1} onChange={handleInputChange('question1')} placeholder={t('stepSeven.question1.placeholder')} required />
           </div>
           <div className='btn-group btn-group-stepthree'>
             <button type="button" className='back-btn back-btn-stepthree' onClick={prevInfo}>
@@ -100,7 +100,7 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values }) => {
         <form onSubmit={handleSubmit} className="input-form">
           <div className="input-label-full input-label">
             <label className="label">{t('stepSeven.question2.label')}</label>
-            <input className="input-border" type="text" value={formData.question2} onChange={handleInputChange('question2')} placeholder={t('stepSeven.question2.placeholder')} required/>
+            <input className="input-border" type="text" pattern="[A-Za-z]+" title={t('error.textError')} value={formData.question2} onChange={handleInputChange('question2')} placeholder={t('stepSeven.question2.placeholder')} required/>
           </div>
           <div className='btn-group btn-group-stepthree'>
             <button type="button" className='back-btn back-btn-stepthree' onClick={prevInfo}>
@@ -119,7 +119,7 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values }) => {
         <form onSubmit={handleSubmit} className="input-form">
           <div className="input-label-full input-label">
             <label className="label">{t('stepSeven.question3.label')}</label>
-            <input className="input-border" type="text" value={formData.question3} onChange={handleInputChange('question3')} placeholder={t('stepSeven.question3.placeholder')} required/>
+            <input className="input-border" type="text" pattern="[A-Za-z]+" title={t('error.textError')} value={formData.question3} onChange={handleInputChange('question3')} placeholder={t('stepSeven.question3.placeholder')} required/>
           </div>
           <div className='btn-group btn-group-stepthree'>
             <button type="button" className='back-btn back-btn-stepthree' onClick={prevInfo}>
@@ -138,7 +138,7 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values }) => {
         <form onSubmit={handleSubmit} className="input-form">
           <div className="input-label-full input-label">
             <label className="label">{t('stepSeven.question4.label')}</label>
-            <input className="input-border" type="text" value={formData.question4} onChange={handleInputChange('question4')} placeholder={t('stepSeven.question4.placeholder')} required/>
+            <input className="input-border" type="text" pattern="[A-Za-z]+" title={t('error.textError')} value={formData.question4} onChange={handleInputChange('question4')} placeholder={t('stepSeven.question4.placeholder')} required/>
           </div>
           <div className='btn-group btn-group-stepthree'>
             <button type="button" className='back-btn back-btn-stepthree' onClick={prevInfo}>
@@ -157,7 +157,7 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values }) => {
         <form onSubmit={handleSubmit} className="input-form">
           <div className="input-label-full input-label">
             <label className="label">{t('stepSeven.question5.label')}</label>
-            <input className="input-border" type="text" value={formData.question5} onChange={handleInputChange('question5')} placeholder={t('stepSeven.question5.placeholder')} required/>
+            <input className="input-border" type="text" pattern="[A-Za-z]+" title={t('error.textError')} value={formData.question5} onChange={handleInputChange('question5')} placeholder={t('stepSeven.question5.placeholder')} required/>
           </div>
           <div className='btn-group btn-group-stepthree'>
             <button type="button" className='back-btn back-btn-stepthree' onClick={prevInfo}>
@@ -176,7 +176,7 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values }) => {
         <form onSubmit={handleSubmit} className="input-form">
           <div className="input-label-full input-label">
             <label className="label">{t('stepSeven.question6.label')}</label>
-            <input className="input-border" type="text" value={formData.question6} onChange={handleInputChange('question6')} placeholder={t('stepSeven.question6.placeholder')} required/>
+            <input className="input-border" type="text" pattern="[A-Za-z]+" title={t('error.textError')} value={formData.question6} onChange={handleInputChange('question6')} placeholder={t('stepSeven.question6.placeholder')} required/>
           </div>
           <div className='btn-group btn-group-stepthree'>
             <button type="button" className='back-btn back-btn-stepthree' onClick={prevInfo}>

@@ -22,7 +22,7 @@ const StepNine = ({ nextStep, prevStep }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (selectedCondition === null) {
-      alert("You have not selected any thing")
+      alert(t('error.selectError'))
     } else {
       console.log("Form data:", formData);
       nextStep();

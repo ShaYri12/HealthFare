@@ -30,7 +30,7 @@ const StepFour = ({ nextStep, prevStep, handleChange, values }) => {
       console.log('Form data:', formData);
       nextStep();
     } else {
-      alert("All fields are required");
+      alert(t('error.fillError'));
     }
   };
 

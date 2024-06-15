@@ -33,7 +33,7 @@ const StepEight = ({ nextStep, prevStep, handleChange, values }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (selectedConditions.length === 0) {
-      alert("You have not selected any thing")
+      alert(t('error.selectError'))
     } else {
       // Save form values or perform any necessary actions
       console.log("Form data:", formData);

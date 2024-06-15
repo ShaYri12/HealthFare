@@ -49,7 +49,7 @@ const StepSix = ({ nextStep, prevStep, handleChange, values }) => {
     if (validateForm()) {
       nextInfo();
     } else {
-      alert("All fields are required");
+      alert(t('error.fillError'));
     }
   };
 
@@ -71,6 +71,7 @@ const StepSix = ({ nextStep, prevStep, handleChange, values }) => {
     }
   };
 
+
   const questions = [
     {
       title: t('stepSix.question1.title'),
@@ -79,11 +80,11 @@ const StepSix = ({ nextStep, prevStep, handleChange, values }) => {
           <div className="input-group">
             <div className="input-label">
               <label>{t('stepSix.question1.firstName')}</label>
-              <input type="text" value={formData.firstName} onChange={handleInputChange('firstName')} placeholder={t('stepSix.question1.firstNamePlaceholder')} required/>
+              <input type="text" pattern="[A-Za-z]+" title={t('error.textError')}   value={formData.firstName} onChange={handleInputChange('firstName')} placeholder={t('stepSix.question1.firstNamePlaceholder')} required/>
             </div>
             <div className="input-label">
               <label>{t('stepSix.question1.lastName')}</label>
-              <input type="text" value={formData.lastName} onChange={handleInputChange('lastName')} placeholder={t('stepSix.question1.lastNamePlaceholder')} required/>
+              <input type="text" pattern="[A-Za-z]+" title={t('error.textError')}  value={formData.lastName} onChange={handleInputChange('lastName')} placeholder={t('stepSix.question1.lastNamePlaceholder')} required/>
             </div>
           </div>
           <div className='btn-group btn-group-stepthree'>
@@ -109,7 +110,7 @@ const StepSix = ({ nextStep, prevStep, handleChange, values }) => {
           <div className="input-group">
             <div className="input-label">
               <label>{t('stepSix.question2.city')}</label>
-              <input type="text" value={formData.city} onChange={handleInputChange('city')} placeholder={t('stepSix.question2.cityPlaceholder')} required/>
+              <input type="text" pattern="[A-Za-z]+" title={t('error.textError')} value={formData.city} onChange={handleInputChange('city')} placeholder={t('stepSix.question2.cityPlaceholder')} required/>
             </div>
             <div className="input-label">
               <label>{t('stepSix.question2.zipCode')}</label>
@@ -223,7 +224,7 @@ const StepSix = ({ nextStep, prevStep, handleChange, values }) => {
       form: (
         <form onSubmit={handleSubmit} className="input-form">
           <div className="input-label-full input-label">
-            <input type="text" value={formData.phone} onChange={handleInputChange('phone')} placeholder={t('stepSix.question5.phonePlaceholder')} required/>
+            <input type="number" value={formData.phone} onChange={handleInputChange('phone')} placeholder={t('stepSix.question5.phonePlaceholder')} required/>
           </div>
           <div className='btn-group btn-group-stepthree'>
             <button type="button" className='back-btn back-btn-stepthree' onClick={prevInfo}>
@@ -242,7 +243,7 @@ const StepSix = ({ nextStep, prevStep, handleChange, values }) => {
       form: (
         <form onSubmit={handleSubmit} className="input-form">
           <div className="input-label-full input-label">
-            <input type="text" value={formData.email} onChange={handleInputChange('email')} placeholder={t('stepSix.question6.emailPlaceholder')} required/>
+            <input type="email" value={formData.email} onChange={handleInputChange('email')} placeholder={t('stepSix.question6.emailPlaceholder')} required/>
           </div>
           <div className='btn-group btn-group-stepthree'>
             <button type="button" className='back-btn back-btn-stepthree' onClick={prevInfo}>

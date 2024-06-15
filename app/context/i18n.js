@@ -4,6 +4,12 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
   en: {
     translation: {
+      error: {
+        textError: "Please enter only letters",
+        fillError: "All fields are required",
+        agreementError: "You must agree to the terms and conditions",
+        selectError: "You have not selected anything"
+      },
       testimonial: {
         realStories: "REAL STORIES, REAL RESULTS",
         google: "Google",
@@ -278,6 +284,12 @@ const resources = {
   },
   es: {
     translation: {
+      error: {
+        textError: "Por favor, ingrese solo letras",
+        fillError: "Todos los campos son obligatorios",
+        agreementError: "Debe aceptar los términos y condiciones",
+        selectError: "No has seleccionado nada"
+      },
       testimonial: {
         realStories: "HISTORIAS REALES, RESULTADOS REALES",
         google: "Google",
@@ -551,6 +563,12 @@ const resources = {
   },
   pt: {
     translation: {
+      error: {
+        textError: "Por favor, insira apenas letras",
+        fillError: "Todos os campos são obrigatórios",
+        agreementError: "Você deve concordar com os termos e condições",
+        selectError: "Você não selecionou nada"
+      },
       testimonial: {
         realStories: "HISTÓRIAS REAIS, RESULTADOS REAIS",
         google: "Google",
