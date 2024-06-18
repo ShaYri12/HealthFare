@@ -41,7 +41,7 @@ const StepSix = ({ nextStep, prevStep, handleChange, values }) => {
     const newErrors = {};
 
     // Regex patterns
-    const alphabeticPattern = /^[A-Za-z]+$/;
+    const alphabeticPattern = /^[A-Za-z\s]+$/;
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     const currentYear = new Date().getFullYear();
@@ -87,27 +87,22 @@ const StepSix = ({ nextStep, prevStep, handleChange, values }) => {
       if (!formData.month) {
         newErrors.month = t('error.fillError');
         isValid = false;
-      } else if (formData.month > 12) {
-        newErrors.month = t('error.valueError');
+      } else if (formData.month < 1 || formData.month > 12) {
+        newErrors.month = t('error.monthRangeError');
         isValid = false;
       }
       if (!formData.day) {
         newErrors.day = t('error.fillError');
         isValid = false;
-      } else if (formData.day > 31) {
-        newErrors.day = t('error.valueError');
+      } else if (formData.day < 1 || formData.day > 31) {
+        newErrors.day = t('error.dayRangeError');
         isValid = false;
       }
       if (!formData.year) {
         newErrors.year = t('error.fillError');
         isValid = false;
-      } else if (formData.year >= currentYear) {
-        newErrors.year = t('error.valueError');
-        isValid = false;
-      }
-    } else if (currentQuestion === 3) {
-      if (!formData.gender) {
-        newErrors.gender = t('error.selectError');
+      } else if (formData.year < 1900 || formData.year >= currentYear) {
+        newErrors.year = t('error.yearRangeError');
         isValid = false;
       }
     } else if (currentQuestion === 3) {
@@ -240,7 +235,6 @@ const StepSix = ({ nextStep, prevStep, handleChange, values }) => {
     },
     {
       title: t('stepSix.question3.title'),
-      description: t('stepSix.question3.description'),
       form: (
         <form onSubmit={handleSubmit} className="input-form">
           <div className="input-group">

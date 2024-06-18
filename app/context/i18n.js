@@ -9,8 +9,10 @@ const resources = {
         fillError: "This field is empty",
         agreementError: "You must agree to the terms and conditions",
         selectError: "You have not selected anything",
-        valueError: "Value is bigger",
-        emailError: "It's not an email."
+        emailError: "It's not an email.",
+        monthRangeError: "Month should be between 1 and 12.",
+        dayRangeError: "Day should be between 1 and 31.",
+        yearRangeError: "Year should be between 1900 and the current year."
       },
       testimonial: {
         realStories: "REAL STORIES, REAL RESULTS",
@@ -291,8 +293,10 @@ const resources = {
         fillError: "Este campo está vacío",
         agreementError: "Debe aceptar los términos y condiciones",
         selectError: "No has seleccionado nada",
-        valueError: "El valor es mayor.",
-        emailError: "No es un correo electrónico."
+        emailError: "No es un correo electrónico.",
+        monthRangeError: "El mes debe estar entre 1 y 12.",
+        dayRangeError: "El día debe estar entre 1 y 31.",
+        yearRangeError: "El año debe ser un valor razonable entre 1900 y el año actual."
       },
       testimonial: {
         realStories: "HISTORIAS REALES, RESULTADOS REALES",
@@ -572,8 +576,10 @@ const resources = {
         fillError: "Este campo está vazio",
         agreementError: "Você deve concordar com os termos e condições",
         selectError: "Você não selecionou nada",
-        valueError: "O valor é maior.",
-        emailError: "Não é um e-mail."
+        emailError: "Não é um e-mail.",
+        monthRangeError: "O mês deve estar entre 1 e 12.",
+        dayRangeError: "O dia deve estar entre 1 e 31.",
+        yearRangeError: "O ano deve ser um valor razoável entre 1900 e o ano atual."
       },
       testimonial: {
         realStories: "HISTÓRIAS REAIS, RESULTADOS REAIS",
