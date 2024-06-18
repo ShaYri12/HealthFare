@@ -51,7 +51,7 @@ const StepThree = ({handleOrignalStep, handleChange, values, cartitem }) => {
   const addToCart = (item) => {
     setCart(prevCart => [...prevCart, item]);
     cartitem(item)
-    console.log('Cart:', [...cart, item]); // Log the updated cart for debugging
+    console.log('Cart items:', [...cart, item]); // Log the updated cart for debugging
   };
 
   const cardsData = [

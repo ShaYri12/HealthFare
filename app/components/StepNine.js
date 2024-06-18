@@ -6,7 +6,7 @@ import "../styles/stepnine.css";
 import "../styles/form.css";
 import Review from "./Review";
 
-const StepNine = ({ nextStep, prevStep }) => {
+const StepNine = ({ nextStep, prevStep, handleChange }) => {
   const { t } = useTranslation();
 
   const [selectedCondition, setSelectedCondition] = useState(null);
@@ -18,6 +18,7 @@ const StepNine = ({ nextStep, prevStep }) => {
     setSelectedCondition(newSelectedCondition);
     setFormData({ selectedCondition: newSelectedCondition });
     setError(''); // Clear error message when a condition is selected
+    handleChange(formData);
   };
 
   const handleSubmit = (event) => {

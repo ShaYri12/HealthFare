@@ -48,7 +48,7 @@ const StepTen = ({ prevStep, nextStep, handleChange, values, addSuppliment, cart
 
     // Calculate total from cart2 (medication items)
     cart2.forEach(item => {
-      const itemPrice = parseFloat(item.medication.price.replace(/[$,]/g, ''));
+      const itemPrice = parseFloat(item.price.replace(/[$,]/g, ''));
       const itemQuantity = item.quantity || 1; // Default to 1 if quantity is not provided or falsy
       total += itemPrice * itemQuantity;
     });
@@ -78,27 +78,27 @@ const StepTen = ({ prevStep, nextStep, handleChange, values, addSuppliment, cart
         <div className='card' key={index}>
           <div className='card-top'>
             <div className='card-img'>
-              <img src={item.medication.imgSrc} alt={item.medication.title} />
+              <img src={item.imgSrc} alt={item.title} />
             </div>
             <div className='card-title-price'>
-              {item.medication.savings && (
+              {item.savings && (
                 <div className='savings'>
                   <p>{t('stepTen.totalSavings')}</p>
-                  <span>{item.medication.savings}<p>{t('stepTen.perYear')}</p></span>
+                  <span>{item.savings}<p>{t('stepTen.perYear')}</p></span>
                 </div>
               )}
-              <h3>{item.medication.title}</h3>
+              <h3>{item.title}</h3>
               <span>
-                <h2>{item.medication.price}</h2>
-                <p>{item.medication.monthlyPrice}<span>{t('stepTen.perMonth')}</span></p>
+                <h2>{item.price}</h2>
+                <p>{item.monthlyPrice}<span>{t('stepTen.perMonth')}</span></p>
               </span>
-              <p className='lose'>{item.medication.description}</p>
+              <p className='lose'>{item.description}</p>
             </div>
           </div>
           <div className='card-info'>
-            {/* Checking if item.medication.features exists and is an array */}
-            {Array.isArray(item.medication.features) && item.medication.features.length > 0 ? (
-              item.medication.features.map((feature, idx) => (
+            {/* Checking if item.features exists and is an array */}
+            {Array.isArray(item.features) && item.features.length > 0 ? (
+              item.features.map((feature, idx) => (
                 <span key={idx}>
                   <img src="/assets/checkmark.svg" alt="checkmark" />
                   <span>{feature}</span>

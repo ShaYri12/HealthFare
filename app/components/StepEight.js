@@ -15,7 +15,7 @@ const StepEight = ({ nextStep, prevStep, handleChange, values }) => {
   const handleCheckboxChange = (condition) => {
     if (condition === "none") {
       setSelectedConditions(["none"]); // Select "none" only
-      setFormData({ ...formData, selectedConditions: ["none"] });
+      handleChange({ selectedConditions: ["none"] }); // Emit updated formData to parent
       nextStep();
     } else {
       let updatedConditions;
@@ -27,7 +27,7 @@ const StepEight = ({ nextStep, prevStep, handleChange, values }) => {
           : [...selectedConditions, condition];
       }
       setSelectedConditions(updatedConditions);
-      setFormData({ ...formData, selectedConditions: updatedConditions });
+      handleChange( { selectedConditions: updatedConditions }); // Emit updated formData to parent
     }
     setError(''); // Clear error message when a condition is selected
   };

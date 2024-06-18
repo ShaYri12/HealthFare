@@ -9,7 +9,6 @@ const StepTwoCard = ({ imgSrc, title, price, monthlyPrice, savings, description,
   const handleAddToCart = () => {
     if (quantity > 0) {
       const item = {
-        medication:{
           imgSrc: imgSrc,
           title: title,
           price: price,
@@ -18,7 +17,6 @@ const StepTwoCard = ({ imgSrc, title, price, monthlyPrice, savings, description,
           monthlyPrice: monthlyPrice,
           features: features,
           quantity: quantity
-        }
       };
       addToCart(item); // Notify parent component (StepThree) about the added item
       nextStep(); // Proceed to the next step

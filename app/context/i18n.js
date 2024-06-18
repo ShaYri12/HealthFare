@@ -6,9 +6,11 @@ const resources = {
     translation: {
       error: {
         textError: "Please enter only letters",
-        fillError: "All fields are required",
+        fillError: "This field is empty",
         agreementError: "You must agree to the terms and conditions",
-        selectError: "You have not selected anything"
+        selectError: "You have not selected anything",
+        valueError: "Value is bigger",
+        emailError: "It's not an email."
       },
       testimonial: {
         realStories: "REAL STORIES, REAL RESULTS",
@@ -286,9 +288,11 @@ const resources = {
     translation: {
       error: {
         textError: "Por favor, ingrese solo letras",
-        fillError: "Todos los campos son obligatorios",
+        fillError: "Este campo está vacío",
         agreementError: "Debe aceptar los términos y condiciones",
-        selectError: "No has seleccionado nada"
+        selectError: "No has seleccionado nada",
+        valueError: "El valor es mayor.",
+        emailError: "No es un correo electrónico."
       },
       testimonial: {
         realStories: "HISTORIAS REALES, RESULTADOS REALES",
@@ -565,9 +569,11 @@ const resources = {
     translation: {
       error: {
         textError: "Por favor, insira apenas letras",
-        fillError: "Todos os campos são obrigatórios",
+        fillError: "Este campo está vazio",
         agreementError: "Você deve concordar com os termos e condições",
-        selectError: "Você não selecionou nada"
+        selectError: "Você não selecionou nada",
+        valueError: "O valor é maior.",
+        emailError: "Não é um e-mail."
       },
       testimonial: {
         realStories: "HISTÓRIAS REAIS, RESULTADOS REAIS",

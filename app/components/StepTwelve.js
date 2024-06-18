@@ -3,7 +3,7 @@ import '../styles/form.css';
 import '../styles/steptwelve.css';
 import { useTranslation } from 'react-i18next';
 
-const StepTwelve = ({ nextStep, handleChange, values }) => {
+const StepTwelve = ({ nextStep, handleChange, formValues }) => {
   const { t } = useTranslation();
 
   const [selectedDay, setSelectedDay] = useState('');
@@ -49,6 +49,10 @@ const StepTwelve = ({ nextStep, handleChange, values }) => {
 
   const confirmAppointment = () => {
     setShowModal(false); // Close modal
+    handleChange({
+      selectedDay,
+      selectedTime,
+    });
     nextStep(); // Proceed to next step after confirmation
   };
 

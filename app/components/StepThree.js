@@ -5,7 +5,7 @@ import StepThreeCard from './StepThreeCard';
 import { useTranslation } from 'react-i18next'; // Import useTranslation hook
 import React, { useState } from 'react';
 
-const StepThree = ({ prevStep, nextStep, originalStep, handleChange, values, cartitem }) => {
+const StepThree = ({ prevStep, nextStep,  handleChange, values, cartitem }) => {
   const [cart, setCart] = useState([]);
   const { t } = useTranslation(); // Initialize useTranslation hook
 
@@ -13,6 +13,7 @@ const StepThree = ({ prevStep, nextStep, originalStep, handleChange, values, car
     setCart(prevCart => [...prevCart, item]);
     cartitem(item)
     console.log('Cart:', [...cart, item]); // Log the updated cart for debugging
+    handleChange(item);
   };
 
   const cardsData = [

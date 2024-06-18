@@ -25,7 +25,9 @@ const StepOne = ({ nextStep, handleChange, values }) => {
       ...formData,
       [field]: value,
     });
-    handleChange(field)(e); // Call the provided handleChange function to update values
+    handleChange({
+      [field]: value,
+    });
   };
 
   const handleSubmit = (event) => {

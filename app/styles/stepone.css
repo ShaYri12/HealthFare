@@ -131,10 +131,3 @@
   background: url("/assets/checkmark.svg") no-repeat; /* Specify your checked image URL */
   background-size: contain; /* Ensure the image fits within the box */
 }
-
-
-.error{
-  color: red !important;
-  font-weight: 400 !important;
-  margin-top: -13px !important;
-}

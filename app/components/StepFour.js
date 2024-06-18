@@ -12,11 +12,23 @@ const StepFour = ({ nextStep, prevStep, handleChange, values, handleNotEligible 
     feet: values.feet || '',
     inches: values.inches || '',
   });
+  const [errors, setErrors] = useState({
+    pounds: false,
+    feet: false,
+    inches: false,
+  });
 
   const handleInputChange = (field) => (e) => {
     const value = e.target.value;
     setFormData({
       ...formData,
+      [field]: value,
+    });
+    setErrors({
+      ...errors,
+      [field]: false,
+    });
+    handleChange({
       [field]: value,
     });
   };
@@ -25,12 +37,16 @@ const StepFour = ({ nextStep, prevStep, handleChange, values, handleNotEligible 
     event.preventDefault();
     const { pounds, feet, inches } = formData;
 
+    const newErrors = {
+      pounds: !pounds,
+      feet: !feet,
+      inches: !inches,
+    };
+    setErrors(newErrors);
+
     if (pounds && feet && inches) {
       const heightInInches = parseInt(feet) * 12 + parseInt(inches);
       const bmi = (parseInt(pounds) / (heightInInches * heightInInches)) * 703;
-
-      // Store the calculated BMI directly in Home component's state
-      handleChange('stepFour')({ bmi: bmi.toFixed(2) });
 
       console.log('Form data:', formData);
       console.log('Calculated BMI:', bmi.toFixed(2));
@@ -40,8 +56,6 @@ const StepFour = ({ nextStep, prevStep, handleChange, values, handleNotEligible 
       } else {
         handleNotEligible();
       }
-    } else {
-      alert(t('error.fillError'));
     }
   };
 
@@ -59,8 +73,8 @@ const StepFour = ({ nextStep, prevStep, handleChange, values, handleNotEligible 
             placeholder={t('stepFour.poundsPlaceholder')}
             value={formData.pounds}
             onChange={handleInputChange('pounds')}
-            required
           />
+          {errors.pounds && <span className="error">{t('error.fillError')}</span>}
         </div>
         <div className='feet-inches'>
           <div className="feet-option">
@@ -76,6 +90,7 @@ const StepFour = ({ nextStep, prevStep, handleChange, values, handleNotEligible 
               <option value="7">7</option>
               <option value="8">8</option>
             </select>
+            {errors.feet && <span className="error">{t('error.selectError')}</span>}
           </div>
           <div className="inches-option">
             <p>{t('stepFour.inches')}</p>
@@ -94,6 +109,7 @@ const StepFour = ({ nextStep, prevStep, handleChange, values, handleNotEligible 
               <option value="10">10</option>
               <option value="11">11</option>
             </select>
+            {errors.inches && <span className="error">{t('error.selectError')}</span>}
           </div>
         </div>
         <div className='btn-group btn-group-stepthree'>
@@ -106,7 +122,7 @@ const StepFour = ({ nextStep, prevStep, handleChange, values, handleNotEligible 
           </div>
         </div>
       </form>
-      <Testimonial/>
+      <Testimonial />
     </div>
   );
 };

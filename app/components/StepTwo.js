@@ -13,6 +13,7 @@ const StepTwo = ({ prevStep, nextStep, handleChange, values, cartitem2 }) => {
     setCart2(prevCart => [...prevCart2, item]);
     cartitem2(item)
     console.log('Cart:', [...cart2, item]); // Log the updated cart for debugging
+    handleChange(item);
   };
 
   const cardsData = [

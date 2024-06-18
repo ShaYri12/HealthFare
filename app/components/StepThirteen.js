@@ -1,14 +1,24 @@
-import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import '../styles/stepthirteen.css';
 import '../styles/form.css';
-import { useTranslation } from 'react-i18next';
 
-const StepThirteen = ({ nextStep, handleChange, values }) => {
+const StepThirteen = ({ nextStep, handleChange, handleSubmit, formValues }) => {
     const { t } = useTranslation();
-    const [activebtn, setActivebtn] = useState('english');
 
-    const handleLanguage = (language) => {
-        setActivebtn(language);
+    // Function to render all formValues data
+    const renderFormValues = () => {
+        return (
+            <div className="formValuesContainer">
+                <h2>Form Values:</h2>
+                <ul>
+                    {Object.keys(formValues).map((key, index) => (
+                        <li key={index}>
+                            <strong>{key}:</strong> {JSON.stringify(formValues[key])}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        );
     };
 
     return (
@@ -18,13 +28,16 @@ const StepThirteen = ({ nextStep, handleChange, values }) => {
                 <span>{t('stepThirteen.confirmationMessage')}</span>
             </div>
 
+            {/* Displaying all form values */}
+            {renderFormValues()}
+
             <div className='assistance'>
                 <h3>{t('stepThirteen.assistanceTitle')}</h3>
                 <p>{t('stepThirteen.assistanceMessage')}</p>
             </div>
 
             <div className='btn-group final-btn'>
-                <button className='arrow-btn whatsapp-btn' onClick={nextStep}><img src="/assets/whatsapp.svg" alt=""/></button>
+                <button className='arrow-btn whatsapp-btn' onClick={handleSubmit}><img src="/assets/whatsapp.svg" alt=""/></button>
                 <button className='long-btn whatsapp-btn' onClick={nextStep}>{t('stepThirteen.whatsappBtn')}</button>
             </div>
 
