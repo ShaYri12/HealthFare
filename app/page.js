@@ -57,6 +57,9 @@ const Home = () => {
 
   const cartitem = (item) => {
     setCart((prevCart) => [...prevCart, item]);
+    handleChange('stepThree')({
+      cart: [...prevCart, item]
+    });
   };
 
   const cartitem2 = (item) => {
