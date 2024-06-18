@@ -56,11 +56,19 @@ const Home = () => {
   const [cart2, setCart2] = useState([]);
 
   const cartitem = (item) => {
-    setCart((prevCart) => [...prevCart, item]);
-    handleChange('stepThree')({
-      cart: [...prevCart, item]
-    });
+    // Add item to cart
+    const updatedCart = [...cart, item];
+    setCart(updatedCart);
+  
+    // Update formValues.stepThree with current cart items
+    handleChange('stepThree')({ cart: updatedCart });
+  
+    // Log formValues and cart to verify updates
+    console.log("formValues after handleChange: ", formValues.stepThree);
+    console.log("Cart after handleChange: ", cart);
   };
+  
+  
 
   const cartitem2 = (item) => {
     setCart2((prevCart2) => [...prevCart2, item]);
