@@ -222,10 +222,18 @@ input{
   font-size: 16px !important;
 }
 
+.input-label {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-label {
+  flex: 1
+}
 
 .error{
   color: red !important;
   font-size: 14px !important;
   font-weight: 400 !important;
-  margin-top: -13px !important;
+  margin-top: -8px !important;
 }

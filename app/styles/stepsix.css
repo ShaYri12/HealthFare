@@ -19,7 +19,9 @@
     }
 }
 
-
+.input-label {
+    flex: 1
+}
 
 .input-label input{
     border: 1px solid #E3E3E4;

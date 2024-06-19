@@ -18,7 +18,8 @@ const StepNine = ({ nextStep, prevStep, handleChange }) => {
     setSelectedCondition(newSelectedCondition);
     setFormData({ selectedCondition: newSelectedCondition });
     setError(''); // Clear error message when a condition is selected
-    handleChange(formData);
+    handleChange({'SMS Notification': newSelectedCondition});
+    nextStep();
   };
 
   const handleSubmit = (event) => {
