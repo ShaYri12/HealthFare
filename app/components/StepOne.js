@@ -51,6 +51,16 @@ const StepOne = ({ nextStep, handleChange, values }) => {
     }
   };
 
+  const stateOptions = [
+    "Alabama", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", 
+    "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", 
+    "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", 
+    "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", 
+    "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", 
+    "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", 
+    "Wisconsin", "Wyoming"
+  ];
+
   return (
     <div className="formContainer step-form">
       <div className='title-info'>
@@ -75,17 +85,10 @@ const StepOne = ({ nextStep, handleChange, values }) => {
         <div className='location'>
           <p>{t('stepOne.chooseLocation')}</p>
           <select onChange={handleInputChange('location')} value={formData.location}>
-            <option value="">Select...</option>
-            <option value="Alabama">Alabama</option>
-            <option value="Alaska">Alaska</option>
-            <option value="Arizona">Arizona</option>
-            <option value="California">California</option>
-            <option value="Colorado">Colorado</option>
-            <option value="Connecticut">Connecticut</option>
-            <option value="Delaware">Delaware</option>
-            <option value="Florida">Florida</option>
-            <option value="Georgia">Georgia</option>
-            <option value="Idaho">Idaho</option>
+            <option value="">{t('stepSix.question2.select')}</option>
+            {stateOptions.map(state => (
+              <option key={state} value={state}>{state}</option>
+            ))}
           </select>
           </div>
           {errors.location && <p className='error'>{errors.location}</p>}
@@ -103,7 +106,6 @@ const StepOne = ({ nextStep, handleChange, values }) => {
           {errors.agreement && <p className='error'>{errors.agreement}</p>}
         <div className='btn-group'>
           <button type='submit' className='long-btn long-btn-stepthree' onClick={handleSubmit}>{t('stepOne.startJourney')}</button>
-          <button type='submit' className='arrow-btn arrow-btn-stepthree' onClick={handleSubmit}><img src="/assets/arrow.svg" alt="arrow" /></button>
         </div>
       </form>
       <Review />

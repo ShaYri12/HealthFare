@@ -10,10 +10,6 @@ const IntercomWidget = ({ user }) => {
       name: user?.name, // Replace "user.name" with the variable you use to capture the user's name
       email: user?.email, // Replace "user.email" with the variable you use to capture the user's email address
       created_at: user?.createdAt, // Replace "user.createdAt" with the variable you use to capture the user's sign-up date
-      custom_launcher_icon: {
-        'default': '/assets/BR.svg', // Path to your SVG icon
-        '60px': '/assets/BR.svg', // Optional: Provide different sizes if needed
-      },
     };
 
     (function(){

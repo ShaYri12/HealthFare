@@ -74,7 +74,7 @@ const StepFour = ({ nextStep, prevStep, handleChange, values, handleNotEligible 
             value={formData.pounds}
             onChange={handleInputChange('pounds')}
           />
-          {errors.pounds && <span className="error">{t('error.fillError')}</span>}
+          {errors.pounds && <span className="error">{t('error.poundsError')}</span>}
         </div>
         <div className='feet-inches'>
           <div className="feet-option">
@@ -90,7 +90,7 @@ const StepFour = ({ nextStep, prevStep, handleChange, values, handleNotEligible 
               <option value="7">7</option>
               <option value="8">8</option>
             </select>
-            {errors.feet && <span className="error">{t('error.selectError')}</span>}
+            {errors.feet && <span className="error">{t('error.feetError')}</span>}
           </div>
           <div className="inches-option">
             <p>{t('stepFour.inches')}</p>
@@ -109,7 +109,7 @@ const StepFour = ({ nextStep, prevStep, handleChange, values, handleNotEligible 
               <option value="10">10</option>
               <option value="11">11</option>
             </select>
-            {errors.inches && <span className="error">{t('error.selectError')}</span>}
+            {errors.inches && <span className="error">{t('error.inchesError')}</span>}
           </div>
         </div>
         <div className='btn-group btn-group-stepthree'>
@@ -118,7 +118,6 @@ const StepFour = ({ nextStep, prevStep, handleChange, values, handleNotEligible 
           </button>
           <div className='forward-btns'>
             <button type='submit' className='long-btn long-btn-stepthree'>{t('stepFour.continueJourney')}</button>
-            <button type="button" className='arrow-btn arrow-btn-stepthree' onClick={handleSubmit}><img src="/assets/arrow.svg" alt=""/></button>
           </div>
         </div>
       </form>

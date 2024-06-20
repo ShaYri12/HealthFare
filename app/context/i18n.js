@@ -5,14 +5,32 @@ const resources = {
   en: {
     translation: {
       error: {
-        textError: "Please enter only letters",
-        fillError: "This field is empty",
-        agreementError: "You must agree to the terms and conditions",
-        selectError: "You have not selected anything",
-        emailError: "It's not an email.",
-        monthRangeError: "Month should be between 1 and 12.",
-        dayRangeError: "Day should be between 1 and 31.",
-        yearRangeError: "Year should be between 1900 and the current year."
+        textError: "Please enter letters only.",
+        fillError: "This field cannot be left blank.",
+        agreementError: "You must agree to the terms and conditions.",
+        selectError: "Please make a selection.",
+        emailError: "The email address is not valid.",
+        stateError: "Please select your state.",
+        poundsError: "Please enter your weight in pounds.",
+        feetError: "Please enter your height in feet.",
+        inchesError: "Please enter your height in inches.",
+        firstNameError: "Please enter your first name.",
+        lastNameError: "Please enter your last name.",
+        streetAddressError: "Please enter your street address (e.g., 123 Main Street).",
+        cityError: "Please enter your city (e.g., Los Angeles).",
+        zipCodeError: "Please enter your zip code (e.g., 90001).",
+        stateMismatchError: "State must match the one selected at the beginning of the questionnaire.",
+        monthError: "Please enter a valid month (1-12).",
+        dateError: "Please enter a valid day (1-31).",
+        yearError: "Please enter a valid year (e.g., 1990).",
+        ageError: "You must be at least 18 years old to participate in the HealthFare weight loss program.",
+        phoneError: "Please enter a valid phone number in the format (000) 000-0000.",
+        phoneDigitsError: "The phone number must be at least 10 digits.",
+        phoneMaxDigitsError: "The phone number must not exceed 10 digits.",
+        emailRequiredError: "Please enter your email address.",
+        emailInvalidError: "This is not a valid email address. Please enter a valid email address.",
+        smsNotificationError: "Please select if you prefer to receive SMS notifications.",
+        disqualifyMsg: "Sorry You Do Not Qualify For This."
       },
       testimonial: {
         realStories: "REAL STORIES, REAL RESULTS",
@@ -161,27 +179,27 @@ const resources = {
           subTitle: "Please provide the following details about your medical history and current health status."
         },
         question1: {
-          label: "List any medications you are currently taking.",
+          label: "Please list any medications you are currently taking. If none, leave the field blank and continue.",
           placeholder: "e.g., Metformin"
         },
         question2: {
-          label: "List any allergies to medications.",
+          label: "Please list any allergies to medications. If none, leave the field blank and continue.",
           placeholder: "e.g., Penicillin"
         },
         question3: {
-          label: "Do you have any chronic medical conditions? If so, please specify.",
+          label: "Please list any chronic medical conditions. If none, leave the field blank and continue.",
           placeholder: "e.g., Hypertension, Diabetes"
         },
         question4: {
-          label: "Are you currently taking any prescription or over-the-counter diet aids? If so, please specify.",
+          label: "Please list any prescription or over-the-counter diet aids you are currently taking. If none, leave the field blank and continue.",
           placeholder: "e.g., Garcinia Cambogia, Orlistat"
         },
         question5: {
-          label: "Please list any antibiotics you are currently taking.",
+          label: "Please list any antibiotics you are currently taking. If none, leave the field blank and continue.",
           placeholder: "e.g., Amoxicillin"
         },
         question6: {
-          label: "Have you taken Semaglutide, Tirzepatide, or any other weight loss medications before? If so, please list them.",
+          label: "Please list any weight loss medications you have taken before. If none, leave the field blank and continue.",
           placeholder: "e.g., Semaglutide, Tirzepatide"
         },
         back: "Back",
@@ -189,7 +207,7 @@ const resources = {
       },
       stepEight: {
         title: 'Health Conditions',
-        description: 'Please indicate if you are currently diagnosed with any of the following conditions. (select multiple)',
+        description: 'Please select at least one health condition. If none, select "None".',
         none: 'None',
         highBloodPressure: 'High Blood Pressure',
         preDiabetes: 'Pre-Diabetes',
@@ -289,14 +307,35 @@ const resources = {
   es: {
     translation: {
       error: {
-        textError: "Por favor, ingrese solo letras",
-        fillError: "Este campo está vacío",
-        agreementError: "Debe aceptar los términos y condiciones",
-        selectError: "No has seleccionado nada",
-        emailError: "No es un correo electrónico.",
-        monthRangeError: "El mes debe estar entre 1 y 12.",
-        dayRangeError: "El día debe estar entre 1 y 31.",
-        yearRangeError: "El año debe ser un valor razonable entre 1900 y el año actual."
+        textError: "Por favor, ingresa solo letras.",
+        fillError: "Este campo no puede dejarse en blanco.",
+        agreementError: "Debes aceptar los términos y condiciones.",
+        selectError: "Por favor, haz una selección.",
+        emailError: "La dirección de correo electrónico no es válida.",
+        monthRangeError: "Por favor, ingresa un mes válido (1-12).",
+        dayRangeError: "Por favor, ingresa un día válido (1-31).",
+        yearRangeError: "Por favor, ingresa un año válido entre 1900 y el año actual.",
+        stateError: "Por favor, selecciona tu estado.",
+        poundsError: "Por favor, ingresa tu peso en libras.",
+        feetError: "Por favor, ingresa tu altura en pies.",
+        inchesError: "Por favor, ingresa tu altura en pulgadas.",
+        firstNameError: "Por favor, ingresa tu nombre.",
+        lastNameError: "Por favor, ingresa tu apellido.",
+        streetAddressError: "Por favor, ingresa tu dirección (ej. 123 Calle Principal).",
+        cityError: "Por favor, ingresa tu ciudad (ej. Los Angeles).",
+        zipCodeError: "Por favor, ingresa tu código postal (ej. 90001).",
+        stateMismatchError: "El estado debe coincidir con el seleccionado al inicio del cuestionario.",
+        monthError: "Por favor, ingresa un mes válido (1-12).",
+        dateError: "Por favor, ingresa un día válido (1-31).",
+        yearError: "Por favor, ingresa un año válido (ej. 1990).",
+        ageError: "Debes tener al menos 18 años para participar en el programa de pérdida de peso de HealthFare.",
+        phoneError: "Por favor, ingresa un número de teléfono válido en el formato (000) 000-0000.",
+        phoneDigitsError: "El número de teléfono debe tener al menos 10 dígitos.",
+        phoneMaxDigitsError: "El número de teléfono no debe exceder los 10 dígitos.",
+        emailRequiredError: "Por favor, ingresa tu dirección de correo electrónico.",
+        emailInvalidError: "Esta no es una dirección de correo electrónico válida. Por favor, ingresa una dirección de correo electrónico válida.",
+        smsNotificationError: "Por favor, selecciona si prefieres recibir notificaciones por SMS.",
+        disqualifyMsg: "Lo siento, no calificas para esto."
       },
       testimonial: {
         realStories: "HISTORIAS REALES, RESULTADOS REALES",
@@ -445,27 +484,27 @@ const resources = {
           subTitle: "Por favor proporciona los siguientes detalles sobre tu historial médico y estado de salud actual."
         },
         question1: {
-          label: "Enumera cualquier medicamento que estés tomando actualmente.",
+          label: "Por favor, enumera cualquier medicamento que estés tomando actualmente. Si no tomas ninguno, deja el campo en blanco y continúa.",
           placeholder: "ej., Metformina"
         },
         question2: {
-          label: "Enumera cualquier alergia a medicamentos.",
+          label: "Por favor, enumera cualquier alergia a medicamentos que tengas. Si no tienes ninguna, deja el campo en blanco y continúa.",
           placeholder: "ej., Penicilina"
         },
         question3: {
-          label: "¿Tienes alguna enfermedad crónica? Si es así, por favor especifícala.",
+          label: "Por favor, enumera cualquier condición médica crónica que tengas. Si no tienes ninguna, deja el campo en blanco y continúa.",
           placeholder: "ej., Hipertensión, Diabetes"
         },
         question4: {
-          label: "¿Estás tomando actualmente algún medicamento recetado o de venta libre para dietas? Si es así, por favor especifícalo.",
+          label: "Por favor, enumera cualquier ayuda dietética de venta con receta o de venta libre que estés tomando actualmente. Si no tomas ninguna, deja el campo en blanco y continúa.",
           placeholder: "ej., Garcinia Cambogia, Orlistat"
         },
         question5: {
-          label: "Enumera cualquier antibiótico que estés tomando actualmente.",
+          label: "Por favor, enumera cualquier antibiótico que estés tomando actualmente. Si no tomas ninguno, deja el campo en blanco y continúa.",
           placeholder: "ej., Amoxicilina"
         },
         question6: {
-          label: "¿Has tomado Semaglutida, Tirzepatida u otros medicamentos para la pérdida de peso anteriormente? Si es así, por favor indícalos.",
+          label: "Por favor, enumera cualquier medicamento para la pérdida de peso que hayas tomado antes. Si no has tomado ninguno, deja el campo en blanco y continúa.",
           placeholder: "ej., Semaglutida, Tirzepatida"
         },
         back: "Volver",
@@ -473,7 +512,7 @@ const resources = {
       },
       stepEight: {
         title: 'Condiciones de Salud',
-        description: 'Indique si actualmente está diagnosticado con alguna de las siguientes condiciones. (seleccione múltiples)',
+        description: 'Por favor, selecciona al menos una condición de salud. Si no tienes ninguna, selecciona "Ninguna".',
         none: 'Ninguna',
         highBloodPressure: 'Presión Arterial Alta',
         preDiabetes: 'Pre-Diabetes',
@@ -572,14 +611,35 @@ const resources = {
   pt: {
     translation: {
       error: {
-        textError: "Por favor, insira apenas letras",
-        fillError: "Este campo está vazio",
-        agreementError: "Você deve concordar com os termos e condições",
-        selectError: "Você não selecionou nada",
-        emailError: "Não é um e-mail.",
-        monthRangeError: "O mês deve estar entre 1 e 12.",
-        dayRangeError: "O dia deve estar entre 1 e 31.",
-        yearRangeError: "O ano deve ser um valor razoável entre 1900 e o ano atual."
+        textError: "Por favor, insira apenas letras.",
+        fillError: "Este campo não pode ser deixado em branco.",
+        agreementError: "Você deve concordar com os termos e condições.",
+        selectError: "Por favor, faça uma seleção.",
+        emailError: "O endereço de e-mail não é válido.",
+        monthRangeError: "Por favor, insira um mês válido (1-12).",
+        dayRangeError: "Por favor, insira um dia válido (1-31).",
+        yearRangeError: "Por favor, insira um ano válido entre 1900 e o ano atual.",
+        stateError: "Por favor, selecione seu estado.",
+        poundsError: "Por favor, insira seu peso em libras.",
+        feetError: "Por favor, insira sua altura em pés.",
+        inchesError: "Por favor, insira sua altura em polegadas.",
+        firstNameError: "Por favor, insira seu primeiro nome.",
+        lastNameError: "Por favor, insira seu sobrenome.",
+        streetAddressError: "Por favor, insira seu endereço (ex. 123 Rua Principal).",
+        cityError: "Por favor, insira sua cidade (ex. São Paulo).",
+        zipCodeError: "Por favor, insira seu código postal (ex. 90001).",
+        stateMismatchError: "O estado deve corresponder ao selecionado no início do questionário.",
+        monthError: "Por favor, insira um mês válido (1-12).",
+        dateError: "Por favor, insira um dia válido (1-31).",
+        yearError: "Por favor, insira um ano válido (ex. 1990).",
+        ageError: "Você deve ter pelo menos 18 anos para participar do programa de perda de peso HealthFare.",
+        phoneError: "Por favor, insira um número de telefone válido no formato (000) 000-0000.",
+        phoneDigitsError: "O número de telefone deve ter pelo menos 10 dígitos.",
+        phoneMaxDigitsError: "O número de telefone não deve exceder 10 dígitos.",
+        emailRequiredError: "Por favor, insira seu endereço de email.",
+        emailInvalidError: "Este não é um endereço de email válido. Por favor, insira um endereço de email válido.",
+        smsNotificationError: "Por favor, selecione se prefere receber notificações por SMS.",
+        disqualifyMsg: "Desculpe, você não se qualifica para isso."
       },
       testimonial: {
         realStories: "HISTÓRIAS REAIS, RESULTADOS REAIS",
@@ -725,30 +785,30 @@ const resources = {
       stepSeven: {
         medicalInfo: {
           title: "Informações Médicas",
-          subTitle: "Por favor forneça os seguintes detalhes sobre seu histórico médico e estado de saúde atual."
+          subTitle: "Por favor, liste qualquer medicamento que você esteja tomando atualmente. Se não estiver tomando nenhum, deixe o campo em branco e continue."
         },
         question1: {
-          label: "Liste todos os medicamentos que você está tomando atualmente.",
+          label: "Por favor, liste qualquer alergia a medicamentos que você tenha. Se não tiver nenhuma, deixe o campo em branco e continue.",
           placeholder: "ex., Metformina"
         },
         question2: {
-          label: "Liste todas as alergias a medicamentos.",
+          label: "Por favor, liste qualquer alergia a medicamentos que você tenha. Se não tiver nenhuma, deixe o campo em branco e continue.",
           placeholder: "ex., Penicilina"
         },
         question3: {
-          label: "Você possui alguma condição médica crônica? Se sim, por favor especifique.",
+          label: "Por favor, liste qualquer condição médica crônica que você tenha. Se não tiver nenhuma, deixe o campo em branco e continue.",
           placeholder: "ex., Hipertensão, Diabetes"
         },
         question4: {
-          label: "Você está tomando atualmente algum auxílio dietético de venda livre ou prescrição? Se sim, por favor especifique.",
+          label: "Por favor, liste qualquer auxílio dietético de prescrição ou vendido sem receita que você esteja tomando atualmente. Se não estiver tomando nenhum, deixe o campo em branco e continue.",
           placeholder: "ex., Garcinia Cambogia, Orlistat"
         },
         question5: {
-          label: "Liste todos os antibióticos que você está tomando atualmente.",
+          label: "Por favor, liste qualquer antibiótico que você esteja tomando atualmente. Se não estiver tomando nenhum, deixe o campo em branco e continue.",
           placeholder: "ex., Amoxicilina"
         },
         question6: {
-          label: "Você já tomou Semaglutida, Tirzepatida ou outros medicamentos para perda de peso antes? Se sim, liste-os por favor.",
+          label: "Por favor, liste qualquer medicamento para perda de peso que você tenha tomado antes. Se não tiver tomado nenhum, deixe o campo em branco e continue.",
           placeholder: "ex., Semaglutida, Tirzepatida"
         },
         back: "Voltar",
@@ -756,7 +816,7 @@ const resources = {
       },
       stepEight: {
         title: 'Condições de Saúde',
-        description: 'Indique se você está atualmente diagnosticado com alguma das seguintes condições. (selecione várias)',
+        description: 'Por favor, selecione pelo menos uma condição de saúde. Se não tiver nenhuma, selecione "Nenhuma".',
         none: 'Nenhuma',
         highBloodPressure: 'Pressão Alta',
         preDiabetes: 'Pré-Diabetes',

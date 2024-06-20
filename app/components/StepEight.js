@@ -11,6 +11,15 @@ const StepEight = ({ nextStep, prevStep, handleChange, values }) => {
   const [selectedConditions, setSelectedConditions] = useState([]);
   const [formData, setFormData] = useState({ selectedConditions: [] });
   const [error, setError] = useState('');
+  const [showModal, setShowModal] = useState(false);
+
+  const disqualifyingConditions = [
+    "pregnant",
+    "breastfeeding",
+    "type-1-diabetes",
+    "thyroid-cancer",
+    "pancreatitis"
+  ];
 
   const handleCheckboxChange = (condition) => {
     if (condition === "none") {
@@ -27,15 +36,17 @@ const StepEight = ({ nextStep, prevStep, handleChange, values }) => {
           : [...selectedConditions, condition];
       }
       setSelectedConditions(updatedConditions);
-      handleChange( { selectedConditions: updatedConditions }); // Emit updated formData to parent
+      handleChange({ selectedConditions: updatedConditions }); // Emit updated formData to parent
+
     }
-    setError(''); // Clear error message when a condition is selected
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (selectedConditions.length === 0) {
       setError(t('error.selectError'));
+    } else if (selectedConditions.some(condition => disqualifyingConditions.includes(condition))) {
+      setShowModal(true)
     } else {
       // Save form values or perform any necessary actions
       console.log("Form data:", formData);
@@ -118,14 +129,25 @@ const StepEight = ({ nextStep, prevStep, handleChange, values }) => {
             <button type="submit" className="long-btn long-btn-stepthree">
               {t('stepEight.continueJourney')}
             </button>
-            <button type="button" className="arrow-btn arrow-btn-stepthree" onClick={handleNextStep}>
-              <img src="/assets/arrow.svg" alt="" />
-            </button>
           </div>
         </div>
       </form>
 
       <Review />
+
+      {/* Modal */}
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <h1>{t('error.disqualifyMsg')}</h1>
+            <div className='btn-group'>
+              <div className='forward-btns'>
+                <button className='confirm-btn' onClick={()=> setShowModal(false)}>Ok</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

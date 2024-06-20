@@ -53,7 +53,6 @@ const StepFive = ({ nextStep, prevStep, handleChange, values }) => {
         </button>
         <div className='forward-btns'>
           <button className='long-btn long-btn-stepthree' onClick={nextStep}>{t('stepFive.continueJourney')}</button>
-          <button className='arrow-btn arrow-btn-stepthree' onClick={nextStep}><img src="/assets/arrow.svg" alt=""/></button>
         </div>
       </div>
       

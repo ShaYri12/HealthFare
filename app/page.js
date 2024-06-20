@@ -21,11 +21,11 @@ import i18n from './context/i18n';
 import './styles/form.css';
 
 const Home = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(8);
   
   // Initialize formValues with arrays where necessary
   const [formValues, setFormValues] = useState({
-    stepOne: {},
+    stepOne: {location: "Alabama"},
     stepTwo: {},
     stepThree: {},
     stepFour: {},
@@ -112,7 +112,7 @@ const Home = () => {
     <StepThree prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepThree')} values={formValues} cartitem={cartitem} />,
     <StepFour prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepFour')} values={formValues} handleNotEligible={handleNotEligible} />,
     <StepFive prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepFive')} values={formValues} />,
-    <StepSix prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepSix')} values={formValues} />,
+    <StepSix prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepSix')} formValues={formValues} />,
     <StepSeven prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepSeven')} values={formValues} />,
     <StepEight prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepEight')} values={formValues} />,
     <StepNine prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepNine')} values={formValues} />,

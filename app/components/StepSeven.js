@@ -42,60 +42,54 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values }) => {
     const newErrors = {};
 
     // Regex pattern for alphabetic only
-    const alphabeticPattern = /^[A-Za-z]+$/;
+    const alphanumericPattern = /^[A-Za-z0-9\s.,'"`#-]+$/u;
 
     // Validate fields for the current question
     switch (currentQuestion) {
       case 0:
         if (!formData.question1) {
-          newErrors.question1 = t("error.fillError");
-          isValid = false;
-        } else if (!alphabeticPattern.test(formData.question1)) {
+          isValid = true;
+        } else if (!alphanumericPattern.test(formData.question1)) {
           newErrors.question1 = t("error.textError");
           isValid = false;
         }
         break;
       case 1:
         if (!formData.question2) {
-          newErrors.question2 = t("error.fillError");
-          isValid = false;
-        } else if (!alphabeticPattern.test(formData.question2)) {
+          isValid = true;
+        } else if (!alphanumericPattern.test(formData.question2)) {
           newErrors.question2 = t("error.textError");
           isValid = false;
         }
         break;
       case 2:
         if (!formData.question3) {
-          newErrors.question3 = t("error.fillError");
-          isValid = false;
-        } else if (!alphabeticPattern.test(formData.question3)) {
+          isValid = true;
+        } else if (!alphanumericPattern.test(formData.question3)) {
           newErrors.question3 = t("error.textError");
           isValid = false;
         }
         break;
       case 3:
         if (!formData.question4) {
-          newErrors.question4 = t("error.fillError");
-          isValid = false;
-        } else if (!alphabeticPattern.test(formData.question4)) {
+          isValid = true;
+        } else if (!alphanumericPattern.test(formData.question4)) {
           newErrors.question4 = t("error.textError");
           isValid = false;
         }
         break;
       case 4:
         if (!formData.question5) {
-          newErrors.question5 = t("error.fillError");
-          isValid = false;
-        } else if (!alphabeticPattern.test(formData.question5)) {
+          isValid = true;
+        } else if (!alphanumericPattern.test(formData.question5)) {
           newErrors.question5 = t("error.textError");
           isValid = false;
         }
         break;
       case 5:
         if (!formData.question6) {
-          newErrors.question6 = t("error.fillError");
-          isValid = false;
-        } else if (!alphabeticPattern.test(formData.question6)) {
+          isValid = true;
+        } else if (!alphanumericPattern.test(formData.question6)) {
           newErrors.question6 = t("error.textError");
           isValid = false;
         }
@@ -178,15 +172,6 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values }) => {
               >
                 {t("stepSeven.continueJourney")}
               </button>
-              {currentQuestion < 5 && (
-                <button
-                  type="button"
-                  className="arrow-btn arrow-btn-stepthree"
-                  onClick={nextInfo}
-                >
-                  <img src="/assets/arrow.svg" alt="" />
-                </button>
-              )}
             </div>
           </div>
         </form>
@@ -224,15 +209,6 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values }) => {
               >
                 {t("stepSeven.continueJourney")}
               </button>
-              {currentQuestion < 5 && (
-                <button
-                  type="button"
-                  className="arrow-btn arrow-btn-stepthree"
-                  onClick={nextInfo}
-                >
-                  <img src="/assets/arrow.svg" alt="" />
-                </button>
-              )}
             </div>
           </div>
         </form>
@@ -269,15 +245,6 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values }) => {
               >
                 {t("stepSeven.continueJourney")}
               </button>
-              {currentQuestion < 5 && (
-                <button
-                  type="button"
-                  className="arrow-btn arrow-btn-stepthree"
-                  onClick={nextInfo}
-                >
-                  <img src="/assets/arrow.svg" alt="" />
-                </button>
-              )}
             </div>
           </div>
         </form>
@@ -314,15 +281,6 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values }) => {
               >
                 {t("stepSeven.continueJourney")}
               </button>
-              {currentQuestion < 5 && (
-                <button
-                  type="button"
-                  className="arrow-btn arrow-btn-stepthree"
-                  onClick={nextInfo}
-                >
-                  <img src="/assets/arrow.svg" alt="" />
-                </button>
-              )}
             </div>
           </div>
         </form>
@@ -359,15 +317,6 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values }) => {
               >
                 {t("stepSeven.continueJourney")}
               </button>
-              {currentQuestion < 5 && (
-                <button
-                  type="button"
-                  className="arrow-btn arrow-btn-stepthree"
-                  onClick={nextInfo}
-                >
-                  <img src="/assets/arrow.svg" alt="" />
-                </button>
-              )}
             </div>
           </div>
         </form>

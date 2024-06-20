@@ -25,7 +25,7 @@ const StepNine = ({ nextStep, prevStep, handleChange }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (selectedCondition === null) {
-      setError(t('error.selectError'));
+      setError(t('error.smsNotificationError'));
     } else {
       console.log("Form data:", formData);
       nextStep();

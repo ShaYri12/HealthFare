@@ -59,9 +59,6 @@ const StepTwoCard = ({ imgSrc, title, price, monthlyPrice, savings, description,
         <button className="long-btn" onClick={handleAddToCart}>
           {t('stepTwo.startLosingWeight')} {/* Translated button text */}
         </button>
-        <button className="arrow-btn" onClick={handleAddToCart}>
-          <img src="/assets/arrow.svg" alt="arrow" />
-        </button>
       </div>
     </div>
   );
