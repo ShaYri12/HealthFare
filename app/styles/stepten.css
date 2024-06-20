@@ -60,7 +60,7 @@
     position: relative;
 }
 
-.card h3{
+.plan-title{
     display: flex;
     align-items: center;
     justify-content: center;

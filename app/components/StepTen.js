@@ -76,7 +76,7 @@ const StepTen = ({ prevStep, nextStep, handleChange, formValues, addSuppliment, 
       </div>
       {cart2.map((item, index) => (
         <div className='card' key={index}>
-          <h3>{formValues.stepSix.lastName} Treatment Plan</h3>
+          <h3 className='plan-title'>{formValues.stepSix.lastName} Treatment Plan</h3>
           <div className='card-top'>
             <div className='card-img'>
               <img src={item.imgSrc} alt={item.title} />
