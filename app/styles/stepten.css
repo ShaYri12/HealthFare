@@ -60,6 +60,12 @@
     position: relative;
 }
 
+.card h3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .card .remove-suppliment{
     position: absolute;
     top: 5%;

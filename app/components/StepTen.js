@@ -5,7 +5,7 @@ import '../styles/stepten.css';
 import '../styles/form.css';
 import Review from "./Review";
 
-const StepTen = ({ prevStep, nextStep, handleChange, values, addSuppliment, cart, setCart, cart2 }) => {
+const StepTen = ({ prevStep, nextStep, handleChange, formValues, addSuppliment, cart, setCart, cart2 }) => {
   const { t } = useTranslation();
 
   // Initialize quantities state for items in the cart
@@ -76,6 +76,7 @@ const StepTen = ({ prevStep, nextStep, handleChange, values, addSuppliment, cart
       </div>
       {cart2.map((item, index) => (
         <div className='card' key={index}>
+          <h3>{formValues.stepSix.lastName} Treatment Plan</h3>
           <div className='card-top'>
             <div className='card-img'>
               <img src={item.imgSrc} alt={item.title} />
@@ -201,7 +202,6 @@ const StepTen = ({ prevStep, nextStep, handleChange, values, addSuppliment, cart
         </button>
         <div className='forward-btns'>
           <button className='long-btn long-btn-stepthree' onClick={nextStep}><img src="/assets/secure.svg" alt=""/> {t('stepTen.proceedToPayment')} </button>
-          <button className='arrow-btn arrow-btn-stepthree' onClick={nextStep}><img src="/assets/arrow.svg" alt=""/></button>
         </div>
       </div>
 

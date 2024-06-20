@@ -77,7 +77,6 @@ const StepNine = ({ nextStep, prevStep, handleChange }) => {
           </button>
           <div className='forward-btns'>
             <button type="submit" className='long-btn long-btn-stepthree'>{t('stepNine.continueJourney')}</button>
-            <button type="button" className='arrow-btn arrow-btn-stepthree' onClick={handleSubmit}><img src="/assets/arrow.svg" alt=""/></button>
           </div>
         </div>
       </form>

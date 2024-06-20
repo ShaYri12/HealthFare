@@ -180,27 +180,27 @@ const resources = {
         },
         question1: {
           label: "Please list any medications you are currently taking. If none, leave the field blank and continue.",
-          placeholder: "e.g., Metformin"
+          placeholder: "If yes, enter here. e.g. Metformin"
         },
         question2: {
           label: "Please list any allergies to medications. If none, leave the field blank and continue.",
-          placeholder: "e.g., Penicillin"
+          placeholder: "If yes, enter here. e.g. Penicillin"
         },
         question3: {
           label: "Please list any chronic medical conditions. If none, leave the field blank and continue.",
-          placeholder: "e.g., Hypertension, Diabetes"
+          placeholder: "If yes, enter here. e.g. Hypertension, Diabetes"
         },
         question4: {
           label: "Please list any prescription or over-the-counter diet aids you are currently taking. If none, leave the field blank and continue.",
-          placeholder: "e.g., Garcinia Cambogia, Orlistat"
+          placeholder: "If yes, enter here. e.g. Gardenia Cambodia, Berberine"
         },
         question5: {
           label: "Please list any antibiotics you are currently taking. If none, leave the field blank and continue.",
-          placeholder: "e.g., Amoxicillin"
+          placeholder: "If yes, enter here. e.g. Amoxicillin"
         },
         question6: {
           label: "Please list any weight loss medications you have taken before. If none, leave the field blank and continue.",
-          placeholder: "e.g., Semaglutide, Tirzepatide"
+          placeholder: "If yes, enter here. e.g. Semaglutide, Tirzepatide"
         },
         back: "Back",
         continueJourney: "Continue Your Journey"
@@ -485,27 +485,27 @@ const resources = {
         },
         question1: {
           label: "Por favor, enumera cualquier medicamento que estés tomando actualmente. Si no tomas ninguno, deja el campo en blanco y continúa.",
-          placeholder: "ej., Metformina"
+          placeholder: "Si es así, ingresa aquí. ej., Metformina"
         },
         question2: {
           label: "Por favor, enumera cualquier alergia a medicamentos que tengas. Si no tienes ninguna, deja el campo en blanco y continúa.",
-          placeholder: "ej., Penicilina"
+          placeholder: "Si es así, ingresa aquí. ej., Penicilina"
         },
         question3: {
           label: "Por favor, enumera cualquier condición médica crónica que tengas. Si no tienes ninguna, deja el campo en blanco y continúa.",
-          placeholder: "ej., Hipertensión, Diabetes"
+          placeholder: "Si es así, ingresa aquí. ej., Hipertensión, Diabetes"
         },
         question4: {
           label: "Por favor, enumera cualquier ayuda dietética de venta con receta o de venta libre que estés tomando actualmente. Si no tomas ninguna, deja el campo en blanco y continúa.",
-          placeholder: "ej., Garcinia Cambogia, Orlistat"
+          placeholder: "Si es así, ingresa aquí. ej., Garcinia Cambogia, Orlistat"
         },
         question5: {
           label: "Por favor, enumera cualquier antibiótico que estés tomando actualmente. Si no tomas ninguno, deja el campo en blanco y continúa.",
-          placeholder: "ej., Amoxicilina"
+          placeholder: "Si es así, ingresa aquí. ej., Amoxicilina"
         },
         question6: {
           label: "Por favor, enumera cualquier medicamento para la pérdida de peso que hayas tomado antes. Si no has tomado ninguno, deja el campo en blanco y continúa.",
-          placeholder: "ej., Semaglutida, Tirzepatida"
+          placeholder: "Si es así, ingresa aquí. ej., Semaglutida, Tirzepatida"
         },
         back: "Volver",
         continueJourney: "Continuar tu viaje"
@@ -628,7 +628,7 @@ const resources = {
         streetAddressError: "Por favor, insira seu endereço (ex. 123 Rua Principal).",
         cityError: "Por favor, insira sua cidade (ex. São Paulo).",
         zipCodeError: "Por favor, insira seu código postal (ex. 90001).",
-        stateMismatchError: "O estado deve corresponder ao selecionado no início do questionário.",
+        stateMismatchError: "O estado deve corresponder ao selecionado no inícqualifyio do questionário.",
         monthError: "Por favor, insira um mês válido (1-12).",
         dateError: "Por favor, insira um dia válido (1-31).",
         yearError: "Por favor, insira um ano válido (ex. 1990).",
@@ -789,27 +789,27 @@ const resources = {
         },
         question1: {
           label: "Por favor, liste qualquer alergia a medicamentos que você tenha. Se não tiver nenhuma, deixe o campo em branco e continue.",
-          placeholder: "ex., Metformina"
+          placeholder: "Se sim, insira aqui. ex., Metformina"
         },
         question2: {
           label: "Por favor, liste qualquer alergia a medicamentos que você tenha. Se não tiver nenhuma, deixe o campo em branco e continue.",
-          placeholder: "ex., Penicilina"
+          placeholder: "Se sim, insira aqui. ex., Penicilina"
         },
         question3: {
           label: "Por favor, liste qualquer condição médica crônica que você tenha. Se não tiver nenhuma, deixe o campo em branco e continue.",
-          placeholder: "ex., Hipertensão, Diabetes"
+          placeholder: "Se sim, insira aqui. ex., Hipertensão, Diabetes"
         },
         question4: {
           label: "Por favor, liste qualquer auxílio dietético de prescrição ou vendido sem receita que você esteja tomando atualmente. Se não estiver tomando nenhum, deixe o campo em branco e continue.",
-          placeholder: "ex., Garcinia Cambogia, Orlistat"
+          placeholder: "Se sim, insira aqui. ex., Garcinia Cambogia, Orlistat"
         },
         question5: {
           label: "Por favor, liste qualquer antibiótico que você esteja tomando atualmente. Se não estiver tomando nenhum, deixe o campo em branco e continue.",
-          placeholder: "ex., Amoxicilina"
+          placeholder: "Se sim, insira aqui. ex., Amoxicilina"
         },
         question6: {
           label: "Por favor, liste qualquer medicamento para perda de peso que você tenha tomado antes. Se não tiver tomado nenhum, deixe o campo em branco e continue.",
-          placeholder: "ex., Semaglutida, Tirzepatida"
+          placeholder: "Se sim, insira aqui. ex., Semaglutida, Tirzepatida"
         },
         back: "Voltar",
         continueJourney: "Continuar sua jornada"

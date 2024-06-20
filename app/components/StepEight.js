@@ -139,7 +139,7 @@ const StepEight = ({ nextStep, prevStep, handleChange, values }) => {
       {showModal && (
         <div className="modal">
           <div className="modal-content">
-            <h1>{t('error.disqualifyMsg')}</h1>
+            <h3>{t('error.disqualifyMsg')}</h3>
             <div className='btn-group'>
               <div className='forward-btns'>
                 <button className='confirm-btn' onClick={()=> setShowModal(false)}>Ok</button>
