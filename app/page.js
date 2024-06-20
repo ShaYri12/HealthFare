@@ -71,7 +71,7 @@ const Home = () => {
   
 
   const cartitem2 = (item) => {
-    setCart2((prevCart2) => [...prevCart2, item]);
+    setCart2([item]);
   };
 
   const nextStep = () => {

@@ -10,9 +10,10 @@ const StepTwo = ({ prevStep, nextStep, handleChange, values, cartitem2 }) => {
   const [cart2, setCart2] = useState([]);
 
   const addToCart = (item) => {
-    setCart2(prevCart => [...prevCart2, item]);
+    setCart2(item);
+    console.log("cart2",cart2)
     cartitem2(item)
-    console.log('Cart:', [...cart2, item]); // Log the updated cart for debugging
+    console.log('Cart:', item); // Log the updated cart for debugging
     handleChange(item);
   };
 
