@@ -17,6 +17,8 @@ const StepTen = ({
 }) => {
   const { t } = useTranslation();
 
+  const [addoncart, setAddonCart] = useState([]);
+
   // Initialize quantities state for items in the cart
   const [quantities, setQuantities] = useState(
     cart.map((item) => item.quantity || 1)
@@ -71,6 +73,12 @@ const StepTen = ({
       total += itemPrice * itemQuantity;
     });
 
+    // Calculate total from addoncart (selected addons)
+    addoncart.forEach((addon) => {
+      const addonPrice = parseFloat(addon.price.replace(/[$,]/g, ""));
+      total += addonPrice; // Add the price of each addon
+    });
+
     // Check if total is NaN (Not a Number)
     if (isNaN(total)) {
       console.error(
@@ -82,10 +90,39 @@ const StepTen = ({
     return total.toFixed(2); // Return total as a string with 2 decimal places
   };
 
+  // Function to handle adding an addon to the addoncart
+  const handleAddAddon = (addon) => {
+    setAddonCart((prevAddons) => [...prevAddons, addon]);
+    handleChange({ addoncart: [...addoncart, addon] });
+  };
+
+  const availableAddons = [
+    {
+      title: "ZOFRAN",
+      price: "$39.99",
+      imgSrc: "/assets/med1.svg",
+      description:
+        "Enhance your weight loss journey with Zofran by preventing nausea often experienced with Semaglutide and Tirzepatide. Zofran helps you stay on track and potentially lose up to 10 pounds more effectively.",
+    },
+    {
+      title: "ZOFRAN",
+      price: "$39.99",
+      imgSrc: "/assets/med1.svg",
+      description:
+        "Enhance your weight loss journey with Zofran by preventing nausea often experienced with Semaglutide and Tirzepatide. Zofran helps you stay on track and potentially lose up to 10 pounds more effectively.",
+    },
+  ];
+
+  const itemTitle = cart2.length > 0 ? cart2[0].title : "";
+  const injectionDetails =
+    cart2.length > 0 && cart2[0].features.length > 0
+      ? cart2[0].features[0] // Assuming "5mg/2ml Injection" is always in features[0]
+      : "";
+
   return (
     <div className="formContainer step-form">
       <div className="title-info">
-        <h2>Checkout</h2>
+        <h2>Order Summary</h2>
         <div className="plan">
           <h3 className="greeting">Hey {formValues.stepSix.lastName},</h3>
           <p className="review-plan">
@@ -94,7 +131,7 @@ const StepTen = ({
         </div>
       </div>
       {cart2.map((item, index) => (
-        <div className="card">
+        <div className="card" key={index}>
           <div className="card-top">
             <div className="card-img">
               <img src={item.imgSrc} alt={item.title} />
@@ -111,8 +148,8 @@ const StepTen = ({
               <p className="lose">{item.description}</p>
             </span>
 
-            {item.features.map((feature, index) => (
-              <span key={index}>
+            {item.features.map((feature, idx) => (
+              <span key={idx}>
                 <img src="/assets/checkmark.svg" alt="checkmark" />
                 <p>{feature}</p>
               </span>
@@ -146,18 +183,24 @@ const StepTen = ({
             <h3>{t("stepTen.additionalSupplements")}</h3>
             <p>{t("stepTen.noSupplementsSelected")}</p>
           </span>
-          <span>
             <button className="add-suppliment" onClick={addSuppliment}>
               {t("stepTen.addSupplements")}{" "}
               <img src="/assets/arrowblue.svg" alt="" />
             </button>
-          </span>
         </div>
       ) : (
         <div className="additional-suppliments cart-added">
-          <span>
-            <h3>{t("stepTen.additionalSupplements")}</h3>
-          </span>
+          <div className="fsdfg">
+            <h3 className="title-card-add">
+              {t("stepTen.additionalSupplements")}
+            </h3>
+            <span>
+              <button className="add-suppliment" onClick={addSuppliment}>
+                {t("stepTen.addSupplements")}{" "}
+                <img src="/assets/arrowblue.svg" alt="" />
+              </button>
+            </span>
+          </div>
           <div className="supplements-card all-added-supplements">
             {cart.map((item, index) => (
               <div className="card card-2" key={index}>
@@ -167,13 +210,15 @@ const StepTen = ({
                   </div>
                   <div className="card-title-price title-price-stepthree">
                     <div className="title-price">
-                      <h3 className="title">{item.title}</h3>
-                      <h3 className="price">{item.price}</h3>
+                      <h3>{item.title}</h3>
+                      <h3 className="price-items">{item.price}</h3>
                     </div>
-                    <p>{item.desc}</p>
+                    <div className="price-desc">
+                      <p>{item.desc}</p>
+                    </div>
                   </div>
                 </div>
-                <div className="btn-group  quantity cart-action">
+                <div className="btn-group cart-actions quantity">
                   <div className="quantity-control">
                     <button
                       className="quantity-btn quantity-increase"
@@ -189,68 +234,48 @@ const StepTen = ({
                       +
                     </button>
                   </div>
-                  <button
+                  <span
                     className="remove-suppliment"
                     onClick={() => removeSupplement(index)}
                   >
-                    <img src="/assets/delete.svg" alt="Remove" />
-                  </button>
+                    <img src="/assets/delete.svg" alt="" />
+                  </span>
                 </div>
               </div>
             ))}
           </div>
-          <span>
-            <button className="add-suppliment" onClick={addSuppliment}>
-              {t("stepTen.addSupplements")}{" "}
-              <img src="/assets/arrowblue.svg" alt="" />
-            </button>
-          </span>
         </div>
       )}
 
-      {/*pehle ye set kr */}
-      <div className="supplements-card all-added-supplements">
-        <div className="card card-2">
-          <div className="card-top card-2-top">
-            <div className="card-img">
-              <img src="/assets/med1.svg" alt="med1" />
-            </div>
-            <div className="card-title-price title-price-stepthree">
-              <div className="title-price">
-                <h3 className="title">ZOFRAN</h3>
-                <h3 className="price">$39.99</h3>
-              </div>
-              <p>
-                Enhance your weight loss journey with Zofran by preventing
-                nausea often experienced with Semaglutide and Tirzepatide.
-                Zofran helps you stay on track and potentially lose up to 10
-                pounds more effectively.
+      {/* Available Addons */}
+      <div className="available-addons-container">
+        <h2>Available Addons</h2>
+        {availableAddons.map((addon, index) => (
+          <div className="available-addons-card" key={index}>
+            <img width={"102px"} src={addon.imgSrc} alt={addon.title} />
+            <div className="title-price">
+              <h2 className="title">{addon.title}</h2>
+              <p className="price" style={{ color: "#38B64B" }}>
+                {addon.price}
               </p>
             </div>
-          </div>
-          <div className="btn-group btn-group-stepthree">
-            <div className="forward-btns">
-              <button
-                type="submit"
-                className="long-btn long-btn-stepthree add-cart-btn"
-              >
-                {t("stepThree.addToCart")}
-              </button>
-              <button
-                className="arrow-btn arrow-btn-stepthree cart-btn"
-                onClick={nextStep}
-              >
-                <img src="/assets/cart.svg" alt="" />
-              </button>
+            <p>{addon.description}</p>
+            <div className="btn-group addons-btn">
+              <div className="forward-btns">
+                <button
+                  type="submit"
+                  className="long-btn add-btn"
+                  onClick={() => handleAddAddon(addon)}
+                >
+                  Add
+                </button>
+                <button className="arrow-btn cart-btn" onClick={nextStep}>
+                  <img src="/assets/cart.svg" alt="" />
+                </button>
+              </div>
             </div>
           </div>
-          <button
-            className="remove-suppliment"
-            onClick={() => removeSupplement()}
-          >
-            <img src="/assets/delete.svg" alt="Remove" />
-          </button>
-        </div>
+        ))}
       </div>
 
       <div className="included-card">
@@ -282,8 +307,39 @@ const StepTen = ({
       </div>
 
       <div className="total-cost">
-        <h3>{t("stepTen.totalCost")}</h3>
-        <h2>{calculateTotalCost()}</h2>
+        <h3 className="item-title">{itemTitle} {injectionDetails}
+        </h3>
+          {cart2.map((item, index) => (
+            <span key={index}>
+              <h4>{item.monthPlan}</h4>
+              <h4>{item.price}</h4>
+            </span>
+          ))}
+          {cart.map((item, index) => (
+            <span key={index}>
+              <h4>{item.title}</h4>
+              <h4>{item.price}</h4>
+            </span>
+          ))}
+          {addoncart.length > 0 && (
+            <span>
+              <h4>ZOFRAN</h4>
+              <h4>
+                {addoncart.reduce(
+                  (acc, addon) =>
+                    acc + parseFloat(addon.price.replace(/[$,]/g, "")),
+                  0
+                )}
+              </h4>
+            </span>
+          )}
+        <hr />
+        <span className="total">
+          <h3>{t("stepTen.totalCost")}</h3>
+          <h2>
+            {calculateTotalCost()} <p>DUE TODAY</p>
+          </h2>
+        </span>
       </div>
 
       <div className="btn-group btn-group-stepthree">

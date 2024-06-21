@@ -137,8 +137,6 @@ const resources = {
         },
         back: "Back",
         skip: "Skip",
-        addToCart: "Add to cart",
-        inCart: "In cart",
       },
       stepFour: {
         calculateBMI: "Calculate your Body Mass Index (BMI)",
@@ -165,11 +163,15 @@ const resources = {
       },
       stepSix: {
         question1: {
-          title: "What’s your name?",
+          title: "What’s your name, phone number and email?",
           firstName: "FIRST NAME",
           lastName: "LAST NAME",
           firstNamePlaceholder: "e.g., John",
           lastNamePlaceholder: "e.g., Doe",
+          phone:"Phone",
+          phonePlaceholder: "e.g., (123) 456-7890",
+          email:"Email",
+          emailPlaceholder: "e.g., johndoe@example.com",
         },
         question2: {
           title: "What’s your address?",
@@ -193,14 +195,6 @@ const resources = {
           male: "Male",
           female: "Female",
           preferNotToSay: "Prefer not to answer",
-        },
-        question5: {
-          title: "What’s your phone?",
-          phonePlaceholder: "e.g., (123) 456-7890",
-        },
-        question6: {
-          title: "What’s your email?",
-          emailPlaceholder: "e.g., johndoe@example.com",
         },
         back: "Back",
         continueJourney: "Continue Your Journey",
@@ -310,6 +304,8 @@ const resources = {
           feature1: "5mg/2ml Injection (Same as Ozempic & Wegovy)",
           feature2: "Weekly application - total of 12 applications",
         },
+        addToCart: "Add to cart",
+        inCart: "In cart",
       },
       stepEleven: {
         title: "Semaglutide (3-Month Treatment Plan)",
@@ -493,8 +489,6 @@ const resources = {
         },
         back: "Volver",
         skip: "Omitir",
-        addToCart: "Añadir a la cesta",
-        inCart: "En el carrito",
       },
       stepFour: {
         calculateBMI: "Calcule su Índice de Masa Corporal (IMC)",
@@ -665,6 +659,8 @@ const resources = {
           feature1: "Inyección de 5 mg / 2 ml (igual que Ozempic y Wegovy)",
           feature2: "Aplicación semanal - total de 12 aplicaciones",
         },
+        addToCart: "Añadir a la cesta",
+        inCart: "En el carrito",
       },
       stepEleven: {
         title: "Semaglutida (Plan de Tratamiento de 3 meses)",
@@ -847,8 +843,6 @@ const resources = {
         },
         back: "Voltar",
         skip: "Pular",
-        addToCart: "Adicionar ao carrinho",
-        inCart: "No carrinho",
       },
       stepFour: {
         calculateBMI: "Calcule seu Índice de Massa Corporal (IMC)",
@@ -1017,6 +1011,8 @@ const resources = {
           feature1: "Injeção de 5 mg / 2 ml (mesmo que Ozempic e Wegovy)",
           feature2: "Aplicação semanal - total de 12 aplicações",
         },
+        addToCart: "Adicionar ao carrinho",
+        inCart: "No carrinho",
       },
       stepEleven: {
         title: "Semaglutida (Plano de Tratamento de 3 meses)",
