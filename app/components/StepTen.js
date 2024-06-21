@@ -160,35 +160,20 @@ const StepTen = ({
           </span>
           <div className="supplements-card all-added-supplements">
             {cart.map((item, index) => (
-              <div className="card" key={index}>
-                <span
-                  className="remove-suppliment"
-                  onClick={() => removeSupplement(index)}
-                >
-                  <svg
-                    width="20px"
-                    height="20px"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <path d="M10.5859 12L2.79297 4.20706L4.20718 2.79285L12.0001 10.5857L19.793 2.79285L21.2072 4.20706L13.4143 12L21.2072 19.7928L19.793 21.2071L12.0001 13.4142L4.20718 21.2071L2.79297 19.7928L10.5859 12Z"></path>
-                  </svg>
-                </span>
-
-                <div className="card-top">
+              <div className="card card-2" key={index}>
+                <div className="card-top card-2-top">
                   <div className="card-img">
                     <img src={item.imgSrc} alt={item.title} />
                   </div>
                   <div className="card-title-price title-price-stepthree">
-                    <h3>{item.title}</h3>
-                    <div className="price-desc">
-                      <h3>{item.price}</h3>
-                      <p>{item.desc}</p>
+                    <div className="title-price">
+                      <h3 className="title">{item.title}</h3>
+                      <h3 className="price">{item.price}</h3>
                     </div>
+                    <p>{item.desc}</p>
                   </div>
                 </div>
-                <div className="btn-group btn-group-stepthree quantity">
+                <div className="btn-group  quantity cart-action">
                   <div className="quantity-control">
                     <button
                       className="quantity-btn quantity-increase"
@@ -204,6 +189,12 @@ const StepTen = ({
                       +
                     </button>
                   </div>
+                  <button
+                    className="remove-suppliment"
+                    onClick={() => removeSupplement(index)}
+                  >
+                    <img src="/assets/delete.svg" alt="Remove" />
+                  </button>
                 </div>
               </div>
             ))}
@@ -216,6 +207,51 @@ const StepTen = ({
           </span>
         </div>
       )}
+
+      {/*pehle ye set kr */}
+      <div className="supplements-card all-added-supplements">
+        <div className="card card-2">
+          <div className="card-top card-2-top">
+            <div className="card-img">
+              <img src="/assets/med1.svg" alt="med1" />
+            </div>
+            <div className="card-title-price title-price-stepthree">
+              <div className="title-price">
+                <h3 className="title">ZOFRAN</h3>
+                <h3 className="price">$39.99</h3>
+              </div>
+              <p>
+                Enhance your weight loss journey with Zofran by preventing
+                nausea often experienced with Semaglutide and Tirzepatide.
+                Zofran helps you stay on track and potentially lose up to 10
+                pounds more effectively.
+              </p>
+            </div>
+          </div>
+          <div className="btn-group btn-group-stepthree">
+            <div className="forward-btns">
+              <button
+                type="submit"
+                className="long-btn long-btn-stepthree add-cart-btn"
+              >
+                {t("stepThree.addToCart")}
+              </button>
+              <button
+                className="arrow-btn arrow-btn-stepthree cart-btn"
+                onClick={nextStep}
+              >
+                <img src="/assets/cart.svg" alt="" />
+              </button>
+            </div>
+          </div>
+          <button
+            className="remove-suppliment"
+            onClick={() => removeSupplement()}
+          >
+            <img src="/assets/delete.svg" alt="Remove" />
+          </button>
+        </div>
+      </div>
 
       <div className="included-card">
         <h3>{t("stepTen.whatsIncluded")}</h3>
