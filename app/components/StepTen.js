@@ -341,12 +341,12 @@ const StepTen = ({
         )}
 
         <hr />
-        <div className="total">
+        <span className="total">
           <h3>{t("stepTen.totalCost")}</h3>
           <h2>
             {calculateTotalCost()} <p>DUE TODAY</p>
           </h2>
-        </div>
+        </span>
       </div>
 
       <div className="btn-group btn-group-stepthree">
