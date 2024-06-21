@@ -55,12 +55,50 @@
     width: 19.79px;
 }
 
-
-.card{
+.medication{
     display: flex;
     flex-direction: column;
     border-radius: 10px;
     border: 2px solid #181818;
+}
+
+.card-header,  .card-header-2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 15px 30px;
+    border-bottom: 2px solid #181818;
+}
+
+.card-header{
+    background-color: #38B64B;
+    color: #fff
+}
+
+.card-header h3, .card-header-2 h3{
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 37.12px;
+}
+
+.card-header span{
+    display: flex;
+    gap: 11px;
+}
+
+@media screen and (max-width: 410px){
+    .card-header{
+        flex-direction: column;
+        gap: 5px;
+    }   
+}
+
+.medication .card{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    border: none;
     padding: 50px 30px 50px 30px;
     gap:30px;
 }
@@ -88,27 +126,53 @@
     gap: 10px
 }
 
-.savings{
-    display: flex;
-    gap: 10px;
+
+.title-desc{
+    font-weight: 600 !important;
+    font-size: 18px !important;
+    line-height: 23.4px !important;
+    color: #484E5A !important;
 }
 
-.savings p, .savings span{
-    font-weight: 400;
+.price-savings{
+    display: flex;
+    align-items: start !important;
+}
+
+.price{
+    display: flex;
+    align-items: baseline;
+}
+
+.card-title-price span{
+    color: #002C20;
+    font-weight: 500;
     font-size: 15px;
+    line-height: 22.5px;
+}
+
+.saving{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.saving p, .saving span{
+    font-weight: 400;
+    font-size: 15px !important;
     line-height: 22.5px;
     color: #124296 !important;
     display: flex;
 }
 
-.savings span{
+.saving span{
     font-weight: 700;
-    font-size: 20px;
+    font-size: 20px !important;
     line-height: 20px;
     letter-spacing: -0.88px;   
 }
 
-.savings span p{
+.saving span p{
     font-weight: 400 !important;
     font-size: 10px !important;
     line-height: 10px !important;
@@ -116,11 +180,11 @@
 }
 
 .card-title-price h3{
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 21.6px;
+    font-weight: 700 !important;
+    font-size: 23px;
+    line-height: 27.6px;
     letter-spacing: 0.12px;
-    color: #002C20;
+    color: #002C20 !important;
     text-transform: uppercase;
 }
 
@@ -150,21 +214,14 @@
     font-size: 20px;
     line-height: 20px;
     letter-spacing: -0.88px;
-    color: #002C20 !important;
+    color: #002C20;
 }
 
 .card-title-price span p span{
     font-weight: 400;
-    font-size: 10px;
-    line-height: 10px;
-    letter-spacing: -3%;
-}
-
-.card-title-price .lose{
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-    color: #124296 !important;
+    font-size: 45px;
+    line-height: 45px;
+    letter-spacing: -2%;
 }
 
 .card-info{
@@ -178,6 +235,14 @@
         gap: 10px
     }
   }
+
+.card-info .lose-upto .lose{
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #124296 !important;
+}
+
 
 .card-info span{
     display: flex;

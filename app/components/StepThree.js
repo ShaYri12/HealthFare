@@ -18,20 +18,20 @@ const StepThree = ({ prevStep, nextStep,  handleChange, values, cartitem }) => {
 
   const cardsData = [
     {
-      imgSrc: "/assets/step3-product1.svg",
+      imgSrc: "/assets/med1.svg",
       title: t('stepThree.product1.title'), // Translate title using t function
       price: "$889.99",
       desc: t('stepThree.product1.description'), // Translate description using t function
     },
     {
-      imgSrc: "/assets/step3-product2.svg",
+      imgSrc: "/assets/med2.svg",
       title: t('stepThree.product2.title'), // Translate title using t function
       price: "$889.99",
       savings: "$360",
       desc: t('stepThree.product2.description'), // Translate description using t function
     },
     {
-      imgSrc: "/assets/step3-product3.svg",
+      imgSrc: "/assets/med2.svg",
       title: t('stepThree.product3.title'), // Translate title using t function
       price: "$889.99",
       desc: t('stepThree.product3.description'), // Translate description using t function

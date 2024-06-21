@@ -89,6 +89,7 @@
     }
   }
 
+
 .card .card-top{
     display: flex;
     gap:20px;
@@ -100,6 +101,8 @@
         flex-direction: column;
     }
   }
+
+
 
 .card-title-price{
     display: flex;
