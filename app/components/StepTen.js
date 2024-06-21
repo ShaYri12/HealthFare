@@ -306,14 +306,13 @@ const StepTen = ({
         </span>
       </div>
 
-      {/* Total Cost Section */}
       <div className="total-cost">
         <h3 className="item-title">{itemTitle} {injectionDetails}</h3>
 
         {/* Display cart2 items */}
         {cart2.map((item, index) => (
           <span key={index}>
-            <h4>{item.monthPlan}</h4>
+            <h4>{item.monthPlan} x {item.quantity}</h4>
             <h4>{item.price}</h4>
           </span>
         ))}
@@ -321,7 +320,7 @@ const StepTen = ({
         {/* Display cart items */}
         {cart.map((item, index) => (
           <span key={index}>
-            <h4>{item.title}</h4>
+            <h4>{item.title} x {item.quantity}</h4>
             <h4>{item.price}</h4>
           </span>
         ))}
@@ -329,7 +328,7 @@ const StepTen = ({
         {/* Display addoncart items */}
         {addoncart.length > 0 && (
           <span>
-            <h4>ZOFRAN</h4>
+            <h4>ZOFRAN x {addoncart.length}</h4>
             <h4>
               {addoncart.reduce(
                 (acc, addon) =>
