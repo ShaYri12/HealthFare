@@ -5,7 +5,7 @@ import '../styles/stepfour.css';
 import '../styles/form.css';
 import Testimonial from './Testimonial';
 
-const StepFour = ({ nextStep, prevStep, handleChange, values, handleNotEligible }) => {
+const StepFour = ({ nextStep, prevStep, handleChange, values, updateNotEligibleData, handleNotEligible }) => {
   const { t } = useTranslation();
   const [formData, setFormData] = useState({
     pounds: values.pounds || '',
@@ -54,6 +54,11 @@ const StepFour = ({ nextStep, prevStep, handleChange, values, handleNotEligible 
       if (bmi >= 27) {
         nextStep();
       } else {
+        const newData = {
+          title: t('notEligible.title'),
+          desc: t('notEligible.message')
+        };
+        updateNotEligibleData(newData);
         handleNotEligible();
       }
     }

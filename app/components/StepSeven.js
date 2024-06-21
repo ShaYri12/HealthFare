@@ -42,7 +42,8 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values }) => {
     const newErrors = {};
 
     // Regex pattern for alphabetic only
-    const alphanumericPattern = /^[A-Za-z0-9\s.,'"`#-]+$/u;
+    const alphanumericPattern = /^[A-Za-z0-9\s*.,'"`#()\[\]-]+$/u;
+
 
     // Validate fields for the current question
     switch (currentQuestion) {

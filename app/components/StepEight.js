@@ -5,13 +5,12 @@ import "../styles/stepeight.css";
 import "../styles/form.css";
 import Review from "./Review";
 
-const StepEight = ({ nextStep, prevStep, handleChange, values }) => {
+const StepEight = ({ nextStep, prevStep, handleChange, updateNotEligibleData, handleNotEligible }) => {
   const { t } = useTranslation();
 
   const [selectedConditions, setSelectedConditions] = useState([]);
   const [formData, setFormData] = useState({ selectedConditions: [] });
   const [error, setError] = useState('');
-  const [showModal, setShowModal] = useState(false);
 
   const disqualifyingConditions = [
     "pregnant",
@@ -46,17 +45,17 @@ const StepEight = ({ nextStep, prevStep, handleChange, values }) => {
     if (selectedConditions.length === 0) {
       setError(t('error.selectError'));
     } else if (selectedConditions.some(condition => disqualifyingConditions.includes(condition))) {
-      setShowModal(true)
+      const newData = {
+        title: t('error.disqualifyTitle'),
+        desc: t('error.disqualifyMsg')
+      };
+      updateNotEligibleData(newData);
+      handleNotEligible();
     } else {
       // Save form values or perform any necessary actions
       console.log("Form data:", formData);
       nextStep();
     }
-  };
-
-  const handleNextStep = (event) => {
-    event.preventDefault();
-    handleSubmit(event);
   };
 
   const conditions = [
@@ -134,20 +133,6 @@ const StepEight = ({ nextStep, prevStep, handleChange, values }) => {
       </form>
 
       <Review />
-
-      {/* Modal */}
-      {showModal && (
-        <div className="modal">
-          <div className="modal-content">
-            <h3>{t('error.disqualifyMsg')}</h3>
-            <div className='btn-group'>
-              <div className='forward-btns'>
-                <button className='confirm-btn' onClick={()=> setShowModal(false)}>Ok</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

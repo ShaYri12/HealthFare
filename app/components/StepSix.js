@@ -5,10 +5,9 @@ import "../styles/stepsix.css";
 import "../styles/form.css";
 import Review from "./Review";
 
-const StepSix = ({ nextStep, prevStep, handleChange, formValues }) => {
+const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligibleData, handleNotEligible }) => {
   const { t } = useTranslation();
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     firstName: formValues.stepSix.firstName || '',
     lastName: formValues.stepSix.lastName || '',
@@ -25,7 +24,6 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues }) => {
   });
   const [errors, setErrors] = useState({});
   const [age, setAge] = useState(null);
-  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   const handleInputChange = (field) => (e) => {
     let value = e.target.value;
@@ -169,9 +167,24 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues }) => {
     }
 
     if (age !== null && age < 18) {
-      setShowModal(true);
-      newErrors.age = t('error.ageError');
-      isValid = false;
+      const newData = {
+        title: t('error.disqualifyTitle'),
+        desc: t('error.ageError')
+      };
+      setAge(null);
+      setFormData({
+        ...formData,
+        month: '',
+        day: '',
+        year: '',
+      });
+      handleChange({
+        month: '',
+        day: '',
+        year: '',
+      });
+      updateNotEligibleData(newData);
+      handleNotEligible();
     }
 
     setErrors(newErrors);
@@ -321,19 +334,6 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues }) => {
               {errors.year && <span className="error">{errors.year}</span>}
             </div>
           </div>
-          {/* Modal */}
-          {showModal && (
-            <div className="modal">
-              <div className="modal-content">
-                <h3>{errors.age}</h3>
-                <div className='btn-group'>
-                  <div className='forward-btns'>
-                    <button className='confirm-btn' onClick={()=> setShowModal(false)}>Ok</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
           <div className='btn-group btn-group-stepthree'>
             <button type="button" className='back-btn back-btn-stepthree' onClick={prevInfo}>
               <img src="/assets/arrow.svg" alt="arrow" /> {t('stepSix.back')}

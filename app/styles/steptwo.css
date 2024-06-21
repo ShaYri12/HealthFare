@@ -137,6 +137,7 @@
 .price-savings{
     display: flex;
     align-items: start !important;
+    justify-content: space-between;
 }
 
 .price{
@@ -154,7 +155,7 @@
 .saving{
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: baseline;
 }
 
 .saving p, .saving span{
@@ -165,11 +166,14 @@
     display: flex;
 }
 
+
 .saving span{
     font-weight: 700;
     font-size: 20px !important;
     line-height: 20px;
     letter-spacing: -0.88px;   
+    display: flex;
+    align-items: baseline;
 }
 
 .saving span p{
@@ -188,7 +192,7 @@
     text-transform: uppercase;
 }
 
-.card-title-price h2{
+.price-savings h2{
     font-weight: 600 !important;
     padding: 0 !important;
     font-size: 45px !important;

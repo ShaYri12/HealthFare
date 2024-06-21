@@ -60,10 +60,25 @@
     position: relative;
 }
 
-.plan-title{
+.plan{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.greeting{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: .12px;
+    color: #002C20;
+}
+
+.review-plan{
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    color: #484E5A;
 }
 
 .card .remove-suppliment{
@@ -77,9 +92,65 @@
     cursor: pointer;
 }
 
+.note{
+    font-weight: 300 !important;
+    font-size: 15px !important;
+    line-height: 22.5px !important;
+    color: #002C20 !important;
+}
+
 .quantity{
     justify-content: end;
+    flex-grow: 1;
+    flex: 1;
 }
+.card .quantity-control {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+  }
+  
+  .card .quantity-btn {
+    position: relative;
+    background-color: white;
+    color: #181818;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black !important;
+    max-height: 51px;
+    cursor: pointer;
+    padding: 0 15px;
+    gap: 10px;
+    flex-grow: 1;
+  }
+
+  .card .quantity-increase{
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+  }
+
+  .card .quantity-dicrease{
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+  }
+  
+  .card .quantity-btn:hover {
+    background-color: #bbbbbb9d;
+  }
+  
+  .card .quantity-control span {
+    display: flex;
+    font-size: 16px;
+    border-top: 1px solid black !important;
+    border-bottom: 1px solid black !important;
+    padding: 10px;
+    gap: 10px;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+  }
+  
 
 
 

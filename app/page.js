@@ -25,7 +25,7 @@ const Home = () => {
   
   // Initialize formValues with arrays where necessary
   const [formValues, setFormValues] = useState({
-    stepOne: {},
+    stepOne: {location:"Arizona"},
     stepTwo: {},
     stepThree: {},
     stepFour: {},
@@ -54,6 +54,7 @@ const Home = () => {
   const [showAddSuppliment, setShowAddSuppliment] = useState(false);
   const [cart, setCart] = useState([]);
   const [cart2, setCart2] = useState([]);
+  const [NotEligibleData, setNotEligibleData] = useState([]);
 
   const cartitem = (item) => {
     // Add item to cart
@@ -67,11 +68,13 @@ const Home = () => {
     console.log("formValues after handleChange: ", formValues.stepThree);
     console.log("Cart after handleChange: ", cart);
   };
-  
-  
 
   const cartitem2 = (item) => {
     setCart2([item]);
+  };
+
+  const updateNotEligibleData = (data) => {
+    setNotEligibleData(data);
   };
 
   const nextStep = () => {
@@ -110,12 +113,12 @@ const Home = () => {
     <StepOne nextStep={nextStep} handleChange={handleChange('stepOne')} values={formValues} />,
     <StepTwo nextStep={nextStep} prevStep={prevStep} handleChange={handleChange('stepTwo')} values={formValues} cartitem2={cartitem2} />,
     <StepThree prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepThree')} values={formValues} cartitem={cartitem} />,
-    <StepFour prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepFour')} values={formValues} handleNotEligible={handleNotEligible} />,
-    <StepFive prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepFive')} values={formValues} />,
-    <StepSix prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepSix')} formValues={formValues} />,
+    <StepFour prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepFour')} values={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} />,
+    <StepFive prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepFive')} values={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} />,
+    <StepSix prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepSix')} formValues={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} />,
     <StepSeven prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepSeven')} values={formValues} />,
-    <StepEight prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepEight')} values={formValues} />,
-    <StepNine prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepNine')} values={formValues} />,
+    <StepEight prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepEight')} values={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} />,
+    <StepNine prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepNine')} values={formValues}  />,
     <StepTen prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepTen')} formValues={formValues} cart={cart} cart2={cart2} setCart={setCart} addSuppliment={handleAddSuppliment} />,
     <StepEleven prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepEleven')} values={formValues} />,
     <StepTwelve prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepTwelve')} values={formValues} />,
@@ -134,7 +137,7 @@ const Home = () => {
           {showAddSuppliment ? (
             <AddSuppliment handleOrignalStep={handleOrignalStep} handleChange={handleChange('stepThree')} cartitem={cartitem} />
           ) : showNotEligible ? (
-            <NotEligible handleEligible={handleEligible} />
+            <NotEligible NotEligibleData={NotEligibleData} handleEligible={handleEligible} />
           ) : (
             steps[step - 1]
           )}

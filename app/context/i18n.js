@@ -36,6 +36,7 @@ const resources = {
           "This is not a valid email address. Please enter a valid email address.",
         smsNotificationError:
           "Please select if you prefer to receive SMS notifications.",
+        disqualifyTitle: "Not Qualified",
         disqualifyMsg: "Sorry You Do Not Qualify For This.",
       },
       testimonial: {
@@ -278,6 +279,9 @@ const resources = {
         continueJourney: "Continue Your Journey",
       },
       stepTen: {
+        title: "CHECKOUT",
+        greeting: "Hey ",
+        planDesc : "Review Your Treatment Plan and Included Services",
         productTitle: "Semaglutide (3-Month treatment Plan)",
         productPrice: "$889.99",
         productMonthlyPrice: "$296",
@@ -388,6 +392,7 @@ const resources = {
           "Esta no es una dirección de correo electrónico válida. Por favor, ingresa una dirección de correo electrónico válida.",
         smsNotificationError:
           "Por favor, selecciona si prefieres recibir notificaciones por SMS.",
+        disqualifyTitle: "No Calificado",
         disqualifyMsg: "Lo siento, no calificas para esto.",
       },
       testimonial: {
@@ -741,6 +746,7 @@ const resources = {
           "Este não é um endereço de email válido. Por favor, insira um endereço de email válido.",
         smsNotificationError:
           "Por favor, selecione se prefere receber notificações por SMS.",
+        disqualifyTitle: "Não Qualificado",
         disqualifyMsg: "Desculpe, você não se qualifica para isso.",
       },
       testimonial: {
