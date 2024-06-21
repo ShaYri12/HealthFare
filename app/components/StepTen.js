@@ -92,12 +92,24 @@ const StepTen = ({
 
   // Function to handle adding an addon to the addoncart
   const handleAddAddon = (addon) => {
-    setAddonCart((prevAddons) => [...prevAddons, addon]);
-    handleChange({ addoncart: [...addoncart, addon] });
+    const index = addoncart.findIndex((a) => a.id === addon.id);
+  
+    if (index !== -1) {
+      // Addon already in addoncart, remove it
+      const newAddonCart = [...addoncart];
+      newAddonCart.splice(index, 1);
+      setAddonCart(newAddonCart);
+      handleChange({ addoncart: newAddonCart });
+    } else {
+      // Add addon to addoncart
+      setAddonCart((prevAddons) => [...prevAddons, addon]);
+      handleChange({ addoncart: [...addoncart, addon] });
+    }
   };
 
   const availableAddons = [
     {
+      id: "1",
       title: "ZOFRAN",
       price: "$39.99",
       imgSrc: "/assets/med1.svg",
@@ -105,6 +117,7 @@ const StepTen = ({
         "Enhance your weight loss journey with Zofran by preventing nausea often experienced with Semaglutide and Tirzepatide. Zofran helps you stay on track and potentially lose up to 10 pounds more effectively.",
     },
     {
+      id: "2",
       title: "ZOFRAN",
       price: "$39.99",
       imgSrc: "/assets/med1.svg",
@@ -171,8 +184,11 @@ const StepTen = ({
             )}
           </span>
           <p className="note">
-            *This Plan requires a minimum three-month commitment for effective
-            results.
+            {item.monthPlan.match(/\d+/) ? (
+              `${t("stepTen.noteFirst")} ${item.monthPlan.match(/\d+/)} ${t("stepTen.noteSecond")}`
+            ) : (
+              `${t("stepTen.noteFirst")} 1 ${t("stepTen.noteSecond")}`
+            )}
           </p>
         </div>
       ))}
@@ -249,8 +265,11 @@ const StepTen = ({
 
       {/* Available Addons */}
       <div className="available-addons-container">
-        <h2>Available Addons</h2>
-        {availableAddons.map((addon, index) => (
+      <h2>Available Addons</h2>
+      {availableAddons.map((addon, index) => {
+        const isInCart = addoncart.some((item) => item.id === addon.id);
+
+        return (
           <div className="available-addons-card" key={index}>
             <img width={"102px"} src={addon.imgSrc} alt={addon.title} />
             <div className="title-price">
@@ -263,20 +282,25 @@ const StepTen = ({
             <div className="btn-group addons-btn">
               <div className="forward-btns">
                 <button
-                  type="submit"
-                  className="long-btn add-btn"
+                  type="button"
+                  className={`long-btn ${isInCart ? 'delete-btn' : "add-btn" }`}
                   onClick={() => handleAddAddon(addon)}
                 >
-                  Add
+                  {isInCart ? t("stepTen.inCart") : t("stepTen.add")}
                 </button>
-                <button className="arrow-btn cart-btn" onClick={nextStep}>
-                  <img src="/assets/cart.svg" alt="" />
-                </button>
+                  <button
+                    className={`arrow-btn ${isInCart ? 'delete-btn' : "cart-btn" }`}
+                    onClick={() => handleAddAddon(addon)}
+                  >
+                    <img src={`/assets/${isInCart ? 'delete' : "cart"}.svg`} alt="" />
+                  </button>
               </div>
             </div>
           </div>
-        ))}
+        );
+      })}
       </div>
+
 
       <div className="included-card">
         <h3>{t("stepTen.whatsIncluded")}</h3>
@@ -312,7 +336,7 @@ const StepTen = ({
         {/* Display cart2 items */}
         {cart2.map((item, index) => (
           <span key={index}>
-            <h4>{item.monthPlan} x {item.quantity}</h4>
+            <h4>{item.monthPlan}</h4>
             <h4>{item.price}</h4>
           </span>
         ))}

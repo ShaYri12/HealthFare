@@ -414,3 +414,12 @@
   .add-btn:hover, .cart-btn:hover{
     background-color: #124296df !important;
   }
+
+  
+  .delete-btn{
+    background-color: #b63838 !important;
+  }
+
+  .delete-btn:hover{
+    background-color: #b63838e2 !important;
+  }

@@ -54,6 +54,7 @@ const Home = () => {
   const [showAddSuppliment, setShowAddSuppliment] = useState(false);
   const [cart, setCart] = useState([]);
   const [cart2, setCart2] = useState([]);
+  const [addon, setaddon] = useState([]);
   const [NotEligibleData, setNotEligibleData] = useState([]);
 
   const cartitem = (item) => {
