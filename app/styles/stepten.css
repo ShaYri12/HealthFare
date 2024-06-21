@@ -100,9 +100,7 @@
 }
 
 .quantity{
-    justify-content: end;
-    flex-grow: 1;
-    flex: 1;
+    justify-content: center;
 }
 .card .quantity-control {
     display: flex;
