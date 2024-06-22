@@ -114,19 +114,17 @@ const StepTen = ({
   const availableAddons = [
     {
       id: "1",
-      title: "ZOFRAN",
+      title: t("stepTen.addons.title1"),
       price: "$39.99",
       imgSrc: "/assets/med1.svg",
-      description:
-        "Enhance your weight loss journey with Zofran by preventing nausea often experienced with Semaglutide and Tirzepatide. Zofran helps you stay on track and potentially lose up to 10 pounds more effectively.",
+      description: t("stepTen.addons.addon1Desc"),
     },
     {
       id: "2",
-      title: "ZOFRAN",
+      title: t("stepTen.addons.title1"),
       price: "$39.99",
       imgSrc: "/assets/med1.svg",
-      description:
-        "Enhance your weight loss journey with Zofran by preventing nausea often experienced with Semaglutide and Tirzepatide. Zofran helps you stay on track and potentially lose up to 10 pounds more effectively.",
+      description: t("stepTen.addons.addon2Desc"),
     },
   ];
 
@@ -139,12 +137,10 @@ const StepTen = ({
   return (
     <div className="formContainer step-form">
       <div className="title-info">
-        <h2>Order Summary</h2>
+        <h2>{t("stepTen.title")}</h2>
         <div className="plan">
-          <h3 className="greeting">Hey {formValues.stepSix.lastName},</h3>
-          <p className="review-plan">
-            Review Your Treatment Plan and Included Services
-          </p>
+          <h3 className="greeting">{t("stepTen.greeting")} {formValues.stepSix.lastName},</h3>
+          <p className="review-plan">{t("stepTen.planDesc")}</p>
         </div>
       </div>
       {cart2.map((item, index) => (
@@ -269,7 +265,7 @@ const StepTen = ({
 
       {/* Available Addons */}
       <div className="available-addons-container">
-      <h2>Available Addons</h2>
+      <h2>{t("stepTen.availableAddon")}</h2>
       {availableAddons.map((addon, index) => {
         const isInCart = addoncart.some((item) => item.id === addon.id);
 
@@ -371,7 +367,7 @@ const StepTen = ({
         <span className="total">
           <h3>{t("stepTen.totalCost")}</h3>
           <h2>
-            {calculateTotalCost()} <p>DUE TODAY</p>
+            {calculateTotalCost()} <p>{t("stepTen.dueToday")}</p>
           </h2>
         </span>
       </div>
