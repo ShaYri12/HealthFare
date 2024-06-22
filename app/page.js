@@ -21,7 +21,7 @@ import i18n from './context/i18n';
 import './styles/form.css';
 
 const Home = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(10);
   
   // Initialize formValues with arrays where necessary
   const [formValues, setFormValues] = useState({
@@ -109,6 +109,7 @@ const Home = () => {
     setStep(10);
     setShowAddSuppliment(false);
   };
+  
 
   const steps = [
     <StepOne nextStep={nextStep} handleChange={handleChange('stepOne')} values={formValues} />,

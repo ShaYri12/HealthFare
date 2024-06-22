@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import "../styles/stepten.css";
 import "../styles/form.css";
@@ -17,7 +17,11 @@ const StepTen = ({
 }) => {
   const { t } = useTranslation();
 
-  const [addoncart, setAddonCart] = useState([]);
+  const [addoncart, setAddonCart] = useState(formValues.stepTen.addoncart || []);
+
+  useEffect(() => {
+    handleChange({ addoncart });
+  }, [addoncart]);
 
   // Initialize quantities state for items in the cart
   const [quantities, setQuantities] = useState(
