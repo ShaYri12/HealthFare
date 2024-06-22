@@ -176,3 +176,32 @@
         right: 2%;
     }
 }
+
+
+/* form test data */
+
+.formValuesContainer {
+    margin-top: 20px;
+  }
+  
+  .formValuesContainer h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .formValuesContainer ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .formValuesContainer li {
+    margin-bottom: 10px;
+    word-wrap: break-word; /* Handles long words */
+    overflow-wrap: break-word; /* Handles word wrap */
+  }
+  
+  .formValuesContainer strong {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  

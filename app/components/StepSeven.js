@@ -5,9 +5,8 @@ import "../styles/stepseven.css"; // Ensure this file exists
 import "../styles/form.css";
 import Review from "./Review";
 
-const StepSeven = ({ nextStep, prevStep, handleChange, values }) => {
-  const { t } = useTranslation(); // 'stepSeven' matches the namespace in i18n.js
-  const [currentQuestion, setCurrentQuestion] = useState(0);
+const StepSeven = ({ nextStep, prevStep, handleChange, values, currentQuestion, setCurrentQuestion }) => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     question1: values.question1 || "",
     question2: values.question2 || "",

@@ -40,7 +40,6 @@ const StepTwo = ({ prevStep, nextStep, handleChange, values, cartitem2 }) => {
       title: t('stepTwo.cards.1.title'),
       titleDesc: t('stepTwo.cards.1.titleDesc'),
       price: "$279",
-      savings: "$204",
       description: t('stepTwo.cards.1.description'),
       monthPlan: t('stepTwo.cards.1.monthPlan'),
       totalSavings:  t('stepTwo.totalSavings'),
@@ -53,7 +52,7 @@ const StepTwo = ({ prevStep, nextStep, handleChange, values, cartitem2 }) => {
     },
     {
       header: t('stepTwo.cards.2.header'),
-      imgSrc: "/assets/med1.svg",
+      imgSrc: "/assets/med2.svg",
       title: t('stepTwo.cards.2.title'),
       titleDesc: t('stepTwo.cards.2.titleDesc'),
       price: "$425",
@@ -73,7 +72,6 @@ const StepTwo = ({ prevStep, nextStep, handleChange, values, cartitem2 }) => {
       title: t('stepTwo.cards.3.title'),
       titleDesc: t('stepTwo.cards.3.titleDesc'),
       price: "$399",
-      savings: "$312",
       description: t('stepTwo.cards.3.description'),
       totalSavings:  t('stepTwo.totalSavings'),
       month: t('stepTwo.month'),
@@ -101,7 +99,7 @@ const StepTwo = ({ prevStep, nextStep, handleChange, values, cartitem2 }) => {
               <img src="/assets/star.png" alt="star"/>
               <img src="/assets/star.png" alt="star"/>
           </div>
-          <p className='reviews'>456 <span>{t('review.reviewsOn')}</span></p>
+          <p className='reviews'>712 <span>{t('review.reviewsOn')}</span></p>
           <div className='trustpilot'>
               <img src="/assets/star-trustpilot.svg" alt="trust"/> <span>Trustpilot</span>
           </div>

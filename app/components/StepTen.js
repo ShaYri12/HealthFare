@@ -17,7 +17,9 @@ const StepTen = ({
 }) => {
   const { t } = useTranslation();
 
-  const [addoncart, setAddonCart] = useState(formValues.stepTen.addoncart || []);
+  const [addoncart, setAddonCart] = useState(
+    formValues.stepTen.addoncart || []
+  );
 
   useEffect(() => {
     handleChange({ addoncart });
@@ -67,7 +69,13 @@ const StepTen = ({
     cart2.forEach((item) => {
       const itemPrice = parseFloat(item.price.replace(/[$,]/g, ""));
       const itemQuantity = item.quantity || 1; // Default to 1 if quantity is not provided or falsy
-      total += itemPrice * itemQuantity;
+
+      // Check monthPlan and adjust price calculation accordingly
+      if (item.monthPlan.toLowerCase() === "monthly plan") {
+        total += itemPrice * itemQuantity; // Monthly price
+      } else if (item.monthPlan.toLowerCase() === "three month plan") {
+        total += itemPrice * itemQuantity * 3; // Three months price
+      }
     });
 
     // Calculate total from cart (additional supplements)
@@ -97,7 +105,7 @@ const StepTen = ({
   // Function to handle adding an addon to the addoncart
   const handleAddAddon = (addon) => {
     const index = addoncart.findIndex((a) => a.id === addon.id);
-  
+
     if (index !== -1) {
       // Addon already in addoncart, remove it
       const newAddonCart = [...addoncart];
@@ -139,7 +147,9 @@ const StepTen = ({
       <div className="title-info">
         <h2>{t("stepTen.title")}</h2>
         <div className="plan">
-          <h3 className="greeting">{t("stepTen.greeting")} {formValues.stepSix.lastName},</h3>
+          <h3 className="greeting">
+            {t("stepTen.greeting")} {formValues.stepSix.lastName},
+          </h3>
           <p className="review-plan">{t("stepTen.planDesc")}</p>
         </div>
       </div>
@@ -183,13 +193,6 @@ const StepTen = ({
               </div>
             )}
           </span>
-          <p className="note">
-            {item.monthPlan.match(/\d+/) ? (
-              `${t("stepTen.noteFirst")} ${item.monthPlan.match(/\d+/)} ${t("stepTen.noteSecond")}`
-            ) : (
-              `${t("stepTen.noteFirst")} 1 ${t("stepTen.noteSecond")}`
-            )}
-          </p>
         </div>
       ))}
 
@@ -199,10 +202,10 @@ const StepTen = ({
             <h3>{t("stepTen.additionalSupplements")}</h3>
             <p>{t("stepTen.noSupplementsSelected")}</p>
           </span>
-            <button className="add-suppliment" onClick={addSuppliment}>
-              {t("stepTen.addSupplements")}{" "}
-              <img src="/assets/arrowblue.svg" alt="" />
-            </button>
+          <button className="add-suppliment" onClick={addSuppliment}>
+            {t("stepTen.addSupplements")}{" "}
+            <img src="/assets/arrowblue.svg" alt="" />
+          </button>
         </div>
       ) : (
         <div className="additional-suppliments cart-added">
@@ -265,42 +268,48 @@ const StepTen = ({
 
       {/* Available Addons */}
       <div className="available-addons-container">
-      <h2>{t("stepTen.availableAddon")}</h2>
-      {availableAddons.map((addon, index) => {
-        const isInCart = addoncart.some((item) => item.id === addon.id);
+        <h2>{t("stepTen.availableAddon")}</h2>
+        {availableAddons.map((addon, index) => {
+          const isInCart = addoncart.some((item) => item.id === addon.id);
 
-        return (
-          <div className="available-addons-card" key={index}>
-            <img width={"102px"} src={addon.imgSrc} alt={addon.title} />
-            <div className="title-price">
-              <h2 className="title">{addon.title}</h2>
-              <p className="price" style={{ color: "#38B64B" }}>
-                {addon.price}
-              </p>
-            </div>
-            <p>{addon.description}</p>
-            <div className="btn-group addons-btn">
-              <div className="forward-btns">
-                <button
-                  type="button"
-                  className={`long-btn ${isInCart ? 'delete-btn' : "add-btn" }`}
-                  onClick={() => handleAddAddon(addon)}
-                >
-                  {isInCart ? t("stepTen.inCart") : t("stepTen.add")}
-                </button>
+          return (
+            <div className="available-addons-card" key={index}>
+              <img width={"102px"} src={addon.imgSrc} alt={addon.title} />
+              <div className="title-price">
+                <h2 className="title">{addon.title}</h2>
+                <p className="price" style={{ color: "#38B64B" }}>
+                  {addon.price}
+                </p>
+              </div>
+              <p>{addon.description}</p>
+              <div className="btn-group addons-btn">
+                <div className="forward-btns">
                   <button
-                    className={`arrow-btn ${isInCart ? 'delete-btn' : "cart-btn" }`}
+                    type="button"
+                    className={`long-btn ${
+                      isInCart ? "delete-btn" : "add-btn"
+                    }`}
                     onClick={() => handleAddAddon(addon)}
                   >
-                    <img src={`/assets/${isInCart ? 'delete' : "cart"}.svg`} alt="" />
+                    {isInCart ? t("stepTen.inCart") : t("stepTen.add")}
                   </button>
+                  <button
+                    className={`arrow-btn ${
+                      isInCart ? "delete-btn" : "cart-btn"
+                    }`}
+                    onClick={() => handleAddAddon(addon)}
+                  >
+                    <img
+                      src={`/assets/${isInCart ? "delete" : "cart"}.svg`}
+                      alt=""
+                    />
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
       </div>
-
 
       <div className="included-card">
         <h3>{t("stepTen.whatsIncluded")}</h3>
@@ -331,20 +340,37 @@ const StepTen = ({
       </div>
 
       <div className="total-cost">
-        <h3 className="item-title">{itemTitle} {injectionDetails}</h3>
+        <h3 className="item-title">{itemTitle} </h3>
 
         {/* Display cart2 items */}
-        {cart2.map((item, index) => (
-          <span key={index}>
-            <h4>{item.monthPlan}</h4>
-            <h4>{item.price}</h4>
-          </span>
-        ))}
+        {cart2.map((item, index) => {
+          // Determine the multiplier based on monthPlan
+          let multiplier = 1;
+          if (item.monthPlan.toLowerCase() === "monthly plan") {
+            multiplier = 1;
+          } else if (item.monthPlan.toLowerCase() === "three month plan") {
+            multiplier = 3;
+          }
+
+          // Calculate the adjusted price
+          const adjustedPrice = `$${(
+            parseFloat(item.price.replace(/[$,]/g, "")) * multiplier
+          ).toFixed(2)}`;
+
+          return (
+            <span key={index}>
+              <h4>{item.monthPlan}</h4>
+              <h4>{adjustedPrice}</h4>
+            </span>
+          );
+        })}
 
         {/* Display cart items */}
         {cart.map((item, index) => (
           <span key={index}>
-            <h4>{item.title} x {item.quantity}</h4>
+            <h4>
+              {item.title} x {item.quantity}
+            </h4>
             <h4>{item.price}</h4>
           </span>
         ))}
@@ -353,8 +379,8 @@ const StepTen = ({
         {addoncart.length > 0 && (
           <span>
             <h4>ZOFRAN x {addoncart.length}</h4>
-            <h4>{"$"}
-               {addoncart.reduce(
+            <h4>
+              {addoncart.reduce(
                 (acc, addon) =>
                   acc + parseFloat(addon.price.replace(/[$,]/g, "")),
                 0
@@ -367,7 +393,7 @@ const StepTen = ({
         <span className="total">
           <h3>{t("stepTen.totalCost")}</h3>
           <h2>
-            ${calculateTotalCost()} <p>{t("stepTen.dueToday")}</p>
+            {calculateTotalCost()} <p>{t("stepTen.dueToday")}</p>
           </h2>
         </span>
       </div>

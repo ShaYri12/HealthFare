@@ -1,5 +1,4 @@
-'use client';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import '../styles/stepfour.css';
 import '../styles/form.css';
@@ -19,7 +18,11 @@ const StepFour = ({ nextStep, prevStep, handleChange, values, updateNotEligibleD
   });
 
   const handleInputChange = (field) => (e) => {
-    const value = e.target.value;
+    let value = e.target.value;
+
+    // Replace non-numeric characters using regex
+    value = value.replace(/\D/g, '');
+
     setFormData({
       ...formData,
       [field]: value,
@@ -74,7 +77,7 @@ const StepFour = ({ nextStep, prevStep, handleChange, values, updateNotEligibleD
         <div className="pounds">
           <p>{t('stepFour.pounds')}</p>
           <input
-            type="number"
+            type="text"
             placeholder={t('stepFour.poundsPlaceholder')}
             value={formData.pounds}
             onChange={handleInputChange('pounds')}

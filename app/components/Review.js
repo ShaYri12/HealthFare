@@ -15,7 +15,7 @@ const Review = () => {
             <img src="/assets/star.png" alt="star"/>
             <img src="/assets/star.png" alt="star"/>
         </div>
-        <p>{t('review.basedOn')} <b>456 {t('review.reviewsOn')}</b></p>
+        <p>{t('review.basedOn')} <b>712 {t('review.reviewsOn')}</b></p>
         <div className='trustpilot'>
             <img src="/assets/star-trustpilot.svg" alt="trust"/> Trustpilot
         </div>

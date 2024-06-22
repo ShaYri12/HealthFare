@@ -70,7 +70,7 @@ const StepThree = ({ prevStep, nextStep,  handleChange, values, cartitem }) => {
           <img src="/assets/star.png" alt="star"/>
           <img src="/assets/star.png" alt="star"/>
         </div>
-        <p className='reviews'>456 <span>{t('review.reviewsOn')}</span></p> {/* Translate reviewsOn using t function */}
+        <p className='reviews'>712 <span>{t('review.reviewsOn')}</span></p> {/* Translate reviewsOn using t function */}
         <div className='trustpilot'>
           <img src="/assets/star-trustpilot.svg" alt="trust"/> <span>Trustpilot</span>
         </div>
@@ -85,7 +85,7 @@ const StepThree = ({ prevStep, nextStep,  handleChange, values, cartitem }) => {
           <img src="/assets/star.png" alt="star"/>
           <img src="/assets/star.png" alt="star"/>
         </div>
-        <p>{t('review.basedOn')} <b>456 {t('review.reviews')}</b></p>
+        <p>{t('review.basedOn')} <b>712 {t('review.reviews')}</b></p>
         <div className='trustpilot'>
           <img src="/assets/star-trustpilot.svg" alt="trust"/> Trustpilot
         </div>
