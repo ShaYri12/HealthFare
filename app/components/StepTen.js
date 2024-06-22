@@ -353,8 +353,8 @@ const StepTen = ({
         {addoncart.length > 0 && (
           <span>
             <h4>ZOFRAN x {addoncart.length}</h4>
-            <h4>
-              {addoncart.reduce(
+            <h4>{"$"}
+               {addoncart.reduce(
                 (acc, addon) =>
                   acc + parseFloat(addon.price.replace(/[$,]/g, "")),
                 0
@@ -367,7 +367,7 @@ const StepTen = ({
         <span className="total">
           <h3>{t("stepTen.totalCost")}</h3>
           <h2>
-            {calculateTotalCost()} <p>{t("stepTen.dueToday")}</p>
+            ${calculateTotalCost()} <p>{t("stepTen.dueToday")}</p>
           </h2>
         </span>
       </div>
