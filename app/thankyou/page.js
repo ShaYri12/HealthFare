@@ -15,7 +15,7 @@ const ThankYouPage = () => {
 
   // Example function to handle appointment scheduling
   const handleScheduleAppointment = () => {
-    goToStep(9);
+    goToStep(8);
   };
 
   return (
