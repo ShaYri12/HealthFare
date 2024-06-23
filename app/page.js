@@ -117,7 +117,7 @@ const Home = () => {
   };
 
   const handleOrignalStep = () => {
-    goToStep(13);
+    goToStep(14);
     setShowAddSuppliment(false);
   };
 
