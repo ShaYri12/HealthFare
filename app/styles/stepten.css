@@ -104,7 +104,7 @@
     flex-direction: column;
     border-top: 1px solid black;
     padding: 30px;
-    gap: 20px;
+    gap: 15px;
 }
 
 .available-addons-card p{
