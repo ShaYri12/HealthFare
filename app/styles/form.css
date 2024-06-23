@@ -133,7 +133,7 @@
   
 .btn-group{
     display: flex;
-    gap: 10px
+    gap: 10px;
 }
 
 @media screen and (max-width: 576px) {
@@ -142,8 +142,14 @@
   }
 }
 
+.btn-group a{
+  display: flex !important;
+  justify-content: center;
+  text-decoration: none !important;
+}
+
 .btn-group .long-btn{
-    flex-grow: 1;
+    flex-grow: 1 !important;
 }
 
 
