@@ -1,0 +1,73 @@
+.plan-select{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.plan-option{
+    display: flex;
+    gap: 10px;
+    border: 1px solid #E3E3E4;
+    border-radius: 84px;
+    padding: 18px 30px 18px 30px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #484E5A;
+    cursor: pointer;
+}
+
+.plan-option label, .plan-option input{
+    cursor: pointer;
+}
+
+.plan-option input{
+    margin:0;
+    width: 20px;
+}
+
+.plan-option input[type="radio"] {
+    display: none; /* Hide the default checkbox */
+  }
+
+.plan-option input[type="radio"] + label {
+    display: inline-block;
+    position: relative;
+    padding-left: 33px; /* Adjust this value based on your image size */
+    cursor: pointer;
+  }
+  
+  .plan-option input[type="radio"] + label::before {
+    content: "";
+    display: inline-block;
+    width: 20px; /* Adjust this value based on your image size */
+    height: 20px; /* Adjust this value based on your image size */
+    background: url("/assets/unchecked.svg") no-repeat; /* Specify your unchecked image URL */
+    background-size: contain; /* Ensure the image fits within the box */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .plan-option input[type="radio"]:checked + label::before {
+    background: url("/assets/checkmark.svg") no-repeat; /* Specify your checked image URL */
+    background-size: contain; /* Ensure the image fits within the box */
+  }
+
+  .plan-selection-text{
+    display: flex !important;
+    justify-content: space-between !important;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 400px) {
+    .plan-selection-text{
+      flex-direction: column;
+    }
+  }
+
+  .plan{
+    padding-top: 20px;
+    display: flex;
+  }

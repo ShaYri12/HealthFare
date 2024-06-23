@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import StepOne from './components/StepOne';
 import StepTwo from './components/StepTwo';
+import PlanSelection from './components/PlanSelection'
 import StepThree from './components/StepThree';
 import StepFour from './components/StepFour';
 import StepFive from './components/StepFive';
@@ -32,6 +33,7 @@ const Home = () => {
   const [formValues, setFormValues] = useState({
     stepOne: {},
     stepTwo: {},
+    planSelection : {},
     stepThree: {},
     stepFour: {},
     stepFive: {},
@@ -122,6 +124,7 @@ const Home = () => {
   const steps = [
     <StepOne nextStep={nextStep} handleChange={handleChange('stepOne')} values={formValues} />,
     <StepTwo nextStep={nextStep} prevStep={prevStep} handleChange={handleChange('stepTwo')} values={formValues} cartitem2={cartitem2} />,
+    <PlanSelection nextStep={nextStep} prevStep={prevStep} handleChange={handleChange('planSelection')} values={formValues}/>,
     <StepThree prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepThree')} values={formValues} cartitem={cartitem} />,
     <StepFour prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepFour')} values={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} />,
     <StepFive prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepFive')} values={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} />,
