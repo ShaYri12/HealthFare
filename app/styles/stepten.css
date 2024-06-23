@@ -81,6 +81,9 @@
     color: #38B64B !important;
 }
 
+.addon-section{
+    padding: 0 40px;
+}
 
 .available-addons-container{
     border: 1px solid #002C20;

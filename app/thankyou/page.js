@@ -15,7 +15,7 @@ const ThankYouPage = () => {
 
   // Example function to handle appointment scheduling
   const handleScheduleAppointment = () => {
-    goToStep(8);
+    goToStep(9);
   };
 
   return (
@@ -23,7 +23,7 @@ const ThankYouPage = () => {
       <div className="container">
         <img className="backgroundimg" src="/assets/backgroundimg.png" alt="Background" />
         <div className="formContainer">
-          <ProgressBar step={11} totalSteps={13} />
+          <ProgressBar step={7} totalSteps={13} />
           <div className="logo">
             <img src="/assets/logo.webp" alt="Logo" />
           </div>

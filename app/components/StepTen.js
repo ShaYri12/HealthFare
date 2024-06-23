@@ -267,6 +267,7 @@ const StepTen = ({
       )}
 
       {/* Available Addons */}
+      <div className="addon-section">
       <div className="available-addons-container">
         <h2>{t("stepTen.availableAddon")}</h2>
         {availableAddons.map((addon, index) => {
@@ -309,6 +310,7 @@ const StepTen = ({
             </div>
           );
         })}
+      </div>
       </div>
 
       <div className="included-card">
@@ -371,7 +373,12 @@ const StepTen = ({
             <h4>
               {item.title} x {item.quantity}
             </h4>
-            <h4>{item.price}</h4>
+            <h4>
+              $
+              {(
+                parseFloat(item.price.replace(/[$,]/g, "")) * item.quantity
+              ).toFixed(2)}
+            </h4>
           </span>
         ))}
 
