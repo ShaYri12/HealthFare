@@ -19,9 +19,11 @@ import AddSuppliment from './components/AddSuppliment';
 import { I18nextProvider } from 'react-i18next';
 import i18n from './context/i18n';
 import './styles/form.css';
+import { useStep } from './context/StepContext';
 
 const Home = () => {
-  const [step, setStep] = useState(1);
+  const { step, nextStep, prevStep, goToStep } = useStep();
+
   const [currentStepSixQuestion, setCurrentStepSixQuestion] = useState(0);
   const [currentStepSevenQuestion, setCurrentStepSevenQuestion] = useState(0);
 
@@ -56,20 +58,19 @@ const Home = () => {
   const [showAddSuppliment, setShowAddSuppliment] = useState(false);
   const [cart, setCart] = useState([]);
   const [cart2, setCart2] = useState([]);
-  const [addon, setaddon] = useState([]);
   const [NotEligibleData, setNotEligibleData] = useState([]);
 
   const cartitem = (item) => {
     // Add item to cart
     const updatedCart = [...cart, item];
     setCart(updatedCart);
-  
+
     // Update formValues.stepThree with current cart items
     handleChange('stepThree')({ cart: updatedCart });
-  
+
     // Log formValues and cart to verify updates
-    console.log("formValues after handleChange: ", formValues.stepThree);
-    console.log("Cart after handleChange: ", cart);
+    console.log('formValues after handleChange: ', formValues.stepThree);
+    console.log('Cart after handleChange: ', cart);
   };
 
   const cartitem2 = (item) => {
@@ -78,17 +79,6 @@ const Home = () => {
 
   const updateNotEligibleData = (data) => {
     setNotEligibleData(data);
-  };
-
-  const nextStep = () => {
-    setStep((prevStep) => prevStep + 1);
-    window.scrollTo(0, 0);
-  };
-
-  const prevStep = () => {
-    setStep((prevStep) => prevStep - 1);
-    setShowNotEligible(false);
-    window.scrollTo(0, 0);
   };
 
   const handleSubmit = () => {
@@ -108,10 +98,9 @@ const Home = () => {
   };
 
   const handleOrignalStep = () => {
-    setStep(10);
+    goToStep(11);
     setShowAddSuppliment(false);
   };
-  
 
   const steps = [
     <StepOne nextStep={nextStep} handleChange={handleChange('stepOne')} values={formValues} />,
@@ -120,11 +109,11 @@ const Home = () => {
     <StepFour prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepFour')} values={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} />,
     <StepFive prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepFive')} values={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} />,
     <StepSix prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepSix')} formValues={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} currentQuestion={currentStepSixQuestion} setCurrentQuestion={setCurrentStepSixQuestion} />,
+    <StepEleven prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepEleven')} values={formValues} />,
     <StepSeven prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepSeven')} values={formValues} currentQuestion={currentStepSevenQuestion} setCurrentQuestion={setCurrentStepSevenQuestion} />,
     <StepEight prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepEight')} values={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} />,
-    <StepNine prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepNine')} values={formValues}  />,
+    <StepNine prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepNine')} values={formValues} />,
     <StepTen prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepTen')} formValues={formValues} cart={cart} cart2={cart2} setCart={setCart} addSuppliment={handleAddSuppliment} />,
-    <StepEleven prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepEleven')} values={formValues} />,
     <StepTwelve prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepTwelve')} values={formValues} />,
     <StepThirteen prevStep={prevStep} handleSubmit={handleSubmit} handleChange={handleChange('stepThirteen')} formValues={formValues} />,
   ];

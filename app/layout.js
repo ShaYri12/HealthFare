@@ -1,5 +1,6 @@
 import "./globals.css";
 import IntercomWidget from './components/IntercomWidget';
+import { StepProvider } from "./context/StepContext";
 
 export const metadata = {
   title: "HealthFare",
@@ -17,8 +18,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <IntercomWidget user={user} />
-        {children}
+        <StepProvider>
+          <IntercomWidget user={user} />
+          {children}
+        </StepProvider>
       </body>
     </html>
   );

@@ -19,7 +19,7 @@ const StepTwo = ({ prevStep, nextStep, handleChange, values, cartitem2 }) => {
 
   const cardsData = [
     {
-      header: t('stepTwo.cards.0.header'),
+      bestSeller: t('stepTwo.cards.0.bestSeller'),
       imgSrc: "/assets/med1.svg",
       title: t('stepTwo.cards.0.title'),
       titleDesc: t('stepTwo.cards.0.titleDesc'),
@@ -29,7 +29,7 @@ const StepTwo = ({ prevStep, nextStep, handleChange, values, cartitem2 }) => {
       totalSavings:  t('stepTwo.totalSavings'),
       month: t('stepTwo.month'),
       year: t('stepTwo.year'),
-      bestSeller: "5",
+      star: "5",
       features: [
         t('stepTwo.cards.0.feature1'),
         t('stepTwo.cards.0.feature2')

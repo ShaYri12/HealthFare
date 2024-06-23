@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-const StepTwoCard = ({ imgSrc, title, titleDesc, price, monthPlan, totalSavings, month, year, savings, description, bestSeller, header, features, nextStep, addToCart }) => {
+const StepTwoCard = ({ imgSrc, title, titleDesc, price, monthPlan, totalSavings, month, year, savings, description, star, header, bestSeller, features, nextStep, addToCart }) => {
   const { t } = useTranslation(); // Hook to access translations
   const [quantity, setQuantity] = useState(1);
 
@@ -33,11 +33,11 @@ const StepTwoCard = ({ imgSrc, title, titleDesc, price, monthPlan, totalSavings,
 
   return (
     <div className='medication'>
-    {header && header?.includes('BEST') ? (
+    {bestSeller ? (
       <div className='card-header'>
-        <h3>{header}</h3>
+        <h3>{bestSeller}</h3>
         <span>
-          {Array.from({ length: bestSeller }).map((_, index) => (
+          {Array.from({ length: star }).map((_, index) => (
             <img key={index} src="assets/star.svg" alt="star"/>
           ))}
         </span>

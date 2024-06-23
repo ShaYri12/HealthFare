@@ -82,7 +82,7 @@ const resources = {
         totalSavings:"Total Savings",
         cards: [
           {
-            header: "BEST SELLER",
+            bestSeller: "BEST SELLER",
             title: "Compounded Semaglutide",
             titleDesc: "Enhanced with Vitamin B-12",
             description: "Lose up to 10 pounds monthly",
@@ -445,7 +445,7 @@ const resources = {
         totalSavings: "Ahorros Totales",
         cards: [
           {
-            header: "MÁS VENDIDO",
+            bestSeller: "MÁS VENDIDO",
             title: "GLP - 1 SEMAGLUTIDA",
             titleDesc: "Mejorado con Vitamina B-12 y Glycibne",
             description: "Pierde hasta 10 libras al mes",
@@ -808,7 +808,7 @@ const resources = {
         totalSavings: "Economia Total",
         cards: [
           {
-            header: "MAIS VENDIDO",
+            bestSeller: "MAIS VENDIDO",
             title: "GLP - 1 SEMAGLUTIDA",
             titleDesc: "Melhorado com Vitamina B-12 e Glycibne",
             description: "Perca até 10 libras por mês",

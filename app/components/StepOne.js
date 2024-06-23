@@ -65,7 +65,6 @@ const StepOne = ({ nextStep, handleChange, values }) => {
     <div className="formContainer step-form">
       <div className='title-info'>
         <h2>{t('stepOne.title')}</h2>
-        <p>{t('stepOne.description')}</p>
       </div>
       <div className='language'>
         <p>{t('stepOne.languagePrompt')}</p>
