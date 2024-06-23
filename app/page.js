@@ -12,10 +12,11 @@ import StepNine from './components/StepNine';
 import StepTen from './components/StepTen';
 import StepEleven from './components/StepEleven';
 import StepTwelve from './components/StepTwelve';
-import StepThirteen from './components/StepThirteen';
+import AppointmentConfirmed from './components/AppointmentConfirm';
 import NotEligible from './components/NotEligible';
 import ProgressBar from './components/ProgressBar';
 import AddSuppliment from './components/AddSuppliment';
+import ThankYou from './components/ThankYou';
 import { I18nextProvider } from 'react-i18next';
 import i18n from './context/i18n';
 import './styles/form.css';
@@ -35,13 +36,14 @@ const Home = () => {
     stepFour: {},
     stepFive: {},
     stepSix: {},
+    stepEleven: {},
+    stepTwelve: {},
+    AppointmentConfirmed: {},
     stepSeven: {},
     stepEight: {},
     stepNine: {},
     stepTen: {},
-    stepEleven: {},
-    stepTwelve: {},
-    stepThirteen: {},
+    ThankYou: {},
   });
 
   const handleChange = (component) => (data) => {
@@ -61,17 +63,32 @@ const Home = () => {
   const [NotEligibleData, setNotEligibleData] = useState([]);
 
   const cartitem = (item) => {
-    // Add item to cart
-    const updatedCart = [...cart, item];
+    // Check if the item already exists in cart
+    const existingIndex = cart.findIndex((cartItem) => cartItem.title === item.title);
+  
+    let updatedCart;
+  
+    if (existingIndex !== -1) {
+      // Item already exists in cart, update its quantity
+      updatedCart = [...cart];
+      updatedCart[existingIndex].quantity += item.quantity;
+    } else {
+      // Item does not exist in cart, add it
+      updatedCart = [...cart, item];
+    }
+  
+    // Update the cart state
     setCart(updatedCart);
-
+  
     // Update formValues.stepThree with current cart items
     handleChange('stepThree')({ cart: updatedCart });
-
+  
     // Log formValues and cart to verify updates
     console.log('formValues after handleChange: ', formValues.stepThree);
-    console.log('Cart after handleChange: ', cart);
+    console.log('Cart after handleChange: ', updatedCart);
   };
+  
+  
 
   const cartitem2 = (item) => {
     setCart2([item]);
@@ -98,7 +115,7 @@ const Home = () => {
   };
 
   const handleOrignalStep = () => {
-    goToStep(12);
+    goToStep(13);
     setShowAddSuppliment(false);
   };
 
@@ -111,11 +128,12 @@ const Home = () => {
     <StepSix prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepSix')} formValues={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} currentQuestion={currentStepSixQuestion} setCurrentQuestion={setCurrentStepSixQuestion} />,
     <StepEleven prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepEleven')} values={formValues} />,
     <StepTwelve prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepTwelve')} values={formValues} />,
+    <AppointmentConfirmed prevStep={prevStep} nextStep={nextStep} />,
     <StepSeven prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepSeven')} values={formValues} currentQuestion={currentStepSevenQuestion} setCurrentQuestion={setCurrentStepSevenQuestion} />,
     <StepEight prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepEight')} values={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} />,
     <StepNine prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepNine')} values={formValues} />,
     <StepTen prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepTen')} formValues={formValues} cart={cart} cart2={cart2} setCart={setCart} addSuppliment={handleAddSuppliment} />,
-    <StepThirteen prevStep={prevStep} handleSubmit={handleSubmit} handleChange={handleChange('stepThirteen')} formValues={formValues} />,
+    <ThankYou handleSubmit={handleSubmit} handleChange={handleChange('ThankYou')} formValues={formValues}/>
   ];
 
   return (

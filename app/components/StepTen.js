@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import "../styles/stepten.css";
 import "../styles/form.css";
+import '../styles/stepthree.css';
 import Review from "./Review";
 
 const StepTen = ({

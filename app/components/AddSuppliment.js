@@ -82,6 +82,7 @@ const StepThree = ({ handleOrignalStep, handleChange, values, cartitem }) => {
   
       cartitem(newItem); // Notify parent component (StepThree) about the added item
   };
+    
   
 
     const cardsData = [
