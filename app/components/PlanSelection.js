@@ -4,51 +4,76 @@ import "../styles/plan-selection.css";
 import "../styles/form.css";
 import Review from "./Review";
 
-const PlanSelection = ({ nextStep, prevStep, handleChange, values }) => {
+const PlanSelection = ({ nextStep, prevStep, handleChange, values, cartitem2 }) => {
   const { t } = useTranslation();
 
-  // Initialize formData with values.plan from props
   const [formData, setFormData] = useState({
-    plan: values.plan || "" // Initialize with values.plan if it exists
+    plan: values.plan || "",
+    price: values.price || "",
+    pounds: values.pounds || "",
+    stepTwo: values.stepTwo || {},
   });
 
-  const handlePlanSelection = (selectedPlan) => {
-    setFormData({ plan: selectedPlan });
-    handleChange({ plan: selectedPlan }); // Update parent state
+  const [error, setError] = useState("");
+
+  const handlePlanSelection = (selectedPlan, price, pounds, description) => {
+    const cleanedPrice = price.replace(/[^$0-9]/g, '');
+    const newFormData = {
+      plan: selectedPlan,
+      price: cleanedPrice,
+      pounds,
+      stepTwo: {
+        ...formData.stepTwo,
+        price: cleanedPrice,
+        description,
+        monthPlan: selectedPlan === 'one month plan' ? 'One Month Plan' : 'Three Month Plan',
+      },
+    };
+    setFormData(newFormData);
+    setError(""); // Clear any existing error message
+    handleChange('stepTwo')(newFormData.stepTwo);
+    handleChange('planSelection')(newFormData);
+    cartitem2({ ...newFormData.stepTwo }); // Update cart2
+    // Submit the form
+    handleSubmit();
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // You can perform form submission logic here if needed
+  const handleSubmit = () => {
+    if (!formData.plan) {
+      setError(t('error.selectError'));
+      return;
+    }
     nextStep();
   };
 
-  // Determine the price based on the product title
-  const getProductPrice = () => {
-    // Assuming values.stepTwo is passed from parent and contains product details
+  const getProductDetails = () => {
     const productTitle = values.stepTwo.title;
 
     if (productTitle === "Compounded Semaglutide") {
       return {
         oneMonthPrice: "$296/Month*",
-        threeMonthPrice: "$279/Month*"
+        threeMonthPrice: "$279/Month*",
+        oneMonthDescription: "Lose up to 10 pounds monthly",
+        threeMonthDescription: "Lose up to 30 pounds",
       };
     } else if (productTitle === "Compounded Tirzepatide") {
       return {
-        oneMonthPrice: "$425/Month*", 
-        threeMonthPrice: "$399/Month*"
+        oneMonthPrice: "$425/Month*",
+        threeMonthPrice: "$399/Month*",
+        oneMonthDescription: "Lose up to 16 pounds monthly",
+        threeMonthDescription: "Lose up to 48 pounds",
       };
     } else {
-      // Default prices if no specific product title match
       return {
         oneMonthPrice: "$296/Month*",
-        threeMonthPrice: "$279/Month*"
+        threeMonthPrice: "$279/Month*",
+        oneMonthDescription: "Lose up to 10 pounds",
+        threeMonthDescription: "Lose up to 30 pounds",
       };
     }
   };
 
-  // Fetch the prices based on the product title
-  const { oneMonthPrice, threeMonthPrice } = getProductPrice();
+  const { oneMonthPrice, threeMonthPrice, oneMonthPounds, threeMonthPounds, oneMonthDescription, threeMonthDescription } = getProductDetails();
 
   return (
     <div className="formContainer step-form">
@@ -56,30 +81,28 @@ const PlanSelection = ({ nextStep, prevStep, handleChange, values }) => {
         <h2>Your Shipping Frequency</h2>
         <p>How often do you want your treatment to be shipped?</p>
       </div>
-      <form onSubmit={handleSubmit} className="input-form">
+      <form onSubmit={(e) => e.preventDefault()} className="input-form">
         <div className="plan-select">
-          <div className="plan-option" onClick={() => handlePlanSelection('one month plan')}>
+          <div className="plan-option" onClick={() => handlePlanSelection('one month plan', oneMonthPrice, oneMonthPounds, oneMonthDescription)}>
             <input
               type="radio"
               id="one-month"
               name="plan"
               value="one month plan"
               checked={formData.plan === 'one month plan'}
-              onChange={() => {}}
             />
             <label className="plan-selection-text" htmlFor="one-month">
               <span>One Month Plan</span>
               <span className="price">{oneMonthPrice}</span>
             </label>
           </div>
-          <div className="plan-option" onClick={() => handlePlanSelection('three month plan')}>
+          <div className="plan-option" onClick={() => handlePlanSelection('three month plan', oneMonthPrice, oneMonthPounds, oneMonthDescription)}>
             <input
               type="radio"
               id="three-month"
               name="plan"
               value="three month plan"
               checked={formData.plan === 'three month plan'}
-              onChange={() => {}}
             />
             <label className="plan-selection-text" htmlFor="three-month">
               <span>Three Month Plan</span>
@@ -87,7 +110,7 @@ const PlanSelection = ({ nextStep, prevStep, handleChange, values }) => {
             </label>
           </div>
         </div>
-
+        {error && <span className="error">{error}</span>}
         <div className="plan">
           <div className="btn-group btn-group-stepthree">
             <button type="button" className="back-btn back-btn-stepthree" onClick={prevStep}>

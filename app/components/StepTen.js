@@ -15,6 +15,7 @@ const StepTen = ({
   cart,
   setCart,
   cart2,
+  setCart2,
 }) => {
   const { t } = useTranslation();
 
@@ -23,7 +24,7 @@ const StepTen = ({
   );
 
   useEffect(() => {
-    handleChange({ addoncart });
+    handleChange('stepTen')({ addoncart });
   }, [addoncart]);
 
   // Initialize quantities state for items in the cart
@@ -72,7 +73,7 @@ const StepTen = ({
       const itemQuantity = item.quantity || 1; // Default to 1 if quantity is not provided or falsy
 
       // Check monthPlan and adjust price calculation accordingly
-      if (item.monthPlan.toLowerCase() === "monthly plan") {
+      if (item.monthPlan.toLowerCase() === "one month plan") {
         total += itemPrice * itemQuantity; // Monthly price
       } else if (item.monthPlan.toLowerCase() === "three month plan") {
         total += itemPrice * itemQuantity * 3; // Three months price
@@ -112,12 +113,69 @@ const StepTen = ({
       const newAddonCart = [...addoncart];
       newAddonCart.splice(index, 1);
       setAddonCart(newAddonCart);
-      handleChange({ addoncart: newAddonCart });
+      handleChange('stepTen')({ addoncart: newAddonCart });
     } else {
       // Add addon to addoncart
       setAddonCart((prevAddons) => [...prevAddons, addon]);
-      handleChange({ addoncart: [...addoncart, addon] });
+      handleChange('stepTen')({ addoncart: [...addoncart, addon] });
     }
+  };
+
+  
+  const [selectedMonthPlan, setSelectedMonthPlan] = useState("");
+  const [selectedPrice, setSelectedPrice] = useState("");
+  const [selectedDescription, setSelectedDescription] = useState("");
+
+  const handleMonthPlanChange = (event) => {
+    const newMonthPlan = event.target.value.toLowerCase(); // Convert to lowercase
+    setSelectedMonthPlan(newMonthPlan);
+
+    const productTitle = formValues.stepTwo.title; // Assuming title is set in StepTwo
+
+    // Set pricing and description based on productTitle and newMonthPlan
+    let newPrice = "";
+    let newDescription = "";
+
+    if (productTitle === "Compounded Semaglutide") {
+      if (newMonthPlan === "one month plan") {
+        newPrice = "$296";
+        newDescription = "Lose up to 10 pounds monthly";
+      } else if (newMonthPlan === "three month plan") {
+        newPrice = "$279";
+        newDescription = "Lose up to 30 pounds";
+      }
+    } else if (productTitle === "Compounded Tirzepatide") {
+      if (newMonthPlan === "one month plan") {
+        newPrice = "$425";
+        newDescription = "Lose up to 16 pounds monthly";
+      } else if (newMonthPlan === "three month plan") {
+        newPrice = "$399";
+        newDescription = "Lose up to 48 pounds";
+      }
+    } else {
+      // Default values when no specific product is selected
+      if (newMonthPlan === "one month plan") {
+        newPrice = "$296";
+        newDescription = "Lose up to 10 pounds monthly";
+      } else if (newMonthPlan === "three month plan") {
+        newPrice = "$279";
+        newDescription = "Lose up to 30 pounds";
+      }
+    }
+
+    setSelectedDescription(newDescription);
+
+    // Update cart2 with new monthPlan, price, and description
+    const updatedCart2 = cart2.map(item => ({
+      ...item,
+      monthPlan: newMonthPlan,
+      price: newPrice,
+      description: newDescription
+    }));
+
+    setCart2(updatedCart2);
+
+    handleChange('stepTwo')(updatedCart2);
   };
 
   const availableAddons = [
@@ -138,11 +196,6 @@ const StepTen = ({
   ];
 
   const itemTitle = cart2.length > 0 ? cart2[0].title : "";
-  const injectionDetails =
-    cart2.length > 0 && cart2[0].features.length > 0
-      ? cart2[0].features[0] // Assuming "5mg/2ml Injection" is always in features[0]
-      : "";
-
   return (
     <div className="formContainer step-form">
       <div className="title-info">
@@ -155,13 +208,24 @@ const StepTen = ({
         </div>
       </div>
       {cart2.map((item, index) => (
-        <div className="card" key={index}>
+        <div className="card cart2-card" key={index}>
           <div className="card-top">
             <div className="card-img">
               <img src={item.imgSrc} alt={item.title} />
             </div>
             <div className="card-title-price">
-              <span>{item.monthPlan}</span>
+              <span className="month-plan">{item.monthPlan}</span>
+              <span className="month-dropdown">
+                <select
+                  id="monthPlan"
+                  className="month-plan"
+                  value={item.monthPlan}
+                  onChange={handleMonthPlanChange}
+                >
+                  <option value={t("stepTen.oneMonthPlan")}>{t("stepTen.oneMonthPlan")}</option>
+                  <option value={t("stepTen.threeMonthPlan")}>{t("stepTen.threeMonthPlan")}</option>
+                </select>
+              </span>
               <h3>{item.title}</h3>
               <p className="title-desc">{item.titleDesc}</p>
             </div>
@@ -171,7 +235,6 @@ const StepTen = ({
               <img src="/assets/checkmark.svg" alt="checkmark" />
               <p className="lose">{item.description}</p>
             </span>
-
             {item.features.map((feature, idx) => (
               <span key={idx}>
                 <img src="/assets/checkmark.svg" alt="checkmark" />
@@ -349,7 +412,7 @@ const StepTen = ({
         {cart2.map((item, index) => {
           // Determine the multiplier based on monthPlan
           let multiplier = 1;
-          if (item.monthPlan.toLowerCase() === "monthly plan") {
+          if (item.monthPlan.toLowerCase() === "one month plan") {
             multiplier = 1;
           } else if (item.monthPlan.toLowerCase() === "three month plan") {
             multiplier = 3;
@@ -362,7 +425,7 @@ const StepTen = ({
 
           return (
             <span key={index}>
-              <h4>{item.monthPlan}</h4>
+              <h4 className="month-plan">{item.monthPlan}</h4>
               <h4>{adjustedPrice}</h4>
             </span>
           );

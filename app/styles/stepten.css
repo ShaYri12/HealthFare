@@ -1,3 +1,13 @@
+.month-plan{
+    text-transform: capitalize;
+}
+.cart2-card{
+    position: relative;
+}
+.month-dropdown{
+    position: absolute;
+}
+
 .additional-suppliments, .included-card{
     display: flex;
     flex-direction: column;

@@ -79,7 +79,7 @@ const resources = {
         startLosingWeight: "Start Losing Weight",
         month: "Month",
         year: "year",
-        totalSavings:"Total Savings",
+        totalSavings: "Total Savings",
         cards: [
           {
             bestSeller: "BEST SELLER",
@@ -168,11 +168,11 @@ const resources = {
           lastName: "LAST NAME",
           firstNamePlaceholder: "e.g., John",
           lastNamePlaceholder: "e.g., Doe",
-          phone:"Phone",
+          phone: "Phone",
           phonePlaceholder: "e.g., (123) 456-7890",
-          email:"Email",
+          email: "Email",
           emailPlaceholder: "e.g., johndoe@example.com",
-          dob: "Date of Birth"
+          dob: "Date of Birth",
         },
         question2: {
           title: "What’s your address?",
@@ -276,12 +276,9 @@ const resources = {
       stepTen: {
         title: "Your Order Summary",
         greeting: "Hi ",
-        planDesc : "Review your monthly plan and the included services",
-        productTitle: "Semaglutide",
-        productPrice: "$889.99",
-        productMonthlyPrice: "$296",
-        productDescription: "Lose up to 25lbs",
-        productSavings: "$1500",
+        planDesc: "Review your monthly plan and the included services",
+        oneMonthPlan: "one month plan",
+        threeMonthPlan: "three month plan",
         orderSummary: "Order Summary",
         reviewText: "Review Your Monthly Plan and Included Services",
         totalSavings: "Total Savings",
@@ -301,11 +298,13 @@ const resources = {
         availableAddon: "Available Add-ons",
         addons: {
           title1: "ZOFRAN",
-          addon1Desc: "Enhance your weight loss journey with Zofran by preventing nausea often experienced with Semaglutide and Tirzepatide. Zofran helps you stay on track and potentially lose up to 10 pounds more effectively.",
+          addon1Desc:
+            "Enhance your weight loss journey with Zofran by preventing nausea often experienced with Semaglutide and Tirzepatide. Zofran helps you stay on track and potentially lose up to 10 pounds more effectively.",
 
           title2: "ZOFRAN",
-          addon2Desc: "Enhance your weight loss journey with Zofran by preventing nausea often experienced with Semaglutide and Tirzepatide. Zofran helps you stay on track and potentially lose up to 10 pounds more effectively.",
-        }, 
+          addon2Desc:
+            "Enhance your weight loss journey with Zofran by preventing nausea often experienced with Semaglutide and Tirzepatide. Zofran helps you stay on track and potentially lose up to 10 pounds more effectively.",
+        },
         noteFirst: "*This Plan requires a",
         noteSecond: "month commitment for effective results.",
         dueToday: "DUE TODAY",
@@ -319,18 +318,8 @@ const resources = {
         inCart: "In cart",
       },
       stepEleven: {
-        title: "Semaglutide (3-Month Treatment Plan)",
-        price: "$889.99",
-        monthlyPrice: "$296",
-        description: "Lose up to 25lbs",
-        savings: "$1500", // example value for savings
-        savingsTitle: "Total Savings",
-        savingsPerYear: "/year",
-        thankYou: {
-          title: "Thank You for Your Purchase!",
-          message:
-            "Thank you for your order! Your order has been successfully processed, and a confirmation email has been sent to you.",
-        },
+        title: "Schedule Appointment",
+        message: "Click the button below to choose your appointment time.",
         scheduleAppointment: "Schedule Your Appointment",
       },
       stepTwelve: {
@@ -535,7 +524,7 @@ const resources = {
           phonePlaceholder: "por ejemplo, (123) 456-7890",
           email: "Correo electrónico",
           emailPlaceholder: "por ejemplo, juanperez@example.com",
-          dob: "Fecha de Nacimiento"
+          dob: "Fecha de Nacimiento",
         },
         question2: {
           title: "¿Cuál es tu dirección?",
@@ -641,16 +630,8 @@ const resources = {
         title: "PAGO",
         greeting: "Hola ",
         planDesc: "Revisa tu Plan de Tratamiento y Servicios Incluidos",
-        productTitle: "Semaglutida (Plan de Tratamiento de 3 Meses)",
-        productPrice: "$889.99",
-        productMonthlyPrice: "$296",
-        productDescription: "Pierde hasta 25 lbs",
-        productSavings: "$1500",
-        orderSummary: "Resumen del Pedido",
-        reviewText: "Revisa tu Plan de Tratamiento y Servicios Incluidos",
-        totalSavings: "Ahorros Totales",
-        perYear: "/año",
-        perMonth: "/mes*",
+        oneMonthPlan: "One Month Plan",
+        threeMonthPlan: "Three Month Plan",
         additionalSupplements: "Suplementos Adicionales",
         noSupplementsSelected: "(No se seleccionaron suplementos adicionales)",
         addSupplements: "Agregar Suplementos",
@@ -665,9 +646,11 @@ const resources = {
         availableAddon: "Complementos Disponibles",
         addons: {
           title1: "ZOFRAN",
-          addon1Desc: "Mejora tu viaje de pérdida de peso con Zofran previniendo náuseas a menudo experimentadas con Semaglutida y Tirzepatida. Zofran te ayuda a mantenerte en camino y potencialmente perder hasta 10 libras más efectivamente.",
+          addon1Desc:
+            "Mejora tu viaje de pérdida de peso con Zofran previniendo náuseas a menudo experimentadas con Semaglutida y Tirzepatida. Zofran te ayuda a mantenerte en camino y potencialmente perder hasta 10 libras más efectivamente.",
           title2: "ZOFRAN",
-          addon2Desc: "Mejora tu viaje de pérdida de peso con Zofran previniendo náuseas a menudo experimentadas con Semaglutida y Tirzepatida. Zofran te ayuda a mantenerte en camino y potencialmente perder hasta 10 libras más efectivamente.",
+          addon2Desc:
+            "Mejora tu viaje de pérdida de peso con Zofran previniendo náuseas a menudo experimentadas con Semaglutida y Tirzepatida. Zofran te ayuda a mantenerte en camino y potencialmente perder hasta 10 libras más efectivamente.",
         },
         noteFirst: "*Este Plan requiere un",
         noteSecond: "compromiso mensual para obtener resultados efectivos.",
@@ -683,19 +666,9 @@ const resources = {
       },
 
       stepEleven: {
-        title: "Semaglutida (Plan de Tratamiento de 3 meses)",
-        price: "889,99 $",
-        monthlyPrice: "296 $",
-        description: "Pierda hasta 25 libras",
-        savings: "1500 $", // valor de ejemplo para el ahorro
-        savingsTitle: "Ahorro Total",
-        savingsPerYear: "/año",
-        thankYou: {
-          title: "¡Gracias por su compra!",
-          message:
-            "Gracias por elegir nuestro Plan de Tratamiento de Semaglutida de 3 meses. Su pedido ha sido procesado correctamente y se ha enviado un correo electrónico de confirmación.",
-        },
-        scheduleAppointment: "Programar su cita",
+        title: "Programar Cita",
+        message: "Haz clic en el botón de abajo para elegir tu hora de cita.",
+        scheduleAppointment: "Programa tu cita"
       },
       stepTwelve: {
         title: "Programa tu cita",
@@ -898,7 +871,7 @@ const resources = {
           phonePlaceholder: "por exemplo, (11) 98765-4321",
           email: "Email",
           emailPlaceholder: "por exemplo, joaosilva@example.com",
-          dob: "Data de Nascimento"
+          dob: "Data de Nascimento",
         },
         question2: {
           title: "Qual é o seu endereço?",
@@ -1027,9 +1000,11 @@ const resources = {
         availableAddon: "Complementos Disponíveis",
         addons: {
           title1: "ZOFRAN",
-          addon1Desc: "Melhore sua jornada de perda de peso com Zofran, prevenindo náuseas frequentemente experimentadas com Semaglutida e Tirzepatida. Zofran ajuda você a manter o foco e potencialmente perder até 10 libras de forma mais eficaz.",
+          addon1Desc:
+            "Melhore sua jornada de perda de peso com Zofran, prevenindo náuseas frequentemente experimentadas com Semaglutida e Tirzepatida. Zofran ajuda você a manter o foco e potencialmente perder até 10 libras de forma mais eficaz.",
           title2: "ZOFRAN",
-          addon2Desc: "Melhore sua jornada de perda de peso com Zofran, prevenindo náuseas frequentemente experimentadas com Semaglutida e Tirzepatida. Zofran ajuda você a manter o foco e potencialmente perder até 10 libras de forma mais eficaz.",
+          addon2Desc:
+            "Melhore sua jornada de perda de peso com Zofran, prevenindo náuseas frequentemente experimentadas com Semaglutida e Tirzepatida. Zofran ajuda você a manter o foco e potencialmente perder até 10 libras de forma mais eficaz.",
         },
         noteFirst: "*Este Plano requer um",
         noteSecond: "compromisso mensal para obter resultados eficazes.",
@@ -1045,19 +1020,9 @@ const resources = {
       },
 
       stepEleven: {
-        title: "Semaglutida (Plano de Tratamento de 3 meses)",
-        price: "889,99 $",
-        monthlyPrice: "296 $",
-        description: "Perca até 25 libras",
-        savings: "1500 $", // valor de exemplo para economia
-        savingsTitle: "Economia Total",
-        savingsPerYear: "/ano",
-        thankYou: {
-          title: "Obrigado pela sua compra!",
-          message:
-            "Obrigado por escolher nosso Plano de Tratamento de Semaglutida de 3 meses. Seu pedido foi processado com sucesso e um e-mail de confirmação foi enviado para você.",
-        },
-        scheduleAppointment: "Agendar sua consulta",
+        title: "Agendar Consulta",
+        message: "Clique no botão abaixo para escolher o seu horário de consulta.",
+        scheduleAppointment: "Agende sua consulta"
       },
       stepTwelve: {
         title: "Agende sua consulta",

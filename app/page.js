@@ -124,7 +124,7 @@ const Home = () => {
   const steps = [
     <StepOne nextStep={nextStep} handleChange={handleChange('stepOne')} values={formValues} />,
     <StepTwo nextStep={nextStep} prevStep={prevStep} handleChange={handleChange('stepTwo')} values={formValues} cartitem2={cartitem2} />,
-    <PlanSelection nextStep={nextStep} prevStep={prevStep} handleChange={handleChange('planSelection')} values={formValues}/>,
+    <PlanSelection nextStep={nextStep} prevStep={prevStep} handleChange={handleChange} values={formValues} cartitem2={cartitem2}/>,
     <StepThree prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepThree')} values={formValues} cartitem={cartitem} />,
     <StepFour prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepFour')} values={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} />,
     <StepFive prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepFive')} values={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} />,
@@ -135,7 +135,7 @@ const Home = () => {
     <StepSeven prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepSeven')} values={formValues} currentQuestion={currentStepSevenQuestion} setCurrentQuestion={setCurrentStepSevenQuestion} />,
     <StepEight prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepEight')} values={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} />,
     <StepNine prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepNine')} values={formValues} />,
-    <StepTen prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepTen')} formValues={formValues} cart={cart} cart2={cart2} setCart={setCart} addSuppliment={handleAddSuppliment} />,
+    <StepTen prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} formValues={formValues} cart={cart} cart2={cart2} setCart={setCart} setCart2={setCart2} addSuppliment={handleAddSuppliment} />,
     <ThankYou handleSubmit={handleSubmit} handleChange={handleChange('ThankYou')} formValues={formValues}/>
   ];
 
