@@ -30,7 +30,7 @@ const ThankYouPage = ({handleSubmit, formValues}) => {
       <div className="container">
         <img className="backgroundimg" src="/assets/backgroundimg.png" alt="Background" />
         <div className="formContainer">
-          <ProgressBar step={13} totalSteps={13} />
+          <ProgressBar step={15} totalSteps={15} />
           <div className="logo">
             <img src="/assets/logo.webp" alt="Logo" />
           </div>
