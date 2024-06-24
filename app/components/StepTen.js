@@ -5,6 +5,7 @@ import "../styles/stepten.css";
 import "../styles/form.css";
 import '../styles/stepthree.css';
 import Review from "./Review";
+import PaySlider from "./PaySlider";
 
 const StepTen = ({
   prevStep,
@@ -410,6 +411,7 @@ const StepTen = ({
           <p>{t("stepTen.shipping")}</p>
         </span>
       </div>
+      
 
       <div className="total-cost">
         <h3 className="item-title">{itemTitle} </h3>
@@ -487,14 +489,7 @@ const StepTen = ({
         </div>
       </div>
 
-      <div className="pay-img">
-        <img src="/assets/pay1.svg" alt="" />
-        <img src="/assets/pay2.svg" alt="" />
-        <img src="/assets/pay3.svg" alt="" />
-        <img src="/assets/pay4.svg" alt="" />
-        <img src="/assets/pay5.svg" alt="" />
-        <img src="/assets/pay6.svg" alt="" />
-      </div>
+      <PaySlider/>
 
       <Review />
     </div>

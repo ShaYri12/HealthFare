@@ -1,0 +1,11 @@
+/* pay-slider.css */
+
+.pay-img {
+  display: flex;
+  align-items: center;
+}
+
+.pay-img img {
+  margin: 0 10px;
+  max-height: 100px; /* Adjust as needed */
+}
