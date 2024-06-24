@@ -165,17 +165,23 @@ const StepTen = ({
 
     setSelectedDescription(newDescription);
 
-    // Update cart2 with new monthPlan, price, and description
-    const updatedCart2 = cart2.map(item => ({
-      ...item,
-      monthPlan: newMonthPlan,
-      price: newPrice,
-      description: newDescription
-    }));
+    // Update formValues.stepTwo with new monthPlan, price, and description
+  handleChange('stepTwo')({
+    ...formValues.stepTwo,
+    monthPlan: newMonthPlan,
+    price: newPrice,
+    description: newDescription
+  });
 
-    setCart2(updatedCart2);
+  // Optionally update cart2 if it's required in the context of StepTwo
+  const updatedCart2 = cart2.map(item => ({
+    ...item,
+    monthPlan: newMonthPlan,
+    price: newPrice,
+    description: newDescription
+  }));
 
-    handleChange('stepTwo')(updatedCart2);
+  setCart2(updatedCart2);
   };
 
   const availableAddons = [
