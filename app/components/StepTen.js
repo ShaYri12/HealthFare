@@ -6,6 +6,7 @@ import "../styles/form.css";
 import '../styles/stepthree.css';
 import Review from "./Review";
 import PaySlider from "./PaySlider";
+import MonthPlanModal from "./MonthPlanModal";
 
 const StepTen = ({
   prevStep,
@@ -48,6 +49,7 @@ const StepTen = ({
 
   const [shippingAddress, setShippingAddress] = useState(initialShippingAddress);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [monthPlanModal, setMonthPlanModal] = useState(false);
 
   // Validate individual field
   const validateField = (name, value) => {
@@ -237,62 +239,62 @@ const StepTen = ({
   const [selectedPrice, setSelectedPrice] = useState("");
   const [selectedDescription, setSelectedDescription] = useState("");
 
-  const handleMonthPlanChange = (event) => {
-    const newMonthPlan = event.target.value.toLowerCase(); // Convert to lowercase
-    setSelectedMonthPlan(newMonthPlan);
+  const handleMonthPlanChange = (item, newPlan) => {
+    // Assuming formValues and cart2 are properly defined and accessible
 
-    const productTitle = formValues.stepTwo.title; // Assuming title is set in StepTwo
-
-    // Set pricing and description based on productTitle and newMonthPlan
+    // Update formValues.stepTwo with new monthPlan, price, and description
     let newPrice = "";
     let newDescription = "";
 
-    if (productTitle === t("stepTwo.cards.0.title")) {
-      if (newMonthPlan === "1-month supply") {
+    if (item.title === t("stepTwo.cards.0.title")) {
+      if (newPlan === "1-month supply") {
         newPrice = "$296";
         newDescription = t("stepTwo.cards.0.description");
-      } else if (newMonthPlan === "3-month supply") {
+      } else if (newPlan === "3-month supply") {
         newPrice = "$279";
         newDescription = t("stepTwo.cards.0.description2");
       }
-    } else if (productTitle === t("stepTwo.cards.1.title")) {
-      if (newMonthPlan === "1-month supply") {
+    } else if (item.title === t("stepTwo.cards.1.title")) {
+      if (newPlan === "1-month supply") {
         newPrice = "$425";
         newDescription = t("stepTwo.cards.1.description");
-      } else if (newMonthPlan === "3-month supply") {
+      } else if (newPlan === "3-month supply") {
         newPrice = "$399";
         newDescription = t("stepTwo.cards.1.description2");
       }
     } else {
       // Default values when no specific product is selected
-      if (newMonthPlan === "1-month supply") {
+      if (newPlan === "1-month supply") {
         newPrice = "$296";
         newDescription = t("stepTwo.cards.0.description");
-      } else if (newMonthPlan === "3-month supply") {
+      } else if (newPlan === "3-month supply") {
         newPrice = "$279";
         newDescription = t("stepTwo.cards.0.description2");
       }
     }
 
-    setSelectedDescription(newDescription);
+    // Update formValues.stepTwo with new values
+    handleChange('stepTwo')({
+      ...formValues.stepTwo,
+      monthPlan: newPlan,
+      price: newPrice,
+      description: newDescription
+    });
 
-    // Update formValues.stepTwo with new monthPlan, price, and description
-  handleChange('stepTwo')({
-    ...formValues.stepTwo,
-    monthPlan: newMonthPlan,
-    price: newPrice,
-    description: newDescription
-  });
+    // Update cart2 with new values
+    const updatedCart2 = cart2.map(cartItem => {
+      if (cartItem.id === item.id) {
+        return {
+          ...cartItem,
+          monthPlan: newPlan,
+          price: newPrice,
+          description: newDescription
+        };
+      }
+      return cartItem;
+    });
 
-  // Optionally update cart2 if it's required in the context of StepTwo
-  const updatedCart2 = cart2.map(item => ({
-    ...item,
-    monthPlan: newMonthPlan,
-    price: newPrice,
-    description: newDescription
-  }));
-
-  setCart2(updatedCart2);
+    setCart2(updatedCart2); // Assuming setCart2 is defined and updates cart2 state
   };
 
   const availableAddons = [
@@ -332,21 +334,7 @@ const StepTen = ({
             </div>
             <div className="card-title-price">
               <span className="month-plan">{item.monthPlan}</span>
-              <span className="month-dropdown">
-                <select
-                  id="monthPlan"
-                  className="month-plan"
-                  value={item.monthPlan}
-                  onChange={handleMonthPlanChange}
-                >
-                  <option value="1-month supply">
-                    {t("stepTen.oneMonthPlan")}
-                  </option>
-                  <option value="3-month supply">
-                    {t("stepTen.threeMonthPlan")}
-                  </option>
-                </select>
-              </span>
+              <button className="change-frequency" onClick={()=> setMonthPlanModal(true)}>Change Frequency</button>
               <h3>{item.title}</h3>
               <p className="title-desc">{item.titleDesc}</p>
             </div>
@@ -380,6 +368,15 @@ const StepTen = ({
           </span>
         </div>
       ))}
+
+      {monthPlanModal && (
+        <MonthPlanModal
+          isOpen={monthPlanModal}
+          onClose={() => setMonthPlanModal(false)}
+          item={cart2[0]} // Pass the appropriate item from cart2 that modal needs
+          handleMonthPlanChange={handleMonthPlanChange} // Pass the handler function
+        />
+      )}
 
       {cart.length === 0 ? (
         <div className="additional-suppliments">

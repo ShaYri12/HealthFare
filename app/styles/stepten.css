@@ -4,10 +4,31 @@
 .cart2-card{
     position: relative;
 }
-.month-dropdown{
+.change-frequency{
     position: absolute;
     right: 7%;
-    top: 5%
+    top: 5%;
+    padding: 3px 5px !important;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: #28a745;
+    border: 1px solid #28a745;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out;
+}
+
+.change-frequency:hover{
+    background-color: #28a745;
+    color: #fff;
+}
+
+.modal-close-btn{
+    position: absolute;
+    right: 0;
 }
 
 .additional-suppliments, .included-card{
@@ -479,7 +500,7 @@
 }
   
 .btn-edit{
-    padding: 3px 5px !important;
+    padding: 3px 7px !important;
     align-items: center;
     justify-content: center;
     background-color: transparent;
@@ -534,3 +555,4 @@
 .save-btn:hover, .btn-cancel:hover {
   opacity: 0.9;
 }
+
