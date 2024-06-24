@@ -46,6 +46,24 @@
       }
     }
 
+.form-header{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.timer-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #38b64b4a;
+}
+
+.timer-text{
+  padding: 10px 10px;
+  text-align: center;
+}
+
   .logo{
     width: 188.88px;
     height: 44px;

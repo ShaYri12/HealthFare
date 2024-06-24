@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import StepOne from './components/StepOne';
 import StepTwo from './components/StepTwo';
 import PlanSelection from './components/PlanSelection'
@@ -63,6 +63,37 @@ const Home = () => {
   const [cart, setCart] = useState([]);
   const [cart2, setCart2] = useState([]);
   const [NotEligibleData, setNotEligibleData] = useState([]);
+
+  // Timer state
+  const [timerActive, setTimerActive] = useState(false);
+  const [timeRemaining, setTimeRemaining] = useState(1800); // 30 minutes in seconds
+
+  // Start timer when component mounts
+  useEffect(() => {
+    if (step >= 10) {
+      setTimerActive(true);
+    }
+  }, [step]);
+
+  // Timer logic
+  useEffect(() => {
+    let intervalId;
+
+    if (timerActive) {
+      intervalId = setInterval(() => {
+        setTimeRemaining((prevTime) => {
+          if (prevTime === 0) {
+            setTimerActive(false);
+            // Handle timer expiration action here
+          }
+          return prevTime - 1;
+        });
+      }, 1000);
+    }
+
+    return () => clearInterval(intervalId);
+  }, [timerActive]);
+
 
   const cartitem = (item) => {
     // Check if the item already exists in cart
@@ -144,7 +175,14 @@ const Home = () => {
       <div className="container">
         <img className="backgroundimg" src="/assets/backgroundimg.png" alt="Background" />
         <div className="formContainer">
+        <div className='form-header'>
           <ProgressBar step={step} totalSteps={15} />
+          {step >= 10 && step !== 15  &&(
+            <div className="timer-container">
+              <p className="timer-text">Appointment is reserved for {Math.floor(timeRemaining / 60)}:{('0' + (timeRemaining % 60)).slice(-2)}</p>
+            </div>
+          )}
+          </div>
           <div className="logo">
             <img src="/assets/logo.webp" alt="Logo" />
           </div>
