@@ -37,7 +37,8 @@ const resources = {
         smsNotificationError:
           "Please select if you prefer to receive SMS notifications.",
         disqualifyTitle: "UNFORTUNATELY, YOU ARE NOT ELIGIBLE.",
-        disqualifyMsg: "You do not meet the requirements to be eligible for this program. Please contact us if you need further assistance.",
+        disqualifyMsg:
+          "You do not meet the requirements to be eligible for this program. Please contact us if you need further assistance.",
       },
       testimonial: {
         realStories: "REAL STORIES, REAL RESULTS",
@@ -86,10 +87,12 @@ const resources = {
             stock: "limited stock",
             label: "Popular Pick",
             price: "Starting at just $279 per month",
-            titleDesc: "Semaglutide the active ingredient in Ozempic® and Wegovy®.",
+            titleDesc:
+              "Semaglutide the active ingredient in Ozempic® and Wegovy®.",
             description: "Lose up to 10 pounds per month.",
             description2: "Lose up to 30 pounds",
-            feature1: "Includes Provider and Medication. No hidden costs. No insurance required.",
+            feature1:
+              "Includes Provider and Medication. No hidden costs. No insurance required.",
             feature2: "Enhanced with Vitamin B-12 and Glycine.",
           },
           {
@@ -97,22 +100,24 @@ const resources = {
             label: "Premium Option",
             stock: "In Stock",
             price: "Starting at just $399 per month",
-            titleDesc: "Tirzepatide the same active ingredient in Mounjaro® and Zepbound™",
+            titleDesc:
+              "Tirzepatide the same active ingredient in Mounjaro® and Zepbound™",
             description: "Lose up to 16 pounds per month.",
             description2: "Lose up to 48 pounds",
-            feature1: "Includes Provider and Medication. No hidden costs. No insurance required.",
+            feature1:
+              "Includes Provider and Medication. No hidden costs. No insurance required.",
             feature2: "Enhanced with Vitamin B-12 and Glycine.",
           },
         ],
       },
       planSelection: {
-          title: "Your Shipping Frequency",
-          description: "How often do you want your treatment to be shipped?",
-          oneMonthPlan: "1-month supply",
-          threeMonthPlan: "3-month supply",
-          continueJourney: "Continue your journey",
-          back: "Back",
-          month: "Month",
+        title: "Your Shipping Frequency",
+        description: "How often do you want your treatment to be shipped?",
+        oneMonthPlan: "1-month supply",
+        threeMonthPlan: "3-month supply",
+        continueJourney: "Continue your journey",
+        back: "Back",
+        month: "Month",
       },
       stepThree: {
         title: "Would you like to add any additional supplements? (optional)",
@@ -325,10 +330,25 @@ const resources = {
         cancel: "Cancel",
         confirm: "Confirm",
       },
-      appointment: {
+      appointmentConfirm: {
         title: "Appointment Confirmed!",
         confirmationMessage:
           "Thank you for scheduling your appointment! You're taking an exciting step on your weight loss journey. Our team will be in touch soon to provide further details and answer any questions you may have.",
+        pending: "You have a pending appointment for",
+        at: "at",
+        on: "on",
+        with: "with",
+        nextSteps: "Next Steps",
+        step1: "Complete Intake Forms",
+        step2: "Complete Payment",
+        step3: "Speak to your Provider",
+        continueJourney: "Continue your journey",
+        back: "Back",
+      },
+      thankYou: {
+        title: "Thank You for Your Purchase!",
+        message:
+          "Thank you for your order! Your order has been successfully processed, and a confirmation email has been sent to you.",
         assistanceTitle: "Need Assistance?",
         assistanceMessage:
           "If you have any questions or need further assistance, feel free to reach out to us via WhatsApp or call us at 561-631-5134. We're here to help!",
@@ -338,18 +358,7 @@ const resources = {
           support: "Customer Support",
           online: "I'm Online",
         },
-        pending: "You have a pending appointment for",
-        at: "at",
-        on: "on",
-        with: "with",
-        continueJourney: "Continue your journey",
-        back: "Back",
       },
-      thankYou: {
-          title: "Thank You for Your Purchase!",
-          message:
-            "Thank you for your order! Your order has been successfully processed, and a confirmation email has been sent to you.",
-        },
 
       // Add translations for other steps...
     },
@@ -396,7 +405,8 @@ const resources = {
         smsNotificationError:
           "Por favor, selecciona si prefieres recibir notificaciones por SMS.",
         disqualifyTitle: "DESAFORTUNADAMENTE, NO ERES ELEGIBLE.",
-        disqualifyMsg: "No cumples con los requisitos para ser elegible para este programa. Por favor contáctanos si necesitas más ayuda."
+        disqualifyMsg:
+          "No cumples con los requisitos para ser elegible para este programa. Por favor contáctanos si necesitas más ayuda.",
       },
       testimonial: {
         realStories: "HISTORIAS REALES, RESULTADOS REALES",
@@ -432,7 +442,8 @@ const resources = {
       },
       stepTwo: {
         title: "¿Qué plan de tratamiento se adapta a tus necesidades?",
-        description: "Después de completar tu visita de salud digital con uno de nuestros médicos licenciados, revisarán tu historial médico e información clínica. Basado en tu selección, aprobarán el plan de tratamiento adecuado para ti.",
+        description:
+          "Después de completar tu visita de salud digital con uno de nuestros médicos licenciados, revisarán tu historial médico e información clínica. Basado en tu selección, aprobarán el plan de tratamiento adecuado para ti.",
         back: "Atrás",
         startLosingWeight: "Comienza a perder peso",
         month: "Mes",
@@ -444,24 +455,28 @@ const resources = {
             stock: "stock limitado",
             label: "Selección popular",
             price: "A partir de solo $279 por mes",
-            titleDesc: "Semaglutida, el ingrediente activo en Ozempic® y Wegovy®.",
+            titleDesc:
+              "Semaglutida, el ingrediente activo en Ozempic® y Wegovy®.",
             description: "Pierde hasta 10 libras por mes.",
-            feature1: "Incluye proveedor y medicación. Sin costos ocultos. No se requiere seguro.",
-            feature2: "Mejorado con vitamina B-12 y glicina."
+            feature1:
+              "Incluye proveedor y medicación. Sin costos ocultos. No se requiere seguro.",
+            feature2: "Mejorado con vitamina B-12 y glicina.",
           },
           {
             title: "Tirzepatida Dual GIP/GLP-1",
             label: "Opción premium",
             stock: "En stock",
             price: "A partir de solo $399 por mes",
-            titleDesc: "Tirzepatida, el mismo ingrediente activo en Mounjaro® y Zepbound™.",
+            titleDesc:
+              "Tirzepatida, el mismo ingrediente activo en Mounjaro® y Zepbound™.",
             description: "Pierde hasta 16 libras por mes.",
-            feature1: "Incluye proveedor y medicación. Sin costos ocultos. No se requiere seguro.",
-            feature2: "Mejorado con vitamina B-12 y glicina."
-          }
+            feature1:
+              "Incluye proveedor y medicación. Sin costos ocultos. No se requiere seguro.",
+            feature2: "Mejorado con vitamina B-12 y glicina.",
+          },
         ],
       },
-      planSelection:{
+      planSelection: {
         title: "Frecuencia de Envío",
         description: "¿Con qué frecuencia deseas que se envíe tu tratamiento?",
         oneMonthPlan: "plan de un mes",
@@ -668,7 +683,7 @@ const resources = {
       stepEleven: {
         title: "Programar Cita",
         message: "Haz clic en el botón de abajo para elegir tu hora de cita.",
-        scheduleAppointment: "Programa tu cita"
+        scheduleAppointment: "Programa tu cita",
       },
       stepTwelve: {
         title: "Programa tu cita",
@@ -678,10 +693,25 @@ const resources = {
         cancel: "Cancelar",
         confirm: "Confirmar",
       },
-      appointment: {
+      appointmentConfirm: {
         title: "¡Cita Confirmada!",
         confirmationMessage:
           "¡Gracias por programar tu cita! Estás dando un paso emocionante en tu viaje de pérdida de peso. Nuestro equipo se pondrá en contacto pronto para brindarte más detalles y responder cualquier pregunta que puedas tener.",
+        pending: "Tienes una cita pendiente para",
+        at: "a las",
+        on: "el",
+        with: "con",
+        nextSteps: "Próximos Pasos",
+        step1: "Complete los Formularios de Admisión",
+        step2: "Complete el Pago",
+        step3: "Hable con su Proveedor",
+        continueJourney: "Continuar su viaje",
+        back: "Volver",
+      },
+      thankYou: {
+        title: "¡Gracias por su compra!",
+        message:
+          "Gracias por elegir nuestro Plan de Tratamiento de Semaglutida de 3 meses. Su pedido ha sido procesado correctamente y se ha enviado un correo electrónico de confirmación.",
         assistanceTitle: "¿Necesitas ayuda?",
         assistanceMessage:
           "Si tienes alguna pregunta o necesitas ayuda adicional, no dudes en comunicarte con nosotros a través de WhatsApp o llámanos al 561-631-5134. ¡Estamos aquí para ayudarte!",
@@ -691,18 +721,7 @@ const resources = {
           support: "Soporte al Cliente",
           online: "Estoy en línea",
         },
-        pending: "Tienes una cita pendiente para",
-        at: "a las",
-        on: "el",
-        with: "con",
-        continueJourney: "Continuar su viaje",
-        back: "Volver",
       },
-      thankYou: {
-          title: "¡Gracias por su compra!",
-          message:
-            "Gracias por elegir nuestro Plan de Tratamiento de Semaglutida de 3 meses. Su pedido ha sido procesado correctamente y se ha enviado un correo electrónico de confirmación.",
-        },
       // Add translations for other steps...
     },
   },
@@ -747,7 +766,8 @@ const resources = {
         smsNotificationError:
           "Por favor, selecione se prefere receber notificações por SMS.",
         disqualifyTitle: "INFELIZMENTE, VOCÊ NÃO É ELEGÍVEL.",
-        disqualifyMsg: "Você não atende aos requisitos para ser elegível para este programa. Por favor, entre em contato conosco se precisar de mais assistência."
+        disqualifyMsg:
+          "Você não atende aos requisitos para ser elegível para este programa. Por favor, entre em contato conosco se precisar de mais assistência.",
       },
       testimonial: {
         realStories: "HISTÓRIAS REAIS, RESULTADOS REAIS",
@@ -782,39 +802,45 @@ const resources = {
           "Reconheço a Política de Reembolso, os Termos e Condições, o Aviso de Práticas de Privacidade e o Consentimento para a Telemedicina.",
       },
       stepTwo: {
-          title: "Qual plano de tratamento atende às suas necessidades?",
-          description: "Depois de completar sua visita de saúde digital com um de nossos médicos licenciados, eles revisarão seu histórico médico e informações clínicas. Com base na sua seleção, eles aprovarão o plano de tratamento adequado para você.",
-          back: "Voltar",
-          startLosingWeight: "Comece a perder peso",
-          month: "Mês",
-          year: "ano",
-          totalSavings: "Economia total",
-          cards: [
-            {
-              title: "Semaglutida GLP-1",
-              stock: "estoque limitado",
-              label: "Escolha popular",
-              price: "A partir de apenas $279 por mês",
-              titleDesc: "Semaglutida, o ingrediente ativo no Ozempic® e Wegovy®.",
-              description: "Perca até 10 libras por mês.",
-              feature1: "Inclui provedor e medicação. Sem custos ocultos. Não é necessário seguro.",
-              feature2: "Enriquecido com vitamina B-12 e glicina."
-            },
-            {
-              title: "Tirzepatida Dual GIP/GLP-1",
-              label: "Opção premium",
-              stock: "Em estoque",
-              price: "A partir de apenas $399 por mês",
-              titleDesc: "Tirzepatida, o mesmo ingrediente ativo no Mounjaro® e Zepbound™.",
-              description: "Perca até 16 libras por mês.",
-              feature1: "Inclui provedor e medicação. Sem custos ocultos. Não é necessário seguro.",
-              feature2: "Enriquecido com vitamina B-12 e glicina."
-            }
-          ],
+        title: "Qual plano de tratamento atende às suas necessidades?",
+        description:
+          "Depois de completar sua visita de saúde digital com um de nossos médicos licenciados, eles revisarão seu histórico médico e informações clínicas. Com base na sua seleção, eles aprovarão o plano de tratamento adequado para você.",
+        back: "Voltar",
+        startLosingWeight: "Comece a perder peso",
+        month: "Mês",
+        year: "ano",
+        totalSavings: "Economia total",
+        cards: [
+          {
+            title: "Semaglutida GLP-1",
+            stock: "estoque limitado",
+            label: "Escolha popular",
+            price: "A partir de apenas $279 por mês",
+            titleDesc:
+              "Semaglutida, o ingrediente ativo no Ozempic® e Wegovy®.",
+            description: "Perca até 10 libras por mês.",
+            feature1:
+              "Inclui provedor e medicação. Sem custos ocultos. Não é necessário seguro.",
+            feature2: "Enriquecido com vitamina B-12 e glicina.",
+          },
+          {
+            title: "Tirzepatida Dual GIP/GLP-1",
+            label: "Opção premium",
+            stock: "Em estoque",
+            price: "A partir de apenas $399 por mês",
+            titleDesc:
+              "Tirzepatida, o mesmo ingrediente ativo no Mounjaro® e Zepbound™.",
+            description: "Perca até 16 libras por mês.",
+            feature1:
+              "Inclui provedor e medicação. Sem custos ocultos. Não é necessário seguro.",
+            feature2: "Enriquecido com vitamina B-12 e glicina.",
+          },
+        ],
       },
-      planSelection:{
+      planSelection: {
         title: "Frequência de Envio",
-        description: "Com que frequência deseja que seu tratamento seja enviado?",
+        description:
+          "Com que frequência deseja que seu tratamento seja enviado?",
         oneMonthPlan: "plano de um mês",
         threeMonthPlan: "plano de três meses",
         continueJourney: "Continue sua jornada",
@@ -1025,8 +1051,9 @@ const resources = {
 
       stepEleven: {
         title: "Agendar Consulta",
-        message: "Clique no botão abaixo para escolher o seu horário de consulta.",
-        scheduleAppointment: "Agende sua consulta"
+        message:
+          "Clique no botão abaixo para escolher o seu horário de consulta.",
+        scheduleAppointment: "Agende sua consulta",
       },
       stepTwelve: {
         title: "Agende sua consulta",
@@ -1036,10 +1063,25 @@ const resources = {
         cancel: "Cancelar",
         confirm: "Confirmar",
       },
-      appointment: {
+      appointmentConfirm: {
         title: "Consulta Confirmada!",
         confirmationMessage:
           "Obrigado por agendar sua consulta! Você está dando um passo emocionante em sua jornada de perda de peso. Nossa equipe entrará em contato em breve para fornecer mais detalhes e responder quaisquer perguntas que você possa ter.",
+        pending: "Você tem uma consulta pendente para",
+        at: "às",
+        on: "em",
+        with: "com",
+        nextSteps: "Próximos Pasos",
+        step1: "Complete los Formularios de Admisión",
+        step2: "Complete el Pago",
+        step3: "Hable con su Proveedor",
+        continueJourney: "Continue sua jornada",
+        back: "Voltar",
+      },
+      thankYou: {
+        title: "Obrigado pela sua compra!",
+        message:
+          "Obrigado por escolher nosso Plano de Tratamento de Semaglutida de 3 meses. Seu pedido foi processado com sucesso e um e-mail de confirmação foi enviado para você.",
         assistanceTitle: "Precisa de Ajuda?",
         assistanceMessage:
           "Se você tiver alguma dúvida ou precisar de assistência adicional, sinta-se à vontade para nos contatar via WhatsApp ou ligar para nós no 561-631-5134. Estamos aqui para ajudar!",
@@ -1049,18 +1091,7 @@ const resources = {
           support: "Suporte ao Cliente",
           online: "Estou Online",
         },
-        pending: "Você tem uma consulta pendente para",
-        at: "às",
-        on: "em",
-        with: "com",
-        continueJourney: "Continue sua jornada",
-        back: "Voltar",
       },
-      thankYou: {
-          title: "Obrigado pela sua compra!",
-          message:
-            "Obrigado por escolher nosso Plano de Tratamento de Semaglutida de 3 meses. Seu pedido foi processado com sucesso e um e-mail de confirmação foi enviado para você.",
-        },
       // Adicione traduções para outros passos, se necessário...
     },
   },

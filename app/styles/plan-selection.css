@@ -57,15 +57,32 @@
 
   .plan-selection-text{
     display: flex !important;
-    justify-content: space-between !important;
+    flex-direction: column;
+    gap: 8px;
     width: 100%;
     text-transform: capitalize !important;
   }
 
+  .plan-selection-text .month{
+    display: flex;
+    padding-right: 10px;
+    font-weight: 600 !important;
+  }
+
+  .plan-selection-text .price{
+    display: flex;
+    gap: 10px
+  }
+
   @media screen and (max-width: 400px) {
-    .plan-selection-text{
+    .plan-selection-text .price{
       flex-direction: column;
+      gap: 0px !important;
     }
+  }
+
+  .original-price{
+    text-decoration: line-through;
   }
 
   .plan{

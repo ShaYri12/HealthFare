@@ -11,7 +11,7 @@ const AppointmentConfirm = ({ nextStep, prevStep, values }) => {
       <div className="formContainer step-form">
         <div className="title-info">
           
-          <h2 className='appointment-title'>{t("appointment.title")}</h2>
+          <h2 className='appointment-title'>{t("appointmentConfirm.title")}</h2>
 
           <div className='doctorImg-box'>
             <div className="doctor-profile">
@@ -20,19 +20,19 @@ const AppointmentConfirm = ({ nextStep, prevStep, values }) => {
           </div>
 
           <span className="appointment-details">
-            {t("appointment.pending")} <strong>{values.stepTwo.title}</strong>{" "}
-            {t("appointment.at")} <b>{values.appointment.selectedTime}</b>{" "}
-            {t("appointment.on")} <b>{values.appointment.selectedDay}</b>{" "}
-            {t("appointment.with")} <b>{DoctorName}</b>
+            {t("appointmentConfirm.pending")} <strong>{values.stepTwo.title}</strong>{" "}
+            {t("appointmentConfirm.at")} <b>{values.appointment.selectedTime}</b>{" "}
+            {t("appointmentConfirm.on")} <b>{values.appointment.selectedDay}</b>{" "}
+            {t("appointmentConfirm.with")} <b>{DoctorName}</b>
           </span>
         </div>
 
         <div className='about-steps'>
-            <h3 className='steps-heading'>Next Steps</h3>
+            <h3 className='steps-heading'>{t("appointmentConfirm.nextSteps")}</h3>
             <ol className='steps'>
-                <li>Complete Intake Forms</li>
-                <li>Complete Payment</li>
-                <li>Speak to your Provider</li>
+                <li>{t("appointmentConfirm.step1")}</li>
+                <li>{t("appointmentConfirm.step2")}</li>
+                <li>{t("appointmentConfirm.step3")}</li>
             </ol>
         </div>
 
@@ -42,7 +42,7 @@ const AppointmentConfirm = ({ nextStep, prevStep, values }) => {
             className="back-btn back-btn-stepthree"
             onClick={prevStep}
           >
-            <img src="/assets/arrow.svg" alt="arrow" /> {t("appointment.back")}
+            <img src="/assets/arrow.svg" alt="arrow" /> {t("appointmentConfirm.back")}
           </button>
           <div className="forward-btns">
             <button
@@ -50,7 +50,7 @@ const AppointmentConfirm = ({ nextStep, prevStep, values }) => {
               className="long-btn long-btn-stepthree"
               onClick={nextStep}
             >
-              {t("appointment.continueJourney")}
+              {t("appointmentConfirm.continueJourney")}
             </button>
           </div>
         </div>

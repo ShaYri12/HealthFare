@@ -47,21 +47,21 @@ const PlanSelection = ({ nextStep, prevStep, handleChange, values, cartitem2 }) 
         oneMonthPrice: `$296 / ${t("planSelection.month")}*`,
         threeMonthPrice: `$279 / ${t("planSelection.month")}*`,
         oneMonthDescription: t("stepTwo.cards.0.description"),
-        threeMonthDescription: t("stepTwo.cards.1.description"),
+        threeMonthDescription: t("stepTwo.cards.0.description2"),
       };
-    } else if (productTitle === t("stepTwo.cards.2.title")) {
+    } else if (productTitle === t("stepTwo.cards.1.title")) {
       return {
         oneMonthPrice: `$425 / ${t("planSelection.month")}*`,
         threeMonthPrice: `$399 / ${t("planSelection.month")}*`,
-        oneMonthDescription: t("stepTwo.cards.2.description"),
-        threeMonthDescription: t("stepTwo.cards.3.description"),
+        oneMonthDescription: t("stepTwo.cards.1.description"),
+        threeMonthDescription: t("stepTwo.cards.1.description2"),
       };
     } else {
       return {
-        oneMonthPrice: `$296 / ${t("stepSix.question3.month")}`,
-        threeMonthPrice: `$279 / ${t("stepSix.question3.month")}`,
+        oneMonthPrice: `$296 / ${t("planSelection.month")}*`,
+        threeMonthPrice: `$279 / ${t("planSelection.month")}*`,
         oneMonthDescription: t("stepTwo.cards.0.description"),
-        threeMonthDescription: t("stepTwo.cards.1.description"),
+        threeMonthDescription: t("stepTwo.cards.0.description2"),
       };
     }
   };
@@ -86,7 +86,7 @@ const PlanSelection = ({ nextStep, prevStep, handleChange, values, cartitem2 }) 
               onChange={() => {}} // To prevent React warning about changing an uncontrolled input to controlled
             />
             <label className="plan-selection-text" htmlFor="one-month">
-              <span>{t('planSelection.oneMonthPlan')}</span>
+              <span className="month">{t('planSelection.oneMonthPlan')}</span>
               <span className="price">{oneMonthPrice}</span>
             </label>
           </div>
@@ -100,8 +100,8 @@ const PlanSelection = ({ nextStep, prevStep, handleChange, values, cartitem2 }) 
               onChange={() => {}} // To prevent React warning about changing an uncontrolled input to controlled
             />
             <label className="plan-selection-text" htmlFor="three-month">
-              <span>{t('planSelection.threeMonthPlan')}</span>
-              <span className="price">{threeMonthPrice}</span>
+              <span className="month">{t('planSelection.threeMonthPlan')}</span>
+              <div className="price"><span className="original-price">{oneMonthPrice}</span> <span>{threeMonthPrice}</span></div>
             </label>
           </div>
         </div>

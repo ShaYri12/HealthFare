@@ -33,8 +33,8 @@ const ThankYouPage = ({ handleSubmit, formValues }) => {
       {renderFormValues()}
 
       <div className="assistance">
-        <h3>{t("appointment.assistanceTitle")}</h3>
-        <p>{t("appointment.assistanceMessage")}</p>
+        <h3>{t("thankYou.assistanceTitle")}</h3>
+        <p>{t("thankYou.assistanceMessage")}</p>
       </div>
 
       <div className="btn-group final-btn">
@@ -42,16 +42,16 @@ const ThankYouPage = ({ handleSubmit, formValues }) => {
           <img src="/assets/whatsapp.svg" alt="" />
         </button>
         <button className="long-btn whatsapp-btn">
-          {t("appointment.whatsappBtn")}
+          {t("thankYou.whatsappBtn")}
         </button>
       </div>
 
       <div className="doctor">
         <img src="/assets/doctor.jpg" alt="doctorImg" />
         <span className="doctor-texts">
-          <h3>{t("appointment.doctorText.title")}</h3>
-          <p>{t("appointment.doctorText.support")}</p>
-          <span>{t("appointment.doctorText.online")}</span>
+          <h3>{t("thankYou.doctorText.title")}</h3>
+          <p>{t("thankYou.doctorText.support")}</p>
+          <span>{t("thankYou.doctorText.online")}</span>
         </span>
         <span className="popup">1</span>
       </div>
