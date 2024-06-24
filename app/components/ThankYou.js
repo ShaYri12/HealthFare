@@ -26,8 +26,8 @@ const ThankYouPage = ({ handleSubmit, formValues }) => {
   return (
     <div className="formContainer step-form">
       <div className="thank-you">
-        <h3>{t("stepEleven.thankYou.title")}</h3>
-        <p>{t("stepEleven.thankYou.message")}</p>
+        <h3>{t("thankYou.title")}</h3>
+        <p>{t("thankYou.message")}</p>
       </div>
 
       {renderFormValues()}

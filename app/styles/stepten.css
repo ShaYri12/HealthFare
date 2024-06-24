@@ -6,6 +6,8 @@
 }
 .month-dropdown{
     position: absolute;
+    right: 7%;
+    top: 5%
 }
 
 .additional-suppliments, .included-card{

@@ -352,6 +352,11 @@ const resources = {
           online: "I'm Online",
         },
       },
+      thankYou: {
+          title: "Thank You for Your Purchase!",
+          message:
+            "Thank you for your order! Your order has been successfully processed, and a confirmation email has been sent to you.",
+        },
 
       // Add translations for other steps...
     },
@@ -710,6 +715,11 @@ const resources = {
           online: "Estoy en línea",
         },
       },
+      thankYou: {
+          title: "¡Gracias por su compra!",
+          message:
+            "Gracias por elegir nuestro Plan de Tratamiento de Semaglutida de 3 meses. Su pedido ha sido procesado correctamente y se ha enviado un correo electrónico de confirmación.",
+        },
       // Add translations for other steps...
     },
   },
@@ -1073,6 +1083,11 @@ const resources = {
           online: "Estou Online",
         },
       },
+      thankYou: {
+          title: "Obrigado pela sua compra!",
+          message:
+            "Obrigado por escolher nosso Plano de Tratamento de Semaglutida de 3 meses. Seu pedido foi processado com sucesso e um e-mail de confirmação foi enviado para você.",
+        },
       // Adicione traduções para outros passos, se necessário...
     },
   },
