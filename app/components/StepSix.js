@@ -7,19 +7,20 @@ import Review from "./Review";
 const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligibleData, handleNotEligible, currentQuestion, setCurrentQuestion }) => {
   const { t } = useTranslation();
   const [formData, setFormData] = useState({
-    firstName: formValues.stepSix.firstName || '',
-    lastName: formValues.stepSix.lastName || '',
-    streetAddress: formValues.stepSix.streetAddress || '',
-    city: formValues.stepSix.city || '',
-    zipCode: formValues.stepSix.zipCode || '',
-    state: formValues.stepOne.location || '',
-    month: formValues.stepSix.month || '',
-    day: formValues.stepSix.day || '',
-    year: formValues.stepSix.year || '',
-    gender: formValues.stepSix.gender || '',
-    phone: formValues.stepSix.phone || '',
-    email: formValues.stepSix.email || ''
+    firstName: formValues.stepSix?.firstName || '',
+    lastName: formValues.stepSix?.lastName || '',
+    streetAddress: formValues.stepSix?.streetAddress || '',
+    city: formValues.stepSix?.city || '',
+    zipCode: formValues.stepSix?.zipCode || '',
+    state: formValues.stepOne?.location || '',
+    month: formValues.stepSix?.month || '',
+    day: formValues.stepSix?.day || '',
+    year: formValues.stepSix?.year || '',
+    gender: formValues.stepSix?.gender || '',
+    phone: formValues.stepSix?.phone || '',
+    email: formValues.stepSix?.email || ''
   });
+
   const [errors, setErrors] = useState({});
   const [age, setAge] = useState(null);
 
@@ -44,7 +45,10 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligib
         [field]: formattedValue,
       });
       handleChange({
-        [field]: formattedValue,
+        stepSix: {
+          ...formData,
+          [field]: formattedValue,
+        }
       });
     } else if (field === 'month' || field === 'day' || field === 'year') {
       const numericValue = value.replace(/\D/g, '');
@@ -53,7 +57,10 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligib
         [field]: numericValue,
       });
       handleChange({
-        [field]: numericValue,
+        stepSix: {
+          ...formData,
+          [field]: numericValue,
+        }
       });
     } else {
       setFormData({
@@ -61,7 +68,8 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligib
         [field]: value,
       });
       handleChange({
-        [field]: value,
+          ...formData,
+          [field]: value,
       });
     }
     setErrors({ ...errors, [field]: '' });
@@ -246,54 +254,54 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligib
       title: t('stepSix.question1.title'),
       form: (
         <form onSubmit={handleSubmit} className="input-form">
-      <div className="input-group">
-        <div className="input-label">
-          <label>{t('stepSix.question1.firstName')}</label>
-          <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange('firstName')} placeholder={t('stepSix.question1.firstNamePlaceholder')} />
-          {errors.firstName && <span className="error">{errors.firstName}</span>}
-        </div>
-        <div className="input-label">
-          <label>{t('stepSix.question1.lastName')}</label>
-          <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange('lastName')} placeholder={t('stepSix.question1.lastNamePlaceholder')} />
-          {errors.lastName && <span className="error">{errors.lastName}</span>}
-        </div>
-      </div>
-      <div className="input-label">
-        <label>{t('stepSix.question1.phone')}</label>
-        <input type="text" name="phone" value={formData.phone} onChange={handleInputChange('phone')} placeholder={t('stepSix.question1.phonePlaceholder')} />
-        {errors.phone && <span className="error">{errors.phone}</span>}
-      </div>
-      <div className="input-label">
-        <label>{t('stepSix.question1.email')}</label>
-        <input type="text" name="email" value={formData.email} onChange={handleInputChange('email')} placeholder={t('stepSix.question1.emailPlaceholder')} />
-        {errors.email && <span className="error">{errors.email}</span>}
-      </div>
-      <div>
-        <label>{t('stepSix.question1.dob')}</label>
-        <div className="input-group">
-          <div className="input-label">
-            <input type="text" name="month" value={formData.month} onChange={handleInputChange('month')} placeholder="MM" maxLength="2" />
-            {errors.month && <span className="error">{errors.month}</span>}
+          <div className="input-group">
+            <div className="input-label">
+              <label>{t('stepSix.question1.firstName')}</label>
+              <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange('firstName')} placeholder={t('stepSix.question1.firstNamePlaceholder')} />
+              {errors.firstName && <span className="error">{errors.firstName}</span>}
+            </div>
+            <div className="input-label">
+              <label>{t('stepSix.question1.lastName')}</label>
+              <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange('lastName')} placeholder={t('stepSix.question1.lastNamePlaceholder')} />
+              {errors.lastName && <span className="error">{errors.lastName}</span>}
+            </div>
           </div>
           <div className="input-label">
-            <input type="text" name="day" value={formData.day} onChange={handleInputChange('day')} placeholder="DD" maxLength="2" />
-            {errors.day && <span className="error">{errors.day}</span>}
+            <label>{t('stepSix.question1.phone')}</label>
+            <input type="text" name="phone" value={formData.phone} onChange={handleInputChange('phone')} placeholder={t('stepSix.question1.phonePlaceholder')} />
+            {errors.phone && <span className="error">{errors.phone}</span>}
           </div>
           <div className="input-label">
-            <input type="text" name="year" value={formData.year} onChange={handleInputChange('year')} placeholder="YYYY" maxLength="4" />
-            {errors.year && <span className="error">{errors.year}</span>}
+            <label>{t('stepSix.question1.email')}</label>
+            <input type="text" name="email" value={formData.email} onChange={handleInputChange('email')} placeholder={t('stepSix.question1.emailPlaceholder')} />
+            {errors.email && <span className="error">{errors.email}</span>}
           </div>
-        </div>
-      </div>
-      <div className='btn-group btn-group-stepthree'>
-        <button type="button" className='back-btn back-btn-stepthree' onClick={prevInfo}>
-          <img src="/assets/arrow.svg" alt="arrow" /> {t('stepSix.back')}
-        </button>
-        <div className='forward-btns'>
-          <button type="submit" className='long-btn long-btn-stepthree'>{t('stepSix.continueJourney')}</button>
-        </div>
-      </div>
-    </form>
+          <div>
+            <label>{t('stepSix.question1.dob')}</label>
+            <div className="input-group">
+              <div className="input-label">
+                <input type="text" name="month" value={formData.month} onChange={handleInputChange('month')} placeholder="MM" maxLength="2" />
+                {errors.month && <span className="error">{errors.month}</span>}
+              </div>
+              <div className="input-label">
+                <input type="text" name="day" value={formData.day} onChange={handleInputChange('day')} placeholder="DD" maxLength="2" />
+                {errors.day && <span className="error">{errors.day}</span>}
+              </div>
+              <div className="input-label">
+                <input type="text" name="year" value={formData.year} onChange={handleInputChange('year')} placeholder="YYYY" maxLength="4" />
+                {errors.year && <span className="error">{errors.year}</span>}
+              </div>
+            </div>
+          </div>
+          <div className='btn-group btn-group-stepthree'>
+            <button type="button" className='back-btn back-btn-stepthree' onClick={prevInfo}>
+              <img src="/assets/arrow.svg" alt="arrow" /> {t('stepSix.back')}
+            </button>
+            <div className='forward-btns'>
+              <button type="submit" className='long-btn long-btn-stepthree'>{t('stepSix.continueJourney')}</button>
+            </div>
+          </div>
+        </form>
       ),
     },
     {

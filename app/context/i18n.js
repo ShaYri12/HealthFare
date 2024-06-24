@@ -317,6 +317,10 @@ const resources = {
           feature2: "Weekly application - total of 12 applications",
         },
         inCart: "In cart",
+        shippingAddress: "Shipping Address",
+        edit: "Edit",
+        save: "Save",
+        cancel: "Cancel"
       },
       stepEleven: {
         title: "Schedule Appointment",

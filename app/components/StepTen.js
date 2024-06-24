@@ -20,6 +20,116 @@ const StepTen = ({
 }) => {
   const { t } = useTranslation();
 
+  const stateOptions = [
+    "Alabama", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida",
+    "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana",
+    "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana",
+    "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina",
+    "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina",
+    "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia",
+    "Wisconsin", "Wyoming"
+  ];
+
+  const alphanumericPattern = /^[a-zA-Z0-9\s,'-]*$/;
+  const alphabeticPattern = /^[a-zA-Z\s]*$/;
+
+  const initialShippingAddress = {
+    streetAddress: formValues.stepSix.streetAddress || "",
+    city: formValues.stepSix.city || "",
+    state: formValues.stepSix.state || "",
+    zipCode: formValues.stepSix.zipCode || "",
+    errors: {
+      streetAddress: "",
+      city: "",
+      state: "",
+      zipCode: "",
+    },
+  };
+
+  const [shippingAddress, setShippingAddress] = useState(initialShippingAddress);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Validate individual field
+  const validateField = (name, value) => {
+    switch (name) {
+      case 'streetAddress':
+        if (!value.trim()) {
+          return t('error.streetAddressError');
+        } else if (!alphanumericPattern.test(value)) {
+          return t('error.textError');
+        }
+        return '';
+      case 'city':
+        if (!value.trim()) {
+          return t('error.cityError');
+        } else if (!alphabeticPattern.test(value)) {
+          return t('error.textError');
+        }
+        return '';
+      case 'state':
+        if (!value.trim()) {
+          return t('error.stateError');
+        }
+        return '';
+      case 'zipCode':
+        if (!value.trim()) {
+          return t('error.zipCodeError');
+        }
+        return '';
+      default:
+        return '';
+    }
+  };
+
+  // Validate entire form
+  const validateForm = () => {
+    const errors = {
+      streetAddress: validateField('streetAddress', shippingAddress.streetAddress),
+      city: validateField('city', shippingAddress.city),
+      state: validateField('state', shippingAddress.state),
+      zipCode: validateField('zipCode', shippingAddress.zipCode),
+    };
+
+    setShippingAddress({ ...shippingAddress, errors });
+    return Object.values(errors).every(error => error === '');
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const isValid = validateForm();
+    if (isValid) {
+      // Save or update the address
+      console.log("Shipping address saved:", shippingAddress);
+      setIsModalOpen(false);
+      // Optionally, you can update formValues with the new shippingAddress state
+      handleChange('stepSix')({
+        streetAddress: shippingAddress.streetAddress,
+        city: shippingAddress.city,
+        state: shippingAddress.state,
+        zipCode: shippingAddress.zipCode,
+      });
+    } else {
+      console.log("Form contains errors. Cannot save address.");
+    }
+  };
+
+  const handleInputChange = (name) => (event) => {
+    let { value } = event.target;
+  
+    // Ensure zip code is numeric
+    if (name === 'zipCode') {
+      value = value.replace(/\D/g, ''); // Remove non-numeric characters
+    }
+  
+    setShippingAddress({
+      ...shippingAddress,
+      [name]: value,
+      errors: {
+        ...shippingAddress.errors,
+      },
+    });
+  };
+
   const [addoncart, setAddonCart] = useState(
     formValues.stepTen.addoncart || []
   );
@@ -229,8 +339,12 @@ const StepTen = ({
                   value={item.monthPlan}
                   onChange={handleMonthPlanChange}
                 >
-                  <option value="1-month supply">{t("stepTen.oneMonthPlan")}</option>
-                  <option value="3-month supply">{t("stepTen.threeMonthPlan")}</option>
+                  <option value="1-month supply">
+                    {t("stepTen.oneMonthPlan")}
+                  </option>
+                  <option value="3-month supply">
+                    {t("stepTen.threeMonthPlan")}
+                  </option>
                 </select>
               </span>
               <h3>{item.title}</h3>
@@ -339,49 +453,49 @@ const StepTen = ({
 
       {/* Available Addons */}
       <div className="addon-section">
-      <div className="available-addons-container">
-        <h2>{t("stepTen.availableAddon")}</h2>
-        {availableAddons.map((addon, index) => {
-          const isInCart = addoncart.some((item) => item.id === addon.id);
+        <div className="available-addons-container">
+          <h2>{t("stepTen.availableAddon")}</h2>
+          {availableAddons.map((addon, index) => {
+            const isInCart = addoncart.some((item) => item.id === addon.id);
 
-          return (
-            <div className="available-addons-card" key={index}>
-              <img width={"102px"} src={addon.imgSrc} alt={addon.title} />
-              <div className="title-price">
-                <h2 className="title">{addon.title}</h2>
-                <p className="price" style={{ color: "#38B64B" }}>
-                  {addon.price}
-                </p>
-              </div>
-              <p>{addon.description}</p>
-              <div className="btn-group addons-btn">
-                <div className="forward-btns">
-                  <button
-                    type="button"
-                    className={`long-btn ${
-                      isInCart ? "delete-btn" : "add-btn"
-                    }`}
-                    onClick={() => handleAddAddon(addon)}
-                  >
-                    {isInCart ? t("stepTen.inCart") : t("stepTen.add")}
-                  </button>
-                  <button
-                    className={`arrow-btn ${
-                      isInCart ? "delete-btn" : "cart-btn"
-                    }`}
-                    onClick={() => handleAddAddon(addon)}
-                  >
-                    <img
-                      src={`/assets/${isInCart ? "delete" : "cart"}.svg`}
-                      alt=""
-                    />
-                  </button>
+            return (
+              <div className="available-addons-card" key={index}>
+                <img width={"102px"} src={addon.imgSrc} alt={addon.title} />
+                <div className="title-price">
+                  <h2 className="title">{addon.title}</h2>
+                  <p className="price" style={{ color: "#38B64B" }}>
+                    {addon.price}
+                  </p>
+                </div>
+                <p>{addon.description}</p>
+                <div className="btn-group addons-btn">
+                  <div className="forward-btns">
+                    <button
+                      type="button"
+                      className={`long-btn ${
+                        isInCart ? "delete-btn" : "add-btn"
+                      }`}
+                      onClick={() => handleAddAddon(addon)}
+                    >
+                      {isInCart ? t("stepTen.inCart") : t("stepTen.add")}
+                    </button>
+                    <button
+                      className={`arrow-btn ${
+                        isInCart ? "delete-btn" : "cart-btn"
+                      }`}
+                      onClick={() => handleAddAddon(addon)}
+                    >
+                      <img
+                        src={`/assets/${isInCart ? "delete" : "cart"}.svg`}
+                        alt=""
+                      />
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
       </div>
 
       <div className="included-card">
@@ -411,7 +525,110 @@ const StepTen = ({
           <p>{t("stepTen.shipping")}</p>
         </span>
       </div>
-      
+
+      <div className="shipping-address-section">
+        <span className="shipping-add-top">
+          <h3>{t("stepTen.shippingAddress")}</h3>
+          <button className="btn-edit" onClick={() => setIsModalOpen(true)}>
+            {t("stepTen.edit")}
+          </button>
+        </span>
+        <div className="shipping-address">
+          <p>{formValues.stepSix.streetAddress}</p>
+          <p>
+            {formValues.stepSix.city}, {formValues.stepSix.state}{" "}
+            {formValues.stepSix.zipCode}
+          </p>
+        </div>
+      </div>
+
+      {isModalOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <h3>{t("stepTen.shippingAddress")}</h3>
+            <form onSubmit={handleSubmit} className="input-form modal-form">
+              <div className="input-label-full input-label">
+                <label>{t("stepSix.question2.streetAddress")}</label>
+                <input
+                  type="text"
+                  name="streetAddress"
+                  value={shippingAddress.streetAddress}
+                  onChange={handleInputChange("streetAddress")}
+                  placeholder={t("stepSix.question2.streetAddressPlaceholder")}
+                />
+                {shippingAddress.errors.streetAddress && (
+                  <span className="error">
+                    {shippingAddress.errors.streetAddress}
+                  </span>
+                )}
+              </div>
+              <div className="input-group">
+                <div className="input-label">
+                  <label>{t("stepSix.question2.city")}</label>
+                  <input
+                    type="text"
+                    name="city"
+                    value={shippingAddress.city}
+                    onChange={handleInputChange("city")}
+                    placeholder={t("stepSix.question2.cityPlaceholder")}
+                  />
+                  {shippingAddress.errors.city && (
+                    <span className="error">{shippingAddress.errors.city}</span>
+                  )}
+                </div>
+                <div className="input-label">
+                  <label>{t("stepSix.question2.zipCode")}</label>
+                  <input
+                    type="text"
+                    name="zipCode"
+                    value={shippingAddress.zipCode}
+                    onChange={handleInputChange("zipCode")}
+                    placeholder={t("stepSix.question2.zipCodePlaceholder")}
+                  />
+                  {shippingAddress.errors.zipCode && (
+                    <span className="error">
+                      {shippingAddress.errors.zipCode}
+                    </span>
+                  )}
+                </div>
+              </div>
+              <div className="input-label location">
+                <label>{t("stepSix.question2.state")}</label>
+                <select
+                  name="state"
+                  value={shippingAddress.state}
+                  onChange={handleInputChange("state")}
+                >
+                  <option value="">{t("stepSix.question2.select")}</option>
+                  {stateOptions.map((state) => (
+                    <option key={state} value={state}>
+                      {state}
+                    </option>
+                  ))}
+                </select>
+                {shippingAddress.errors.state && (
+                  <span className="error">{shippingAddress.errors.state}</span>
+                )}
+              </div>
+
+              <div className="btn-group">
+                <div className="forward-btns">
+                  <button
+                    className="btn-cancel"
+                    onClick={() => {
+                      setIsModalOpen(false);
+                      setShippingAddress(initialShippingAddress);
+                    }}
+                  >
+                    {t("stepTwelve.cancel")}
+                  </button>
+                  <button className="save-btn" type="submit"> {t("stepTen.save")}</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
 
       <div className="total-cost">
         <h3 className="item-title">{itemTitle} </h3>
@@ -489,7 +706,7 @@ const StepTen = ({
         </div>
       </div>
 
-      <PaySlider/>
+      <PaySlider />
 
       <Review />
     </div>
