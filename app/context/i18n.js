@@ -4,6 +4,7 @@ import { initReactI18next } from "react-i18next";
 const resources = {
   en: {
     translation: {
+      appointmentReserved :"Appointment is reserved for",
       error: {
         textError: "Please enter letters only.",
         fillError: "This field cannot be left blank.",
@@ -369,6 +370,8 @@ const resources = {
   },
   es: {
     translation: {
+      appointmentReserved: "A consulta está reservada para",
+      appointmentReserved: "La cita está reservada para",
       error: {
         textError: "Por favor, ingresa solo letras.",
         fillError: "Este campo no puede dejarse en blanco.",
@@ -731,6 +734,7 @@ const resources = {
   },
   pt: {
     translation: {
+      appointmentReserved: "A consulta está reservada para",
       error: {
         textError: "Por favor, insira apenas letras.",
         fillError: "Este campo não pode ser deixado em branco.",
