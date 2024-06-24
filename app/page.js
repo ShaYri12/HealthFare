@@ -144,7 +144,7 @@ const Home = () => {
       <div className="container">
         <img className="backgroundimg" src="/assets/backgroundimg.png" alt="Background" />
         <div className="formContainer">
-          <ProgressBar step={step} totalSteps={13} />
+          <ProgressBar step={step} totalSteps={15} />
           <div className="logo">
             <img src="/assets/logo.webp" alt="Logo" />
           </div>

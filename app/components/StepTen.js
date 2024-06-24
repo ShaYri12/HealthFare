@@ -228,8 +228,8 @@ const StepTen = ({
                   value={item.monthPlan}
                   onChange={handleMonthPlanChange}
                 >
-                  <option value={t("stepTen.oneMonthPlan")}>{t("stepTen.oneMonthPlan")}</option>
-                  <option value={t("stepTen.threeMonthPlan")}>{t("stepTen.threeMonthPlan")}</option>
+                  <option value="one month plan">{t("stepTen.oneMonthPlan")}</option>
+                  <option value="three month plan">{t("stepTen.threeMonthPlan")}</option>
                 </select>
               </span>
               <h3>{item.title}</h3>
