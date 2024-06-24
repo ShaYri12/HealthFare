@@ -5,6 +5,26 @@ const MonthPlanModal = ({ isOpen, onClose, item, handleMonthPlanChange }) => {
   const { t } = useTranslation();
   const [pendingPlan, setPendingPlan] = useState(item.monthPlan); // State to hold pending plan changes
 
+  // Define the prices and descriptions based on item title
+  let oneMonthPrice, threeMonthPrice, oneMonthDescription, threeMonthDescription;
+
+  if (item.title === t("stepTwo.cards.0.title")) {
+    oneMonthPrice = `$296 / ${t("planSelection.month")}*`;
+    threeMonthPrice = `$279 / ${t("planSelection.month")}*`;
+    oneMonthDescription = t("stepTwo.cards.0.description");
+    threeMonthDescription = t("stepTwo.cards.0.description2");
+  } else if (item.title === t("stepTwo.cards.1.title")) {
+    oneMonthPrice = `$425 / ${t("planSelection.month")}*`;
+    threeMonthPrice = `$399 / ${t("planSelection.month")}*`;
+    oneMonthDescription = t("stepTwo.cards.1.description");
+    threeMonthDescription = t("stepTwo.cards.1.description2");
+  } else {
+    oneMonthPrice = `$296 / ${t("planSelection.month")}*`;
+    threeMonthPrice = `$279 / ${t("planSelection.month")}*`;
+    oneMonthDescription = t("stepTwo.cards.0.description");
+    threeMonthDescription = t("stepTwo.cards.0.description2");
+  }
+
   // Function to handle visual change of selected plan
   const handleChange = (newPlan) => {
     setPendingPlan(newPlan); // Update pendingPlan visually
@@ -22,6 +42,7 @@ const MonthPlanModal = ({ isOpen, onClose, item, handleMonthPlanChange }) => {
     onClose(); // Close the modal
   };
 
+  // Render the modal content
   if (!isOpen) return null;
 
   return (
@@ -43,7 +64,7 @@ const MonthPlanModal = ({ isOpen, onClose, item, handleMonthPlanChange }) => {
               />
               <label className="plan-selection-text" htmlFor="one-month">
                 <span className="month">{t('planSelection.oneMonthPlan')}</span>
-                <span className="price">{item.oneMonthPrice}</span>
+                <span className="price">{oneMonthPrice}</span>
               </label>
             </div>
             <div className="plan-option" onClick={() => handleChange('3-month supply')}>
@@ -57,13 +78,13 @@ const MonthPlanModal = ({ isOpen, onClose, item, handleMonthPlanChange }) => {
               <label className="plan-selection-text" htmlFor="three-month">
                 <span className="month">{t('planSelection.threeMonthPlan')}</span>
                 <div className="price">
-                  <span className="original-price">{item.oneMonthPrice}</span> <span>{item.threeMonthPrice}</span>
+                  <span className="original-price">{oneMonthPrice}</span> <span>{threeMonthPrice}</span>
                 </div>
               </label>
             </div>
           </div>
           <div className="btn-group">
-            <button className="btn-close" onClick={handleCancel}>
+            <button className="btn-cancel" onClick={handleCancel}>
               {t("stepTwelve.cancel")}
             </button>
             <button className="save-btn" type="button" onClick={handleConfirm}>

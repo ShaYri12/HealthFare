@@ -7,15 +7,15 @@
 .change-frequency{
     position: absolute;
     right: 7%;
-    top: 5%;
-    padding: 3px 5px !important;
+    top: 3.7%;
+    padding: 3px 7px !important;
     align-items: center;
     justify-content: center;
     background-color: transparent;
     color: #28a745;
     border: 1px solid #28a745;
     border-radius: 8px;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
     transition: color 0.3s ease-in-out;
@@ -507,7 +507,7 @@
     color: #28a745;
     border: 1px solid #28a745;
     border-radius: 8px;
-    font-weight: 600;
+    font-weight: 700 !important;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
     transition: color 0.3s ease-in-out;
@@ -535,7 +535,6 @@
   flex-grow: 1;
   order: 2 !important;
   flex:1;
-  transition: opacity 0.3s ease-in-out;
 }
 
 /* Cancel button */
@@ -552,7 +551,8 @@
 }
 
 /* Button hover effects */
-.save-btn:hover, .btn-cancel:hover {
+.btn-cancel:hover {
   opacity: 0.9;
 }
+
 
