@@ -19,13 +19,13 @@ const StepTwo = ({ prevStep, nextStep, handleChange, values, cartitem2 }) => {
 
   const cardsData = [
     {
-      bestSeller: t('stepTwo.cards.0.bestSeller'),
+      stock: t('stepTwo.cards.0.stock'),
+      label: t('stepTwo.cards.0.label'),
       imgSrc: "/assets/med1.svg",
       title: t('stepTwo.cards.0.title'),
       titleDesc: t('stepTwo.cards.0.titleDesc'),
-      price: "$296",
+      price: t('stepTwo.cards.0.price'),
       description: t('stepTwo.cards.0.description'),
-      monthPlan: t('stepTwo.cards.0.monthPlan'),
       totalSavings:  t('stepTwo.totalSavings'),
       month: t('stepTwo.month'),
       year: t('stepTwo.year'),
@@ -36,52 +36,24 @@ const StepTwo = ({ prevStep, nextStep, handleChange, values, cartitem2 }) => {
       ],
     },
     {
-      imgSrc: "/assets/med1.svg",
+      stock: t('stepTwo.cards.1.stock'),
+      label: t('stepTwo.cards.1.label'),
+      imgSrc: "/assets/med2.svg",
       title: t('stepTwo.cards.1.title'),
+      totalSavings:  t('stepTwo.totalSavings'),
       titleDesc: t('stepTwo.cards.1.titleDesc'),
-      price: "$279",
+      price: t('stepTwo.cards.1.price'),
       description: t('stepTwo.cards.1.description'),
-      monthPlan: t('stepTwo.cards.1.monthPlan'),
       totalSavings:  t('stepTwo.totalSavings'),
       month: t('stepTwo.month'),
       year: t('stepTwo.year'),
+      star: "5",
       features: [
         t('stepTwo.cards.1.feature1'),
         t('stepTwo.cards.1.feature2')
       ],
     },
-    {
-      header: t('stepTwo.cards.2.header'),
-      imgSrc: "/assets/med2.svg",
-      title: t('stepTwo.cards.2.title'),
-      titleDesc: t('stepTwo.cards.2.titleDesc'),
-      price: "$425",
-      description: t('stepTwo.cards.2.description'),
-      totalSavings:  t('stepTwo.totalSavings'),
-      month: t('stepTwo.month'),
-      year: t('stepTwo.year'),
-      monthPlan: t('stepTwo.cards.2.monthPlan'),
-      features: [
-        t('stepTwo.cards.2.feature1'),
-        t('stepTwo.cards.2.feature2')
-      ],
-    },
-    {
-      header: t('stepTwo.cards.3.header'),
-      imgSrc: "/assets/med1.svg",
-      title: t('stepTwo.cards.3.title'),
-      titleDesc: t('stepTwo.cards.3.titleDesc'),
-      price: "$399",
-      description: t('stepTwo.cards.3.description'),
-      totalSavings:  t('stepTwo.totalSavings'),
-      month: t('stepTwo.month'),
-      year: t('stepTwo.year'),
-      monthPlan: t('stepTwo.cards.3.monthPlan'),
-      features: [
-        t('stepTwo.cards.3.feature1'),
-        t('stepTwo.cards.3.feature2')
-      ],
-    },
+
   ];
 
   return (

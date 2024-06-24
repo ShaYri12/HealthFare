@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-const StepTwoCard = ({ imgSrc, title, titleDesc, price, monthPlan, totalSavings, month, year, savings, description, star, header, bestSeller, features, nextStep, addToCart }) => {
+const StepTwoCard = ({ imgSrc, title, titleDesc, price, stock, label, totalSavings, month, year, savings, description, star, header, features, nextStep, addToCart }) => {
   const { t } = useTranslation(); // Hook to access translations
   const [quantity, setQuantity] = useState(1);
 
@@ -15,8 +15,8 @@ const StepTwoCard = ({ imgSrc, title, titleDesc, price, monthPlan, totalSavings,
           price: price,
           savings: savings,
           description: description,
-          header: header,
-          monthPlan: monthPlan,
+          stock: stock,
+          label: label,
           totalSavings :totalSavings,
           month: month,
           year: year,
@@ -33,35 +33,25 @@ const StepTwoCard = ({ imgSrc, title, titleDesc, price, monthPlan, totalSavings,
 
   return (
     <div className='medication'>
-    {bestSeller ? (
       <div className='card-header'>
-        <h3>{bestSeller}</h3>
+        <h3>{title}</h3>
         <span>
           {Array.from({ length: star }).map((_, index) => (
             <img key={index} src="assets/star.svg" alt="star"/>
           ))}
         </span>
       </div>
-    ) : (
-      header &&
-      <div className='card-header-2'>
-        <h3>{header}</h3>
-      </div>
-    )}
     <div className='card'>
       <div className='card-top'>
         <div className='card-img'>
           <img src={imgSrc} alt={title} />
         </div>
         <div className='card-title-price'>
-          <span>{monthPlan}</span>
-          <h3>{title}</h3>
+          <span>{label}</span>
+          <h3>{stock}</h3>
           <p className='title-desc'>{titleDesc}</p>
           <span className='price-savings'>
-            <div className='price'>
-              <h2>{price}/</h2>
-              <span>{month}*</span>
-            </div>
+            <div className='price'>{price}            </div>
               {savings && (
                 <div className='saving'>
                   <p>{totalSavings}</p>

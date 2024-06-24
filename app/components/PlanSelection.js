@@ -27,7 +27,7 @@ const PlanSelection = ({ nextStep, prevStep, handleChange, values, cartitem2 }) 
         ...formData.stepTwo,
         price: cleanedPrice,
         description,
-        monthPlan: selectedPlan === 'one month plan' ? 'One Month Plan' : 'Three Month Plan',
+        monthPlan: selectedPlan === 'one month plan' ? 'One Month Plan' : 'three month plan',
       },
     };
     setFormData(newFormData);
@@ -40,26 +40,26 @@ const PlanSelection = ({ nextStep, prevStep, handleChange, values, cartitem2 }) 
   };
 
   const getProductDetails = () => {
-    const productTitle = values.stepTwo.title;
+    const productTitle = values.stepTwo.header;
 
-    if (productTitle === "Compounded Semaglutide" || productTitle === "Semaglutida Compuesta" || productTitle === "Semaglutida Composta") {
+    if (productTitle === "Semaglutide GLP-1" || productTitle === "Semaglutida Compuesta" || productTitle === "Semaglutida Composta") {
       return {
         oneMonthPrice: `$296 / ${t("planSelection.month")}*`,
-        threeMonthPrice: `$279 / ${t("planSelection.month")}*`,
+        threeMonthPrice: `$279 / ${t("planSelection.month")}`,
         oneMonthDescription: t("stepTwo.cards.0.description"),
         threeMonthDescription: t("stepTwo.cards.1.description"),
       };
-    } else if (productTitle === "Compounded Tirzepatide" || productTitle === "Tirzepatida Compuesta" || productTitle === "Tirzepatida Composta") {
+    } else if (productTitle === "Tirzepatide Dual GIP/GLP-1" || productTitle === "Tirzepatida Dual GIP/GLP-1" || productTitle === "Tirzepatida Dual GIP/GLP-1") {
       return {
-        oneMonthPrice: `$425 / ${t("planSelection.month")}*`,
-        threeMonthPrice: `$399 / ${t("planSelection.month")}*`,
+        oneMonthPrice: `$425 / ${t("planSelection.month")}`,
+        threeMonthPrice: `$399 / ${t("planSelection.month")}`,
         oneMonthDescription: t("stepTwo.cards.2.description"),
         threeMonthDescription: t("stepTwo.cards.3.description"),
       };
     } else {
       return {
-        oneMonthPrice: `$296 / ${t("stepSix.question3.month")}*`,
-        threeMonthPrice: `$279 / ${t("stepSix.question3.month")}*`,
+        oneMonthPrice: `$296 / ${t("stepSix.question3.month")}`,
+        threeMonthPrice: `$279 / ${t("stepSix.question3.month")}`,
         oneMonthDescription: t("stepTwo.cards.0.description"),
         threeMonthDescription: t("stepTwo.cards.1.description"),
       };
