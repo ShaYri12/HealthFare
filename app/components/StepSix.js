@@ -43,8 +43,14 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligib
         formattedValue += `-${value.slice(6, 10)}`;
       }
 
-      // Handle different fields based on their types
-    if (field === 'month' || field === 'day' || field === 'year') {
+      setFormData({
+        ...formData,
+        [field]: formattedValue,
+      });
+      handleChange({
+        [field]: formattedValue,
+      });
+    } else if (field === 'month' || field === 'day' || field === 'year') {
       // Replace non-numeric characters with an empty string for month, day, year inputs
       const numericValue = value.replace(/\D/g, '');
       
@@ -53,24 +59,11 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligib
         ...formData,
         [field]: numericValue,
       });
-    } else {
-      // For other fields (firstName, lastName, phone, email), update directly
-      setFormData({
-        ...formData,
-        [field]: value,
-      });
-    }
-
-      // Update state with formatted value
-      setFormData({
-        ...formData,
-        [field]: formattedValue,
-      });
       handleChange({
-        [field]: formattedValue,
+        [field]: numericValue,
       });
     } else {
-      // For other fields, update state normally
+      // For other fields (firstName, lastName, email), update directly
       setFormData({
         ...formData,
         [field]: value,
