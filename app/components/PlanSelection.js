@@ -27,7 +27,7 @@ const PlanSelection = ({ nextStep, prevStep, handleChange, values, cartitem2 }) 
         ...formData.stepTwo,
         price: cleanedPrice,
         description,
-        monthPlan: selectedPlan === 'one month plan' ? 'One Month Plan' : 'three month plan',
+        monthPlan: selectedPlan === '1-month supply' ? '1-month supply' : '3-month supply',
       },
     };
     setFormData(newFormData);
@@ -40,19 +40,19 @@ const PlanSelection = ({ nextStep, prevStep, handleChange, values, cartitem2 }) 
   };
 
   const getProductDetails = () => {
-    const productTitle = values.stepTwo.header;
+    const productTitle = values.stepTwo.title;
 
-    if (productTitle === "Semaglutide GLP-1" || productTitle === "Semaglutida Compuesta" || productTitle === "Semaglutida Composta") {
+    if (productTitle === t("stepTwo.cards.0.title")) {
       return {
         oneMonthPrice: `$296 / ${t("planSelection.month")}*`,
-        threeMonthPrice: `$279 / ${t("planSelection.month")}`,
+        threeMonthPrice: `$279 / ${t("planSelection.month")}*`,
         oneMonthDescription: t("stepTwo.cards.0.description"),
         threeMonthDescription: t("stepTwo.cards.1.description"),
       };
-    } else if (productTitle === "Tirzepatide Dual GIP/GLP-1" || productTitle === "Tirzepatida Dual GIP/GLP-1" || productTitle === "Tirzepatida Dual GIP/GLP-1") {
+    } else if (productTitle === t("stepTwo.cards.2.title")) {
       return {
-        oneMonthPrice: `$425 / ${t("planSelection.month")}`,
-        threeMonthPrice: `$399 / ${t("planSelection.month")}`,
+        oneMonthPrice: `$425 / ${t("planSelection.month")}*`,
+        threeMonthPrice: `$399 / ${t("planSelection.month")}*`,
         oneMonthDescription: t("stepTwo.cards.2.description"),
         threeMonthDescription: t("stepTwo.cards.3.description"),
       };
@@ -76,13 +76,13 @@ const PlanSelection = ({ nextStep, prevStep, handleChange, values, cartitem2 }) 
       </div>
       <form className="input-form"> {/* Remove onSubmit attribute */}
         <div className="plan-select">
-          <div className="plan-option" onClick={() => handlePlanSelection('one month plan', oneMonthPrice, oneMonthPounds, oneMonthDescription)}>
+          <div className="plan-option" onClick={() => handlePlanSelection('1-month supply', oneMonthPrice, oneMonthPounds, oneMonthDescription)}>
             <input
               type="radio"
               id="one-month"
               name="plan"
-              value="one month plan"
-              checked={formData.plan === 'one month plan'}
+              value="1-month supply"
+              checked={formData.plan === '1-month supply'}
               onChange={() => {}} // To prevent React warning about changing an uncontrolled input to controlled
             />
             <label className="plan-selection-text" htmlFor="one-month">
@@ -90,13 +90,13 @@ const PlanSelection = ({ nextStep, prevStep, handleChange, values, cartitem2 }) 
               <span className="price">{oneMonthPrice}</span>
             </label>
           </div>
-          <div className="plan-option" onClick={() => handlePlanSelection('three month plan', threeMonthPrice, threeMonthPounds, threeMonthDescription)}>
+          <div className="plan-option" onClick={() => handlePlanSelection('3-month supply', threeMonthPrice, threeMonthPounds, threeMonthDescription)}>
             <input
               type="radio"
               id="three-month"
               name="plan"
-              value="three month plan"
-              checked={formData.plan === 'three month plan'}
+              value="3-month supply"
+              checked={formData.plan === '3-month supply'}
               onChange={() => {}} // To prevent React warning about changing an uncontrolled input to controlled
             />
             <label className="plan-selection-text" htmlFor="three-month">

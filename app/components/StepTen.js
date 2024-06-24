@@ -73,9 +73,9 @@ const StepTen = ({
       const itemQuantity = item.quantity || 1; // Default to 1 if quantity is not provided or falsy
 
       // Check monthPlan and adjust price calculation accordingly
-      if (item.monthPlan.toLowerCase() === "one month plan") {
+      if (item.monthPlan.toLowerCase() === "1-month supply") {
         total += itemPrice * itemQuantity; // Monthly price
-      } else if (item.monthPlan.toLowerCase() === "three month plan") {
+      } else if (item.monthPlan.toLowerCase() === "3-month supply") {
         total += itemPrice * itemQuantity * 3; // Three months price
       }
     });
@@ -136,30 +136,30 @@ const StepTen = ({
     let newPrice = "";
     let newDescription = "";
 
-    if (productTitle === "Compounded Semaglutide") {
-      if (newMonthPlan === "one month plan") {
+    if (productTitle === t("stepTwo.cards.0.title")) {
+      if (newMonthPlan === "1-month supply") {
         newPrice = "$296";
-        newDescription = "Lose up to 10 pounds monthly";
-      } else if (newMonthPlan === "three month plan") {
+        newDescription = t("stepTwo.cards.0.description");
+      } else if (newMonthPlan === "3-month supply") {
         newPrice = "$279";
-        newDescription = "Lose up to 30 pounds";
+        newDescription = t("stepTwo.cards.0.description2");
       }
-    } else if (productTitle === "Compounded Tirzepatide") {
-      if (newMonthPlan === "one month plan") {
+    } else if (productTitle === t("stepTwo.cards.1.title")) {
+      if (newMonthPlan === "1-month supply") {
         newPrice = "$425";
-        newDescription = "Lose up to 16 pounds monthly";
-      } else if (newMonthPlan === "three month plan") {
+        newDescription = t("stepTwo.cards.1.description");
+      } else if (newMonthPlan === "3-month supply") {
         newPrice = "$399";
-        newDescription = "Lose up to 48 pounds";
+        newDescription = t("stepTwo.cards.1.description2");
       }
     } else {
       // Default values when no specific product is selected
-      if (newMonthPlan === "one month plan") {
+      if (newMonthPlan === "1-month supply") {
         newPrice = "$296";
-        newDescription = "Lose up to 10 pounds monthly";
-      } else if (newMonthPlan === "three month plan") {
+        newDescription = t("stepTwo.cards.0.description");
+      } else if (newMonthPlan === "3-month supply") {
         newPrice = "$279";
-        newDescription = "Lose up to 30 pounds";
+        newDescription = t("stepTwo.cards.0.description2");
       }
     }
 
@@ -228,8 +228,8 @@ const StepTen = ({
                   value={item.monthPlan}
                   onChange={handleMonthPlanChange}
                 >
-                  <option value="one month plan">{t("stepTen.oneMonthPlan")}</option>
-                  <option value="three month plan">{t("stepTen.threeMonthPlan")}</option>
+                  <option value="1-month supply">{t("stepTen.oneMonthPlan")}</option>
+                  <option value="3-month supply">{t("stepTen.threeMonthPlan")}</option>
                 </select>
               </span>
               <h3>{item.title}</h3>
@@ -418,9 +418,9 @@ const StepTen = ({
         {cart2.map((item, index) => {
           // Determine the multiplier based on monthPlan
           let multiplier = 1;
-          if (item.monthPlan.toLowerCase() === "one month plan") {
+          if (item.monthPlan.toLowerCase() === "1-month supply") {
             multiplier = 1;
-          } else if (item.monthPlan.toLowerCase() === "three month plan") {
+          } else if (item.monthPlan.toLowerCase() === "3-month supply") {
             multiplier = 3;
           }
 

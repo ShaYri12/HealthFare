@@ -12,7 +12,7 @@ import StepEight from './components/StepEight';
 import StepNine from './components/StepNine';
 import StepTen from './components/StepTen';
 import StepEleven from './components/StepEleven';
-import StepTwelve from './components/StepTwelve';
+import Appointment from './components/Appointment';
 import AppointmentConfirmed from './components/AppointmentConfirm';
 import NotEligible from './components/NotEligible';
 import ProgressBar from './components/ProgressBar';
@@ -39,8 +39,8 @@ const Home = () => {
     stepFive: {},
     stepSix: {},
     stepEleven: {},
-    stepTwelve: {},
-    AppointmentConfirmed: {},
+    appointment: {},
+    appointmentConfirmed: {},
     stepSeven: {},
     stepEight: {},
     stepNine: {},
@@ -130,8 +130,8 @@ const Home = () => {
     <StepFive prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepFive')} values={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} />,
     <StepSix prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepSix')} formValues={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} currentQuestion={currentStepSixQuestion} setCurrentQuestion={setCurrentStepSixQuestion} />,
     <StepEleven prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepEleven')} values={formValues} />,
-    <StepTwelve prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepTwelve')} values={formValues} />,
-    <AppointmentConfirmed prevStep={prevStep} nextStep={nextStep} />,
+    <Appointment prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('appointment')} values={formValues} />,
+    <AppointmentConfirmed prevStep={prevStep} nextStep={nextStep} values={formValues}/>,
     <StepSeven prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepSeven')} values={formValues} currentQuestion={currentStepSevenQuestion} setCurrentQuestion={setCurrentStepSevenQuestion} />,
     <StepEight prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepEight')} values={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} />,
     <StepNine prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepNine')} values={formValues} />,

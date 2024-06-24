@@ -88,6 +88,7 @@ const resources = {
             price: "Starting at just $279 per month",
             titleDesc: "Semaglutide the active ingredient in Ozempic® and Wegovy®.",
             description: "Lose up to 10 pounds per month.",
+            description2: "Lose up to 30 pounds",
             feature1: "Includes Provider and Medication. No hidden costs. No insurance required.",
             feature2: "Enhanced with Vitamin B-12 and Glycine.",
           },
@@ -98,6 +99,7 @@ const resources = {
             price: "Starting at just $399 per month",
             titleDesc: "Tirzepatide the same active ingredient in Mounjaro® and Zepbound™",
             description: "Lose up to 16 pounds per month.",
+            description2: "Lose up to 48 pounds",
             feature1: "Includes Provider and Medication. No hidden costs. No insurance required.",
             feature2: "Enhanced with Vitamin B-12 and Glycine.",
           },
@@ -106,8 +108,8 @@ const resources = {
       planSelection: {
           title: "Your Shipping Frequency",
           description: "How often do you want your treatment to be shipped?",
-          oneMonthPlan: "1-Month Supply",
-          threeMonthPlan: "3-Month Supply",
+          oneMonthPlan: "1-month supply",
+          threeMonthPlan: "3-month supply",
           continueJourney: "Continue your journey",
           back: "Back",
           month: "Month",
@@ -271,8 +273,8 @@ const resources = {
         title: "Your Order Summary",
         greeting: "Hi ",
         planDesc: "Review your monthly plan and the included services",
-        oneMonthPlan: "one month plan",
-        threeMonthPlan: "three month plan",
+        oneMonthPlan: "1-month supply",
+        threeMonthPlan: "3-month supply",
         orderSummary: "Order Summary",
         reviewText: "Review Your Monthly Plan and Included Services",
         totalSavings: "Total Savings",
@@ -323,7 +325,7 @@ const resources = {
         cancel: "Cancel",
         confirm: "Confirm",
       },
-      stepThirteen: {
+      appointment: {
         title: "Appointment Confirmed!",
         confirmationMessage:
           "Thank you for scheduling your appointment! You're taking an exciting step on your weight loss journey. Our team will be in touch soon to provide further details and answer any questions you may have.",
@@ -336,6 +338,12 @@ const resources = {
           support: "Customer Support",
           online: "I'm Online",
         },
+        pending: "You have a pending appointment for",
+        at: "at",
+        on: "on",
+        with: "with",
+        continueJourney: "Continue your journey",
+        back: "Back",
       },
       thankYou: {
           title: "Thank You for Your Purchase!",
@@ -670,7 +678,7 @@ const resources = {
         cancel: "Cancelar",
         confirm: "Confirmar",
       },
-      stepThirteen: {
+      appointment: {
         title: "¡Cita Confirmada!",
         confirmationMessage:
           "¡Gracias por programar tu cita! Estás dando un paso emocionante en tu viaje de pérdida de peso. Nuestro equipo se pondrá en contacto pronto para brindarte más detalles y responder cualquier pregunta que puedas tener.",
@@ -683,6 +691,12 @@ const resources = {
           support: "Soporte al Cliente",
           online: "Estoy en línea",
         },
+        pending: "Tienes una cita pendiente para",
+        at: "a las",
+        on: "el",
+        with: "con",
+        continueJourney: "Continuar su viaje",
+        back: "Volver",
       },
       thankYou: {
           title: "¡Gracias por su compra!",
@@ -1022,7 +1036,7 @@ const resources = {
         cancel: "Cancelar",
         confirm: "Confirmar",
       },
-      stepThirteen: {
+      appointment: {
         title: "Consulta Confirmada!",
         confirmationMessage:
           "Obrigado por agendar sua consulta! Você está dando um passo emocionante em sua jornada de perda de peso. Nossa equipe entrará em contato em breve para fornecer mais detalhes e responder quaisquer perguntas que você possa ter.",
@@ -1035,6 +1049,12 @@ const resources = {
           support: "Suporte ao Cliente",
           online: "Estou Online",
         },
+        pending: "Você tem uma consulta pendente para",
+        at: "às",
+        on: "em",
+        with: "com",
+        continueJourney: "Continue sua jornada",
+        back: "Voltar",
       },
       thankYou: {
           title: "Obrigado pela sua compra!",

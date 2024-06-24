@@ -26,12 +26,8 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligib
   const handleInputChange = (field) => (e) => {
     let value = e.target.value;
 
-    // Format phone number as (000) 000-0000
     if (field === 'phone') {
-      // Remove non-digit characters from input
       value = value.replace(/\D/g, '');
-
-      // Apply phone number formatting
       let formattedValue = '';
       if (value.length >= 1) {
         formattedValue = `(${value.slice(0, 3)}`;
@@ -51,10 +47,7 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligib
         [field]: formattedValue,
       });
     } else if (field === 'month' || field === 'day' || field === 'year') {
-      // Replace non-numeric characters with an empty string for month, day, year inputs
       const numericValue = value.replace(/\D/g, '');
-      
-      // Update the form data with the sanitized numeric value
       setFormData({
         ...formData,
         [field]: numericValue,
@@ -63,7 +56,6 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligib
         [field]: numericValue,
       });
     } else {
-      // For other fields (firstName, lastName, email), update directly
       setFormData({
         ...formData,
         [field]: value,
@@ -72,21 +64,18 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligib
         [field]: value,
       });
     }
-    setErrors({ ...errors, [field]: '' }); // Clear error when input changes
+    setErrors({ ...errors, [field]: '' });
   };
 
   const validateForm = () => {
     let isValid = true;
     const newErrors = {};
 
-    // Regex patterns
     const alphabeticPattern = /^[A-Za-z\s]+$/;
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const alphanumericPattern = /^[A-Za-z0-9\s.,'"`#-]+$/u;
-
     const currentYear = new Date().getFullYear();
 
-    // Validate fields for the current question
     if (currentQuestion === 0) {
       if (!formData.firstName.trim()) {
         newErrors.firstName = t('error.firstNameError');
@@ -146,29 +135,18 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligib
         formData.year <= currentYear &&
         formData.year > 1900 &&
         formData.month <= 12 &&
-        formData.month > 1 &&
-        formData.day < 31 &&
-        formData.day > 1
+        formData.month >= 1 &&
+        formData.day <= 31 &&
+        formData.day >= 1
       ) {
         if (age !== null && age < 18) {
           const newData = {
             title: t("error.disqualifyTitle"),
             desc: t("error.ageError"),
           };
-          setAge(null);
-          setFormData({
-            ...formData,
-            month: "",
-            day: "",
-            year: "",
-          });
-          handleChange({
-            month: "",
-            day: "",
-            year: "",
-          });
           updateNotEligibleData(newData);
           handleNotEligible();
+          isValid = false;
         }
       }
     } else if (currentQuestion === 1) {
@@ -176,7 +154,7 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligib
         newErrors.streetAddress = t('error.streetAddressError');
         isValid = false;
       } else if (!alphanumericPattern.test(formData.streetAddress)) {
-        newErrors.streetAddress = t('error.textError'); // Custom error message for address format
+        newErrors.streetAddress = t('error.textError');
         isValid = false;
       }
       if (!formData.city.trim()) {
@@ -202,7 +180,6 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligib
         newErrors.gender = t('error.selectError');
         isValid = false;
       } else {
-        // If gender is selected, proceed to next step
         nextInfo();
       }
     } 
@@ -227,7 +204,6 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligib
 
     calculateAge();
   }, [formData.month, formData.day, formData.year]);
-
 
   const handleSubmit = (event) => {
     event.preventDefault();
