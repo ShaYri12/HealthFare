@@ -37,7 +37,7 @@ const StepThreeCard = ({ imgSrc, title, price, desc, addToCart, nextStep }) => {
           <h3>{title}</h3>
           <div className='price-desc'>
             <h3 className='price-decrease'>
-                  <span className='original-price'>$0</span><span className='changed-price'>{price}</span>
+                  <span className='original-price'>$90</span><span className='changed-price'>{price}</span>
             </h3>
             <p>{desc}</p>
           </div>

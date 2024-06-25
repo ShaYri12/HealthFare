@@ -15,6 +15,7 @@ const PlanSelection = ({ nextStep, prevStep, handleChange, values, cartitem2 }) 
   });
 
   const [error, setError] = useState("");
+  const [planSelected, setPlanSelected] = useState(false);
 
   const handlePlanSelection = (selectedPlan, price, pounds, description) => {
     const cleanedPrice = price.replace(/[^$0-9]/g, '');
@@ -37,6 +38,14 @@ const PlanSelection = ({ nextStep, prevStep, handleChange, values, cartitem2 }) 
     handleChange('planSelection')(newFormData);
     cartitem2({ ...newFormData.stepTwo }); // Update cart2
     nextStep(); // Proceed to the next step
+  };
+
+  const handleContinue = () => {
+    if (!planSelected) {
+      setError(t('error.selectError')); // Set error message if no plan is selected
+    } else {
+      nextStep(); // Proceed to the next step if a plan is selected
+    }
   };
 
   const getProductDetails = () => {
@@ -74,7 +83,7 @@ const PlanSelection = ({ nextStep, prevStep, handleChange, values, cartitem2 }) 
         <h2>{t('planSelection.title')}</h2>
         <p>{t('planSelection.description')}</p>
       </div>
-      <form className="input-form"> {/* Remove onSubmit attribute */}
+      <form className="input-form">
         <div className="plan-select">
           <div className="plan-option" onClick={() => handlePlanSelection('1-month supply', oneMonthPrice, oneMonthPounds, oneMonthDescription)}>
             <input
@@ -83,7 +92,7 @@ const PlanSelection = ({ nextStep, prevStep, handleChange, values, cartitem2 }) 
               name="plan"
               value="1-month supply"
               checked={formData.plan === '1-month supply'}
-              onChange={() => {}} // To prevent React warning about changing an uncontrolled input to controlled
+              onChange={() => {}}
             />
             <label className="plan-selection-text" htmlFor="one-month">
               <span className="month">{t('planSelection.oneMonthPlan')}</span>
@@ -97,11 +106,13 @@ const PlanSelection = ({ nextStep, prevStep, handleChange, values, cartitem2 }) 
               name="plan"
               value="3-month supply"
               checked={formData.plan === '3-month supply'}
-              onChange={() => {}} // To prevent React warning about changing an uncontrolled input to controlled
+              onChange={() => {}}
             />
             <label className="plan-selection-text" htmlFor="three-month">
               <span className="month">{t('planSelection.threeMonthPlan')}</span>
-              <div className="price"><span className="original-price">{oneMonthPrice}</span> <span>{threeMonthPrice}</span></div>
+              <div className="price">
+                <span className="original-price">{oneMonthPrice}</span> <span>{threeMonthPrice}</span>
+              </div>
             </label>
           </div>
         </div>
@@ -111,12 +122,12 @@ const PlanSelection = ({ nextStep, prevStep, handleChange, values, cartitem2 }) 
             <button type="button" className='back-btn back-btn-stepthree' onClick={prevStep}>
               <img src="/assets/arrow.svg" alt="arrow" /> {t('planSelection.back')}
             </button>
-            {/* No need for a separate submit button, handle next step directly */}
-            <button type='button' className='long-btn long-btn-stepthree' onClick={nextStep}>{t('planSelection.continueJourney')}</button>
+            <button type='button' className='long-btn long-btn-stepthree' onClick={handleContinue}>
+              {t('planSelection.continueJourney')}
+            </button>
           </div>
         </div>
       </form>
-
       <Review />
     </div>
   );

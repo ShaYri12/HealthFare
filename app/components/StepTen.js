@@ -334,7 +334,7 @@ const StepTen = ({
             </div>
             <div className="card-title-price">
               <span className="month-plan">{item.monthPlan}</span>
-              <button className="change-frequency" onClick={()=> setMonthPlanModal(true)}>Change Frequency</button>
+              <button className="change-frequency" onClick={()=> setMonthPlanModal(true)}>{t("stepTen.changeFrequency")}</button>
               <h3>{item.title}</h3>
               <p className="title-desc">{item.titleDesc}</p>
             </div>

@@ -5,12 +5,12 @@
     height: 100vh;
     position: relative;
   }
-
-  .transformation-text{
+  
+  .transformation-text {
     text-align: center;
   }
-
-  .loading-container{
+  
+  .loading-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,30 +25,6 @@
     width: 100px;
     height: 100px;
     transition: opacity 0.5s ease-in-out; /* Smooth transition */
-  }
-  
-  .spinner {
-    border: 4px solid #28a7462b;
-    border-left-color: #28a745;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-    margin-bottom: 20px;
-  }
-  
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  
-  .checkmark {
-    font-size: 48px;
-    color: green;
   }
   
   .transformation-box {
@@ -87,6 +63,56 @@
   @keyframes fadeIn {
     to {
       opacity: 1;
+    }
+  }
+  
+  .checkmark {
+    width: 65px; /* Adjusted width */
+    height: 65px; /* Adjusted height */
+    border-radius: 50%;
+    display: block;
+    stroke-width: 8; /* Adjusted stroke width */
+    stroke: #fff;
+    stroke-miterlimit: 10;
+    box-shadow: inset 0px 0px 0px #28a745;
+    animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+  }
+  
+  .checkmark__circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 6; /* Adjusted stroke width */
+    stroke-miterlimit: 10;
+    stroke: #28a745;
+    fill: none;
+    animation: stroke .6s cubic-bezier(0.650, 0.000, 0.450, 1.000) forwards;
+  }
+  
+  .checkmark__check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke .3s cubic-bezier(0.650, 0.000, 0.450, 1.000) .8s forwards;
+  }
+  
+  @keyframes stroke {
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  @keyframes scale {
+    0%, 100% {
+      transform: none;
+    }
+    50% {
+      transform: scale3d(1.1, 1.1, 1);
+    }
+  }
+  
+  @keyframes fill {
+    100% {
+      box-shadow: inset 0px 0px 0px 30px #28a745;
     }
   }
   

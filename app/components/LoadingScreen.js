@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { HashLoader } from 'react-spinners'; // Importing PulseLoader from react-spinners
 import '../styles/loading-screen.css';
 import { useTranslation } from 'react-i18next';
 
@@ -43,21 +44,24 @@ const LoadingScreen = ({ nextStep }) => {
       </div>
       <div className='loading-container'>
         {!loadingFinished ? (
-            <div className="spinner"></div>
-            ) : (
-            <div className="checkmark">&#10003;</div>
-            )}
+            <HashLoader size={75} color={"#28a745"}/>
+        ) : (
+            <svg className="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <circle className="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                <path className="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+        )}
       </div>
       <div className="loader transformation-box">
-            <div className='transformation-img'>
-              <h4>{getHeading()}</h4>
-              <img 
-                key={currentImageIndex} // Key to trigger CSS transition
-                src={images[currentImageIndex]} 
-                alt="Loading" 
-                className="fade-in"
-              />
-            </div>
+        <div className='transformation-img'>
+          <h4>{getHeading()}</h4>
+          <img 
+            key={currentImageIndex} // Key to trigger CSS transition
+            src={images[currentImageIndex]} 
+            alt="Loading" 
+            className="fade-in"
+          />
+        </div>
       </div>
     </div>
   );
