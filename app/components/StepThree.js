@@ -33,7 +33,7 @@ const StepThree = ({ prevStep, nextStep,  handleChange, values, cartitem }) => {
     {
       imgSrc: "/assets/med2.svg",
       title: t('stepThree.product3.title'), // Translate title using t function
-      price: "$889.99",
+      price: "$0",
       desc: t('stepThree.product3.description'), // Translate description using t function
     },
   ];

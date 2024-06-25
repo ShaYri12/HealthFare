@@ -103,10 +103,32 @@
   }
 
 
-
 .card-title-price{
     display: flex;
     flex-direction: column;
+}
+
+.price-decrease{
+    display: flex;
+    gap: 8px;
+    align-items: start;
+}
+
+.price-decrease .original-price{
+    font-weight: 700 !important;
+    font-size: 23px !important;
+    line-height: 27.6px !important;
+    letter-spacing: 0.12px !important;
+    color: #28a745 !important;
+    text-decoration: line-through;
+}
+
+.changed-price{
+    font-weight: 700 !important;
+    font-size: 23px !important;
+    line-height: 27.6px !important; 
+    letter-spacing: 0.12px !important;
+    color: #002C20 !important;
 }
 
 .title-price-stepthree{
@@ -228,4 +250,27 @@
 
 .card-suppliment:hover{
     cursor: pointer;
+}
+
+
+.claim-free{
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    padding: 7px 7px !important;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: #28a745;
+    border: 2px solid #28a745;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out;
+}
+
+.claim-free:hover{
+    background-color: #28a745;
+    color: #fff;
 }

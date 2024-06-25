@@ -121,7 +121,7 @@ const resources = {
         month: "Month",
       },
       stepThree: {
-        title: "Would you like to add any additional supplements? (optional)",
+        title: "Claim Your Free Supplement! (Optional)",
         product1: {
           title: "Metabolic Booster",
           description:
@@ -493,7 +493,7 @@ const resources = {
         month: "mes",
       },
       stepThree: {
-        title: "¿Le gustaría agregar algún suplemento adicional? (opcional)",
+        title: "¡Reclama tu Suplemento Gratis! (Opcional)",
         product1: {
           title: "Acelerador Metabólico",
           description:
@@ -856,7 +856,7 @@ const resources = {
         month: "mês",
       },
       stepThree: {
-        title: "Gostaria de adicionar algum suplemento adicional? (opcional)",
+        title: "Reivindique seu Suplemento Grátis! (Opcional)",
         product1: {
           title: "Impulsionador Metabólico",
           description:

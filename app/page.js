@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import StepOne from './components/StepOne';
 import StepTwo from './components/StepTwo';
-import PlanSelection from './components/PlanSelection'
+import PlanSelection from './components/PlanSelection';
 import StepThree from './components/StepThree';
 import StepFour from './components/StepFour';
 import StepFive from './components/StepFive';
@@ -23,6 +23,7 @@ import i18n from './context/i18n';
 import './styles/form.css';
 import { useStep } from './context/StepContext';
 import Timer from './components/Timer';
+import LoadingScreen from './components/LoadingScreen'; // Import the new LoadingScreen component
 
 const Home = () => {
   const { step, nextStep, prevStep, goToStep } = useStep();
@@ -30,11 +31,10 @@ const Home = () => {
   const [currentStepSixQuestion, setCurrentStepSixQuestion] = useState(0);
   const [currentStepSevenQuestion, setCurrentStepSevenQuestion] = useState(0);
 
-  // Initialize formValues with arrays where necessary
   const [formValues, setFormValues] = useState({
     stepOne: {},
     stepTwo: {},
-    planSelection : {},
+    planSelection: {},
     stepThree: {},
     stepFour: {},
     stepFive: {},
@@ -66,32 +66,19 @@ const Home = () => {
   const [NotEligibleData, setNotEligibleData] = useState([]);
 
   const cartitem = (item) => {
-    // Check if the item already exists in cart
     const existingIndex = cart.findIndex((cartItem) => cartItem.title === item.title);
-  
     let updatedCart;
-  
+
     if (existingIndex !== -1) {
-      // Item already exists in cart, update its quantity
       updatedCart = [...cart];
       updatedCart[existingIndex].quantity += item.quantity;
     } else {
-      // Item does not exist in cart, add it
       updatedCart = [...cart, item];
     }
-  
-    // Update the cart state
+
     setCart(updatedCart);
-  
-    // Update formValues.stepThree with current cart items
     handleChange('stepThree')({ cart: updatedCart });
-  
-    // Log formValues and cart to verify updates
-    console.log('formValues after handleChange: ', formValues.stepThree);
-    console.log('Cart after handleChange: ', updatedCart);
   };
-  
-  
 
   const cartitem2 = (item) => {
     setCart2([item]);
@@ -118,26 +105,27 @@ const Home = () => {
   };
 
   const handleOrignalStep = () => {
-    goToStep(14);
+    goToStep(15);
     setShowAddSuppliment(false);
   };
 
   const steps = [
     <StepOne nextStep={nextStep} handleChange={handleChange('stepOne')} values={formValues} />,
     <StepTwo nextStep={nextStep} prevStep={prevStep} handleChange={handleChange('stepTwo')} values={formValues} cartitem2={cartitem2} />,
-    <PlanSelection nextStep={nextStep} prevStep={prevStep} handleChange={handleChange} values={formValues} cartitem2={cartitem2}/>,
+    <PlanSelection nextStep={nextStep} prevStep={prevStep} handleChange={handleChange} values={formValues} cartitem2={cartitem2} />,
     <StepThree prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepThree')} values={formValues} cartitem={cartitem} />,
     <StepFour prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepFour')} values={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} />,
+    <LoadingScreen nextStep={nextStep} />, // Add the LoadingScreen component here
     <StepFive prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepFive')} values={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} />,
     <StepSix prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepSix')} formValues={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} currentQuestion={currentStepSixQuestion} setCurrentQuestion={setCurrentStepSixQuestion} />,
     <StepEleven prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepEleven')} values={formValues} />,
     <Appointment prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('appointment')} values={formValues} />,
-    <AppointmentConfirmed prevStep={prevStep} nextStep={nextStep} values={formValues}/>,
+    <AppointmentConfirmed prevStep={prevStep} nextStep={nextStep} values={formValues} />,
     <StepSeven prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepSeven')} values={formValues} currentQuestion={currentStepSevenQuestion} setCurrentQuestion={setCurrentStepSevenQuestion} />,
     <StepEight prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepEight')} values={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} />,
     <StepNine prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepNine')} values={formValues} />,
     <StepTen prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} formValues={formValues} cart={cart} cart2={cart2} setCart={setCart} setCart2={setCart2} addSuppliment={handleAddSuppliment} />,
-    <ThankYou handleSubmit={handleSubmit} handleChange={handleChange('ThankYou')} formValues={formValues}/>
+    <ThankYou handleSubmit={handleSubmit} handleChange={handleChange('ThankYou')} formValues={formValues} />
   ];
 
   return (
@@ -145,11 +133,11 @@ const Home = () => {
       <div className="container">
         <img className="backgroundimg" src="/assets/backgroundimg.png" alt="Background" />
         <div className="formContainer">
-        <div className='form-header'>
-          <ProgressBar step={step} totalSteps={15} />
-          {step >= 10 && step !== 15  &&(
-            <Timer  />
-          )}
+          <div className='form-header'>
+            <ProgressBar step={step} totalSteps={15} />
+            {step >= 10 && step !== 15 && (
+              <Timer />
+            )}
           </div>
           <div className="logo">
             <img src="/assets/logo.webp" alt="Logo" />

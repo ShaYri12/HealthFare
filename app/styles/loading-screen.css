@@ -1,0 +1,92 @@
+.loading-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+  }
+
+  .transformation-text{
+    text-align: center;
+  }
+
+  .loading-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .loader {
+    position: relative;
+    text-align: center;
+  }
+  
+  .loader img {
+    width: 100px;
+    height: 100px;
+    transition: opacity 0.5s ease-in-out; /* Smooth transition */
+  }
+  
+  .spinner {
+    border: 4px solid #28a7462b;
+    border-left-color: #28a745;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .checkmark {
+    font-size: 48px;
+    color: green;
+  }
+  
+  .transformation-box {
+    background-color: #124296;
+    color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    margin-bottom: 80px;
+  }
+  
+  .transformation-img {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    height: 500px;
+  }
+  
+  .transformation-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+  }
+  
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  

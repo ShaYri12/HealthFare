@@ -3,22 +3,27 @@ import React, { useState, useEffect } from 'react';
 
 const StepThreeCard = ({ imgSrc, title, price, desc, addToCart, nextStep }) => {
   const [quantity, setQuantity] = useState(1);
+  const [isClaimedFree, setIsClaimedFree] = useState(false);
 
   const handleAddToCart = () => {
     if (quantity > 0) {
       const item = {
         imgSrc: imgSrc,
         title: title,
-        price: price,
+        price: isClaimedFree ? 0 : price,
         desc: desc,
         quantity: quantity,
       };
       addToCart(item); // Notify parent component (StepThree) about the added item
-      nextStep(); // Proceed to the next step
+      nextStep()
     } else {
       console.log('Quantity should be greater than zero to add to cart.');
       // Optionally, you could display an error message or alert the user.
     }
+  };
+
+  const handleClaimFree = (e) => {
+    setIsClaimedFree(true);
   };
 
   return (
@@ -27,10 +32,13 @@ const StepThreeCard = ({ imgSrc, title, price, desc, addToCart, nextStep }) => {
         <div className='card-img'>
           <img src={imgSrc} alt={title} />
         </div>
+        <button className="claim-free" onClick={handleClaimFree}>Claim Gift</button>
         <div className='card-title-price title-price-stepthree'>
           <h3>{title}</h3>
           <div className='price-desc'>
-            <h3>{price}</h3>
+            <h3 className='price-decrease'>
+                  <span className='original-price'>$0</span><span className='changed-price'>{price}</span>
+            </h3>
             <p>{desc}</p>
           </div>
         </div>
