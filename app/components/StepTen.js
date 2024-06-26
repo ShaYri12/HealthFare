@@ -35,12 +35,14 @@ const StepTen = ({
   const alphabeticPattern = /^[a-zA-Z\s]*$/;
 
   const initialShippingAddress = {
-    streetAddress: formValues.stepSix.streetAddress || "",
+    streetAddress1: formValues.stepSix.streetAddress1 || "",
+    streetAddress2: formValues.stepSix.streetAddress1 || "",
     city: formValues.stepSix.city || "",
     state: formValues.stepSix.state || "",
     zipCode: formValues.stepSix.zipCode || "",
     errors: {
-      streetAddress: "",
+      streetAddress1: "",
+      streetAddress2: "",
       city: "",
       state: "",
       zipCode: "",
@@ -54,9 +56,9 @@ const StepTen = ({
   // Validate individual field
   const validateField = (name, value) => {
     switch (name) {
-      case 'streetAddress':
+      case 'streetAddress1':
         if (!value.trim()) {
-          return t('error.streetAddressError');
+          return t('error.streetAddress1Error');
         } else if (!alphanumericPattern.test(value)) {
           return t('error.textError');
         }
@@ -86,7 +88,8 @@ const StepTen = ({
   // Validate entire form
   const validateForm = () => {
     const errors = {
-      streetAddress: validateField('streetAddress', shippingAddress.streetAddress),
+      streetAddress1: validateField('streetAddress1', shippingAddress.streetAddress1),
+      streetAddress2: validateField('streetAddress2', shippingAddress.streetAddress2),
       city: validateField('city', shippingAddress.city),
       state: validateField('state', shippingAddress.state),
       zipCode: validateField('zipCode', shippingAddress.zipCode),
@@ -105,7 +108,8 @@ const StepTen = ({
       setIsModalOpen(false);
       // Optionally, you can update formValues with the new shippingAddress state
       handleChange('stepSix')({
-        streetAddress: shippingAddress.streetAddress,
+        streetAddress1: shippingAddress.streetAddress1,
+        streetAddress2: shippingAddress.streetAddress2,
         city: shippingAddress.city,
         state: shippingAddress.state,
         zipCode: shippingAddress.zipCode,
@@ -531,7 +535,8 @@ const StepTen = ({
           </button>
         </span>
         <div className="shipping-address">
-          <p>{formValues.stepSix.streetAddress}</p>
+          <p>{formValues.stepSix.streetAddress1}</p>
+          <p>{formValues.stepSix.streetAddress2}</p>
           <p>
             {formValues.stepSix.city}, {formValues.stepSix.state}{" "}
             {formValues.stepSix.zipCode}

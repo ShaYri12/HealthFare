@@ -3,13 +3,25 @@ import { useTranslation } from 'react-i18next';
 import "../styles/stepsix.css";
 import "../styles/form.css";
 import Review from "./Review";
+import Switch from 'react-switch';
 
-const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligibleData, handleNotEligible, currentQuestion, setCurrentQuestion }) => {
+const StepSix = ({
+  nextStep,
+  prevStep,
+  handleChange,
+  formValues,
+  updateNotEligibleData,
+  handleNotEligible,
+  currentQuestion,
+  setCurrentQuestion,
+}) => {
   const { t } = useTranslation();
+
   const [formData, setFormData] = useState({
     firstName: formValues.stepSix?.firstName || '',
     lastName: formValues.stepSix?.lastName || '',
-    streetAddress: formValues.stepSix?.streetAddress || '',
+    streetAddress1: formValues.stepSix?.streetAddress1 || '',
+    streetAddress2: formValues.stepSix?.streetAddress2 || '',
     city: formValues.stepSix?.city || '',
     zipCode: formValues.stepSix?.zipCode || '',
     state: formValues.stepOne?.location || '',
@@ -18,9 +30,19 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligib
     year: formValues.stepSix?.year || '',
     gender: formValues.stepSix?.gender || '',
     phone: formValues.stepSix?.phone || '',
-    email: formValues.stepSix?.email || ''
+    email: formValues.stepSix?.email || '',
+    billingStreetAddress1: formValues.stepSix?.billingStreetAddress1 || '',
+    billingStreetAddress2: formValues.stepSix?.billingStreetAddress2 || '',
+    billingCity: formValues.stepSix?.billingCity || '',
+    billingZipCode: formValues.stepSix?.billingZipCode || '',
+    billingState: formValues.stepSix?.billingState || '',
   });
 
+  const [isSameAddress, setIsSameAddress] = useState(true);
+
+  const handleToggleChange = (checked) => {
+    setIsSameAddress(checked);
+  };
   const [errors, setErrors] = useState({});
   const [age, setAge] = useState(null);
 
@@ -45,10 +67,8 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligib
         [field]: formattedValue,
       });
       handleChange({
-        stepSix: {
-          ...formData,
-          [field]: formattedValue,
-        }
+        ...formData,
+        [field]: formattedValue,
       });
     } else if (field === 'month' || field === 'day' || field === 'year') {
       const numericValue = value.replace(/\D/g, '');
@@ -60,7 +80,7 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligib
         stepSix: {
           ...formData,
           [field]: numericValue,
-        }
+        },
       });
     } else {
       setFormData({
@@ -68,8 +88,10 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligib
         [field]: value,
       });
       handleChange({
+        stepSix: {
           ...formData,
           [field]: value,
+        },
       });
     }
     setErrors({ ...errors, [field]: '' });
@@ -149,8 +171,8 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligib
       ) {
         if (age !== null && age < 18) {
           const newData = {
-            title: t("error.disqualifyTitle"),
-            desc: t("error.ageError"),
+            title: t('error.disqualifyTitle'),
+            desc: t('error.ageError'),
           };
           updateNotEligibleData(newData);
           handleNotEligible();
@@ -158,11 +180,18 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligib
         }
       }
     } else if (currentQuestion === 1) {
-      if (!formData.streetAddress.trim()) {
-        newErrors.streetAddress = t('error.streetAddressError');
+      if (!formData.streetAddress1.trim()) {
+        newErrors.streetAddress1 = t('error.streetAddressError');
         isValid = false;
-      } else if (!alphanumericPattern.test(formData.streetAddress)) {
-        newErrors.streetAddress = t('error.textError');
+      } else if (!alphanumericPattern.test(formData.streetAddress1)) {
+        newErrors.streetAddress1 = t('error.textError');
+        isValid = false;
+      }
+      if (!formData.streetAddress2.trim()) {
+        newErrors.streetAddress2 = t('error.streetAddressError');
+        isValid = false;
+      } else if (!alphanumericPattern.test(formData.streetAddress2)) {
+        newErrors.streetAddress2 = t('error.textError');
         isValid = false;
       }
       if (!formData.city.trim()) {
@@ -179,18 +208,51 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligib
       if (!formData.state.trim()) {
         newErrors.state = t('error.stateError');
         isValid = false;
-      } else if (formData.state !== formValues.stepOne.location){
+      } else if (formData.state !== formValues.stepOne.location) {
         newErrors.state = t('error.stateMismatchError');
         isValid = false;
       }
-    } else if (currentQuestion === 2) {
+    } else if (currentQuestion === 3) {
       if (!formData.gender.trim()) {
         newErrors.gender = t('error.selectError');
         isValid = false;
-      } else {
-        nextInfo();
       }
-    } 
+    } else if (currentQuestion === 2) {
+      // Validation for billing address fields
+      if (!formData.billingStreetAddress1.trim()) {
+        newErrors.billingStreetAddress1 = t('error.streetAddressError');
+        isValid = false;
+      } else if (!alphanumericPattern.test(formData.billingStreetAddress1)) {
+        newErrors.billingStreetAddress1 = t('error.textError');
+        isValid = false;
+      }
+      if (!formData.billingStreetAddress2.trim()) {
+        newErrors.billingStreetAddress2 = t('error.streetAddressError');
+        isValid = false;
+      } else if (!alphanumericPattern.test(formData.billingStreetAddress2)) {
+        newErrors.billingStreetAddress2 = t('error.textError');
+        isValid = false;
+      }
+      if (!formData.billingCity.trim()) {
+        newErrors.billingCity = t('error.CityError');
+        isValid = false;
+      } else if (!alphabeticPattern.test(formData.billingCity)) {
+        newErrors.billingCity = t('error.textError');
+        isValid = false;
+      }
+      if (!formData.billingZipCode.trim()) {
+        newErrors.billingZipCode = t('error.ZipCodeError');
+        isValid = false;
+      }
+      if (!formData.billingState.trim()) {
+        newErrors.billingState = t('error.StateError');
+        isValid = false;
+      }
+
+      // Optionally, you may want to check if billing address matches the primary address
+      // Example: if (isSameAddress) { validateBillingAddressWithPrimary(); }
+
+    }
 
     setErrors(newErrors);
     return isValid;
@@ -215,15 +277,30 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligib
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+  
     if (validateForm()) {
-      nextInfo();
+      if (isSameAddress) {
+        setFormData({
+          ...formData,
+          billingStreetAddress1: formData.streetAddress1,
+          billingStreetAddress2: formData.streetAddress2,
+          billingCity: formData.city,
+          billingZipCode: formData.zipCode,
+          billingState: formData.state,
+        });
+      }
+      nextInfo(); // Call nextInfo outside of the isSameAddress check
     }
   };
+  
 
   const nextInfo = () => {
     if (currentQuestion < questions.length - 1) {
+        if(currentQuestion === 1 && isSameAddress){
+          setCurrentQuestion(currentQuestion + 2);    
+        }else{
       setCurrentQuestion(currentQuestion + 1);
+      }
       window.scrollTo(0, 0);
     } else {
       nextStep();
@@ -232,13 +309,17 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligib
 
   const prevInfo = () => {
     if (currentQuestion > 0) {
-      setCurrentQuestion(currentQuestion - 1);
+      if(currentQuestion === 3 && isSameAddress){
+        setCurrentQuestion(currentQuestion - 2);    
+      }else{
+        setCurrentQuestion(currentQuestion - 1);
+    }
+      
       window.scrollTo(0, 0);
     } else {
       prevStep();
     }
   };
-
   const stateOptions = [
     "Alabama", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida",
     "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana",
@@ -251,135 +332,381 @@ const StepSix = ({ nextStep, prevStep, handleChange, formValues, updateNotEligib
 
   const questions = [
     {
-      title: t('stepSix.question1.title'),
+      title: t("stepSix.question1.title"),
       form: (
         <form onSubmit={handleSubmit} className="input-form">
           <div className="input-group">
             <div className="input-label">
-              <label>{t('stepSix.question1.firstName')}</label>
-              <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange('firstName')} placeholder={t('stepSix.question1.firstNamePlaceholder')} />
-              {errors.firstName && <span className="error">{errors.firstName}</span>}
+              <label>{t("stepSix.question1.firstName")}</label>
+              <input
+                type="text"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleInputChange("firstName")}
+                placeholder={t("stepSix.question1.firstNamePlaceholder")}
+              />
+              {errors.firstName && (
+                <span className="error">{errors.firstName}</span>
+              )}
             </div>
             <div className="input-label">
-              <label>{t('stepSix.question1.lastName')}</label>
-              <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange('lastName')} placeholder={t('stepSix.question1.lastNamePlaceholder')} />
-              {errors.lastName && <span className="error">{errors.lastName}</span>}
+              <label>{t("stepSix.question1.lastName")}</label>
+              <input
+                type="text"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleInputChange("lastName")}
+                placeholder={t("stepSix.question1.lastNamePlaceholder")}
+              />
+              {errors.lastName && (
+                <span className="error">{errors.lastName}</span>
+              )}
             </div>
           </div>
           <div className="input-label">
-            <label>{t('stepSix.question1.phone')}</label>
-            <input type="text" name="phone" value={formData.phone} onChange={handleInputChange('phone')} placeholder={t('stepSix.question1.phonePlaceholder')} />
+            <label>{t("stepSix.question1.phone")}</label>
+            <input
+              type="text"
+              name="phone"
+              value={formData.phone}
+              onChange={handleInputChange("phone")}
+              placeholder={t("stepSix.question1.phonePlaceholder")}
+            />
             {errors.phone && <span className="error">{errors.phone}</span>}
           </div>
           <div className="input-label">
-            <label>{t('stepSix.question1.email')}</label>
-            <input type="text" name="email" value={formData.email} onChange={handleInputChange('email')} placeholder={t('stepSix.question1.emailPlaceholder')} />
+            <label>{t("stepSix.question1.email")}</label>
+            <input
+              type="text"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange("email")}
+              placeholder={t("stepSix.question1.emailPlaceholder")}
+            />
             {errors.email && <span className="error">{errors.email}</span>}
           </div>
           <div>
-            <label>{t('stepSix.question1.dob')}</label>
+            <label>{t("stepSix.question1.dob")}</label>
             <div className="input-group">
               <div className="input-label">
-                <input type="text" name="month" value={formData.month} onChange={handleInputChange('month')} placeholder="MM" maxLength="2" />
+                <input
+                  type="text"
+                  name="month"
+                  value={formData.month}
+                  onChange={handleInputChange("month")}
+                  placeholder="MM"
+                  maxLength="2"
+                />
                 {errors.month && <span className="error">{errors.month}</span>}
               </div>
               <div className="input-label">
-                <input type="text" name="day" value={formData.day} onChange={handleInputChange('day')} placeholder="DD" maxLength="2" />
+                <input
+                  type="text"
+                  name="day"
+                  value={formData.day}
+                  onChange={handleInputChange("day")}
+                  placeholder="DD"
+                  maxLength="2"
+                />
                 {errors.day && <span className="error">{errors.day}</span>}
               </div>
               <div className="input-label">
-                <input type="text" name="year" value={formData.year} onChange={handleInputChange('year')} placeholder="YYYY" maxLength="4" />
+                <input
+                  type="text"
+                  name="year"
+                  value={formData.year}
+                  onChange={handleInputChange("year")}
+                  placeholder="YYYY"
+                  maxLength="4"
+                />
                 {errors.year && <span className="error">{errors.year}</span>}
               </div>
             </div>
           </div>
-          <div className='btn-group btn-group-stepthree'>
-            <button type="button" className='back-btn back-btn-stepthree' onClick={prevInfo}>
-              <img src="/assets/arrow.svg" alt="arrow" /> {t('stepSix.back')}
+          <div className="btn-group btn-group-stepthree">
+            <button
+              type="button"
+              className="back-btn back-btn-stepthree"
+              onClick={prevInfo}
+            >
+              <img src="/assets/arrow.svg" alt="arrow" /> {t("stepSix.back")}
             </button>
-            <div className='forward-btns'>
-              <button type="submit" className='long-btn long-btn-stepthree'>{t('stepSix.continueJourney')}</button>
+            <div className="forward-btns">
+              <button type="submit" className="long-btn long-btn-stepthree">
+                {t("stepSix.continueJourney")}
+              </button>
             </div>
           </div>
         </form>
       ),
     },
     {
-      title: t('stepSix.question2.title'),
+      title: t("stepSix.question2.title"),
       form: (
         <form onSubmit={handleSubmit} className="input-form">
           <div className="input-label-full input-label">
-            <label>{t('stepSix.question2.streetAddress')}</label>
-            <input type="text" name="streetAddress" value={formData.streetAddress} onChange={handleInputChange('streetAddress')} placeholder={t('stepSix.question2.streetAddressPlaceholder')} />
-            {errors.streetAddress && <span className="error">{errors.streetAddress}</span>}
+            <label>{t("stepSix.question2.streetAddress1")}</label>
+            <input
+              type="text"
+              name="streetAddress1"
+              value={formData.streetAddress1}
+              onChange={handleInputChange("streetAddress1")}
+              placeholder={t("stepSix.question2.streetAddressPlaceholder")}
+            />
+            {errors.streetAddress1 && (
+              <span className="error">{errors.streetAddress1}</span>
+            )}
+          </div>
+          <div className="input-label-full input-label">
+            <label>{t("stepSix.question2.streetAddress2")}</label>
+            <input
+              type="text"
+              name="streetAddress2"
+              value={formData.streetAddress2}
+              onChange={handleInputChange("streetAddress2")}
+              placeholder={t("stepSix.question2.streetAddressPlaceholder")}
+            />
+            {errors.streetAddress2 && (
+              <span className="error">{errors.streetAddress2}</span>
+            )}
           </div>
           <div className="input-group">
             <div className="input-label">
-              <label>{t('stepSix.question2.city')}</label>
-              <input type="text" name="city" value={formData.city} onChange={handleInputChange('city')} placeholder={t('stepSix.question2.cityPlaceholder')} />
+              <label>{t("stepSix.question2.city")}</label>
+              <input
+                type="text"
+                name="city"
+                value={formData.city}
+                onChange={handleInputChange("city")}
+                placeholder={t("stepSix.question2.cityPlaceholder")}
+              />
               {errors.city && <span className="error">{errors.city}</span>}
             </div>
             <div className="input-label">
-              <label>{t('stepSix.question2.zipCode')}</label>
-              <input type="number" name="zipCode" value={formData.zipCode} onChange={handleInputChange('zipCode')} placeholder={t('stepSix.question2.zipCodePlaceholder')} />
-              {errors.zipCode && <span className="error">{errors.zipCode}</span>}
+              <label>{t("stepSix.question2.zipCode")}</label>
+              <input
+                type="number"
+                name="zipCode"
+                value={formData.zipCode}
+                onChange={handleInputChange("zipCode")}
+                placeholder={t("stepSix.question2.zipCodePlaceholder")}
+              />
+              {errors.zipCode && (
+                <span className="error">{errors.zipCode}</span>
+              )}
             </div>
           </div>
           <div className="input-label location">
-            <label>{t('stepSix.question2.state')}</label>
-            <select name="state" onChange={handleInputChange('state')} value={formData.state}>
-              <option value="">{t('stepSix.question2.select')}</option>
-              {stateOptions.map(state => (
-                <option key={state} value={state}>{state}</option>
+            <label>{t("stepSix.question2.state")}</label>
+            <select
+              name="state"
+              onChange={handleInputChange("state")}
+              value={formData.state}
+            >
+              <option value="">{t("stepSix.question2.select")}</option>
+              {stateOptions.map((state) => (
+                <option key={state} value={state}>
+                  {state}
+                </option>
               ))}
             </select>
             {errors.state && <span className="error">{errors.state}</span>}
           </div>
-          <div className='btn-group btn-group-stepthree'>
-            <button type="button" className='back-btn back-btn-stepthree' onClick={prevInfo}>
-              <img src="/assets/arrow.svg" alt="arrow" /> {t('stepSix.back')}
+
+          <div className="toggle-container">
+          <Switch
+            className="switch"
+            id="switch"
+            checked={isSameAddress}
+            onChange={handleToggleChange}
+          />
+          <label className="switch-label" htmlFor="switch">
+          is your billing & shipping address are the same?
+          </label>
+          
+        </div>
+
+          <div className="btn-group btn-group-stepthree">
+            <button
+              type="button"
+              className="back-btn back-btn-stepthree"
+              onClick={prevInfo}
+            >
+              <img src="/assets/arrow.svg" alt="arrow" /> {t("stepSix.back")}
             </button>
-            <div className='forward-btns'>
-              <button type="submit" className='long-btn long-btn-stepthree'>{t('stepSix.continueJourney')}</button>
+            <div className="forward-btns">
+              <button type="submit" className="long-btn long-btn-stepthree">
+                {t("stepSix.continueJourney")}
+              </button>
             </div>
           </div>
         </form>
       ),
     },
     {
-      title: t('stepSix.question4.title'),
+      title: t("stepSix.question2point5.title"),
+      form: (
+        <form onSubmit={handleSubmit} className="input-form">
+          <div className="input-label-full input-label">
+            <label>{t("stepSix.question2.streetAddress1")}</label>
+            <input
+              type="text"
+              name="billingStreetAddress1"
+              value={formData.billingStreetAddress1}
+              onChange={handleInputChange("billingStreetAddress1")}
+              placeholder={t("stepSix.question2.streetAddressPlaceholder")}
+            />
+            {errors.billingStreetAddress1 && (
+              <span className="error">{errors.billingStreetAddress1}</span>
+            )}
+          </div>
+          <div className="input-label-full input-label">
+            <label>{t("stepSix.question2.streetAddress2")}</label>
+            <input
+              type="text"
+              name="billingStreetAddress2"
+              value={formData.billingStreetAddress2}
+              onChange={handleInputChange("billingStreetAddress2")}
+              placeholder={t("stepSix.question2.streetAddressPlaceholder")}
+            />
+            {errors.billingStreetAddress2 && (
+              <span className="error">{errors.billingStreetAddress2}</span>
+            )}
+          </div>
+          <div className="input-group">
+            <div className="input-label">
+              <label>{t("stepSix.question2.city")}</label>
+              <input
+                type="text"
+                name="billingCity"
+                value={formData.billingCity}
+                onChange={handleInputChange("billingCity")}
+                placeholder={t("stepSix.question2.cityPlaceholder")}
+              />
+              {errors.billingCity && (
+                <span className="error">{errors.billingCity}</span>
+              )}
+            </div>
+            <div className="input-label">
+              <label>{t("stepSix.question2.zipCode")}</label>
+              <input
+                type="number"
+                name="billingZipCode"
+                value={formData.billingZipCode}
+                onChange={handleInputChange("billingZipCode")}
+                placeholder={t("stepSix.question2.zipCodePlaceholder")}
+              />
+              {errors.billingZipCode && (
+                <span className="error">{errors.billingZipCode}</span>
+              )}
+            </div>
+          </div>
+          <div className="input-label location">
+            <label>{t("stepSix.question2.state")}</label>
+            <select
+              name="billingState"
+              onChange={handleInputChange("billingState")}
+              value={formData.billingState}
+            >
+              <option value="">{t("stepSix.question2.select")}</option>
+              {stateOptions.map((state) => (
+                <option key={state} value={state}>
+                  {state}
+                </option>
+              ))}
+            </select>
+            {errors.billingState && (
+              <span className="error">{errors.billingState}</span>
+            )}
+          </div>
+
+          <div className="btn-group btn-group-stepthree">
+            <button
+              type="button"
+              className="back-btn back-btn-stepthree"
+              onClick={prevInfo}
+            >
+              <img src="/assets/arrow.svg" alt="arrow" /> {t("stepSix.back")}
+            </button>
+            <div className="forward-btns">
+              <button type="submit" className="long-btn long-btn-stepthree">
+                {t("stepSix.continueJourney")}
+              </button>
+            </div>
+          </div>
+        </form>
+      ),
+    },
+    {
+      title: t("stepSix.question4.title"),
       form: (
         <form onSubmit={handleSubmit} className="input-form">
           <div className="gender-select">
-            <div className="gender-option" onClick={() => {
-              setFormData({ ...formData, gender: 'male' });
-              nextStep()
-            }}>
-              <input type="radio" id="male" name="gender" value="male" checked={formData.gender === 'male'} />
-              <label htmlFor="male"> {t('stepSix.question4.male')} </label>
+            <div
+              className="gender-option"
+              onClick={() => {
+                setFormData({ ...formData, gender: "male" });
+                nextStep();
+              }}
+            >
+              <input
+                type="radio"
+                id="male"
+                name="gender"
+                value="male"
+                checked={formData.gender === "male"}
+              />
+              <label htmlFor="male"> {t("stepSix.question4.male")} </label>
             </div>
-            <div className="gender-option" onClick={() => {
-              setFormData({ ...formData, gender: 'female' });
-              nextStep()
-            }}>
-              <input type="radio" id="female" name="gender" value="female" checked={formData.gender === 'female'} />
-              <label htmlFor="female"> {t('stepSix.question4.female')} </label>
+            <div
+              className="gender-option"
+              onClick={() => {
+                setFormData({ ...formData, gender: "female" });
+                nextStep();
+              }}
+            >
+              <input
+                type="radio"
+                id="female"
+                name="gender"
+                value="female"
+                checked={formData.gender === "female"}
+              />
+              <label htmlFor="female"> {t("stepSix.question4.female")} </label>
             </div>
-            <div className="gender-option" onClick={() => {
-              setFormData({ ...formData, gender: 'prefer-not-to-say' });
-              nextStep()
-            }}>
-              <input type="radio" id="prefer-not-to-say" name="gender" value="prefer-not-to-say" checked={formData.gender === 'prefer-not-to-say'} />
-              <label htmlFor="prefer-not-to-say"> {t('stepSix.question4.preferNotToSay')} </label>
+            <div
+              className="gender-option"
+              onClick={() => {
+                setFormData({ ...formData, gender: "prefer-not-to-say" });
+                nextStep();
+              }}
+            >
+              <input
+                type="radio"
+                id="prefer-not-to-say"
+                name="gender"
+                value="prefer-not-to-say"
+                checked={formData.gender === "prefer-not-to-say"}
+              />
+              <label htmlFor="prefer-not-to-say">
+                {" "}
+                {t("stepSix.question4.preferNotToSay")}{" "}
+              </label>
             </div>
           </div>
           {errors.gender && <span className="error">{errors.gender}</span>}
-          <div className='btn-group btn-group-stepthree'>
-            <button type="button" className='back-btn back-btn-stepthree' onClick={prevInfo}>
-              <img src="/assets/arrow.svg" alt="arrow" /> {t('stepSix.back')}
+          <div className="btn-group btn-group-stepthree">
+            <button
+              type="button"
+              className="back-btn back-btn-stepthree"
+              onClick={prevInfo}
+            >
+              <img src="/assets/arrow.svg" alt="arrow" /> {t("stepSix.back")}
             </button>
-            <div className='forward-btns'>
-              <button type="submit" className='long-btn long-btn-stepthree'>{t('stepSix.continueJourney')}</button>
+            <div className="forward-btns">
+              <button type="submit" className="long-btn long-btn-stepthree">
+                {t("stepSix.continueJourney")}
+              </button>
             </div>
           </div>
         </form>

@@ -122,6 +122,7 @@ const resources = {
       },
       stepThree: {
         title: "Claim Your Free Supplement! (Optional)",
+        claimGift: "Claim Gift",
         product1: {
           title: "Metabolic Booster",
           description:
@@ -177,8 +178,21 @@ const resources = {
           dob: "Date of Birth",
         },
         question2: {
-          title: "What’s your address?",
-          streetAddress: "STREET ADDRESS",
+          title: "What’s your shipping address?",
+          streetAddress1: "STREET ADDRESS 1",
+          streetAddress2: "STREET ADDRESS 2",
+          streetAddressPlaceholder: "e.g., 123 Main St",
+          city: "CITY",
+          cityPlaceholder: "e.g., Los Angeles",
+          zipCode: "ZIP CODE",
+          zipCodePlaceholder: "e.g., 90001",
+          state: "STATE",
+          select: "Select...",
+        },
+        question2point5: {
+          title: "What’s your billing address?",
+          streetAddress1: "STREET ADDRESS 1",
+          streetAddress2: "STREET ADDRESS 2",
           streetAddressPlaceholder: "e.g., 123 Main St",
           city: "CITY",
           cityPlaceholder: "e.g., Los Angeles",
@@ -495,6 +509,7 @@ const resources = {
       },
       stepThree: {
         title: "¡Reclama tu Suplemento Gratis! (Opcional)",
+        claimGift: "Reclamar Regalo",
         product1: {
           title: "Acelerador Metabólico",
           description:
@@ -550,8 +565,20 @@ const resources = {
           dob: "Fecha de Nacimiento",
         },
         question2: {
-          title: "¿Cuál es tu dirección?",
+          title: "¿Cuál es tu dirección de envío?",
           streetAddress: "DIRECCIÓN",
+          streetAddressPlaceholder: "por ejemplo, Calle Principal 123",
+          city: "CIUDAD",
+          cityPlaceholder: "por ejemplo, Ciudad de México",
+          zipCode: "CÓDIGO POSTAL",
+          zipCodePlaceholder: "por ejemplo, 12345",
+          state: "ESTADO",
+          select: "Seleccionar...",
+        },
+        question2point5: {
+          title: "¿Cuál es tu dirección de facturación?",
+          streetAddress1: "DIRECCIÓN 1",
+          streetAddress2: "DIRECCIÓN 2",
           streetAddressPlaceholder: "por ejemplo, Calle Principal 123",
           city: "CIUDAD",
           cityPlaceholder: "por ejemplo, Ciudad de México",
@@ -870,6 +897,7 @@ const resources = {
       },
       stepThree: {
         title: "Reivindique seu Suplemento Grátis! (Opcional)",
+        claimGift: "Reivindicar Presente",
         product1: {
           title: "Impulsionador Metabólico",
           description:
@@ -925,8 +953,20 @@ const resources = {
           dob: "Data de Nascimento",
         },
         question2: {
-          title: "Qual é o seu endereço?",
+          title: "Qual é o seu endereço de entrega?",
           streetAddress: "ENDEREÇO",
+          streetAddressPlaceholder: "por exemplo, Rua Principal 123",
+          city: "CIDADE",
+          cityPlaceholder: "por exemplo, São Paulo",
+          zipCode: "CEP",
+          zipCodePlaceholder: "por exemplo, 12345-678",
+          state: "ESTADO",
+          select: "Selecionar...",
+        },
+        question2point5: {
+          title: "Qual é o seu endereço de cobrança?",
+          streetAddress1: "ENDEREÇO 1",
+          streetAddress2: "ENDEREÇO 2",
           streetAddressPlaceholder: "por exemplo, Rua Principal 123",
           city: "CIDADE",
           cityPlaceholder: "por exemplo, São Paulo",

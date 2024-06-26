@@ -32,7 +32,7 @@ const Home = () => {
   const [currentStepSevenQuestion, setCurrentStepSevenQuestion] = useState(0);
 
   const [formValues, setFormValues] = useState({
-    stepOne: {},
+    stepOne: { "location" : "Maine" },
     stepTwo: {},
     planSelection: {},
     stepThree: {},
@@ -135,7 +135,7 @@ const Home = () => {
         <div className="formContainer">
           <div className='form-header'>
             <ProgressBar step={step} totalSteps={15} />
-            {step >= 10 && step !== 15 && (
+            {step >= 10 && step !== 16 && (
               <Timer />
             )}
           </div>

@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 
 const StepThree = ({ prevStep, nextStep,  handleChange, values, cartitem }) => {
   const [cart, setCart] = useState([]);
-  const { t } = useTranslation(); // Initialize useTranslation hook
+  const { t } = useTranslation();
 
   const addToCart = (item) => {
     setCart(prevCart => [...prevCart, item]);

@@ -1,7 +1,9 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const StepThreeCard = ({ imgSrc, title, price, desc, addToCart, nextStep }) => {
+  const { t } = useTranslation();
   const [quantity, setQuantity] = useState(1);
   const [isClaimedFree, setIsClaimedFree] = useState(false);
 
@@ -32,7 +34,7 @@ const StepThreeCard = ({ imgSrc, title, price, desc, addToCart, nextStep }) => {
         <div className='card-img'>
           <img src={imgSrc} alt={title} />
         </div>
-        <button className="claim-free" onClick={handleClaimFree}>Claim Gift</button>
+        <button className="claim-free" onClick={handleClaimFree}>{t('stepThree.claimGift')}</button>
         <div className='card-title-price title-price-stepthree'>
           <h3>{title}</h3>
           <div className='price-desc'>

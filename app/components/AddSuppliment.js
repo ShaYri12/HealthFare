@@ -102,7 +102,7 @@ const StepThree = ({ handleOrignalStep, handleChange, values, cartitem }) => {
         {
             imgSrc: "/assets/med2.svg",
             title: t('stepThree.product3.title'), // Translate title using t function
-            price: "$889.99",
+            price: "$90",
             desc: t('stepThree.product3.description'), // Translate description using t function
         },
     ];
@@ -110,7 +110,7 @@ const StepThree = ({ handleOrignalStep, handleChange, values, cartitem }) => {
     return (
         <div className="formContainer step-form">
             <div className="title-info">
-                <h2>{t('stepThree.title')}</h2> {/* Translate title using t function */}
+                <h2>{t('stepThree.title')}</h2>
             </div>
             {cardsData.map((card, index) => (
                 <StepThreeCard
@@ -131,7 +131,7 @@ const StepThree = ({ handleOrignalStep, handleChange, values, cartitem }) => {
             </div>
 
             <div className='review-inline review-md review-stepthree'>
-                <h3>{t('review.excellent')}</h3> {/* Translate Excellent using t function */}
+                <h3>{t('review.excellent')}</h3>
                 <div className='stars'>
                     <img src="/assets/star.png" alt="star" />
                     <img src="/assets/star.png" alt="star" />
@@ -139,14 +139,14 @@ const StepThree = ({ handleOrignalStep, handleChange, values, cartitem }) => {
                     <img src="/assets/star.png" alt="star" />
                     <img src="/assets/star.png" alt="star" />
                 </div>
-                <p className='reviews'>456 <span>{t('review.reviewsOn')}</span></p> {/* Translate reviewsOn using t function */}
+                <p className='reviews'>456 <span>{t('review.reviewsOn')}</span></p>
                 <div className='trustpilot'>
                     <img src="/assets/star-trustpilot.svg" alt="trust" /> <span>Trustpilot</span>
                 </div>
             </div>
 
             <div className='review review-sm'>
-                <h3>{t('review.excellent')}</h3> {/* Translate Excellent using t function */}
+                <h3>{t('review.excellent')}</h3>
                 <div className='stars'>
                     <img src="/assets/star.png" alt="star" />
                     <img src="/assets/star.png" alt="star" />

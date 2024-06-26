@@ -15,7 +15,8 @@
     "react-dom": "^18",
     "react-fast-marquee": "^1.6.4",
     "react-i18next": "^14.1.2",
-    "react-spinners": "^0.13.8"
+    "react-spinners": "^0.13.8",
+    "react-switch": "^7.0.0"
   },
   "devDependencies": {
     "postcss": "^8",
