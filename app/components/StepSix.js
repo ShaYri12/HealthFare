@@ -77,10 +77,8 @@ const StepSix = ({
         [field]: numericValue,
       });
       handleChange({
-        stepSix: {
           ...formData,
           [field]: numericValue,
-        },
       });
     } else {
       setFormData({
@@ -88,10 +86,8 @@ const StepSix = ({
         [field]: value,
       });
       handleChange({
-        stepSix: {
           ...formData,
           [field]: value,
-        },
       });
     }
     setErrors({ ...errors, [field]: '' });

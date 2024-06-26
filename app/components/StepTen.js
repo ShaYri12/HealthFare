@@ -58,7 +58,14 @@ const StepTen = ({
     switch (name) {
       case 'streetAddress1':
         if (!value.trim()) {
-          return t('error.streetAddress1Error');
+          return t('error.streetAddressError');
+        } else if (!alphanumericPattern.test(value)) {
+          return t('error.textError');
+        }
+        return '';
+      case 'streetAddress2':
+        if (!value.trim()) {
+          return t('error.streetAddressError');
         } else if (!alphanumericPattern.test(value)) {
           return t('error.textError');
         }
@@ -550,17 +557,32 @@ const StepTen = ({
             <h3>{t("stepTen.shippingAddress")}</h3>
             <form onSubmit={handleSubmit} className="input-form modal-form">
               <div className="input-label-full input-label">
-                <label>{t("stepSix.question2.streetAddress")}</label>
+                <label>{t("stepSix.question2.streetAddress1")}</label>
                 <input
                   type="text"
-                  name="streetAddress"
-                  value={shippingAddress.streetAddress}
-                  onChange={handleInputChange("streetAddress")}
+                  name="streetAddress1"
+                  value={shippingAddress.streetAddress1}
+                  onChange={handleInputChange("streetAddress1")}
                   placeholder={t("stepSix.question2.streetAddressPlaceholder")}
                 />
-                {shippingAddress.errors.streetAddress && (
+                {shippingAddress.errors.streetAddress1 && (
                   <span className="error">
-                    {shippingAddress.errors.streetAddress}
+                    {shippingAddress.errors.streetAddress1}
+                  </span>
+                )}
+              </div>
+              <div className="input-label-full input-label">
+                <label>{t("stepSix.question2.streetAddress2")}</label>
+                <input
+                  type="text"
+                  name="streetAddress2"
+                  value={shippingAddress.streetAddress2}
+                  onChange={handleInputChange("streetAddress2")}
+                  placeholder={t("stepSix.question2.streetAddressPlaceholder")}
+                />
+                {shippingAddress.errors.streetAddress2 && (
+                  <span className="error">
+                    {shippingAddress.errors.streetAddress2}
                   </span>
                 )}
               </div>
