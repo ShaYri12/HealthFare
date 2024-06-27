@@ -17,10 +17,10 @@ const LoadingScreen = ({ nextStep, setLoading }) => {
   const [showCheckmark, setShowCheckmark] = useState(false); // State for showing the checkmark
 
   const messages = [
-    "Calculating your BMI...",
-    "Almost there...",
-    "Just a moment…",
-    "Done"
+    t('loading.msg1'),
+    t('loading.msg2'),
+    t('loading.msg3'),
+    t('loading.msg4')
   ];
 
   useEffect(() => {
@@ -89,11 +89,11 @@ const LoadingScreen = ({ nextStep, setLoading }) => {
           <div className='transformation-img'>
             <h4>
               {currentImageIndex < 2
-                ? "Sara J. lost 30 lbs in 3 months with Semaglutide."
-                : "Jessica M. lost 52 lbs in 3 months with Tirzepatide."}
+                ? t('loading.caption1')
+                : t('loading.caption2')}
             </h4>
             <div className="before-after">
-              <h4>{currentImageIndex % 2 === 0 ? "Before" : "After"}</h4>
+              <h4>{currentImageIndex % 2 === 0 ? t('loading.before') : t('loading.after')}</h4>
             </div>
             <img
               key={loadingFinished ? images.length - 1 : currentImageIndex}

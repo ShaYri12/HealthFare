@@ -342,7 +342,7 @@ const StepTen = ({
               <img src={item.imgSrc} alt={item.title} />
             </div>
             <div className="card-title-price">
-              <span className="month-plan">{item.monthPlan}</span>
+              <span className="month-plan">{item.monthPlan === "1-month supply" ? t("stepTen.oneMonthPlan") : t("stepTen.threeMonthPlan")}</span>
               <button className="change-frequency" onClick={()=> setMonthPlanModal(true)}>{t("stepTen.changeFrequency")}</button>
               <h3>{item.title}</h3>
               <p className="title-desc">{item.titleDesc}</p>
@@ -674,7 +674,7 @@ const StepTen = ({
 
           return (
             <span key={index}>
-              <h4 className="month-plan">{item.monthPlan}</h4>
+              <h4 className="month-plan">{item.monthPlan === "1-month supply" ? t("stepTen.oneMonthPlan") : t("stepTen.threeMonthPlan")}</h4>
               <h4>{adjustedPrice}</h4>
             </span>
           );

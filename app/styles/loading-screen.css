@@ -6,6 +6,7 @@
   height: 100vh;
   background-color: white;
   gap: 20px;
+  padding: 0 50px
 }
 
 .logo-container {

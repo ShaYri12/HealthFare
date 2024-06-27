@@ -44,6 +44,16 @@ const resources = {
         disqualifyMsg:
           "You do not meet the requirements to be eligible for this program. Please contact us if you need further assistance.",
       },
+      loading: {
+        msg1: "Calculating your BMI...",
+        msg2: "Almost there...",
+        msg3: "Just a moment…",
+        msg4: "Done",
+        before: "Before",
+        after: "After",
+        caption1: "Sara J. lost 30 lbs in 3 months with Semaglutide.",
+        caption2: "Jessica M. lost 52 lbs in 3 months with Tirzepatide.",
+      },
       testimonial: {
         realStories: "REAL STORIES, REAL RESULTS",
         google: "Google",
@@ -435,6 +445,16 @@ const resources = {
         disqualifyMsg:
           "No cumples con los requisitos para ser elegible para este programa. Por favor contáctanos si necesitas más ayuda.",
       },
+      loading: {
+        msg1: "Calculando tu IMC...",
+        msg2: "Casi listo...",
+        msg3: "Solo un momento...",
+        msg4: "Listo",
+        before: "Antes",
+        after: "Después",
+        caption1: "Sara J. perdió 30 lbs en 3 meses con Semaglutida.",
+        caption2: "Jessica M. perdió 52 lbs en 3 meses con Tirzepatida.",
+      },
       testimonial: {
         realStories: "HISTORIAS REALES, RESULTADOS REALES",
         google: "Google",
@@ -608,6 +628,8 @@ const resources = {
         continueJourney: "Continuar tu jornada",
       },
       stepSeven: {
+        yes: "Sí",
+        no: "No",
         medicalInfo: {
           title: "Información Médica",
           subTitle:
@@ -822,6 +844,16 @@ const resources = {
         disqualifyMsg:
           "Você não atende aos requisitos para ser elegível para este programa. Por favor, entre em contato conosco se precisar de mais assistência.",
       },
+      loading: {
+        msg1: "Calculando seu IMC...",
+        msg2: "Quase lá...",
+        msg3: "Apenas um momento...",
+        msg4: "Concluído",
+        before: "Antes",
+        after: "Depois",
+        caption1: "Sara J. perdeu 30 lbs em 3 meses com Semaglutida.",
+        caption2: "Jessica M. perdeu 52 lbs em 3 meses com Tirzepatida.",
+      },
       testimonial: {
         realStories: "HISTÓRIAS REAIS, RESULTADOS REAIS",
         google: "Google",
@@ -996,6 +1028,8 @@ const resources = {
         continueJourney: "Continuar sua jornada",
       },
       stepSeven: {
+        yes: "Sim",
+        no: "Não",
         medicalInfo: {
           title: "Informações Médicas",
           subTitle:
