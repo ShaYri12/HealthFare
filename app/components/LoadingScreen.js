@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/loading-screen.css';
+import '../styles/form.css'
 import { useTranslation } from 'react-i18next';
 
 const LoadingScreen = ({ nextStep, setLoading }) => {
@@ -67,7 +68,7 @@ const LoadingScreen = ({ nextStep, setLoading }) => {
   }, [messageIndex, messages.length, nextStep]);
 
   return (
-    <div className="loading-screen">
+    <div className="formContainer step-form loading-screen">
       <div className="logo-container">
         <img className={`blinking-logo ${loadingFinished ? 'stop-blinking' : ''}`} src="/assets/logoH.png" alt="Logo" />
       </div>
