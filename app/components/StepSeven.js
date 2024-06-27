@@ -183,10 +183,13 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values, currentQuestion, 
 
   const questions = [
     {
-      form: (
+      form: (<>
+        <div className="label-info">
+          <h2>{t("stepSeven.question1.title")}</h2>
+          <p>{t("stepSeven.question1.label")}</p>
+        </div>
         <form onSubmit={handleSubmit} className="input-form">
           <div className="input-label-full input-label">
-            <label className="label">{t("stepSeven.question1.label")}</label>
             {!showQuestion1 && (
             <div className="yes-no-buttons">
               <button
@@ -236,13 +239,16 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values, currentQuestion, 
             </div>
           </div>
         </form>
-      ),
+      </>),
     },
     {
-      form: (
+      form: (<>
+        <div className="label-info">
+          <h2>{t("stepSeven.question2.title")}</h2>
+          <p>{t("stepSeven.question2.label")}</p>
+        </div>
         <form onSubmit={handleSubmit} className="input-form">
           <div className="input-label-full input-label">
-            <label className="label">{t("stepSeven.question2.label")}</label>
             {!showQuestion2 && (
             <div className="yes-no-buttons">
               <button
@@ -292,13 +298,16 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values, currentQuestion, 
             </div>
           </div>
         </form>
-      ),
+      </>),
     },
     {
-      form: (
+      form: (<>
+        <div className="label-info">
+          <h2>{t("stepSeven.question3.title")}</h2>
+          <p>{t("stepSeven.question3.label")}</p>
+        </div>
         <form onSubmit={handleSubmit} className="input-form">
           <div className="input-label-full input-label">
-          <label className="label">{t("stepSeven.question3.label")}</label>
           {!showQuestion3 && (
           <div className="yes-no-buttons">
             <button
@@ -348,13 +357,16 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values, currentQuestion, 
           </div>
         </div>
       </form>
-    ),
+    </>),
   },
   {
-    form: (
+    form: (<>
+      <div className="label-info">
+        <h2>{t("stepSeven.question4.title")}</h2>
+        <p>{t("stepSeven.question4.label")}</p>
+      </div>
       <form onSubmit={handleSubmit} className="input-form">
         <div className="input-label-full input-label">
-          <label className="label">{t("stepSeven.question4.label")}</label>
           {!showQuestion4 && (
           <div className="yes-no-buttons">
             <button
@@ -404,13 +416,16 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values, currentQuestion, 
           </div>
         </div>
       </form>
-    ),
+    </>),
   },
   {
-    form: (
+    form: (<>
+      <div className="label-info">
+        <h2>{t("stepSeven.question5.title")}</h2>
+        <p>{t("stepSeven.question5.label")}</p>
+      </div>
       <form onSubmit={handleSubmit} className="input-form">
         <div className="input-label-full input-label">
-          <label className="label">{t("stepSeven.question5.label")}</label>
           {!showQuestion5 && (
           <div className="yes-no-buttons">
             <button
@@ -460,17 +475,13 @@ const StepSeven = ({ nextStep, prevStep, handleChange, values, currentQuestion, 
           </div>
         </div>
       </form>
-    ),
+    </>),
   },
   // Add more question forms as needed
 ];
 
 return (
   <div className="formContainer step-form">
-    <div className="label-info">
-      <h2>{t("stepSeven.medicalInfo.title")}</h2>
-      <p>{t("stepSeven.medicalInfo.subTitle")}</p>
-    </div>
     {questions[currentQuestion].form}
 
     <Review />

@@ -45,6 +45,13 @@
         padding: 0 !important; 
       }
     }
+  
+
+    @media screen and (min-width: 768px) {
+      .step-container{
+        min-width: 600px; 
+      }
+    }
 
 .form-header{
   display: flex;
@@ -88,6 +95,7 @@
 
   .step-form{
     padding: 0px 60px;
+    box-shadow: none;
 }
 
 .step-form h2{

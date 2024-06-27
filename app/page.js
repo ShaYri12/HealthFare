@@ -158,7 +158,7 @@ const Home = () => {
     <I18nextProvider i18n={i18n}>
         <div className="container">
           <img className="backgroundimg" src="/assets/backgroundimg.png" alt="Background" />
-          <div className="formContainer">
+          <div className="formContainer step-container">
             <div className='form-header'>
               <ProgressBar step={step} totalSteps={15} />
               {step >= 10 && step !== 16 && (

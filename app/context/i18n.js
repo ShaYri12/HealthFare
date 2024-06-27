@@ -232,34 +232,29 @@ const resources = {
       stepSeven: {
         yes: "Yes",
         no: "No",
-        medicalInfo: {
-          title: "Medical Information",
-          subTitle:
-            "Please provide the following details about your medical history and current health status.",
-        },
         question1: {
-          label:
-            "Please list any medications you are currently taking. If none, leave the field blank and continue.",
+          title: "Current Medications",
+          label: "Are you currently taking any medications?",
           placeholder: "If yes, enter here. e.g. Metformin",
         },
         question2: {
-          label:
-            "Please list any allergies to medications. If none, leave the field blank and continue.",
+          title: "Medication Allergies",
+          label: "Do you have any allergies to medications?",
           placeholder: "If yes, enter here. e.g. Penicillin",
         },
         question3: {
-          label:
-            "Please list any prescription or over-the-counter diet aids you are currently taking. If none, leave the field blank and continue.",
+          title: "Diet Aids",
+          label: "Are you taking any prescription or over-the-counter diet aids?",
           placeholder: "If yes, enter here. e.g. Gardenia Cambodia, Berberine",
         },
         question4: {
-          label:
-            "Please list any antibiotics you are currently taking. If none, leave the field blank and continue.",
+          title: "Current Antibiotics",
+          label: "Are you currently taking any antibiotics?",
           placeholder: "If yes, enter here. e.g. Amoxicillin",
         },
         question5: {
-          label:
-            "Please list any weight loss medications you have taken before. If none, leave the field blank and continue.",
+          title: "Weight Loss Medications",
+          label: "Have you taken any weight loss medications before?",
           placeholder: "If yes, enter here. e.g. Semaglutide, Tirzepatide",
         },
         back: "Back",
@@ -614,36 +609,30 @@ const resources = {
       stepSeven: {
         yes: "Sí",
         no: "No",
-        medicalInfo: {
-          title: "Información Médica",
-          subTitle:
-            "Por favor proporciona los siguientes detalles sobre tu historial médico y estado de salud actual.",
-        },
         question1: {
-          label:
-            "Por favor, enumera cualquier medicamento que estés tomando actualmente. Si no tomas ninguno, deja el campo en blanco y continúa.",
-          placeholder: "Si es así, ingresa aquí. ej., Metformina",
+          title: "Medicamentos Actuales",
+          label: "¿Estás tomando actualmente algún medicamento?",
+          placeholder: "Si es así, ingrésalo aquí. Ejemplo: Metformina",
         },
         question2: {
-          label:
-            "Por favor, enumera cualquier alergia a medicamentos que tengas. Si no tienes ninguna, deja el campo en blanco y continúa.",
-          placeholder: "Si es así, ingresa aquí. ej., Penicilina",
+          title: "Alergias a Medicamentos",
+          label: "¿Tienes alguna alergia a medicamentos?",
+          placeholder: "Si es así, ingrésalo aquí. Ejemplo: Penicilina",
         },
         question3: {
-          label:
-            "Por favor, enumera cualquier ayuda dietética de venta con receta o de venta libre que estés tomando actualmente. Si no tomas ninguna, deja el campo en blanco y continúa.",
-          placeholder:
-            "Si es así, ingresa aquí. ej., Garcinia Cambogia, Orlistat",
+          title: "Ayudas Dietéticas",
+          label: "¿Estás tomando ayudas dietéticas con receta o de venta libre?",
+          placeholder: "Si es así, ingrésalo aquí. Ejemplo: Gardenia Cambodia, Berberina",
         },
         question4: {
-          label:
-            "Por favor, enumera cualquier antibiótico que estés tomando actualmente. Si no tomas ninguno, deja el campo en blanco y continúa.",
-          placeholder: "Si es así, ingresa aquí. ej., Amoxicilina",
+          title: "Antibióticos Actuales",
+          label: "¿Estás tomando actualmente algún antibiótico?",
+          placeholder: "Si es así, ingrésalo aquí. Ejemplo: Amoxicilina",
         },
         question5: {
-          label:
-            "Por favor, enumera cualquier medicamento para la pérdida de peso que hayas tomado antes. Si no has tomado ninguno, deja el campo en blanco y continúa.",
-          placeholder: "Si es así, ingresa aquí. ej., Semaglutida, Tirzepatida",
+          title: "Medicamentos para la Pérdida de Peso",
+          label: "¿Has tomado medicamentos para la pérdida de peso antes?",
+          placeholder: "Si es así, ingrésalo aquí. Ejemplo: Semaglutida, Tirzepatida",
         },
         back: "Volver",
         continueJourney: "Continuar tu viaje",
@@ -999,35 +988,30 @@ const resources = {
       stepSeven: {
         yes: "Sim",
         no: "Não",
-        medicalInfo: {
-          title: "Informações Médicas",
-          subTitle:
-            "Por favor, liste qualquer medicamento que você esteja tomando atualmente. Se não estiver tomando nenhum, deixe o campo em branco e continue.",
-        },
         question1: {
-          label:
-            "Por favor, liste qualquer alergia a medicamentos que você tenha. Se não tiver nenhuma, deixe o campo em branco e continue.",
-          placeholder: "Se sim, insira aqui. ex., Metformina",
+          title: "Medicamentos Atuais",
+          label: "Você está atualmente tomando algum medicamento?",
+          placeholder: "Se sim, informe aqui. Exemplo: Metformina",
         },
         question2: {
-          label:
-            "Por favor, liste qualquer alergia a medicamentos que você tenha. Se não tiver nenhuma, deixe o campo em branco e continue.",
-          placeholder: "Se sim, insira aqui. ex., Penicilina",
+          title: "Alergias a Medicamentos",
+          label: "Você tem alguma alergia a medicamentos?",
+          placeholder: "Se sim, informe aqui. Exemplo: Penicilina",
         },
         question3: {
-          label:
-            "Por favor, liste qualquer auxílio dietético de prescrição ou vendido sem receita que você esteja tomando atualmente. Se não estiver tomando nenhum, deixe o campo em branco e continue.",
-          placeholder: "Se sim, insira aqui. ex., Garcinia Cambogia, Orlistat",
+          title: "Auxiliares Dietéticos",
+          label: "Você está usando auxiliares dietéticos com prescrição ou de venda livre?",
+          placeholder: "Se sim, informe aqui. Exemplo: Gardenia Cambodia, Berberina",
         },
         question4: {
-          label:
-            "Por favor, liste qualquer antibiótico que você esteja tomando atualmente. Se não estiver tomando nenhum, deixe o campo em branco e continue.",
-          placeholder: "Se sim, insira aqui. ex., Amoxicilina",
+          title: "Antibióticos Atuais",
+          label: "Você está atualmente tomando algum antibiótico?",
+          placeholder: "Se sim, informe aqui. Exemplo: Amoxicilina",
         },
         question5: {
-          label:
-            "Por favor, liste qualquer medicamento para perda de peso que você tenha tomado antes. Se não tiver tomado nenhum, deixe o campo em branco e continue.",
-          placeholder: "Se sim, insira aqui. ex., Semaglutida, Tirzepatida",
+          title: "Medicamentos para Perda de Peso",
+          label: "Você já tomou algum medicamento para perda de peso antes?",
+          placeholder: "Se sim, informe aqui. Exemplo: Semaglutida, Tirzepatida",
         },
         back: "Voltar",
         continueJourney: "Continuar sua jornada",

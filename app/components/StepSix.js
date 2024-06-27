@@ -42,6 +42,16 @@ const StepSix = ({
 
   const handleToggleChange = (checked) => {
     setIsSameAddress(checked);
+    if (!checked) {
+      setFormData({
+        ...formData,
+        billingStreetAddress1: "",
+        billingStreetAddress2: "",
+        billingCity: "",
+        billingZipCode: "",
+        billingState: "",
+      });
+    }
   };
   const [errors, setErrors] = useState({});
   const [age, setAge] = useState(null);
