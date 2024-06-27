@@ -65,7 +65,7 @@ const LoadingScreen = ({ nextStep, setLoading }) => {
   return (
     <div className="loading-screen">
       <div className="logo-container">
-        <img className={`blinking-logo ${loadingFinished ? 'stop-blinking' : ''}`} src="/assets/logoh.png" alt="Logo" />
+        <img className={`blinking-logo ${loadingFinished ? 'stop-blinking' : ''}`} src="/assets/logoH.png" alt="Logo" />
       </div>
       <div className="loading-bar-container">
         <div className="loading-bar"></div>
