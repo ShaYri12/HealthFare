@@ -247,11 +247,6 @@ const resources = {
             "Please list any allergies to medications. If none, leave the field blank and continue.",
           placeholder: "If yes, enter here. e.g. Penicillin",
         },
-        // question3: {
-        //   label:
-        //     "Please list any chronic medical conditions. If none, leave the field blank and continue.",
-        //   placeholder: "If yes, enter here. e.g. Hypertension, Diabetes",
-        // },
         question3: {
           label:
             "Please list any prescription or over-the-counter diet aids you are currently taking. If none, leave the field blank and continue.",
@@ -404,46 +399,35 @@ const resources = {
       appointmentReserved: "La cita está reservada para",
       error: {
         textError: "Por favor, ingresa solo letras.",
-        fillError: "Este campo no puede dejarse en blanco.",
+        fillError: "Este campo no puede quedar en blanco.",
         agreementError: "Debes aceptar los términos y condiciones.",
-        selectError: "Por favor, haz una selección.",
+        selectError: "Por favor, selecciona una opción.",
         emailError: "La dirección de correo electrónico no es válida.",
-        monthRangeError: "Por favor, ingresa un mes válido (1-12).",
-        dayRangeError: "Por favor, ingresa un día válido (1-31).",
-        yearRangeError:
-          "Por favor, ingresa un año válido entre 1900 y el año actual.",
         stateError: "Por favor, selecciona tu estado.",
         poundsError: "Por favor, ingresa tu peso en libras.",
         feetError: "Por favor, ingresa tu altura en pies.",
         inchesError: "Por favor, ingresa tu altura en pulgadas.",
         firstNameError: "Por favor, ingresa tu nombre.",
         lastNameError: "Por favor, ingresa tu apellido.",
-        streetAddressError:
-          "Por favor, ingresa tu dirección (ej. 123 Calle Principal).",
+        streetAddressError: "Por favor, ingresa tu dirección (ej. 123 Calle Principal).",
         cityError: "Por favor, ingresa tu ciudad (ej. Los Angeles).",
         zipCodeError: "Por favor, ingresa tu código postal (ej. 90001).",
-        stateMismatchError:
-          "El estado debe coincidir con el seleccionado al inicio del cuestionario.",
+        stateMismatchError: "El estado debe coincidir con el seleccionado al principio del cuestionario.",
+        monthFillError: "Por favor, ingresa tu mes de nacimiento.",
+        dayFillError: "Por favor, ingresa tu día de nacimiento.",
+        yearFillError: "Por favor, ingresa tu año de nacimiento.",
         monthError: "Por favor, ingresa un mes válido (1-12).",
         dateError: "Por favor, ingresa un día válido (1-31).",
         yearError: "Por favor, ingresa un año válido (ej. 1990).",
-        ageError:
-          "Debes tener al menos 18 años para participar en el programa de pérdida de peso de HealthFare.",
-        phoneError:
-          "Por favor, ingresa un número de teléfono válido en el formato (000) 000-0000.",
-        phoneDigitsError:
-          "El número de teléfono debe tener al menos 10 dígitos.",
-        phoneMaxDigitsError:
-          "El número de teléfono no debe exceder los 10 dígitos.",
-        emailRequiredError:
-          "Por favor, ingresa tu dirección de correo electrónico.",
-        emailInvalidError:
-          "Esta no es una dirección de correo electrónico válida. Por favor, ingresa una dirección de correo electrónico válida.",
-        smsNotificationError:
-          "Por favor, selecciona si prefieres recibir notificaciones por SMS.",
-        disqualifyTitle: "DESAFORTUNADAMENTE, NO ERES ELEGIBLE.",
-        disqualifyMsg:
-          "No cumples con los requisitos para ser elegible para este programa. Por favor contáctanos si necesitas más ayuda.",
+        ageError: "Debes tener al menos 18 años para participar en el programa de pérdida de peso de HealthFare.",
+        phoneFillError: "Por favor, ingresa tu número de teléfono.",
+        phoneError: "Por favor, ingresa un número de teléfono válido en el formato (000) 000-0000.",
+        phoneDigitsError: "El número de teléfono debe tener al menos 10 dígitos.",
+        emailRequiredError: "Por favor, ingresa tu dirección de correo electrónico.",
+        emailInvalidError: "Esta no es una dirección de correo electrónico válida. Por favor, ingresa una dirección de correo electrónico válida.",
+        smsNotificationError: "Por favor, selecciona si prefieres recibir notificaciones por SMS.",
+        disqualifyTitle: "DESFAVORABLEMENTE, NO ERES ELEGIBLE.",
+        disqualifyMsg: "No cumples con los requisitos para ser elegible para este programa. Por favor, contáctanos si necesitas más ayuda.",
       },
       loading: {
         msg1: "Calculando tu IMC...",
@@ -647,21 +631,16 @@ const resources = {
         },
         question3: {
           label:
-            "Por favor, enumera cualquier condición médica crónica que tengas. Si no tienes ninguna, deja el campo en blanco y continúa.",
-          placeholder: "Si es así, ingresa aquí. ej., Hipertensión, Diabetes",
-        },
-        question4: {
-          label:
             "Por favor, enumera cualquier ayuda dietética de venta con receta o de venta libre que estés tomando actualmente. Si no tomas ninguna, deja el campo en blanco y continúa.",
           placeholder:
             "Si es así, ingresa aquí. ej., Garcinia Cambogia, Orlistat",
         },
-        question5: {
+        question4: {
           label:
             "Por favor, enumera cualquier antibiótico que estés tomando actualmente. Si no tomas ninguno, deja el campo en blanco y continúa.",
           placeholder: "Si es así, ingresa aquí. ej., Amoxicilina",
         },
-        question6: {
+        question5: {
           label:
             "Por favor, enumera cualquier medicamento para la pérdida de peso que hayas tomado antes. Si no has tomado ninguno, deja el campo en blanco y continúa.",
           placeholder: "Si es así, ingresa aquí. ej., Semaglutida, Tirzepatida",
@@ -769,17 +748,16 @@ const resources = {
       },
       appointmentConfirm: {
         title: "¡Cita Confirmada!",
-        confirmationMessage:
-          "¡Gracias por programar tu cita! Estás dando un paso emocionante en tu viaje de pérdida de peso. Nuestro equipo se pondrá en contacto pronto para brindarte más detalles y responder cualquier pregunta que puedas tener.",
+        confirmationMessage: "¡Gracias por programar tu cita! Estás dando un paso emocionante en tu viaje de pérdida de peso. Nuestro equipo se pondrá en contacto pronto para proporcionarte más detalles y responder cualquier pregunta que puedas tener.",
         pending: "Tienes una cita pendiente para",
         at: "a las",
         on: "el",
         with: "con",
         nextSteps: "Próximos Pasos",
-        step1: "Complete los Formularios de Admisión",
-        step2: "Complete el Pago",
-        step3: "Hable con su Proveedor",
-        continueJourney: "Continuar su viaje",
+        step1: "Completar Formularios de Admisión",
+        step2: "Completar Pago",
+        step3: "Hablar con tu Proveedor",
+        continueJourney: "Continúa tu viaje",
         back: "Volver",
       },
       thankYou: {
@@ -803,46 +781,37 @@ const resources = {
     translation: {
       appointmentReserved: "A consulta está reservada para",
       error: {
-        textError: "Por favor, insira apenas letras.",
-        fillError: "Este campo não pode ser deixado em branco.",
+        textError: "Por favor, digite apenas letras.",
+        fillError: "Este campo não pode ficar em branco.",
         agreementError: "Você deve concordar com os termos e condições.",
         selectError: "Por favor, faça uma seleção.",
         emailError: "O endereço de e-mail não é válido.",
-        monthRangeError: "Por favor, insira um mês válido (1-12).",
-        dayRangeError: "Por favor, insira um dia válido (1-31).",
-        yearRangeError:
-          "Por favor, insira um ano válido entre 1900 e o ano atual.",
         stateError: "Por favor, selecione seu estado.",
-        poundsError: "Por favor, insira seu peso em libras.",
-        feetError: "Por favor, insira sua altura em pés.",
-        inchesError: "Por favor, insira sua altura em polegadas.",
-        firstNameError: "Por favor, insira seu primeiro nome.",
-        lastNameError: "Por favor, insira seu sobrenome.",
-        streetAddressError:
-          "Por favor, insira seu endereço (ex. 123 Rua Principal).",
-        cityError: "Por favor, insira sua cidade (ex. São Paulo).",
-        zipCodeError: "Por favor, insira seu código postal (ex. 90001).",
-        stateMismatchError:
-          "O estado deve corresponder ao selecionado no inícqualifyio do questionário.",
-        monthError: "Por favor, insira um mês válido (1-12).",
-        dateError: "Por favor, insira um dia válido (1-31).",
-        yearError: "Por favor, insira um ano válido (ex. 1990).",
-        ageError:
-          "Você deve ter pelo menos 18 anos para participar do programa de perda de peso HealthFare.",
-        phoneError:
-          "Por favor, insira um número de telefone válido no formato (000) 000-0000.",
-        phoneDigitsError:
-          "O número de telefone deve ter pelo menos 10 dígitos.",
-        phoneMaxDigitsError:
-          "O número de telefone não deve exceder 10 dígitos.",
-        emailRequiredError: "Por favor, insira seu endereço de email.",
-        emailInvalidError:
-          "Este não é um endereço de email válido. Por favor, insira um endereço de email válido.",
-        smsNotificationError:
-          "Por favor, selecione se prefere receber notificações por SMS.",
+        poundsError: "Por favor, digite seu peso em libras.",
+        feetError: "Por favor, digite sua altura em pés.",
+        inchesError: "Por favor, digite sua altura em polegadas.",
+        firstNameError: "Por favor, digite seu primeiro nome.",
+        lastNameError: "Por favor, digite seu sobrenome.",
+        streetAddressError: "Por favor, digite seu endereço (ex. 123 Rua Principal).",
+        cityError: "Por favor, digite sua cidade (ex. São Paulo).",
+        zipCodeError: "Por favor, digite seu código postal (ex. 90001).",
+        stateMismatchError: "O estado deve corresponder ao selecionado no início do questionário.",
+        monthFillError: "Por favor, digite seu mês de nascimento.",
+        dayFillError: "Por favor, digite seu dia de nascimento.",
+        yearFillError: "Por favor, digite seu ano de nascimento.",
+        monthError: "Por favor, digite um mês válido (1-12).",
+        dateError: "Por favor, digite um dia válido (1-31).",
+        yearError: "Por favor, digite um ano válido (ex. 1990).",
+        ageError: "Você deve ter pelo menos 18 anos para participar do programa de perda de peso da HealthFare.",
+        phoneFillError: "Por favor, digite seu número de telefone.",
+        phoneError: "Por favor, digite um número de telefone válido no formato (000) 000-0000.",
+        phoneDigitsError: "O número de telefone deve ter pelo menos 10 dígitos.",
+        emailRequiredError: "Por favor, digite seu endereço de e-mail.",
+        emailInvalidError: "Este não é um endereço de e-mail válido. Por favor, digite um endereço de e-mail válido.",
+        smsNotificationError: "Por favor, selecione se prefere receber notificações por SMS.",
         disqualifyTitle: "INFELIZMENTE, VOCÊ NÃO É ELEGÍVEL.",
-        disqualifyMsg:
-          "Você não atende aos requisitos para ser elegível para este programa. Por favor, entre em contato conosco se precisar de mais assistência.",
+        disqualifyMsg: "Você não atende aos requisitos para ser elegível para este programa. Por favor, entre em contato conosco se precisar de mais assistência.",
+
       },
       loading: {
         msg1: "Calculando seu IMC...",
@@ -1047,20 +1016,15 @@ const resources = {
         },
         question3: {
           label:
-            "Por favor, liste qualquer condição médica crônica que você tenha. Se não tiver nenhuma, deixe o campo em branco e continue.",
-          placeholder: "Se sim, insira aqui. ex., Hipertensão, Diabetes",
-        },
-        question4: {
-          label:
             "Por favor, liste qualquer auxílio dietético de prescrição ou vendido sem receita que você esteja tomando atualmente. Se não estiver tomando nenhum, deixe o campo em branco e continue.",
           placeholder: "Se sim, insira aqui. ex., Garcinia Cambogia, Orlistat",
         },
-        question5: {
+        question4: {
           label:
             "Por favor, liste qualquer antibiótico que você esteja tomando atualmente. Se não estiver tomando nenhum, deixe o campo em branco e continue.",
           placeholder: "Se sim, insira aqui. ex., Amoxicilina",
         },
-        question6: {
+        question5: {
           label:
             "Por favor, liste qualquer medicamento para perda de peso que você tenha tomado antes. Se não tiver tomado nenhum, deixe o campo em branco e continue.",
           placeholder: "Se sim, insira aqui. ex., Semaglutida, Tirzepatida",
@@ -1169,18 +1133,18 @@ const resources = {
       },
       appointmentConfirm: {
         title: "Consulta Confirmada!",
-        confirmationMessage:
-          "Obrigado por agendar sua consulta! Você está dando um passo emocionante em sua jornada de perda de peso. Nossa equipe entrará em contato em breve para fornecer mais detalhes e responder quaisquer perguntas que você possa ter.",
+        confirmationMessage: "Obrigado por agendar sua consulta! Você está dando um passo emocionante em sua jornada de perda de peso. Nosso time entrará em contato em breve para fornecer mais detalhes e responder a quaisquer perguntas que você possa ter.",
         pending: "Você tem uma consulta pendente para",
         at: "às",
-        on: "em",
+        on: "no dia",
         with: "com",
-        nextSteps: "Próximos Pasos",
-        step1: "Complete los Formularios de Admisión",
-        step2: "Complete el Pago",
-        step3: "Hable con su Proveedor",
+        nextSteps: "Próximos Passos",
+        step1: "Completar Formulários de Admissão",
+        step2: "Completar Pagamento",
+        step3: "Falar com seu Provedor",
         continueJourney: "Continue sua jornada",
         back: "Voltar",
+
       },
       thankYou: {
         title: "Obrigado pela sua compra!",

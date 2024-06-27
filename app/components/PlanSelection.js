@@ -53,22 +53,22 @@ const PlanSelection = ({ nextStep, prevStep, handleChange, values, cartitem2 }) 
 
     if (productTitle === t("stepTwo.cards.0.title")) {
       return {
-        oneMonthPrice: `$296 / ${t("planSelection.month")}*`,
-        threeMonthPrice: `$279 / ${t("planSelection.month")}*`,
+        oneMonthPrice: `$296 / ${t("planSelection.month")}`,
+        threeMonthPrice: `$279 / ${t("planSelection.month")}`,
         oneMonthDescription: t("stepTwo.cards.0.description"),
         threeMonthDescription: t("stepTwo.cards.0.description2"),
       };
     } else if (productTitle === t("stepTwo.cards.1.title")) {
       return {
-        oneMonthPrice: `$425 / ${t("planSelection.month")}*`,
-        threeMonthPrice: `$399 / ${t("planSelection.month")}*`,
+        oneMonthPrice: `$425 / ${t("planSelection.month")}`,
+        threeMonthPrice: `$399 / ${t("planSelection.month")}`,
         oneMonthDescription: t("stepTwo.cards.1.description"),
         threeMonthDescription: t("stepTwo.cards.1.description2"),
       };
     } else {
       return {
-        oneMonthPrice: `$296 / ${t("planSelection.month")}*`,
-        threeMonthPrice: `$279 / ${t("planSelection.month")}*`,
+        oneMonthPrice: `$296 / ${t("planSelection.month")}`,
+        threeMonthPrice: `$279 / ${t("planSelection.month")}`,
         oneMonthDescription: t("stepTwo.cards.0.description"),
         threeMonthDescription: t("stepTwo.cards.0.description2"),
       };

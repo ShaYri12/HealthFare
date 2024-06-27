@@ -265,16 +265,6 @@ const StepSix = ({
     event.preventDefault();
   
     if (validateForm()) {
-      if (isSameAddress) {
-        setFormData({
-          ...formData,
-          billingStreetAddress1: formData.streetAddress1,
-          billingStreetAddress2: formData.streetAddress2,
-          billingCity: formData.city,
-          billingZipCode: formData.zipCode,
-          billingState: formData.state,
-        });
-      }
       nextInfo(); // Call nextInfo outside of the isSameAddress check
     }
   };
@@ -283,6 +273,14 @@ const StepSix = ({
   const nextInfo = () => {
     if (currentQuestion < questions.length - 1) {
         if(currentQuestion === 1 && isSameAddress){
+          setFormData({
+            ...formData,
+            billingStreetAddress1: formData.streetAddress1,
+            billingStreetAddress2: formData.streetAddress2,
+            billingCity: formData.city,
+            billingZipCode: formData.zipCode,
+            billingState: formData.state,
+          });
           setCurrentQuestion(currentQuestion + 2);    
         }else{
       setCurrentQuestion(currentQuestion + 1);
