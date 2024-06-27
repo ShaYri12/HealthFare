@@ -2,6 +2,10 @@
     border: 1px solid #000000 !important;
 }
 
+.input-label-full{
+    gap: 10px
+}
+
 .input-label .label{
     font-weight: 400;
     font-size: 14px;
@@ -10,3 +14,23 @@
     color: #002C20 !important;
 }
 
+.yes-no-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.yes-no-buttons button{
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid black;
+    background-color: #38b64b20;
+}
+
+.yes-no-buttons button:hover{
+    background-color: #38b64b35;
+}

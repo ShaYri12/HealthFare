@@ -23,15 +23,18 @@ const resources = {
         zipCodeError: "Please enter your zip code (e.g., 90001).",
         stateMismatchError:
           "State must match the one selected at the beginning of the questionnaire.",
+        monthFillError: "Please Enter your birth month",
+        dayFillError: "Please Enter your birth day",
+        yearFillError: "Please Enter your birth year",
         monthError: "Please enter a valid month (1-12).",
         dateError: "Please enter a valid day (1-31).",
         yearError: "Please enter a valid year (e.g., 1990).",
         ageError:
           "You must be at least 18 years old to participate in the HealthFare weight loss program.",
+        phoneFillError: "Please enter your phone number",
         phoneError:
           "Please enter a valid phone number in the format (000) 000-0000.",
         phoneDigitsError: "The phone number must be at least 10 digits.",
-        phoneMaxDigitsError: "The phone number must not exceed 10 digits.",
         emailRequiredError: "Please enter your email address.",
         emailInvalidError:
           "This is not a valid email address. Please enter a valid email address.",
@@ -217,6 +220,8 @@ const resources = {
         continueJourney: "Continue Your Journey",
       },
       stepSeven: {
+        yes: "Yes",
+        no: "No",
         medicalInfo: {
           title: "Medical Information",
           subTitle:
@@ -232,22 +237,22 @@ const resources = {
             "Please list any allergies to medications. If none, leave the field blank and continue.",
           placeholder: "If yes, enter here. e.g. Penicillin",
         },
+        // question3: {
+        //   label:
+        //     "Please list any chronic medical conditions. If none, leave the field blank and continue.",
+        //   placeholder: "If yes, enter here. e.g. Hypertension, Diabetes",
+        // },
         question3: {
-          label:
-            "Please list any chronic medical conditions. If none, leave the field blank and continue.",
-          placeholder: "If yes, enter here. e.g. Hypertension, Diabetes",
-        },
-        question4: {
           label:
             "Please list any prescription or over-the-counter diet aids you are currently taking. If none, leave the field blank and continue.",
           placeholder: "If yes, enter here. e.g. Gardenia Cambodia, Berberine",
         },
-        question5: {
+        question4: {
           label:
             "Please list any antibiotics you are currently taking. If none, leave the field blank and continue.",
           placeholder: "If yes, enter here. e.g. Amoxicillin",
         },
-        question6: {
+        question5: {
           label:
             "Please list any weight loss medications you have taken before. If none, leave the field blank and continue.",
           placeholder: "If yes, enter here. e.g. Semaglutide, Tirzepatide",

@@ -120,7 +120,7 @@ const StepSix = ({
       }
 
       if (!formData.phone.trim()) {
-        newErrors.phone = t('error.fillError');
+        newErrors.phone = t('error.phoneFillError');
         isValid = false;
       } else if (formData.phone.replace(/\D/g, '').length !== 10) {
         newErrors.phone = t('error.phoneDigitsError');
@@ -136,21 +136,21 @@ const StepSix = ({
       }
 
       if (!formData.month.trim()) {
-        newErrors.month = t('error.fillError');
+        newErrors.month = t('error.monthFillError');
         isValid = false;
       } else if (formData.month < 1 || formData.month > 12) {
         newErrors.month = t('error.monthError');
         isValid = false;
       }
       if (!formData.day.trim()) {
-        newErrors.day = t('error.fillError');
+        newErrors.day = t('error.dayFillError');
         isValid = false;
       } else if (formData.day < 1 || formData.day > 31) {
         newErrors.day = t('error.dateError');
         isValid = false;
       }
       if (!formData.year.trim()) {
-        newErrors.year = t('error.fillError');
+        newErrors.year = t('error.yearFillError');
         isValid = false;
       } else if (formData.year < 1900 || formData.year >= currentYear) {
         newErrors.year = t('error.yearError');
@@ -223,23 +223,20 @@ const StepSix = ({
         isValid = false;
       }
       if (!formData.billingCity.trim()) {
-        newErrors.billingCity = t('error.CityError');
+        newErrors.billingCity = t('error.cityError');
         isValid = false;
       } else if (!alphabeticPattern.test(formData.billingCity)) {
         newErrors.billingCity = t('error.textError');
         isValid = false;
       }
       if (!formData.billingZipCode.trim()) {
-        newErrors.billingZipCode = t('error.ZipCodeError');
+        newErrors.billingZipCode = t('error.zipCodeError');
         isValid = false;
       }
       if (!formData.billingState.trim()) {
-        newErrors.billingState = t('error.StateError');
+        newErrors.billingState = t('error.stateError');
         isValid = false;
       }
-
-      // Optionally, you may want to check if billing address matches the primary address
-      // Example: if (isSameAddress) { validateBillingAddressWithPrimary(); }
 
     }
 

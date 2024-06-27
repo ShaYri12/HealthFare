@@ -29,6 +29,7 @@ import { currencyToNumber } from './utils/currencyUtils';
 const Home = () => {
   const { step, nextStep, prevStep, goToStep } = useStep();
 
+  const [loading, setLoading] = useState(false); // New loading state
   const [currentStepSixQuestion, setCurrentStepSixQuestion] = useState(0);
   const [currentStepSevenQuestion, setCurrentStepSevenQuestion] = useState(0);
 
@@ -60,16 +61,12 @@ const Home = () => {
     }));
   };
 
-
   const [showNotEligible, setShowNotEligible] = useState(false);
   const [showAddSuppliment, setShowAddSuppliment] = useState(false);
   const [cart, setCart] = useState([]);
   const [cart2, setCart2] = useState([]);
   const [NotEligibleData, setNotEligibleData] = useState([]);
 
-  console.log(formValues.suppliments.cart)
-  console.log(cart)
-  
   const cartitem = (item) => {
     const updatedCart = [...cart];
 
@@ -108,10 +105,7 @@ const Home = () => {
 
     setCart(updatedCart);
     handleChange('suppliments')({ cart: updatedCart });
-};
-
-
-
+  };
 
   const cartitem2 = (item) => {
     setCart2([item]);
@@ -147,8 +141,7 @@ const Home = () => {
     <StepTwo nextStep={nextStep} prevStep={prevStep} handleChange={handleChange('stepTwo')} values={formValues} cartitem2={cartitem2} />,
     <PlanSelection nextStep={nextStep} prevStep={prevStep} handleChange={handleChange} values={formValues} cartitem2={cartitem2} />,
     <Suppliments prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('suppliments')} values={formValues} cartitem={cartitem} />,
-    <StepFour prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepFour')} values={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} />,
-    <LoadingScreen nextStep={nextStep} />,
+    <StepFour prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepFour')} values={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} setLoading={setLoading} />,
     <StepFive prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepFive')} values={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} />,
     <StepSix prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepSix')} formValues={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} currentQuestion={currentStepSixQuestion} setCurrentQuestion={setCurrentStepSixQuestion} />,
     <StepEleven prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepEleven')} values={formValues} />,
@@ -163,27 +156,32 @@ const Home = () => {
 
   return (
     <I18nextProvider i18n={i18n}>
-      <div className="container">
-        <img className="backgroundimg" src="/assets/backgroundimg.png" alt="Background" />
-        <div className="formContainer">
-          <div className='form-header'>
-            <ProgressBar step={step} totalSteps={15} />
-            {step >= 10 && step !== 16 && (
-              <Timer />
+        <div className="container">
+          <img className="backgroundimg" src="/assets/backgroundimg.png" alt="Background" />
+          <div className="formContainer">
+            <div className='form-header'>
+              <ProgressBar step={step} totalSteps={15} />
+              {step >= 10 && step !== 16 && (
+                <Timer />
+              )}
+            </div>
+            {loading ? (
+              <LoadingScreen nextStep={nextStep} setLoading={setLoading} />
+            ) : (<>
+            <div className="logo">
+              <img src="/assets/logo.webp" alt="Logo" />
+            </div>
+            {showAddSuppliment ? (
+              <AddSuppliment handleOrignalStep={handleOrignalStep} handleChange={handleChange('suppliments')} cartitem={cartitem} />
+            ) : showNotEligible ? (
+              <NotEligible NotEligibleData={NotEligibleData} handleEligible={handleEligible} />
+            ) : (
+              steps[step - 1]
+            )}
+            </>
             )}
           </div>
-          <div className="logo">
-            <img src="/assets/logo.webp" alt="Logo" />
-          </div>
-          {showAddSuppliment ? (
-            <AddSuppliment handleOrignalStep={handleOrignalStep} handleChange={handleChange('suppliments')} cartitem={cartitem} />
-          ) : showNotEligible ? (
-            <NotEligible NotEligibleData={NotEligibleData} handleEligible={handleEligible} />
-          ) : (
-            steps[step - 1]
-          )}
         </div>
-      </div>
     </I18nextProvider>
   );
 };
