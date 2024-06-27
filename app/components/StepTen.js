@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import "../styles/stepten.css";
 import "../styles/form.css";
-import '../styles/stepthree.css';
+import '../styles/suppliments.css';
 import Review from "./Review";
 import PaySlider from "./PaySlider";
 import MonthPlanModal from "./MonthPlanModal";
@@ -64,9 +64,7 @@ const StepTen = ({
         }
         return '';
       case 'streetAddress2':
-        if (!value.trim()) {
-          return t('error.streetAddressError');
-        } else if (!alphanumericPattern.test(value)) {
+        if (value.trim() && !alphanumericPattern.test(value)) {
           return t('error.textError');
         }
         return '';
@@ -430,6 +428,7 @@ const StepTen = ({
                     </div>
                   </div>
                 </div>
+                {item.price !== "$0" &&
                 <div className="btn-group cart-actions quantity">
                   <div className="quantity-control">
                     <button
@@ -453,6 +452,7 @@ const StepTen = ({
                     <img src="/assets/delete.svg" alt="" />
                   </span>
                 </div>
+              }
               </div>
             ))}
           </div>

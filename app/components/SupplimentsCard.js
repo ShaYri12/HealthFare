@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-const StepThreeCard = ({ imgSrc, title, price, desc, addToCart, nextStep }) => {
+const SupplimentsCard = ({ imgSrc, title, price, desc, addToCart, nextStep }) => {
   const { t } = useTranslation();
   const [quantity, setQuantity] = useState(1);
   const [isClaimedFree, setIsClaimedFree] = useState(false);
@@ -49,4 +49,4 @@ const StepThreeCard = ({ imgSrc, title, price, desc, addToCart, nextStep }) => {
   );
 };
 
-export default StepThreeCard;
+export default SupplimentsCard;

@@ -1,10 +1,11 @@
 'use client';
-import '../styles/stepthree.css';
+import '../styles/suppliments.css';
 import '../styles/form.css';
 import { useTranslation } from 'react-i18next'; // Import useTranslation hook
 import React, { useState } from 'react';
+import { currencyToNumber } from '../utils/currencyUtils'; // Assume you have this utility function
 
-const StepThreeCard = ({ imgSrc, title, price, desc, addToCart, handleOrignalStep }) => {
+const SupplimentsCard = ({ imgSrc, title, price, desc, addToCart, handleOrignalStep }) => {
     const [quantity, setQuantity] = useState(1);
 
     const handleAddToCart = () => {
@@ -42,63 +43,57 @@ const StepThreeCard = ({ imgSrc, title, price, desc, addToCart, handleOrignalSte
     );
 };
 
-const StepThree = ({ handleOrignalStep, handleChange, values, cartitem }) => {
+const Suppliments = ({ handleOrignalStep, handleChange, values, cartitem }) => {
     const [cart, setCart] = useState([]);
     const { t } = useTranslation(); // Initialize useTranslation hook
 
     const addToCart = (newItem) => {
-      console.log('Adding item to cart:', newItem); // Log the item being added
-  
-      setCart((prevCart) => {
-          // Normalize both titles for comparison
-          const normalizedNewTitle = newItem.title.trim().toLowerCase();
-  
-          // Find index of existing item in cart
-          const existingItemIndex = prevCart.findIndex(item =>
-              item.title.trim().toLowerCase() === normalizedNewTitle
-          );
-  
-          if (existingItemIndex !== -1) {
-              // Item already exists in cart, update its quantity
-              const updatedCart = prevCart.map((item, index) => {
-                  if (index === existingItemIndex) {
-                      return {
-                          ...item,
-                          quantity: item.quantity + newItem.quantity
-                      };
-                  }
-                  return item;
-              });
-  
-              console.log('Updated Cart:', updatedCart); // Log the updated cart
-              return updatedCart;
-          } else {
-              // Item does not exist in cart, add it
-              const updatedCart = [...prevCart, newItem];
-              console.log('Updated Cart:', updatedCart); // Log the updated cart
-              return updatedCart;
-          }
-      });
-  
-      cartitem(newItem); // Notify parent component (StepThree) about the added item
-  };
-    
-  
+        console.log('Adding item to cart:', newItem); // Log the item being added
+
+        setCart((prevCart) => {
+            // Normalize both titles for comparison
+            const normalizedNewTitle = newItem.title.trim().toLowerCase();
+            const newItemPrice = currencyToNumber(newItem.price);
+
+            // Find index of existing item in cart
+            const existingItemIndex = prevCart.findIndex(item =>
+                item.title.trim().toLowerCase() === normalizedNewTitle
+            );
+
+            if (existingItemIndex !== -1) {
+                const existingItem = prevCart[existingItemIndex];
+                const existingItemPrice = currencyToNumber(existingItem.price);
+
+                if (existingItemPrice === 0 || newItemPrice === 0) {
+                    // If existing item price or new item price is $0, add new item as duplicate
+                    return [...prevCart, newItem];
+                } else {
+                    // Update quantity of existing item
+                    const updatedCart = prevCart.map((item, index) => {
+                        if (index === existingItemIndex) {
+                            return {
+                                ...item,
+                                quantity: item.quantity + newItem.quantity
+                            };
+                        }
+                        return item;
+                    });
+
+                    console.log('Updated Cart:', updatedCart); // Log the updated cart
+                    return updatedCart;
+                }
+            } else {
+                // Item does not exist in cart, add it
+                const updatedCart = [...prevCart, newItem];
+                console.log('Updated Cart:', updatedCart); // Log the updated cart
+                return updatedCart;
+            }
+        });
+
+        cartitem(newItem); // Notify parent component (StepThree) about the added item
+    };
 
     const cardsData = [
-        // {
-        //     imgSrc: "/assets/med1.svg",
-        //     title: t('stepThree.product1.title'), // Translate title using t function
-        //     price: "$889.99",
-        //     desc: t('stepThree.product1.description'), // Translate description using t function
-        // },
-        // {
-        //     imgSrc: "/assets/med2.svg",
-        //     title: t('stepThree.product2.title'), // Translate title using t function
-        //     price: "$889.99",
-        //     savings: "$360",
-        //     desc: t('stepThree.product2.description'), // Translate description using t function
-        // },
         {
             imgSrc: "/assets/med2.svg",
             title: t('stepThree.product3.title'), // Translate title using t function
@@ -113,7 +108,7 @@ const StepThree = ({ handleOrignalStep, handleChange, values, cartitem }) => {
                 <h2>{t('stepThree.title')}</h2>
             </div>
             {cardsData.map((card, index) => (
-                <StepThreeCard
+                <SupplimentsCard
                     key={index}
                     {...card}
                     addToCart={addToCart}
@@ -163,4 +158,4 @@ const StepThree = ({ handleOrignalStep, handleChange, values, cartitem }) => {
     );
 };
 
-export default StepThree;
+export default Suppliments;

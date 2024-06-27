@@ -183,10 +183,7 @@ const StepSix = ({
         newErrors.streetAddress1 = t('error.textError');
         isValid = false;
       }
-      if (!formData.streetAddress2.trim()) {
-        newErrors.streetAddress2 = t('error.streetAddressError');
-        isValid = false;
-      } else if (!alphanumericPattern.test(formData.streetAddress2)) {
+      if (formData.streetAddress2.trim() && !alphanumericPattern.test(formData.streetAddress2)) {
         newErrors.streetAddress2 = t('error.textError');
         isValid = false;
       }
@@ -219,13 +216,9 @@ const StepSix = ({
         newErrors.billingStreetAddress1 = t('error.streetAddressError');
         isValid = false;
       } else if (!alphanumericPattern.test(formData.billingStreetAddress1)) {
-        newErrors.billingStreetAddress1 = t('error.textError');
-        isValid = false;
+        isValid = true;
       }
-      if (!formData.billingStreetAddress2.trim()) {
-        newErrors.billingStreetAddress2 = t('error.streetAddressError');
-        isValid = false;
-      } else if (!alphanumericPattern.test(formData.billingStreetAddress2)) {
+      if (formData.billingStreetAddress2.trim() && !alphanumericPattern.test(formData.billingStreetAddress2)) {
         newErrors.billingStreetAddress2 = t('error.textError');
         isValid = false;
       }

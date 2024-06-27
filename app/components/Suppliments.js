@@ -1,11 +1,11 @@
 'use client';
-import '../styles/stepthree.css';
+import '../styles/suppliments.css';
 import '../styles/form.css';
-import StepThreeCard from './StepThreeCard';
+import SuppimentsCard from './SupplimentsCard';
 import { useTranslation } from 'react-i18next'; // Import useTranslation hook
 import React, { useState } from 'react';
 
-const StepThree = ({ prevStep, nextStep,  handleChange, values, cartitem }) => {
+const Suppliments = ({ prevStep, nextStep,  handleChange, values, cartitem }) => {
   const [cart, setCart] = useState([]);
   const { t } = useTranslation();
 
@@ -44,7 +44,7 @@ const StepThree = ({ prevStep, nextStep,  handleChange, values, cartitem }) => {
         <h2>{t('stepThree.title')}</h2> {/* Translate title using t function */}
       </div>
       {cardsData.map((card, index) => (
-        <StepThreeCard
+        <SuppimentsCard
           key={index}
           {...card}
           addToCart={addToCart}
@@ -94,4 +94,4 @@ const StepThree = ({ prevStep, nextStep,  handleChange, values, cartitem }) => {
   );
 };
 
-export default StepThree;
+export default Suppliments;
