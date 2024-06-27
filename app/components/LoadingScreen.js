@@ -24,6 +24,10 @@ const LoadingScreen = ({ nextStep, setLoading }) => {
   ];
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const interval = setInterval(() => {
       // Update index if loading is not finished
       if (!loadingFinished) {
