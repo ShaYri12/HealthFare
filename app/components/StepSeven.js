@@ -206,7 +206,7 @@ const StepSeven = ({
   const questions = [
     {
       form: (
-        <>
+        <div>
           <div className="label-info">
             <h2>{t("stepSeven.question1.title")}</h2>
             <p>{t("stepSeven.question1.label")}</p>
@@ -262,12 +262,12 @@ const StepSeven = ({
               </div>
             )}
           </form>
-        </>
+        </div>
       ),
     },
     {
       form: (
-        <>
+        <div>
           <div className="label-info">
             <h2>{t("stepSeven.question2.title")}</h2>
             <p>{t("stepSeven.question2.label")}</p>
@@ -323,12 +323,12 @@ const StepSeven = ({
               </div>
             )}
           </form>
-        </>
+        </div>
       ),
     },
     {
       form: (
-        <>
+        <div>
           <div className="label-info">
             <h2>{t("stepSeven.question3.title")}</h2>
             <p>{t("stepSeven.question3.label")}</p>
@@ -384,12 +384,12 @@ const StepSeven = ({
               </div>
             )}
           </form>
-        </>
+        </div>
       ),
     },
     {
       form: (
-        <>
+        <div>
           <div className="label-info">
             <h2>{t("stepSeven.question4.title")}</h2>
             <p>{t("stepSeven.question4.label")}</p>
@@ -445,12 +445,12 @@ const StepSeven = ({
               </div>
             )}
           </form>
-        </>
+        </div>
       ),
     },
     {
       form: (
-        <>
+        <div>
           <div className="label-info">
             <h2>{t("stepSeven.question5.title")}</h2>
             <p>{t("stepSeven.question5.label")}</p>
@@ -506,7 +506,7 @@ const StepSeven = ({
               </div>
             )}
           </form>
-        </>
+        </div>
       ),
     },
     // Add more question forms as needed
