@@ -1,50 +1,30 @@
 'use client'
 import { useEffect } from 'react';
 
-const IntercomWidget = ({ user }) => {
+const ZohoSalesIQWidget = ({ user }) => {
   useEffect(() => {
-    window.intercomSettings = {
-      api_base: "https://api-iam.intercom.io",
-      app_id: "yaxie5q2",
-      user_id: user?.id, // Replace "user.id" with the variable you use to capture the user's ID
-      name: user?.name, // Replace "user.name" with the variable you use to capture the user's name
-      email: user?.email, // Replace "user.email" with the variable you use to capture the user's email address
-      created_at: user?.createdAt, // Replace "user.createdAt" with the variable you use to capture the user's sign-up date
-    };
+    // Zoho SalesIQ script
+    (function() {
+      var d = document;
+      var s = d.createElement('script');
+      s.type = 'text/javascript';
+      s.defer = true;
+      s.src = 'https://salesiq.zohopublic.com/widget?wc=siq49883d2d20fdd9d31ae257ca9427e7ef9c84260574a9bca6f846c4e55bce240c';
+      s.id = 'zsiqscript';
+      var t = d.getElementsByTagName('script')[0];
+      t.parentNode.insertBefore(s, t);
 
-    (function(){
-      var w=window;
-      var ic=w.Intercom;
-      if(typeof ic==="function"){
-        ic('reattach_activator');
-        ic('update',w.intercomSettings);
-      }else{
-        var d=document;
-        var i=function(){i.c(arguments);};
-        i.q=[];
-        i.c=function(args){i.q.push(args);};
-        w.Intercom=i;
-        var l=function(){
-          var s=d.createElement('script');
-          s.type='text/javascript';
-          s.async=true;
-          s.src='https://widget.intercom.io/widget/yaxie5q2';
-          var x=d.getElementsByTagName('script')[0];
-          x.parentNode.insertBefore(s,x);
-        };
-        if(document.readyState==='complete'){
-          l();
-        }else if(w.attachEvent){
-          w.attachEvent('onload',l);
-        }else{
-          w.addEventListener('load',l,false);
-        }
-      }
+      // Zoho SalesIQ initialization script
+      window.$zoho = window.$zoho || {};
+      window.$zoho.salesiq = window.$zoho.salesiq || { ready: function() {} };
     })();
 
+    // Cleanup function to remove Zoho SalesIQ script on component unmount
     return () => {
-      if (typeof window.Intercom === "function") {
-        window.Intercom('shutdown');
+      const zohoScript = document.getElementById('zsiqscript');
+      if (zohoScript) {
+        zohoScript.parentNode.removeChild(zohoScript);
+        delete window.$zoho;
       }
     };
   }, [user]);
@@ -52,4 +32,4 @@ const IntercomWidget = ({ user }) => {
   return null;
 };
 
-export default IntercomWidget;
+export default ZohoSalesIQWidget;

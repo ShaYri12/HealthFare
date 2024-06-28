@@ -515,7 +515,7 @@ const StepSix = ({
             onChange={handleToggleChange}
           />
           <label className="switch-label" htmlFor="switch">
-          is your billing & shipping address are the same?
+          {t("stepSix.question2.isYour")}
           </label>
           
         </div>

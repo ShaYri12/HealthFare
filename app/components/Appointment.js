@@ -11,6 +11,19 @@ const StepTwelve = ({ nextStep, handleChange, formValues }) => {
 
   const [showModal, setShowModal] = useState(false); // State to control modal visibility
 
+  const translateDay = (day) => {
+    switch (day) {
+      case 'Monday': return t('stepTwelve.days.monday');
+      case 'Tuesday': return t('stepTwelve.days.tuesday');
+      case 'Wednesday': return t('stepTwelve.days.wednesday');
+      case 'Thursday': return t('stepTwelve.days.thursday');
+      case 'Friday': return t('stepTwelve.days.friday');
+      case 'Saturday': return t('stepTwelve.days.saturday');
+      case 'Sunday': return t('stepTwelve.days.sunday');
+      default: return day;
+    }
+  };
+
   useEffect(() => {
     const today = new Date();
     const nextDay = new Date(today);
@@ -18,8 +31,9 @@ const StepTwelve = ({ nextStep, handleChange, formValues }) => {
 
     const options = { weekday: 'long', day: 'numeric', month: 'long' };
     const formattedDate = nextDay.toLocaleDateString('en-US', options);
+    const [weekday, ...rest] = formattedDate.split(' ');
 
-    setSelectedDay(formattedDate);
+    setSelectedDay(`${translateDay(weekday)} ${rest.join(' ')}`);
   }, []);
 
   const handleDayIncrement = () => {
@@ -28,8 +42,9 @@ const StepTwelve = ({ nextStep, handleChange, formValues }) => {
 
     const options = { weekday: 'long', day: 'numeric', month: 'long' };
     const formattedDate = currentDay.toLocaleDateString('en-US', options);
+    const [weekday, ...rest] = formattedDate.split(' ');
 
-    setSelectedDay(formattedDate);
+    setSelectedDay(`${translateDay(weekday)} ${rest.join(' ')}`);
   };
 
   const handleDayDecrement = () => {
@@ -38,8 +53,9 @@ const StepTwelve = ({ nextStep, handleChange, formValues }) => {
 
     const options = { weekday: 'long', day: 'numeric', month: 'long' };
     const formattedDate = currentDay.toLocaleDateString('en-US', options);
+    const [weekday, ...rest] = formattedDate.split(' ');
 
-    setSelectedDay(formattedDate);
+    setSelectedDay(`${translateDay(weekday)} ${rest.join(' ')}`);
   };
 
   const handleTimeSelection = (time) => {

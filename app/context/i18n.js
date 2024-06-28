@@ -201,6 +201,7 @@ const resources = {
           zipCodePlaceholder: "e.g., 90001",
           state: "STATE",
           select: "Select...",
+          isYour: "is your billing & shipping address are the same?",
         },
         question2point5: {
           title: "What’s your billing address?",
@@ -243,7 +244,7 @@ const resources = {
           placeholder: "If yes, enter here. e.g. Penicillin",
         },
         question3: {
-          title: "Diet Aids",
+          title: "Dietary Supplements",
           label: "Are you taking any prescription or over-the-counter diet aids?",
           placeholder: "If yes, enter here. e.g. Gardenia Cambodia, Berberine",
         },
@@ -354,6 +355,15 @@ const resources = {
         confirmAppointment: "Confirm Your Appointment",
         cancel: "Cancel",
         confirm: "Confirm",
+        days: {
+          sunday: "Sunday",
+          monday: "Monday",
+          tuesday: "Tuesday",
+          wednesday: "Wednesday",
+          thursday: "Thursday",
+          friday: "Friday",
+          saturday: "Saturday",
+        },
       },
       appointmentConfirm: {
         title: "Appointment Confirmed!",
@@ -419,7 +429,7 @@ const resources = {
         phoneError: "Por favor, ingresa un número de teléfono válido en el formato (000) 000-0000.",
         phoneDigitsError: "El número de teléfono debe tener al menos 10 dígitos.",
         emailRequiredError: "Por favor, ingresa tu dirección de correo electrónico.",
-        emailInvalidError: "Esta no es una dirección de correo electrónico válida. Por favor, ingresa una dirección de correo electrónico válida.",
+        emailInvalidError: "Esta no es una dirección de correo electrónico válida. Por favor, ingresa una dirección de correo electrónico correcta..",
         smsNotificationError: "Por favor, selecciona si prefieres recibir notificaciones por SMS.",
         disqualifyTitle: "DESFAVORABLEMENTE, NO ERES ELEGIBLE.",
         disqualifyMsg: "No cumples con los requisitos para ser elegible para este programa. Por favor, contáctanos si necesitas más ayuda.",
@@ -467,9 +477,9 @@ const resources = {
           "Reconozco la Política de Reembolso, los Términos y Condiciones, el Aviso de Prácticas de Privacidad y el Consentimiento para la Telemedicina.",
       },
       stepTwo: {
-        title: "¿Qué plan de tratamiento se adapta a tus necesidades?",
+        title: "¿QUÉ PLAN DE TRATAMIENTO SE ADAPTA A TUS NECESIDADES?",
         description:
-          "Después de completar tu visita de salud digital con uno de nuestros médicos licenciados, revisarán tu historial médico e información clínica. Basado en tu selección, aprobarán el plan de tratamiento adecuado para ti.",
+          "Después de completar tu consulta de salud digital con uno de nuestros médicos titulados, ellos revisarán tu historial médico y toda la información clínica. Según lo que elijas, ellos aprobarán el plan de tratamiento adecuado para ti.",
         back: "Atrás",
         startLosingWeight: "Comienza a perder peso",
         month: "Mes",
@@ -503,8 +513,8 @@ const resources = {
         ],
       },
       planSelection: {
-        title: "Frecuencia de Envío",
-        description: "¿Con qué frecuencia deseas que se envíe tu tratamiento?",
+        title: "FRECUENCIA DE ENVÍO",
+        description: "¿Con qué frecuencia te gustaría que se enviara tu tratamiento?",
         oneMonthPlan: "plan de un mes",
         threeMonthPlan: "plan de tres meses",
         continueJourney: "Continuar su viaje",
@@ -527,7 +537,7 @@ const resources = {
         product3: {
           title: "Limpieza Detox",
           description:
-            "Apoye la salud digestiva y elimine toxinas con nuestro suave y efectivo suplemento de limpieza detox.",
+            "Apoye la salud digestiva y elimine toxinas con nuestro suave y efectivo suplemento de limpieza detox..",
         },
         back: "Volver",
         skip: "Omitir",
@@ -535,7 +545,7 @@ const resources = {
       stepFour: {
         calculateBMI: "Calcule su Índice de Masa Corporal (IMC)",
         calculateBMIDescription:
-          "Esto nos ayuda a calcular su IMC. El IMC es un factor que utilizamos para determinar su camino de cuidado del peso, por lo que es importante ser lo más preciso posible.",
+          "Esto nos ayuda a calcular su IMC, un factor crucial que utilizamos para determinar su plan de cuidado de peso, por lo que es importante ser lo más preciso posible.",
         pounds: "LIBRAS",
         poundsPlaceholder: "por ejemplo, 68",
         feet: "PIES",
@@ -560,34 +570,36 @@ const resources = {
           title: "¿Cuál es tu nombre, número de teléfono y correo electrónico?",
           firstName: "NOMBRE",
           lastName: "APELLIDO",
-          firstNamePlaceholder: "por ejemplo, Juan",
-          lastNamePlaceholder: "por ejemplo, Pérez",
+          firstNamePlaceholder: "Por ejemplo, Juan",
+          lastNamePlaceholder: "Por ejemplo, Pérez",
           phone: "Teléfono",
           phonePlaceholder: "por ejemplo, (123) 456-7890",
           email: "Correo electrónico",
-          emailPlaceholder: "por ejemplo, juanperez@example.com",
+          emailPlaceholder: "Por ejemplo, juanperez@example.com",
           dob: "Fecha de Nacimiento",
         },
         question2: {
-          title: "¿Cuál es tu dirección de envío?",
-          streetAddress: "DIRECCIÓN",
-          streetAddressPlaceholder: "por ejemplo, Calle Principal 123",
+          title: "¿CUÁL ES TU DIRECCIÓN DE ENVÍO?",
+          streetAddress1: "DIRECCIÓN DE CALLE",
+          streetAddress2: "COMPLEMENTO DE DIRECCIÓN",
+          streetAddressPlaceholder: "Por ejemplo, Calle Principal 123",
           city: "CIUDAD",
-          cityPlaceholder: "por ejemplo, Ciudad de México",
+          cityPlaceholder: "Por ejemplo, Ciudad de Mexico",
           zipCode: "CÓDIGO POSTAL",
-          zipCodePlaceholder: "por ejemplo, 12345",
+          zipCodePlaceholder: "Por ejemplo, 12345",
           state: "ESTADO",
           select: "Seleccionar...",
+          isYour: "¿Tu dirección de facturación y envío son la misma?",
         },
         question2point5: {
           title: "¿Cuál es tu dirección de facturación?",
-          streetAddress1: "DIRECCIÓN 1",
-          streetAddress2: "DIRECCIÓN 2",
-          streetAddressPlaceholder: "por ejemplo, Calle Principal 123",
+          streetAddress1: "DIRECCIÓN DE CALLE",
+          streetAddress2: "COMPLEMENTO DE DIRECCIÓN",
+          streetAddressPlaceholder: "Por ejemplo, Calle Principal 123",
           city: "CIUDAD",
-          cityPlaceholder: "por ejemplo, Ciudad de México",
+          cityPlaceholder: "Por ejemplo, Ciudad de Mexico",
           zipCode: "CÓDIGO POSTAL",
-          zipCodePlaceholder: "por ejemplo, 12345",
+          zipCodePlaceholder: "Por ejemplo, 12345",
           state: "ESTADO",
           select: "Seleccionar...",
         },
@@ -620,7 +632,7 @@ const resources = {
           placeholder: "Si es así, ingrésalo aquí. Ejemplo: Penicilina",
         },
         question3: {
-          title: "Ayudas Dietéticas",
+          title: "Suplementos Dietéticos",
           label: "¿Estás tomando ayudas dietéticas con receta o de venta libre?",
           placeholder: "Si es así, ingrésalo aquí. Ejemplo: Gardenia Cambodia, Berberina",
         },
@@ -638,9 +650,9 @@ const resources = {
         continueJourney: "Continuar tu viaje",
       },
       stepEight: {
-        title: "Condiciones de Salud",
+        title: "CONDICIONES DE SALUD",
         description:
-          'Por favor, selecciona al menos una condición de salud. Si no tienes ninguna, selecciona "Ninguna".',
+          'Por favor, seleccione al menos una opción.',
         none: "Ninguna",
         highBloodPressure: "Presión Arterial Alta",
         preDiabetes: "Pre-Diabetes",
@@ -649,14 +661,14 @@ const resources = {
         crohnsDisease: "Enfermedad de Crohn",
         elevatedTriglycerides: "Triglicéridos Elevados",
         lupus: "Lupus",
-        antibiotics: "Antibióticos",
+        antibiotics: "Uso de antibióticos",
         bariatricSurgery: "Cirugía Bariátrica",
         hypoglycemia: "Hipoglucemia",
         type1Diabetes: "Diabetes Tipo 1",
         cancerTreatment: "Tratamiento de Cáncer",
         thyroidCancer: "Cáncer de Tiroides",
         breastfeeding: "Lactancia Materna",
-        pregnant: "Embarazada",
+        pregnant: "Embarazo",
         pancreatitis:
           "Pancreatitis en los últimos 6 meses, o historial de pancreatitis causada por la toma de un GLP-1",
         back: "Volver",
@@ -697,11 +709,11 @@ const resources = {
         addons: {
           title1: "ZOFRAN",
           addon1Desc:
-            "Mejora tu viaje de pérdida de peso con Zofran previniendo náuseas a menudo experimentadas con Semaglutida y Tirzepatida. Zofran te ayuda a mantenerte en camino y potencialmente perder hasta 10 libras más efectivamente.",
+            "Mejora tu viaje de pérdida de peso con Zofran, previniendo las náuseas frecuentemente experimentadas con Semaglutida y Tirzepatida. Zofran te ayuda a mantener el rumbo y potencialmente a perder hasta 10 libras de manera más efectiva..",
 
           title2: "ZOFRAN",
           addon2Desc:
-            "Mejora tu viaje de pérdida de peso con Zofran previniendo náuseas a menudo experimentadas con Semaglutida y Tirzepatida. Zofran te ayuda a mantenerte en camino y potencialmente perder hasta 10 libras más efectivamente.",
+            "Mejora tu viaje de pérdida de peso con Zofran, previniendo las náuseas frecuentemente experimentadas con Semaglutida y Tirzepatida. Zofran te ayuda a mantener el rumbo y potencialmente a perder hasta 10 libras de manera más efectiva..",
         },
         noteFirst: "*Este Plan requiere un",
         noteSecond: "compromiso mensual para obtener resultados efectivos.",
@@ -723,8 +735,8 @@ const resources = {
       },
 
       stepEleven: {
-        title: "Programar Cita",
-        message: "Haz clic en el botón de abajo para elegir tu hora de cita.",
+        title: "PROGRAMAR CITA",
+        message: "Haz clic en el botón de abajo para elegir la hora de tu cita.",
         scheduleAppointment: "Programa tu cita",
       },
       stepTwelve: {
@@ -734,6 +746,15 @@ const resources = {
         confirmAppointment: "Confirma tu Cita",
         cancel: "Cancelar",
         confirm: "Confirmar",
+        days: {
+          sunday: "Domingo",
+          monday: "Lunes",
+          tuesday: "Martes",
+          wednesday: "Miércoles",
+          thursday: "Jueves",
+          friday: "Viernes",
+          saturday: "Sábado",
+        },
       },
       appointmentConfirm: {
         title: "¡Cita Confirmada!",
@@ -845,9 +866,9 @@ const resources = {
           "Reconheço a Política de Reembolso, os Termos e Condições, o Aviso de Práticas de Privacidade e o Consentimento para a Telemedicina.",
       },
       stepTwo: {
-        title: "Qual plano de tratamento atende às suas necessidades?",
+        title: "QUAL PLANO DE TRATAMENTO ATENDE ÀS SUAS NECESSIDADES?",
         description:
-          "Depois de completar sua visita de saúde digital com um de nossos médicos licenciados, eles revisarão seu histórico médico e informações clínicas. Com base na sua seleção, eles aprovarão o plano de tratamento adequado para você.",
+          "Depois de completar sua consulta de saúde digital com um de nossos médicos licenciados, eles revisarão seu histórico médico e informações clínicas. Com base na sua seleção, eles aprovarão o plano de tratamento adequado para você..",
         back: "Voltar",
         startLosingWeight: "Comece a perder peso",
         month: "Mês",
@@ -891,8 +912,8 @@ const resources = {
         month: "mês",
       },
       stepThree: {
-        title: "Reivindique seu Suplemento Grátis! (Opcional)",
-        claimGift: "Reivindicar Presente",
+        title: "SOLICITE SEU SUPLEMENTO GRÁTIS! (OPCIONAL)",
+        claimGift: "Solicitar presente",
         product1: {
           title: "Impulsionador Metabólico",
           description:
@@ -906,7 +927,7 @@ const resources = {
         product3: {
           title: "Limpeza Detox",
           description:
-            "Apoie a saúde digestiva e elimine toxinas com nosso suave e eficaz suplemento de limpeza detox.",
+            " Apoie sua saúde digestiva e elimine toxinas de forma suave e eficaz com nosso suplemento de limpeza detox.",
         },
         back: "Voltar",
         skip: "Pular",
@@ -914,10 +935,10 @@ const resources = {
       stepFour: {
         calculateBMI: "Calcule seu Índice de Massa Corporal (IMC)",
         calculateBMIDescription:
-          "Isso nos ajuda a calcular seu IMC. O IMC é um fator que usamos para determinar seu caminho de cuidado com o peso, por isso é importante ser o mais preciso possível.",
+          "Isso nos ajuda a calcular seu IMC, um fator crucial na determinação do seu plano de cuidado com o peso. É essencial fornecer informações precisas para obter os melhores resultados.",
         pounds: "LIBRAS",
         poundsPlaceholder: "por exemplo, 68",
-        feet: "PIES",
+        feet: "Pés",
         feetPlaceholder: "por exemplo, 5",
         inches: "POLEGADAS",
         inchesPlaceholder: "por exemplo, 8",
@@ -925,7 +946,7 @@ const resources = {
         back: "Voltar",
       },
       stepFive: {
-        title: "Parabéns! Você está Pré-Qualificado!",
+        title: "PARABÉNS! VOCÊ FOI PRÉ-QUALIFICADO!",
         subtitle:
           "Forneça as informações a seguir para concluir sua pré-qualificação.",
         continueJourney: "Continuar sua jornada",
@@ -936,7 +957,7 @@ const resources = {
       },
       stepSix: {
         question1: {
-          title: "Qual é o seu nome, número de telefone e email?",
+          title: "INFORMAÇÕES PESSOAIS",
           firstName: "NOME",
           lastName: "SOBRENOME",
           firstNamePlaceholder: "por exemplo, João",
@@ -957,11 +978,12 @@ const resources = {
           zipCodePlaceholder: "por exemplo, 12345-678",
           state: "ESTADO",
           select: "Selecionar...",
+          isYour: "O endereço de cobrança e de entrega são os mesmos?",
         },
         question2point5: {
           title: "Qual é o seu endereço de cobrança?",
-          streetAddress1: "ENDEREÇO 1",
-          streetAddress2: "ENDEREÇO 2",
+          streetAddress1: "NOME DA RUA",
+          streetAddress2: "COMPLEMENTO",
           streetAddressPlaceholder: "por exemplo, Rua Principal 123",
           city: "CIDADE",
           cityPlaceholder: "por exemplo, São Paulo",
@@ -999,12 +1021,12 @@ const resources = {
           placeholder: "Se sim, informe aqui. Exemplo: Penicilina",
         },
         question3: {
-          title: "Auxiliares Dietéticos",
+          title: "Suplementos Dietéticos",
           label: "Você está usando auxiliares dietéticos com prescrição ou de venda livre?",
           placeholder: "Se sim, informe aqui. Exemplo: Gardenia Cambodia, Berberina",
         },
         question4: {
-          title: "Antibióticos Atuais",
+          title: "Uso de Antibióticos",
           label: "Você está atualmente tomando algum antibiótico?",
           placeholder: "Se sim, informe aqui. Exemplo: Amoxicilina",
         },
@@ -1017,9 +1039,9 @@ const resources = {
         continueJourney: "Continuar sua jornada",
       },
       stepEight: {
-        title: "Condições de Saúde",
+        title: "CONDIÇÕES DE SAÚDE",
         description:
-          'Por favor, selecione pelo menos uma condição de saúde. Se não tiver nenhuma, selecione "Nenhuma".',
+          'Por favor, selecione pelo menos uma das opções.',
         none: "Nenhuma",
         highBloodPressure: "Pressão Alta",
         preDiabetes: "Pré-Diabetes",
@@ -1028,14 +1050,14 @@ const resources = {
         crohnsDisease: "Doença de Crohn",
         elevatedTriglycerides: "Triglicerídeos Elevados",
         lupus: "Lúpus",
-        antibiotics: "Antibióticos",
+        antibiotics: "Uso de Antibióticos",
         bariatricSurgery: "Cirurgia Bariátrica",
         hypoglycemia: "Hipoglicemia",
         type1Diabetes: "Diabetes Tipo 1",
         cancerTreatment: "Tratamento de Câncer",
         thyroidCancer: "Câncer de Tireoide",
         breastfeeding: "Amamentação",
-        pregnant: "Grávida",
+        pregnant: "Gravidez",
         pancreatitis:
           "Pancreatite nos últimos 6 meses, ou histórico de pancreatite causada pelo uso de um GLP-1",
         back: "Voltar",
@@ -1114,6 +1136,15 @@ const resources = {
         confirmAppointment: "Confirme seu Agendamento",
         cancel: "Cancelar",
         confirm: "Confirmar",
+        days: {
+          sunday: "Domingo",
+          monday: "Segunda-feira",
+          tuesday: "Terça-feira",
+          wednesday: "Quarta-feira",
+          thursday: "Quinta-feira",
+          friday: "Sexta-feira",
+          saturday: "Sábado",
+        },
       },
       appointmentConfirm: {
         title: "Consulta Confirmada!",
