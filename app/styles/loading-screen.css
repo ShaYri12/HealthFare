@@ -5,6 +5,7 @@
   justify-content: start !important;
   gap: 20px !important;
   padding: 10px 50px !important;
+  min-height: 100vh;
 }
 
 .logo-container {

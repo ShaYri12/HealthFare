@@ -80,7 +80,7 @@ const StepSix = ({
         ...formData,
         [field]: formattedValue,
       });
-    } else if (field === 'month' || field === 'day' || field === 'year') {
+    } else if (field === 'month' || field === 'day' || field === 'year' || field === 'zipCode' || field === 'billingZipCode') {
       const numericValue = value.replace(/\D/g, '');
       setFormData({
         ...formData,
@@ -362,6 +362,7 @@ const StepSix = ({
             <input
               type="text"
               name="phone"
+              inputMode="numeric"
               value={formData.phone}
               onChange={handleInputChange("phone")}
               placeholder={t("stepSix.question1.phonePlaceholder")}
@@ -373,6 +374,7 @@ const StepSix = ({
             <input
               type="text"
               name="email"
+              inputMode="email"
               value={formData.email}
               onChange={handleInputChange("email")}
               placeholder={t("stepSix.question1.emailPlaceholder")}
@@ -386,6 +388,7 @@ const StepSix = ({
                 <input
                   type="text"
                   name="month"
+                  inputMode="numeric"
                   value={formData.month}
                   onChange={handleInputChange("month")}
                   placeholder="MM"
@@ -397,6 +400,7 @@ const StepSix = ({
                 <input
                   type="text"
                   name="day"
+                  inputMode="numeric"
                   value={formData.day}
                   onChange={handleInputChange("day")}
                   placeholder="DD"
@@ -408,6 +412,7 @@ const StepSix = ({
                 <input
                   type="text"
                   name="year"
+                  inputMode="numeric"
                   value={formData.year}
                   onChange={handleInputChange("year")}
                   placeholder="YYYY"
@@ -479,8 +484,9 @@ const StepSix = ({
             <div className="input-label">
               <label>{t("stepSix.question2.zipCode")}</label>
               <input
-                type="number"
+                type="text"
                 name="zipCode"
+                inputMode="numeric"
                 value={formData.zipCode}
                 onChange={handleInputChange("zipCode")}
                 placeholder={t("stepSix.question2.zipCodePlaceholder")}
@@ -584,8 +590,9 @@ const StepSix = ({
             <div className="input-label">
               <label>{t("stepSix.question2.zipCode")}</label>
               <input
-                type="number"
+                type="text"
                 name="billingZipCode"
+                inputMode="numeric"
                 value={formData.billingZipCode}
                 onChange={handleInputChange("billingZipCode")}
                 placeholder={t("stepSix.question2.zipCodePlaceholder")}

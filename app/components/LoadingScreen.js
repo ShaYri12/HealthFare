@@ -16,7 +16,8 @@ const LoadingScreen = ({ nextStep, setLoading }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0); // Initial index
   const [messageIndex, setMessageIndex] = useState(0); // Initial message index
   const [showCheckmark, setShowCheckmark] = useState(false); // State for showing the checkmark
-
+  const [hasScrolled, setHasScrolled] = useState(false);
+  
   const messages = [
     t('loading.msg1'),
     t('loading.msg2'),
@@ -25,8 +26,11 @@ const LoadingScreen = ({ nextStep, setLoading }) => {
   ];
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    if (!hasScrolled) {
+      window.scrollTo(0, 0);
+      setHasScrolled(true); // Set the flag to true after scrolling
+    }
+  }, [hasScrolled]);
 
   useEffect(() => {
     const interval = setInterval(() => {
