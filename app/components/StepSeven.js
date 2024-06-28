@@ -104,7 +104,8 @@ const StepSeven = ({
     switch (currentQuestion) {
       case 0:
         if (!formData.question1 && showQuestion1) {
-          isValid = true; // Optional field, so valid if not shown
+          newErrors.question1 = t("error.fillError");
+          isValid = false;
         } else if (
           showQuestion1 &&
           !alphanumericPattern.test(formData.question1)
@@ -115,7 +116,8 @@ const StepSeven = ({
         break;
       case 1:
         if (!formData.question2 && showQuestion2) {
-          isValid = true; // Optional field, so valid if not shown
+          newErrors.question2 = t("error.fillError");
+          isValid = false;
         } else if (
           showQuestion2 &&
           !alphanumericPattern.test(formData.question2)
@@ -126,7 +128,8 @@ const StepSeven = ({
         break;
       case 2:
         if (!formData.question3 && showQuestion3) {
-          isValid = true; // Optional field, so valid if not shown
+          newErrors.question3 = t("error.fillError");
+          isValid = false;
         } else if (
           showQuestion3 &&
           !alphanumericPattern.test(formData.question3)
@@ -137,7 +140,8 @@ const StepSeven = ({
         break;
       case 3:
         if (!formData.question4 && showQuestion4) {
-          isValid = true; // Optional field, so valid if not shown
+          newErrors.question4 = t("error.fillError");
+          isValid = false;
         } else if (
           showQuestion4 &&
           !alphanumericPattern.test(formData.question4)
@@ -148,7 +152,8 @@ const StepSeven = ({
         break;
       case 4:
         if (!formData.question5 && showQuestion5) {
-          isValid = true; // Optional field, so valid if not shown
+          newErrors.question5 = t("error.fillError");
+          isValid = false;
         } else if (
           showQuestion5 &&
           !alphanumericPattern.test(formData.question5)
