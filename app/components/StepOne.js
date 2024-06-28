@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import '../styles/stepone.css';
 import '../styles/form.css';
 import Review from './Review';
+import Link from 'next/link';
 
 const StepOne = ({ nextStep, handleChange, values }) => {
   const { t, i18n } = useTranslation();
@@ -63,48 +64,78 @@ const StepOne = ({ nextStep, handleChange, values }) => {
 
   return (
     <div className="formContainer step-form">
-      <div className='title-info'>
-        <h2>{t('stepOne.title')}</h2>
+      <div className="title-info">
+        <h2>{t("stepOne.title")}</h2>
       </div>
-      <div className='language'>
-        <p>{t('stepOne.languagePrompt')}</p>
-        <div className='language-btns'>
-          <button className={`${activebtn === 'en' ? 'active' : ''}`} onClick={() => handleLanguage('en')}>
-            <img src="/assets/usa.jpeg" alt="eng" />English
+      <div className="language">
+        <p>{t("stepOne.languagePrompt")}</p>
+        <div className="language-btns">
+          <button
+            className={`${activebtn === "en" ? "active" : ""}`}
+            onClick={() => handleLanguage("en")}
+          >
+            <img src="/assets/usa.jpeg" alt="eng" />
+            English
           </button>
-          <button className={`${activebtn === 'es' ? 'active' : ''}`} onClick={() => handleLanguage('es')}>
-            <img src="/assets/esp.png" alt="esp" />Español
+          <button
+            className={`${activebtn === "es" ? "active" : ""}`}
+            onClick={() => handleLanguage("es")}
+          >
+            <img src="/assets/esp.png" alt="esp" />
+            Español
           </button>
-          <button className={`${activebtn === 'pt' ? 'active' : ''}`} onClick={() => handleLanguage('pt')}>
-            <img src="/assets/brazil.webp" alt="por" />Português
+          <button
+            className={`${activebtn === "pt" ? "active" : ""}`}
+            onClick={() => handleLanguage("pt")}
+          >
+            <img src="/assets/brazil.webp" alt="por" />
+            Português
           </button>
         </div>
       </div>
-      <form onSubmit={handleSubmit} className='input-form'>
-        <div className='location'>
-          <p>{t('stepOne.chooseLocation')}</p>
-          <select onChange={handleInputChange('location')} value={formData.location}>
-            <option value="">{t('stepSix.question2.select')}</option>
-            {stateOptions.map(state => (
-              <option key={state} value={state}>{state}</option>
+      <form onSubmit={handleSubmit} className="input-form">
+        <div className="location">
+          <p>{t("stepOne.chooseLocation")}</p>
+          <select
+            onChange={handleInputChange("location")}
+            value={formData.location}
+          >
+            <option value="">{t("stepSix.question2.select")}</option>
+            {stateOptions.map((state) => (
+              <option key={state} value={state}>
+                {state}
+              </option>
             ))}
           </select>
-          </div>
-          {errors.location && <p className='error'>{errors.location}</p>}
+        </div>
+        {errors.location && <p className="error">{errors.location}</p>}
         <div className="agreement">
           <input
             type="checkbox"
             id="agreement"
             name="agreement"
             checked={formData.agreement}
-            onChange={handleInputChange('agreement')}
+            onChange={handleInputChange("agreement")}
             required
           />
-          <label htmlFor="agreement">{t('stepOne.acknowledgement')}</label>
-          </div>
-          {errors.agreement && <p className='error'>{errors.agreement}</p>}
-        <div className='btn-group'>
-          <button type='submit' className='long-btn long-btn-stepthree' onClick={handleSubmit}>{t('stepOne.startJourney')}</button>
+          <label htmlFor="agreement">
+            {t("stepOne.acknowledgement")}
+            <Link href="#">{t("stepOne.refundPolicy")},</Link>{"  "}
+            <Link href="#">{t("stepOne.termsAndConditions")},</Link>{"  "}
+            <Link href="#">{t("stepOne.noticeOfPrivacyPractices")},</Link>{" "}
+            {t("stepOne.and")} {" "}
+            <Link href="#">{t("stepOne.consentToTelehealth")}.</Link>{" "}
+          </label>
+        </div>
+        {errors.agreement && <p className="error">{errors.agreement}</p>}
+        <div className="btn-group">
+          <button
+            type="submit"
+            className="long-btn long-btn-stepthree"
+            onClick={handleSubmit}
+          >
+            {t("stepOne.startJourney")}
+          </button>
         </div>
       </form>
       <Review />

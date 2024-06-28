@@ -84,7 +84,12 @@ const resources = {
         chooseLocation: "Select Your State:",
         startJourney: "Start Your Journey",
         acknowledgement:
-          "I acknowledge the Refund Policy, Terms & Conditions, Notice of Privacy Practices, and Consent to Telehealth.",
+          "I acknowledge the ",
+        refundPolicy: "Refund Policy",
+        termsAndConditions: "Terms & Conditions",
+        noticeOfPrivacyPractices: "Notice of Privacy Practices",
+        and: "and",
+        consentToTelehealth: "Consent to Telehealth",
       },
       stepTwo: {
         title: "Which treatment plan suits your needs?",
@@ -473,8 +478,12 @@ const resources = {
         languagePrompt: "¿En qué idioma le gustaría comenzar?",
         chooseLocation: "Elija su ubicación",
         startJourney: "Comienza tu viaje",
-        acknowledgement:
-          "Reconozco la Política de Reembolso, los Términos y Condiciones, el Aviso de Prácticas de Privacidad y el Consentimiento para la Telemedicina.",
+        acknowledgement: "Reconozco el ",
+        refundPolicy: "Política de Reembolso",
+        termsAndConditions: "Términos y Condiciones",
+        noticeOfPrivacyPractices: "Aviso de Prácticas de Privacidad",
+        and: "y",
+        consentToTelehealth: "Consentimiento para la Telemedicina",
       },
       stepTwo: {
         title: "¿QUÉ PLAN DE TRATAMIENTO SE ADAPTA A TUS NECESIDADES?",
@@ -862,8 +871,12 @@ const resources = {
         languagePrompt: "Qual idioma você gostaria de começar?",
         chooseLocation: "Escolha sua localização",
         startJourney: "Comece sua jornada",
-        acknowledgement:
-          "Reconheço a Política de Reembolso, os Termos e Condições, o Aviso de Práticas de Privacidade e o Consentimento para a Telemedicina.",
+        acknowledgement: "Reconheço a ",
+        refundPolicy: "Política de Reembolso",
+        termsAndConditions: "Termos e Condições",
+        noticeOfPrivacyPractices: "Aviso de Práticas de Privacidade",
+        and: "e",
+        consentToTelehealth: "Consentimento para a Telemedicina",
       },
       stepTwo: {
         title: "QUAL PLANO DE TRATAMENTO ATENDE ÀS SUAS NECESSIDADES?",
