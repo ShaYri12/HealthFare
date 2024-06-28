@@ -8,72 +8,71 @@ const StepTwelve = ({ nextStep, handleChange, formValues }) => {
 
   const [selectedDay, setSelectedDay] = useState('');
   const [selectedTime, setSelectedTime] = useState("12:45 PM");
-
-  const [showModal, setShowModal] = useState(false); // State to control modal visibility
-
-  const translateDay = (day) => {
-    switch (day) {
-      case 'Monday': return t('stepTwelve.days.monday');
-      case 'Tuesday': return t('stepTwelve.days.tuesday');
-      case 'Wednesday': return t('stepTwelve.days.wednesday');
-      case 'Thursday': return t('stepTwelve.days.thursday');
-      case 'Friday': return t('stepTwelve.days.friday');
-      case 'Saturday': return t('stepTwelve.days.saturday');
-      case 'Sunday': return t('stepTwelve.days.sunday');
-      default: return day;
-    }
-  };
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const today = new Date();
     const nextDay = new Date(today);
     nextDay.setDate(today.getDate() + 1);
 
+    setSelectedDay(formatSelectedDay(nextDay));
+  }, []);
+
+  const formatSelectedDay = (date) => {
     const options = { weekday: 'long', day: 'numeric', month: 'long' };
-    const formattedDate = nextDay.toLocaleDateString('en-US', options);
+    const formattedDate = date.toLocaleDateString('en-US', options);
     const [weekday, ...rest] = formattedDate.split(' ');
 
-    setSelectedDay(`${translateDay(weekday)} ${rest.join(' ')}`);
-  }, []);
+    return `${translateDay(weekday)} ${rest.join(' ')}`;
+  };
+
+  const translateDay = (day) => {
+    // Trim any leading or trailing whitespace and commas
+    const trimmedDay = day.trim().replace(',', '');
+  
+    switch (trimmedDay) {
+      case 'Monday': return t('stepTwelve.days.monday'); // Example direct string
+      case 'Tuesday': return t('stepTwelve.days.tuesday');
+      case 'Wednesday': return t('stepTwelve.days.wednesday');
+      case 'Thursday': return t('stepTwelve.days.thursday');
+      case 'Friday': return t('stepTwelve.days.friday');
+      case 'Saturday': return t('stepTwelve.days.saturday');
+      case 'Sunday': return t('stepTwelve.days.sunday');
+      default: return day; // Return original day if no translation found
+    }
+  };
+  
 
   const handleDayIncrement = () => {
     const currentDay = new Date(selectedDay);
     currentDay.setDate(currentDay.getDate() + 1);
 
-    const options = { weekday: 'long', day: 'numeric', month: 'long' };
-    const formattedDate = currentDay.toLocaleDateString('en-US', options);
-    const [weekday, ...rest] = formattedDate.split(' ');
-
-    setSelectedDay(`${translateDay(weekday)} ${rest.join(' ')}`);
+    setSelectedDay(formatSelectedDay(currentDay));
   };
 
   const handleDayDecrement = () => {
     const currentDay = new Date(selectedDay);
     currentDay.setDate(currentDay.getDate() - 1);
 
-    const options = { weekday: 'long', day: 'numeric', month: 'long' };
-    const formattedDate = currentDay.toLocaleDateString('en-US', options);
-    const [weekday, ...rest] = formattedDate.split(' ');
-
-    setSelectedDay(`${translateDay(weekday)} ${rest.join(' ')}`);
+    setSelectedDay(formatSelectedDay(currentDay));
   };
 
   const handleTimeSelection = (time) => {
     setSelectedTime(time);
-    setShowModal(true); // Show modal when time is selected
+    setShowModal(true);
   };
 
   const confirmAppointment = () => {
-    setShowModal(false); // Close modal
+    setShowModal(false);
     handleChange({
       selectedDay,
       selectedTime,
     });
-    nextStep(); // Proceed to next step after confirmation
+    nextStep();
   };
 
   const closeModal = () => {
-    setShowModal(false); // Close modal without confirming
+    setShowModal(false);
   };
 
   return (
@@ -104,7 +103,6 @@ const StepTwelve = ({ nextStep, handleChange, formValues }) => {
         </div>
       </div>
 
-      {/* Modal */}
       {showModal && (
         <div className="modal">
           <div className="modal-content">
