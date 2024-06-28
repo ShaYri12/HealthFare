@@ -206,10 +206,10 @@ const StepSeven = ({
   const questions = [
     {
       form: (
-        <div>
+        <div className="medication-questions">
           <div className="label-info">
             <h2>{t("stepSeven.question1.title")}</h2>
-            <p>{t("stepSeven.question1.label")}</p>
+            <p className="question">{t("stepSeven.question1.label")}</p>
           </div>
           <form onSubmit={handleSubmit} className="input-form">
             <div className="input-label-full input-label">
@@ -267,10 +267,10 @@ const StepSeven = ({
     },
     {
       form: (
-        <div>
+        <div className="medication-questions">
           <div className="label-info">
             <h2>{t("stepSeven.question2.title")}</h2>
-            <p>{t("stepSeven.question2.label")}</p>
+            <p className="question">{t("stepSeven.question2.label")}</p>
           </div>
           <form onSubmit={handleSubmit} className="input-form">
             <div className="input-label-full input-label">
@@ -328,10 +328,10 @@ const StepSeven = ({
     },
     {
       form: (
-        <div>
+        <div className="medication-questions">
           <div className="label-info">
             <h2>{t("stepSeven.question3.title")}</h2>
-            <p>{t("stepSeven.question3.label")}</p>
+            <p className="question">{t("stepSeven.question3.label")}</p>
           </div>
           <form onSubmit={handleSubmit} className="input-form">
             <div className="input-label-full input-label">
@@ -389,10 +389,10 @@ const StepSeven = ({
     },
     {
       form: (
-        <div>
+        <div className="medication-questions">
           <div className="label-info">
             <h2>{t("stepSeven.question4.title")}</h2>
-            <p>{t("stepSeven.question4.label")}</p>
+            <p className="question">{t("stepSeven.question4.label")}</p>
           </div>
           <form onSubmit={handleSubmit} className="input-form">
             <div className="input-label-full input-label">
@@ -450,10 +450,10 @@ const StepSeven = ({
     },
     {
       form: (
-        <div>
+        <div className="medication-questions">
           <div className="label-info">
             <h2>{t("stepSeven.question5.title")}</h2>
-            <p>{t("stepSeven.question5.label")}</p>
+            <p className="question">{t("stepSeven.question5.label")}</p>
           </div>
           <form onSubmit={handleSubmit} className="input-form">
             <div className="input-label-full input-label">
