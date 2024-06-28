@@ -46,3 +46,8 @@
 .yes-no-buttons button:hover{
     background-color: #38b64b35;
 }
+
+.back-btn-grow{
+    width: 100% !important; 
+    flex-grow: 1 !important;
+}

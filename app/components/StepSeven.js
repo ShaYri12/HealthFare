@@ -244,23 +244,23 @@ const StepSeven = ({
                 <span className="error">{errors.question1}</span>
               )}
             </div>
-            {showQuestion1 && (
               <div className="btn-group btn-group-stepthree">
                 <button
                   type="button"
-                  className="back-btn back-btn-stepthree"
+                  className={`back-btn back-btn-stepthree ${!showQuestion1 ? "back-btn-grow" : "" }`}
                   onClick={prevInfo}
                 >
                   <img src="/assets/arrow.svg" alt="arrow" />{" "}
                   {t("stepSeven.back")}
                 </button>
+                {showQuestion1 && (
                 <div className="forward-btns">
                   <button type="submit" className="long-btn long-btn-stepthree">
                     {t("stepSeven.continueJourney")}
                   </button>
                 </div>
+              )}
               </div>
-            )}
           </form>
         </div>
       ),
@@ -305,23 +305,23 @@ const StepSeven = ({
                 <span className="error">{errors.question2}</span>
               )}
             </div>
-            {showQuestion2 && (
-              <div className="btn-group btn-group-stepthree">
+            <div className="btn-group btn-group-stepthree">
                 <button
                   type="button"
-                  className="back-btn back-btn-stepthree"
+                  className={`back-btn back-btn-stepthree ${!showQuestion2 ? "back-btn-grow" : "" }`}
                   onClick={prevInfo}
                 >
                   <img src="/assets/arrow.svg" alt="arrow" />{" "}
                   {t("stepSeven.back")}
                 </button>
+                {showQuestion2 && (
                 <div className="forward-btns">
                   <button type="submit" className="long-btn long-btn-stepthree">
                     {t("stepSeven.continueJourney")}
                   </button>
                 </div>
+              )}
               </div>
-            )}
           </form>
         </div>
       ),
@@ -366,23 +366,23 @@ const StepSeven = ({
                 <span className="error">{errors.question3}</span>
               )}
             </div>
-            {showQuestion3 && (
-              <div className="btn-group btn-group-stepthree">
+            <div className="btn-group btn-group-stepthree">
                 <button
                   type="button"
-                  className="back-btn back-btn-stepthree"
+                  className={`back-btn back-btn-stepthree ${!showQuestion3 ? "back-btn-grow" : "" }`}
                   onClick={prevInfo}
                 >
                   <img src="/assets/arrow.svg" alt="arrow" />{" "}
                   {t("stepSeven.back")}
                 </button>
+                {showQuestion3 && (
                 <div className="forward-btns">
                   <button type="submit" className="long-btn long-btn-stepthree">
                     {t("stepSeven.continueJourney")}
                   </button>
                 </div>
+              )}
               </div>
-            )}
           </form>
         </div>
       ),
@@ -427,23 +427,23 @@ const StepSeven = ({
                 <span className="error">{errors.question4}</span>
               )}
             </div>
-            {showQuestion4 && (
-              <div className="btn-group btn-group-stepthree">
+            <div className="btn-group btn-group-stepthree">
                 <button
                   type="button"
-                  className="back-btn back-btn-stepthree"
+                  className={`back-btn back-btn-stepthree ${!showQuestion4 ? "back-btn-grow" : "" }`}
                   onClick={prevInfo}
                 >
                   <img src="/assets/arrow.svg" alt="arrow" />{" "}
                   {t("stepSeven.back")}
                 </button>
+                {showQuestion4 && (
                 <div className="forward-btns">
                   <button type="submit" className="long-btn long-btn-stepthree">
                     {t("stepSeven.continueJourney")}
                   </button>
                 </div>
+              )}
               </div>
-            )}
           </form>
         </div>
       ),
@@ -488,23 +488,23 @@ const StepSeven = ({
                 <span className="error">{errors.question5}</span>
               )}
             </div>
-            {showQuestion5 && (
-              <div className="btn-group btn-group-stepthree">
+            <div className="btn-group btn-group-stepthree">
                 <button
                   type="button"
-                  className="back-btn back-btn-stepthree"
+                  className={`back-btn back-btn-stepthree ${!showQuestion5 ? "back-btn-grow" : "" }`}
                   onClick={prevInfo}
                 >
                   <img src="/assets/arrow.svg" alt="arrow" />{" "}
                   {t("stepSeven.back")}
                 </button>
+                {showQuestion5 && (
                 <div className="forward-btns">
                   <button type="submit" className="long-btn long-btn-stepthree">
                     {t("stepSeven.continueJourney")}
                   </button>
                 </div>
+              )}
               </div>
-            )}
           </form>
         </div>
       ),
