@@ -78,6 +78,7 @@ const StepFour = ({ nextStep, prevStep, handleChange, values, updateNotEligibleD
           <p>{t('stepFour.pounds')}</p>
           <input
             type="text"
+            inputMode="numeric"
             placeholder={t('stepFour.poundsPlaceholder')}
             value={formData.pounds}
             onChange={handleInputChange('pounds')}
