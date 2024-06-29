@@ -595,6 +595,10 @@
     background-color: #b63838e2 !important;
   }
 
+.outside-padding{
+    padding: 0 30px;
+}
+
 .shipping-address-section{
     display: flex;
     flex-direction: column;

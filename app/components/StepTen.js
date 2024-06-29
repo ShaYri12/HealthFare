@@ -681,20 +681,22 @@ const StepTen = ({
         </div>
       </div>
 
-      <div className="shipping-address-section">
-        <span className="shipping-add-top">
-          <h3>{t("stepTen.shippingAddress")}</h3>
-          <button className="btn-edit" onClick={() => setIsShippingModalOpen(true)}>
-            {t("stepTen.edit")}
-          </button>
-        </span>
-        <div className="shipping-address">
-          <p>{formValues.stepSix.streetAddress1}</p>
-          <p>{formValues.stepSix.streetAddress2}</p>
-          <p>
-            {formValues.stepSix.city}, {formValues.stepSix.state}{" "}
-            {formValues.stepSix.zipCode}
-          </p>
+      <div className="outside-padding">
+        <div className="shipping-address-section">
+          <span className="shipping-add-top">
+            <h3>{t("stepTen.shippingAddress")}</h3>
+            <button className="btn-edit" onClick={() => setIsShippingModalOpen(true)}>
+              {t("stepTen.edit")}
+            </button>
+          </span>
+          <div className="shipping-address">
+            <p>{formValues.stepSix.streetAddress1}</p>
+            <p>{formValues.stepSix.streetAddress2}</p>
+            <p>
+              {formValues.stepSix.city}, {formValues.stepSix.state}{" "}
+              {formValues.stepSix.zipCode}
+            </p>
+          </div>
         </div>
       </div>
 
@@ -709,20 +711,22 @@ const StepTen = ({
         setToInitial={() => setShippingAddress(initialShippingAddress)}
       />
 
-      <div className="billing-address-section">
-        <span className="billing-add-top">
-          <h3>{t("stepTen.billingAddress")}</h3>
-          <button className="btn-edit" onClick={() => setIsBillingModalOpen(true)}>
-            {t("stepTen.edit")}
-          </button>
-        </span>
-        <div className="billing-address">
-          <p>{formValues.stepSix.billingStreetAddress1}</p>
-          <p>{formValues.stepSix.billingStreetAddress2}</p>
-          <p>
-            {formValues.stepSix.billingCity}, {formValues.stepSix.billingState}{" "}
-            {formValues.stepSix.billingZipCode}
-          </p>
+      <div className="outside-padding">
+        <div className="billing-address-section">
+          <span className="billing-add-top">
+            <h3>{t("stepTen.billingAddress")}</h3>
+            <button className="btn-edit" onClick={() => setIsBillingModalOpen(true)}>
+              {t("stepTen.edit")}
+            </button>
+          </span>
+          <div className="billing-address">
+            <p>{formValues.stepSix.billingStreetAddress1}</p>
+            <p>{formValues.stepSix.billingStreetAddress2}</p>
+            <p>
+              {formValues.stepSix.billingCity}, {formValues.stepSix.billingState}{" "}
+              {formValues.stepSix.billingZipCode}
+            </p>
+          </div>
         </div>
       </div>
 
