@@ -224,7 +224,7 @@ const StepTen = ({
       handleChange("stepSix")({
         ...formValues.stepSix,
         billingStreetAddress1: billingAddress.billingStreetAddress1,
-        billingStreetAddress2: billingAddress.billingstreetAddress2,
+        billingStreetAddress2: billingAddress.billingStreetAddress2,
         billingCity: billingAddress.billingCity,
         billingState: billingAddress.billingState,
         billingZipCode: billingAddress.billingZipCode,
