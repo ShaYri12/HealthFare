@@ -17,6 +17,7 @@ import AppointmentConfirmed from './components/AppointmentConfirm';
 import NotEligible from './components/NotEligible';
 import ProgressBar from './components/ProgressBar';
 import AddSuppliment from './components/AddSuppliment';
+import AvailableAddons from './components/AvailableAddons';
 import ThankYou from './components/ThankYou';
 import { I18nextProvider } from 'react-i18next';
 import i18n from './context/i18n';
@@ -63,6 +64,7 @@ const Home = () => {
 
   const [showNotEligible, setShowNotEligible] = useState(false);
   const [showAddSuppliment, setShowAddSuppliment] = useState(false);
+  const [showAvailableAddons, setShowAvailableAddons] = useState(false);
   const [cart, setCart] = useState([]);
   const [cart2, setCart2] = useState([]);
   const [NotEligibleData, setNotEligibleData] = useState([]);
@@ -131,9 +133,14 @@ const Home = () => {
     setShowAddSuppliment(true);
   };
 
+  const handleAddAddon = () => {
+    setShowAvailableAddons(true);
+  };
+
   const handleOrignalStep = () => {
     goToStep(14);
     setShowAddSuppliment(false);
+    setShowAvailableAddons(false);
   };
 
   const steps = [
@@ -150,7 +157,7 @@ const Home = () => {
     <StepSeven prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepSeven')} values={formValues} currentQuestion={currentStepSevenQuestion} setCurrentQuestion={setCurrentStepSevenQuestion} />,
     <StepEight prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepEight')} values={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} />,
     <StepNine prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepNine')} values={formValues} />,
-    <StepTen prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} formValues={formValues} cart={cart} cart2={cart2} setCart={setCart} setCart2={setCart2} addSuppliment={handleAddSuppliment} />,
+    <StepTen prevStep={prevStep} nextStep={nextStep} handleChange={handleChange} formValues={formValues} cart={cart} cart2={cart2} setCart={setCart} setCart2={setCart2} addSuppliment={handleAddSuppliment} addAddon={handleAddAddon} />,
     <ThankYou handleSubmit={handleSubmit} handleChange={handleChange('ThankYou')} formValues={formValues} />
   ];
 
@@ -173,6 +180,8 @@ const Home = () => {
             </div>
             {showAddSuppliment ? (
               <AddSuppliment handleOrignalStep={handleOrignalStep} handleChange={handleChange('suppliments')} cartitem={cartitem} />
+            ) : showAvailableAddons ? (
+              <AvailableAddons handleOrignalStep={handleOrignalStep} handleChange={handleChange('stepTen')} formValues={formValues} />
             ) : showNotEligible ? (
               <NotEligible NotEligibleData={NotEligibleData} handleEligible={handleEligible} />
             ) : (

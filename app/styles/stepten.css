@@ -235,6 +235,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 100%;
 }
 
 .card{
@@ -295,10 +296,16 @@
     border-top: 2px solid #E3E3E4 !important;
     padding-top: 20px !important;
     padding-bottom: 10px !important;
+    width: 100%;;
 }
 
 .card-2-top{
     flex-direction: row !important;
+    width: 100%;
+}
+
+.card-2-top .card-title-price{
+    width: 100%;
 }
 
 @media screen and (max-width: 450px){
@@ -432,6 +439,7 @@
   
 .cart-added{
     flex-direction: column;
+    width: 100%;
 }
 
 .add-suppliment{
@@ -442,10 +450,17 @@
     width: fit-content !important;
 }
 
+.additional-suppliments{
+    width: 100%;
+}
+
 .additional-suppliments span{
     display: flex;
     flex-direction: column;
+}
 
+.additional-suppliments .no-selected{
+    align-items: start !important;
 }
 
 .additional-suppliments button{

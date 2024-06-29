@@ -50,7 +50,7 @@ const SupplimentsCard = ({ imgSrc, title, price, desc, addToCart, handleOrignalS
 
 const Suppliments = ({ handleOrignalStep, handleChange, values, cartitem }) => {
     const [cart, setCart] = useState([]);
-    const { t } = useTranslation(); // Initialize useTranslation hook
+    const { t } = useTranslation();
 
     const addToCart = (newItem) => {
         console.log('Adding item to cart:', newItem); // Log the item being added

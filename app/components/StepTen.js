@@ -20,6 +20,7 @@ const StepTen = ({
   setCart,
   cart2,
   setCart2,
+  addAddon
 }) => {
   const { t } = useTranslation();
 
@@ -36,7 +37,115 @@ const StepTen = ({
   const alphanumericPattern = /^[a-zA-Z0-9\s,'-]*$/;
   const alphabeticPattern = /^[a-zA-Z\s]*$/;
 
-  const initialShippingAddress = {
+  const useFormInput = (initialValues) => {
+    const [values, setValues] = useState(initialValues);
+  
+    const handleChange = (name) => (event) => {
+      let { value } = event.target;
+      if (name === "zipCode" || name === "billingZipCode") {
+        value = value.replace(/\D/g, ""); // Remove non-numeric characters
+      }
+      setValues({
+        ...values,
+        [name]: value,
+        errors: {
+          ...values.errors,
+          [name]: ""
+        }
+      });
+    };
+  
+    const validateField = (name) => {
+      switch (name) {
+        case "streetAddress1":
+          if (!values[name].trim()) {
+            return t("error.streetAddressError");
+          } else if (!alphanumericPattern.test(values[name])) {
+            return t("error.textError");
+          }
+          break;
+        case "streetAddress2":
+          if (values[name].trim() && !alphanumericPattern.test(values[name])) {
+            return t("error.textError");
+          }
+          break;
+        case "city":
+          if (!values[name].trim()) {
+            return t("error.cityError");
+          } else if (!alphabeticPattern.test(values[name])) {
+            return t("error.textError");
+          }
+          break;
+        case "state":
+          if (!values[name].trim()) {
+            return t("error.stateError");
+          }
+          break;
+        case "zipCode":
+          if (!values[name].trim()) {
+            return t("error.zipCodeError");
+          }
+          break;
+        case "billingStreetAddress1":
+          if (!values[name].trim()) {
+            return t("error.streetAddressError");
+          } else if (!alphanumericPattern.test(values[name])) {
+            return t("error.textError");
+          }
+          break;
+        case "billingStreetAddress2":
+          if (values[name].trim() && !alphanumericPattern.test(values[name])) {
+            return t("error.textError");
+          }
+          break;
+        case "billingCity":
+          if (!values[name].trim()) {
+            return t("error.cityError");
+          } else if (!alphabeticPattern.test(values[name])) {
+            return t("error.textError");
+          }
+          break;
+        case "billingState":
+          if (!values[name].trim()) {
+            return t("error.stateError");
+          }
+          break;
+        case "billingZipCode":
+          if (!values[name].trim()) {
+            return t("error.zipCodeError");
+          }
+          break;
+        default:
+          break;
+      }
+      return "";
+    };
+  
+    const validateForm = () => {
+      const errors = {};
+      Object.keys(values).forEach(name => {
+        if (name !== "errors") {
+          errors[name] = validateField(name);
+        }
+      });
+      setValues({ ...values, errors });
+      return Object.values(errors).every((error) => error === "");
+    };
+
+    const setToInitial = () => {
+      setValues(initialValues);
+    };
+  
+    return {
+      values,
+      handleChange,
+      validateForm,
+      setToInitial,
+      validateField,
+    };
+  };
+
+  const initialShippingAddress = useFormInput({
     streetAddress1: formValues.stepSix.streetAddress1 || "",
     streetAddress2: formValues.stepSix.streetAddress2 || "",
     city: formValues.stepSix.city || "",
@@ -48,10 +157,10 @@ const StepTen = ({
       city: "",
       state: "",
       zipCode: "",
-    },
-  };
+    }
+  });
 
-  const initialBillingAddress = {
+  const initialBillingAddress = useFormInput({
     billingStreetAddress1: formValues.stepSix.billingStreetAddress1 || "",
     billingStreetAddress2: formValues.stepSix.billingStreetAddress2 || "",
     billingCity: formValues.stepSix.billingCity || "",
@@ -63,192 +172,41 @@ const StepTen = ({
       billingCity: "",
       billingState: "",
       billingZipCode: "",
-    },
-  };
+    }
+  });
 
-  const [shippingAddress, setShippingAddress] = useState(initialShippingAddress);
-  const [billingAddress, setBillingAddress] = useState(initialBillingAddress);
   const [isShippingModalOpen, setIsShippingModalOpen] = useState(false);
   const [isBillingModalOpen, setIsBillingModalOpen] = useState(false);
   const [monthPlanModal, setMonthPlanModal] = useState(false);
 
-  // Validate individual field Shipping
-  const validateFieldShipping = (name, value) => {
-    switch (name) {
-      case "streetAddress1":
-        if (!value.trim()) {
-          return t("error.streetAddressError");
-        } else if (!alphanumericPattern.test(value)) {
-          return t("error.textError");
-        }
-        return "";
-      case "streetAddress2":
-        if (value.trim() && !alphanumericPattern.test(value)) {
-          return t("error.textError");
-        }
-        return "";
-      case "city":
-        if (!value.trim()) {
-          return t("error.cityError");
-        } else if (!alphabeticPattern.test(value)) {
-          return t("error.textError");
-        }
-        return "";
-      case "state":
-        if (!value.trim()) {
-          return t("error.stateError");
-        }
-        return "";
-      case "zipCode":
-        if (!value.trim()) {
-          return t("error.zipCodeError");
-        }
-        return "";
-      default:
-        return "";
-    }
-  };
-
-  // Validate entire form
-  const validateFormShipping = () => {
-    const errors = {
-      streetAddress1: validateFieldShipping("streetAddress1", shippingAddress.streetAddress1),
-      streetAddress2: validateFieldShipping("streetAddress2", shippingAddress.streetAddress2),
-      city: validateFieldShipping("city", shippingAddress.city),
-      state: validateFieldShipping("state", shippingAddress.state),
-      zipCode: validateFieldShipping("zipCode", shippingAddress.zipCode),
-    };
-
-    setShippingAddress({ ...shippingAddress, errors });
-    return Object.values(errors).every((error) => error === "");
-  };
-
   const handleShippingSubmit = (event) => {
     event.preventDefault();
-    const isValid = validateFormShipping();
+    const isValid = initialShippingAddress.validateForm();
     if (isValid) {
-      // Save or update the address
-      console.log("Shipping address saved:", shippingAddress);
+      console.log("Shipping address saved:", initialShippingAddress.values);
       setIsShippingModalOpen(false);
-      // Optionally, you can update formValues with the new shippingAddress state
       handleChange("stepSix")({
         ...formValues.stepSix,
-        streetAddress1: shippingAddress.streetAddress1,
-        streetAddress2: shippingAddress.streetAddress2,
-        city: shippingAddress.city,
-        state: shippingAddress.state,
-        zipCode: shippingAddress.zipCode,
+        ...initialShippingAddress.values
       });
     } else {
       console.log("Form contains errors. Cannot save address.");
     }
-  };
-
-  const handleShippingInputChange = (name) => (event) => {
-    let { value } = event.target;
-
-    // Ensure zip code is numeric
-    if (name === "zipCode") {
-      value = value.replace(/\D/g, ""); // Remove non-numeric characters
-    }
-
-    setShippingAddress({
-      ...shippingAddress,
-      [name]: value,
-      errors: {
-        ...shippingAddress.errors,
-      },
-    });
-  };
-
-  //Billing part
-  // Validate individual field Billing
-  const validateFieldBilling = (name, value) => {
-    switch (name) {
-      case "billingStreetAddress1":
-        if (!value.trim()) {
-          return t("error.streetAddressError");
-        } else if (!alphanumericPattern.test(value)) {
-          return t("error.textError");
-        }
-        return "";
-      case "billingStreetAddress2":
-        if (value.trim() && !alphanumericPattern.test(value)) {
-          return t("error.textError");
-        }
-        return "";
-      case "billingCity":
-        if (!value.trim()) {
-          return t("error.cityError");
-        } else if (!alphabeticPattern.test(value)) {
-          return t("error.textError");
-        }
-        return "";
-      case "billingState":
-        if (!value.trim()) {
-          return t("error.stateError");
-        }
-        return "";
-      case "billingZipCode":
-        if (!value.trim()) {
-          return t("error.zipCodeError");
-        }
-        return "";
-      default:
-        return "";
-    }
-  };
-
-  // Validate entire form
-  const validateFormBilling = () => {
-    const errors = {
-      billingStreetAddress1: validateFieldBilling("billingStreetAddress1", billingAddress.billingStreetAddress1),
-      billingStreetAddress2: validateFieldBilling("billingStreetAddress2", billingAddress.billingStreetAddress2),
-      billingCity: validateFieldBilling("billingCity", billingAddress.billingCity),
-      billingState: validateFieldBilling("billingState", billingAddress.billingState),
-      billingZipCode: validateFieldBilling("billingZipCode", billingAddress.billingZipCode),
-    };
-
-    setBillingAddress({ ...billingAddress, errors });
-    return Object.values(errors).every((error) => error === "");
   };
 
   const handleBillingSubmit = (event) => {
     event.preventDefault();
-    const isValid = validateFormBilling();
+    const isValid = initialBillingAddress.validateForm();
     if (isValid) {
-      // Save or update the address
-      console.log("Billing address saved:", billingAddress);
+      console.log("Billing address saved:", initialBillingAddress.values);
       setIsBillingModalOpen(false);
-      // Optionally, you can update formValues with the new shippingAddress state
       handleChange("stepSix")({
         ...formValues.stepSix,
-        billingStreetAddress1: billingAddress.billingStreetAddress1,
-        billingStreetAddress2: billingAddress.billingStreetAddress2,
-        billingCity: billingAddress.billingCity,
-        billingState: billingAddress.billingState,
-        billingZipCode: billingAddress.billingZipCode,
+        ...initialBillingAddress.values
       });
     } else {
       console.log("Form contains errors. Cannot save address.");
     }
-  };
-
-  const handleBillingInputChange = (name) => (event) => {
-    let { value } = event.target;
-
-    // Ensure zip code is numeric
-    if (name === "billingZipCode") {
-      value = value.replace(/\D/g, ""); // Remove non-numeric characters
-    }
-
-    setBillingAddress({
-      ...billingAddress,
-      [name]: value,
-      errors: {
-        ...billingAddress.errors,
-      },
-    });
   };
 
   const [addoncart, setAddonCart] = useState(
@@ -295,6 +253,40 @@ const StepTen = ({
     setQuantities(newQuantities);
   };
 
+  // Initialize quantities state for items in the cart
+  const [addonQuantities, setAddonQuantities] = useState(
+    addoncart.map((item) => item.quantity || 1)
+  );
+  // Handlers for increasing and decreasing quantity
+  const increaseAddonQuantity = (index) => {
+    const newAddonQuantities = [...addonQuantities];
+    newAddonQuantities[index] += 1;
+    setAddonQuantities(newAddonQuantities);
+    const newAddonCart = [...addoncart];
+    newAddonCart[index].quantity = newAddonQuantities[index];
+    setAddonCart(newAddonCart);
+  };
+
+  const decreaseAddonQuantity = (index) => {
+    if (addonQuantities[index] > 1) {
+      const newAddonQuantities = [...addonQuantities];
+      newAddonQuantities[index] -= 1;
+      setAddonQuantities(newAddonQuantities);
+      const newAddonCart = [...addoncart];
+      newAddonCart[index].quantity = newAddonQuantities[index];
+      setAddonCart(newAddonCart);
+    }
+  };
+
+  const removeAddon = (index) => {
+    const newAddoncart = [...addoncart];
+    newAddoncart.splice(index, 1);
+    setAddonCart(newAddoncart);
+    const newAddonQuantities = [...addonQuantities];
+    newAddonQuantities.splice(index, 1);
+    setAddonQuantities(newAddonQuantities);
+  };
+
   // Function to calculate total cost from cart and cart2
   const calculateTotalCost = () => {
     let total = 0;
@@ -322,7 +314,8 @@ const StepTen = ({
     // Calculate total from addoncart (selected addons)
     addoncart.forEach((addon) => {
       const addonPrice = parseFloat(addon.price.replace(/[$,]/g, ""));
-      total += addonPrice; // Add the price of each addon
+      const addonQuantity = addon.quantity || 1; // Default to 1 if quantity is not provided or falsy
+      total += addonPrice * addonQuantity; // Add the price of each addon multiplied by its quantity
     });
 
     // Check if total is NaN (Not a Number)
@@ -334,23 +327,6 @@ const StepTen = ({
     }
 
     return total.toFixed(2); // Return total as a string with 2 decimal places
-  };
-
-  // Function to handle adding an addon to the addoncart
-  const handleAddAddon = (addon) => {
-    const index = addoncart.findIndex((a) => a.id === addon.id);
-
-    if (index !== -1) {
-      // Addon already in addoncart, remove it
-      const newAddonCart = [...addoncart];
-      newAddonCart.splice(index, 1);
-      setAddonCart(newAddonCart);
-      handleChange('stepTen')({ addoncart: newAddonCart });
-    } else {
-      // Add addon to addoncart
-      setAddonCart((prevAddons) => [...prevAddons, addon]);
-      handleChange('stepTen')({ addoncart: [...addoncart, addon] });
-    }
   };
 
   
@@ -416,24 +392,6 @@ const StepTen = ({
     setCart2(updatedCart2); // Assuming setCart2 is defined and updates cart2 state
   };
 
-  const availableAddons = [
-    {
-      id: "1",
-      title: t("stepTen.addons.title1"),
-      price: "$39.99",
-      imgSrc: "/assets/med1.svg",
-      description: t("stepTen.addons.addon1Desc"),
-    },
-    {
-      id: "2",
-      title: t("stepTen.addons.title1"),
-      price: "$39.99",
-      imgSrc: "/assets/med1.svg",
-      description: t("stepTen.addons.addon2Desc"),
-    },
-  ];
-
-  const itemTitle = cart2.length > 0 ? cart2[0].title : "";
   return (
     <div className="formContainer step-form">
       <div className="title-info">
@@ -571,17 +529,82 @@ const StepTen = ({
         )}
 
         {/* Display addoncart items */}
-        {addoncart.length > 0 && (
-          <span>
-            <h4>ZOFRAN x {addoncart.length}</h4>
-            <h4>
-              {addoncart.reduce(
-                (acc, addon) =>
-                  acc + parseFloat(addon.price.replace(/[$,]/g, "")),
-                0
-              )}
-            </h4>
-          </span>
+        {addoncart.length === 0 ? (
+          <div className="additional-suppliments">
+            <span className="no-selected">
+              <h3>{t("stepTen.availableAddon")}</h3>
+              <p>(No Addon Selected)</p>
+            </span>
+            <button className="add-suppliment" onClick={addAddon}>
+              Add Addons{" "}
+              <img src="/assets/arrowblue.svg" alt="" />
+            </button>
+          </div>
+        ) : (
+          <div className="additional-suppliments cart-added">
+            <div className="fsdfg">
+              <h3 className="title-card-add">
+                Available Addons
+              </h3>
+              <span className="suppliment">
+                <button className="add-suppliment" onClick={addAddon}>
+                  Add Addons{" "}
+                  <img src="/assets/arrowblue.svg" alt="" />
+                </button>
+              </span>
+            </div>
+            <div className="supplements-card all-added-supplements">
+              {addoncart.map((item, index) => (
+                <div className="card card-2" key={index}>
+                  <div className="card-top card-2-top">
+                    <div className="card-img">
+                      <img src={item.imgSrc} alt={item.title} />
+                    </div>
+                    <div className="card-title-price title-price-stepthree">
+                      <div className="title-price">
+                        <h3 className="card-2-title">{item.title}</h3>
+                        <h3 className="price-items">{item.price}</h3>
+                      </div>
+                      <div className="price-desc">
+                        <p>{item.description}</p>
+                      </div>
+                      <span className="bottom">
+                        <h4>Quantity {item.quantity}</h4>
+                        <h4>
+                        ${(
+                          parseFloat(item.price.replace(/[$,]/g, "")) * item.quantity
+                        ).toFixed(2)}
+                        </h4>
+                      </span>
+                    </div>
+                  </div>
+                  <div className="btn-group cart-actions quantity">
+                    <div className="quantity-control">
+                      <button
+                        className="quantity-btn quantity-increase"
+                        onClick={() => decreaseAddonQuantity(index)}
+                      >
+                        -
+                      </button>
+                      <span>{addonQuantities[index]}</span>
+                      <button
+                        className="quantity-btn quantity-dicrease"
+                        onClick={() => increaseAddonQuantity(index)}
+                      >
+                        +
+                      </button>
+                    </div>
+                    <span
+                      className="remove-suppliment"
+                      onClick={() => removeAddon(index)}
+                    >
+                      <img src="/assets/delete.svg" alt="" />
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         )}
 
         <hr />
@@ -632,55 +655,6 @@ const StepTen = ({
         </div>
       </fieldset>
 
-      {/* Available Addons */}
-      <div className="addon-section">
-        <div className="available-addons-container">
-          <h2>{t("stepTen.availableAddon")}</h2>
-          {availableAddons.map((addon, index) => {
-            const isInCart = addoncart.some((item) => item.id === addon.id);
-
-            return (
-              <div className="available-addons-card" key={index}>
-                <img width={"102px"} src={addon.imgSrc} alt={addon.title} />
-                <div className="addon-card-top">
-                  <div className="title-price">
-                    <h2 className="title">{addon.title}</h2>
-                    <p className="price" style={{ color: "#38B64B" }}>
-                      {addon.price}
-                    </p>
-                  </div>
-                  <p>{addon.description}</p>
-                  <div className="btn-group addons-btn">
-                    <div className="forward-btns">
-                      <button
-                        type="button"
-                        className={`long-btn ${
-                          isInCart ? "delete-btn" : "add-btn"
-                        }`}
-                        onClick={() => handleAddAddon(addon)}
-                      >
-                        {isInCart ? t("stepTen.inCart") : t("stepTen.add")}
-                      </button>
-                      <button
-                        className={`arrow-btn ${
-                          isInCart ? "delete-btn" : "cart-btn"
-                        }`}
-                        onClick={() => handleAddAddon(addon)}
-                      >
-                        <img
-                          src={`/assets/${isInCart ? "delete" : "cart"}.svg`}
-                          alt=""
-                        />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
       <div className="outside-padding">
         <div className="shipping-address-section">
           <span className="shipping-add-top">
@@ -703,12 +677,12 @@ const StepTen = ({
       <ShippingAddressModal
         isOpen={isShippingModalOpen}
         onClose={() => setIsShippingModalOpen(false)}
-        shippingAddress={shippingAddress}
+        shippingAddress={initialShippingAddress.values}
         handleSubmit={handleShippingSubmit}
-        handleInputChange={handleShippingInputChange}
+        handleInputChange={initialShippingAddress.handleChange}
         stateOptions={stateOptions}
-        validateField={validateFieldShipping}
-        setToInitial={() => setShippingAddress(initialShippingAddress)}
+        validateField={initialShippingAddress.validateField}
+        setToInitial={initialShippingAddress.setToInitial}
       />
 
       <div className="outside-padding">
@@ -733,12 +707,12 @@ const StepTen = ({
       <BillingAddressModal
         isOpen={isBillingModalOpen}
         onClose={() => setIsBillingModalOpen(false)}
-        billingAddress={billingAddress}
+        billingAddress={initialBillingAddress.values}
         handleSubmit={handleBillingSubmit}
-        handleInputChange={handleBillingInputChange}
+        handleInputChange={initialBillingAddress.handleChange}
         stateOptions={stateOptions}
-        validateField={validateFieldBilling}
-        setToInitial={() => setBillingAddress(initialBillingAddress)}
+        validateField={initialBillingAddress.validateField}
+        setToInitial={initialBillingAddress.setToInitial}
       />
 
       <div className="btn-group btn-group-stepthree">
