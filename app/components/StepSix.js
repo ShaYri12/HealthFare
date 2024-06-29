@@ -291,6 +291,14 @@ const StepSix = ({
             billingZipCode: formData.zipCode,
             billingState: formData.state,
           });
+          handleChange({
+            ...formValues.stepSix,
+            billingStreetAddress1: formData.streetAddress1,
+            billingStreetAddress2: formData.streetAddress2,
+            billingCity: formData.city,
+            billingZipCode: formData.zipCode,
+            billingState: formData.state,
+          })
           setCurrentQuestion(currentQuestion + 2);    
         }else{
       setCurrentQuestion(currentQuestion + 1);
@@ -647,6 +655,7 @@ const StepSix = ({
               className="gender-option"
               onClick={() => {
                 setFormData({ ...formData, gender: "male" });
+                handleChange({...formValues.stepSix, gender: "male"});
                 nextStep();
               }}
             >
@@ -663,6 +672,7 @@ const StepSix = ({
               className="gender-option"
               onClick={() => {
                 setFormData({ ...formData, gender: "female" });
+                handleChange({...formValues.stepSix, gender: "female"});
                 nextStep();
               }}
             >
@@ -679,6 +689,7 @@ const StepSix = ({
               className="gender-option"
               onClick={() => {
                 setFormData({ ...formData, gender: "prefer-not-to-say" });
+                handleChange({...formValues.stepSix, gender: "prefer-not-to-say"});
                 nextStep();
               }}
             >

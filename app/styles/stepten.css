@@ -6,8 +6,8 @@
 }
 .change-frequency{
     position: absolute;
-    right: 7%;
-    top: 3.7%;
+    right: 0;
+    top: 0;
     padding: 3px 7px !important;
     align-items: center;
     justify-content: center;
@@ -31,13 +31,12 @@
     right: 0;
 }
 
-.additional-suppliments, .included-card{
+.additional-suppliments{
     display: flex;
     flex-direction: column;
     align-items: start;
-    padding: 30px;
-    border: 2px solid #E3E3E4;
-    border-radius: 10px;
+    padding-top: 20px;
+    border-top: 2px solid #E3E3E4;
     gap: 20px !important;
 }
 
@@ -81,7 +80,7 @@
     width: 100%;
 }
 
-.additional-suppliments span h3, .included-card h3{
+.additional-suppliments span h3{
     font-weight: 400;
     font-size: 18px;
     line-height: 21.6px;
@@ -90,10 +89,44 @@
     text-transform: uppercase;
 }
 
-.included-card span{
+.included-card {
+    padding: 10px 20px 20px 20px;
+    border: 2px solid #E3E3E4;
+    border-radius: 10px;
+}
+
+.included-card legend {
+    font-weight: bold;
+    font-size: 18px;
+    color: #002C20;
+    text-transform: uppercase;
+}
+
+.included-card-content {
     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.included-card-content span {
+    flex: 1 1 calc(50% - 20px); /* Two spans per row by default */
+    display: flex;
+    align-items: center;
     gap: 10px;
 }
+
+@media screen and (max-width: 450px) {
+    .included-card-content span {
+        flex-basis: 100%; /* Take full width of the container */
+    }
+}
+
+.included-card-content span p{
+    font-weight: 300;
+    font-size: 15px !important;
+    line-height: 24px;
+}
+
 
 .additional-suppliments{
     display: flex;
@@ -208,16 +241,87 @@
     position: relative;
 }
 
+.card-mini{
+    position: relative;
+    border: none;
+    padding: 0 0 20px 0;
+}
+
+
+.card-mini .card-top{
+    display: flex;
+    gap:10px;
+}
+
+@media screen and (max-width: 450px) {
+    .card-mini .card-top{
+        flex-direction: column;
+    }
+    .card-mini .card-title-price h3{
+        margin-top: 0 !important;
+    }
+  }
+
+.card-mini .card-top .card-img img{
+    width: 90px;
+}
+
+.card-mini .card-title-price h3{
+    margin-top: 34px;
+}
+
+.card-mini .card-title-price{
+    display: flex;
+    flex-direction: column;
+}
+
+.card-mini .card-title-price span{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 10px
+}
+
+.card-mini .bottom{
+    flex-direction: row !important;
+}
+
+
 .card-2{
     border: none !important;
     padding: 0 !important;
     border-radius: 0;
     border-top: 2px solid #E3E3E4 !important;
     padding-top: 20px !important;
+    padding-bottom: 10px !important;
 }
 
 .card-2-top{
-    flex-direction: column !important;
+    flex-direction: row !important;
+}
+
+@media screen and (max-width: 450px){
+    .card-2-top{
+        flex-direction: column !important;
+    }
+}
+
+.card-2-top .card-img img{
+    width: 80px;
+}
+
+.card-2-title{
+    padding-right: 5px;
+}
+
+.card-2-top .price-items{
+    color: #002C20 !important;
+}
+
+.card-2-top .bottom{
+    display: flex;
+    flex-direction: row;
 }
 
 .plan{
@@ -250,6 +354,7 @@
     border-radius: 84px;
     cursor: pointer;
     gap:6px;
+    width: auto;
 }
 
 .remove-suppliment:hover{
@@ -333,6 +438,10 @@
     cursor: pointer;
 }
 
+.suppliment{
+    width: fit-content !important;
+}
+
 .additional-suppliments span{
     display: flex;
     flex-direction: column;
@@ -353,9 +462,9 @@
     }
 }
 
-.additional-suppliments p, .included-card span p{
+.additional-suppliments p{
     font-weight: 300;
-    font-style: 16px;
+    font-size: 16px;
     line-height: 24px;
 }
 
@@ -367,6 +476,12 @@
     border-radius: 10px;
     padding: 30px;
     gap: 10px;
+}
+
+@media screen and (max-width: 576px) {
+    .total-cost{
+        padding: 20px;
+    }
 }
 
 .total-cost .item-title{
@@ -490,6 +605,20 @@
 
 
 .shipping-add-top{
+    display: flex;
+    justify-content: space-between;
+}
+
+.billing-address-section{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid #E3E3E4;;
+    padding: 30px;
+}
+
+
+.billing-add-top{
     display: flex;
     justify-content: space-between;
 }

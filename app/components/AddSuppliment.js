@@ -2,10 +2,15 @@
 import '../styles/suppliments.css';
 import '../styles/form.css';
 import { useTranslation } from 'react-i18next'; // Import useTranslation hook
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { currencyToNumber } from '../utils/currencyUtils'; // Assume you have this utility function
 
 const SupplimentsCard = ({ imgSrc, title, price, desc, addToCart, handleOrignalStep }) => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+
     const [quantity, setQuantity] = useState(1);
 
     const handleAddToCart = () => {

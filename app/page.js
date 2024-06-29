@@ -34,7 +34,7 @@ const Home = () => {
   const [currentStepSevenQuestion, setCurrentStepSevenQuestion] = useState(0);
 
   const [formValues, setFormValues] = useState({
-    stepOne: { "location" : "Maine" },
+    stepOne: {},
     stepTwo: {},
     planSelection: {},
     suppliments: {},

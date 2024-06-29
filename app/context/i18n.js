@@ -345,6 +345,7 @@ const resources = {
         inCart: "In cart",
         changeFrequency: "Change Frequency",
         shippingAddress: "Shipping Address",
+        billingAddress: "Billing Address",
         edit: "Edit",
         save: "Save",
         cancel: "Cancel"
@@ -737,6 +738,7 @@ const resources = {
         inCart: "En el carrito",
         changeFrequency: "Cambiar Frecuencia",
         shippingAddress: "Dirección de Envío",
+        billingAddress: "Dirección de Facturación",
         edit: "Editar",
         save: "Guardar",
         cancel: "Cancelar"
@@ -1130,6 +1132,7 @@ const resources = {
         inCart: "No carrinho",
         changeFrequency: "Alterar Frequência",
         shippingAddress: "Endereço de Envio",
+        billingAddress: "Endereço de Cobrança",
         edit: "Editar",
         save: "Salvar",
         cancel: "Cancelar"

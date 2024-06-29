@@ -96,6 +96,7 @@
   .step-form{
     padding: 0px 60px;
     box-shadow: none;
+    width: 100%;
 }
 
 .step-form h2{
