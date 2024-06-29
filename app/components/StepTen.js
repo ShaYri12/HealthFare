@@ -7,7 +7,7 @@ import '../styles/suppliments.css';
 import Review from "./Review";
 import PaySlider from "./PaySlider";
 import MonthPlanModal from "./MonthPlanModal";
-import ShippingAddressModal from "./shippingAddressModal";
+import ShippingAddressModal from "./ShippingAddressModal";
 import BillingAddressModal from "./BillingAddressModal";
 
 const StepTen = ({
