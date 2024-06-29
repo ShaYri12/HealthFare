@@ -168,6 +168,12 @@
     padding: 0 40px;
 }
 
+.addon-card-top{
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
 .available-addons-container{
     border: 1px solid #002C20;
     border-radius: 10px;

@@ -533,10 +533,10 @@ const StepTen = ({
           <div className="additional-suppliments">
             <span className="no-selected">
               <h3>{t("stepTen.availableAddon")}</h3>
-              <p>(No Addon Selected)</p>
+              <p>{t("stepTen.noAddonSelected")}</p>
             </span>
             <button className="add-suppliment" onClick={addAddon}>
-              Add Addons{" "}
+            {t("stepTen.addAddons")}{" "}
               <img src="/assets/arrowblue.svg" alt="" />
             </button>
           </div>
@@ -544,11 +544,11 @@ const StepTen = ({
           <div className="additional-suppliments cart-added">
             <div className="fsdfg">
               <h3 className="title-card-add">
-                Available Addons
+              {t("stepTen.availableAddon")}
               </h3>
               <span className="suppliment">
                 <button className="add-suppliment" onClick={addAddon}>
-                  Add Addons{" "}
+                {t("stepTen.addAddons")}{" "}
                   <img src="/assets/arrowblue.svg" alt="" />
                 </button>
               </span>

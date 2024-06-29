@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from 'react-i18next'; // Import useTranslation hook
+import '../styles/stepten.css'
 
 const AvailableAddons = ({ handleOrignalStep, handleChange, formValues }) => {
     useEffect(() => {

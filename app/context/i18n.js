@@ -323,6 +323,8 @@ const resources = {
         shipping: "Overnight Shipping",
         totalCost: "TOTAL COST",
         availableAddon: "Available Add-ons",
+        noAddonSelected: "(No Addon Selected)",
+        addAddons: "Add Addons",
         addons: {
           title1: "ZOFRAN",
           addon1Desc:
