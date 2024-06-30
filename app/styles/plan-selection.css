@@ -82,6 +82,11 @@
     }
   }
 
+  .plan-selection-text .price-total{
+      display: flex;
+      justify-content: start;
+  }
+
   .plan-selection-text .price-total span{
     font-size: 13px !important;
     text-align: start;
