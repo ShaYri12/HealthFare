@@ -104,7 +104,7 @@ const StepSeven = ({
     switch (currentQuestion) {
       case 0:
         if (!formData.question1 && showQuestion1) {
-          newErrors.question1 = t("error.fillError");
+          newErrors.question1 = t("error.currentMedicationsError");
           isValid = false;
         } else if (
           showQuestion1 &&
@@ -116,7 +116,7 @@ const StepSeven = ({
         break;
       case 1:
         if (!formData.question2 && showQuestion2) {
-          newErrors.question2 = t("error.fillError");
+          newErrors.question2 = t("error.medicationAllergiesError");
           isValid = false;
         } else if (
           showQuestion2 &&
@@ -128,7 +128,7 @@ const StepSeven = ({
         break;
       case 2:
         if (!formData.question3 && showQuestion3) {
-          newErrors.question3 = t("error.fillError");
+          newErrors.question3 = t("error.dietarySupplementsError");
           isValid = false;
         } else if (
           showQuestion3 &&
@@ -140,7 +140,7 @@ const StepSeven = ({
         break;
       case 3:
         if (!formData.question4 && showQuestion4) {
-          newErrors.question4 = t("error.fillError");
+          newErrors.question4 = t("error.currentAntibioticsError");
           isValid = false;
         } else if (
           showQuestion4 &&
@@ -152,7 +152,7 @@ const StepSeven = ({
         break;
       case 4:
         if (!formData.question5 && showQuestion5) {
-          newErrors.question5 = t("error.fillError");
+          newErrors.question5 = t("error.weightLossMedicationsError");
           isValid = false;
         } else if (
           showQuestion5 &&

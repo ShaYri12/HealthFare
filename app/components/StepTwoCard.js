@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-const StepTwoCard = ({ imgSrc, title, titleDesc, price, stock, label, totalSavings, month, year, savings, description, star, header, features, nextStep, addToCart }) => {
+const StepTwoCard = ({ imgSrc, title, titleDesc, injection, price, stock, label, totalSavings, month, year, savings, description, star, header, features, nextStep, addToCart }) => {
   const { t } = useTranslation(); // Hook to access translations
   const [quantity, setQuantity] = useState(1);
 
@@ -15,6 +15,7 @@ const StepTwoCard = ({ imgSrc, title, titleDesc, price, stock, label, totalSavin
           price: price,
           savings: savings,
           description: description,
+          injection: injection,
           stock: stock,
           label: label,
           totalSavings :totalSavings,
@@ -50,14 +51,9 @@ const StepTwoCard = ({ imgSrc, title, titleDesc, price, stock, label, totalSavin
           <span>{label}</span>
           <h3>{stock}</h3>
           <p className='title-desc'>{titleDesc}</p>
-          <span className='price-savings'>
-            <div className='price'>{price}            </div>
-              {savings && (
-                <div className='saving'>
-                  <p>{totalSavings}</p>
-                  <span>{savings}<p>/{year}</p></span>
-                </div>
-              )}
+          <span className='price-injection'>
+            <div>{injection}</div>
+            <div className='price'>{price}</div>
           </span>
         </div>
       </div>

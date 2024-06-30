@@ -1,0 +1,55 @@
+.addon-section-title{
+    font-size: 30px !important;
+    line-height: 32px !important;
+    padding-bottom: 0 !important;
+}
+
+.addon-card-top{
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.addon-card-top .title-price .title{
+    text-transform: capitalize;
+}
+
+
+.available-addons-container{
+    border: 1px solid #002C20;
+    border-radius: 10px;
+}
+.available-addons-container h2{
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 21px;
+    color: #002C20;
+    padding: 20px;
+    letter-spacing: 0.12px;
+}
+
+
+.available-addons-card{
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid black;
+    padding: 30px;
+    gap: 15px;
+}
+
+.available-addons-card p{
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.addons-btn{
+    font-weight: 400 !important;
+    font-size: 15px !important;
+    line-height: 30.93px !important;
+    padding: 10px 0 !important;
+}
+
+.addons-btn .arrow-btn img{
+  width: 100%;
+
+}

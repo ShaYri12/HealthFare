@@ -24,6 +24,17 @@
     text-transform: uppercase;
 }
 
+.about-appointment{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-transform: capitalize;
+}
+
+.about-appointment span{
+    font-weight: 600;
+}
+
 .assistance{
     display: flex;
     flex-direction: column;

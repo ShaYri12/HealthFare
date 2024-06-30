@@ -110,7 +110,7 @@ const Suppliments = ({ handleOrignalStep, handleChange, values, cartitem }) => {
     return (
         <div className="formContainer step-form">
             <div className="title-info">
-                <h2>{t('stepThree.title')}</h2>
+                <h2>{t('stepThree.title2')}</h2>
             </div>
             {cardsData.map((card, index) => (
                 <SupplimentsCard

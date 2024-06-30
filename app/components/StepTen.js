@@ -297,7 +297,7 @@ const StepTen = ({
       const itemQuantity = item.quantity || 1; // Default to 1 if quantity is not provided or falsy
 
       // Check monthPlan and adjust price calculation accordingly
-      if (item.monthPlan.toLowerCase() === "1-month supply") {
+      if (item.monthPlan.toLowerCase() === "monthly supply") {
         total += itemPrice * itemQuantity; // Monthly price
       } else if (item.monthPlan.toLowerCase() === "3-month supply") {
         total += itemPrice * itemQuantity * 3; // Three months price
@@ -329,43 +329,42 @@ const StepTen = ({
     return total.toFixed(2); // Return total as a string with 2 decimal places
   };
 
-  
-  const [selectedMonthPlan, setSelectedMonthPlan] = useState("");
-  const [selectedPrice, setSelectedPrice] = useState("");
-  const [selectedDescription, setSelectedDescription] = useState("");
-
   const handleMonthPlanChange = (item, newPlan) => {
     // Assuming formValues and cart2 are properly defined and accessible
 
     // Update formValues.stepTwo with new monthPlan, price, and description
     let newPrice = "";
     let newDescription = "";
+    let newInjection = "";
 
     if (item.title === t("stepTwo.cards.0.title")) {
-      if (newPlan === "1-month supply") {
+      if (newPlan === "monthly supply") {
         newPrice = "$296";
         newDescription = t("stepTwo.cards.0.description");
       } else if (newPlan === "3-month supply") {
         newPrice = "$279";
         newDescription = t("stepTwo.cards.0.description2");
       }
+      newInjection = t("stepTwo.cards.0.injection")
     } else if (item.title === t("stepTwo.cards.1.title")) {
-      if (newPlan === "1-month supply") {
+      if (newPlan === "monthly supply") {
         newPrice = "$425";
         newDescription = t("stepTwo.cards.1.description");
       } else if (newPlan === "3-month supply") {
         newPrice = "$399";
         newDescription = t("stepTwo.cards.1.description2");
       }
+      newInjection = t("stepTwo.cards.1.injection")
     } else {
       // Default values when no specific product is selected
-      if (newPlan === "1-month supply") {
+      if (newPlan === "monthly supply") {
         newPrice = "$296";
         newDescription = t("stepTwo.cards.0.description");
       } else if (newPlan === "3-month supply") {
         newPrice = "$279";
         newDescription = t("stepTwo.cards.0.description2");
       }
+      newInjection = t("stepTwo.cards.0.injection")
     }
 
     // Update formValues.stepTwo with new values
@@ -409,7 +408,7 @@ const StepTen = ({
         {cart2.map((item, index) => {
           // Determine the multiplier based on monthPlan
           let multiplier = 1;
-          if (item.monthPlan.toLowerCase() === "1-month supply") {
+          if (item.monthPlan.toLowerCase() === "monthly supply") {
             multiplier = 1;
           } else if (item.monthPlan.toLowerCase() === "3-month supply") {
             multiplier = 3;
@@ -432,9 +431,10 @@ const StepTen = ({
                       <button className="change-frequency" onClick={()=> setMonthPlanModal(true)}>{t("stepTen.changeFrequency")}</button>
                       <h3>{item.title}</h3>
                       <p className="title-desc">{item.titleDesc}</p>
+                      <span className="">{item.injection}</span>
                     </span>
                     <span className="bottom">
-                      <h4 className="month-plan">{item.monthPlan === "1-month supply" ? t("stepTen.oneMonthPlan") : t("stepTen.threeMonthPlan")}</h4>
+                      <h4 className="month-plan">{item.monthPlan === "monthly supply" ? t("stepTen.oneMonthPlan") : t("stepTen.threeMonthPlan")}</h4>
                       <h4>{adjustedPrice}</h4>
                     </span>
                   </div>

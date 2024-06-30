@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from 'react-i18next'; // Import useTranslation hook
 import '../styles/available-addons.css'
+import '../styles/stepten.css'
 
-const AvailableAddons = ({ handleOrignalStep, handleChange, formValues }) => {
+const AvailableAddons = ({ prevStep, nextStep, handleChange, formValues }) => {
     useEffect(() => {
         window.scrollTo(0, 0);
       }, []);
@@ -87,11 +88,11 @@ const AvailableAddons = ({ handleOrignalStep, handleChange, formValues }) => {
         })}
       </div>
       <div className="btn-group btn-group-stepthree">
-        <button className="back-btn back-btn-stepthree" onClick={handleOrignalStep}>
+        <button className="back-btn back-btn-stepthree" onClick={prevStep}>
           <img src="/assets/arrow.svg" alt="arrow" /> {t("stepThree.back")}
         </button>
         <div className="forward-btns">
-          <button className="long-btn long-btn-stepthree" onClick={handleOrignalStep}>
+          <button className="long-btn long-btn-stepthree" onClick={nextStep}>
             {t("stepFour.continueJourney")}
           </button>
         </div>

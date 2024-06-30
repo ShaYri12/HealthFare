@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from "react-i18next";
+import { currencyToNumber } from '../utils/currencyUtils';
 
 const MonthPlanModal = ({ isOpen, onClose, item, handleMonthPlanChange }) => {
   const { t } = useTranslation();
@@ -9,18 +10,18 @@ const MonthPlanModal = ({ isOpen, onClose, item, handleMonthPlanChange }) => {
   let oneMonthPrice, threeMonthPrice, oneMonthDescription, threeMonthDescription;
 
   if (item.title === t("stepTwo.cards.0.title")) {
-    oneMonthPrice = `$296 / ${t("planSelection.month")}*`;
-    threeMonthPrice = `$279 / ${t("planSelection.month")}*`;
+    oneMonthPrice = `$296 ${t("planSelection.month")}*`;
+    threeMonthPrice = `$279 ${t("planSelection.month")}*`;
     oneMonthDescription = t("stepTwo.cards.0.description");
     threeMonthDescription = t("stepTwo.cards.0.description2");
   } else if (item.title === t("stepTwo.cards.1.title")) {
-    oneMonthPrice = `$425 / ${t("planSelection.month")}*`;
-    threeMonthPrice = `$399 / ${t("planSelection.month")}*`;
+    oneMonthPrice = `$425 ${t("planSelection.month")}*`;
+    threeMonthPrice = `$399 ${t("planSelection.month")}*`;
     oneMonthDescription = t("stepTwo.cards.1.description");
     threeMonthDescription = t("stepTwo.cards.1.description2");
   } else {
-    oneMonthPrice = `$296 / ${t("planSelection.month")}*`;
-    threeMonthPrice = `$279 / ${t("planSelection.month")}*`;
+    oneMonthPrice = `$296 ${t("planSelection.month")}*`;
+    threeMonthPrice = `$279 ${t("planSelection.month")}*`;
     oneMonthDescription = t("stepTwo.cards.0.description");
     threeMonthDescription = t("stepTwo.cards.0.description2");
   }
@@ -45,6 +46,9 @@ const MonthPlanModal = ({ isOpen, onClose, item, handleMonthPlanChange }) => {
   // Render the modal content
   if (!isOpen) return null;
 
+  const threeMonthPriceNumber = currencyToNumber(threeMonthPrice.split(' ')[0]);
+  const totalThreeMonthPrice = threeMonthPriceNumber * 3;
+
   return (
     <div className="modal">
       <div className="modal-content">
@@ -54,12 +58,12 @@ const MonthPlanModal = ({ isOpen, onClose, item, handleMonthPlanChange }) => {
         </div>
         <form className="input-form">
           <div className="plan-select">
-            <div className="plan-option" onClick={() => handleChange('1-month supply')}>
+            <div className="plan-option" onClick={() => handleChange('monthly supply')}>
               <input
                 type="radio"
                 id="one-month"
                 name="plan"
-                checked={pendingPlan === '1-month supply'}
+                checked={pendingPlan === 'monthly supply'}
                 onChange={() => {}}
               />
               <label className="plan-selection-text" htmlFor="one-month">
@@ -79,6 +83,9 @@ const MonthPlanModal = ({ isOpen, onClose, item, handleMonthPlanChange }) => {
                 <span className="month">{t('planSelection.threeMonthPlan')}</span>
                 <div className="price">
                   <span className="original-price">{oneMonthPrice}</span> <span>{threeMonthPrice}</span>
+                </div>
+                <div className="price-total">
+                  <span>{t('planSelection.total')} ${totalThreeMonthPrice} {t('planSelection.equivalentTo')} {threeMonthPrice} {t('planSelection.month')})</span>
                 </div>
               </label>
             </div>

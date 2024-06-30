@@ -43,7 +43,7 @@ const StepEight = ({ nextStep, prevStep, handleChange, updateNotEligibleData, ha
   const handleSubmit = (event) => {
     event.preventDefault();
     if (selectedConditions.length === 0) {
-      setError(t('error.selectError'));
+      setError(t('error.healthConditionsError'));
     } else if (selectedConditions.some(condition => disqualifyingConditions.includes(condition))) {
       const newData = {
         title: t('error.disqualifyTitle'),

@@ -164,43 +164,6 @@
     color: #38B64B !important;
 }
 
-.addon-section{
-    padding: 0 40px;
-}
-
-.addon-card-top{
-    gap: 10px;
-    display: flex;
-    flex-direction: column;
-}
-
-.available-addons-container{
-    border: 1px solid #002C20;
-    border-radius: 10px;
-}
-.available-addons-container h2{
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 21px;
-    color: #002C20;
-    padding: 20px;
-    letter-spacing: 0.12px;
-}
-
-
-.available-addons-card{
-    display: flex;
-    flex-direction: column;
-    border-top: 1px solid black;
-    padding: 30px;
-    gap: 15px;
-}
-
-.available-addons-card p{
-    font-size: 16px;
-    font-weight: 300;
-}
-
 .title-price{
     display: flex;
     align-items: center;
@@ -273,6 +236,10 @@
     width: 90px;
 }
 
+.card-mini .title-desc{
+    font-weight: 500 !important;
+}
+
 .card-mini .card-title-price h3{
     margin-top: 34px;
 }
@@ -294,6 +261,9 @@
     flex-direction: row !important;
 }
 
+.bottom h4{
+    font-weight: 600 !important;
+}
 
 .card-2{
     border: none !important;
@@ -584,18 +554,6 @@
     margin-right: auto;
     margin-left: auto;
     gap: 12.47px;
-
-  }
-
-  .addons-btn{
-    font-weight: 400 !important;
-    font-size: 15px !important;
-    line-height: 30.93px !important;
-    padding: 10px 0 !important;
-  }
-
-  .addons-btn .arrow-btn img{
-    width: 100%;
 
   }
 

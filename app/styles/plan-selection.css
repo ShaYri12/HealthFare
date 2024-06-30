@@ -71,7 +71,8 @@
 
   .plan-selection-text .price{
     display: flex;
-    gap: 10px
+    gap: 10px;
+    font-size: 15px;
   }
 
   @media screen and (max-width: 400px) {
@@ -79,6 +80,11 @@
       flex-direction: column;
       gap: 0px !important;
     }
+  }
+
+  .plan-selection-text .price-total span{
+    font-size: 13px !important;
+    text-align: start;
   }
 
   .original-price{

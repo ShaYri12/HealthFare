@@ -134,10 +134,17 @@
     color: #484E5A !important;
 }
 
-.price-savings{
+.price-injection{
     display: flex;
+    flex-direction: column;
     align-items: start !important;
     justify-content: space-between;
+    gap: 5px;
+}
+
+.price-injection .price{
+    font-weight: 700;
+    color: #002C20;
 }
 
 .price{
@@ -192,7 +199,7 @@
     text-transform: uppercase;
 }
 
-.price-savings h2{
+.price-injection h2{
     font-weight: 600 !important;
     padding: 0 !important;
     font-size: 45px !important;
@@ -231,7 +238,7 @@
 .card-info{
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 10px !important;
 }
 
 @media screen and (max-width: 576px) {

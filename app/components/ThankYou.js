@@ -30,6 +30,12 @@ const ThankYouPage = ({ handleSubmit, formValues }) => {
         <p>{t("thankYou.message")}</p>
       </div>
 
+      <div className="about-appointment">
+        <h3>{t("thankYou.appointmentDetails")}</h3>
+        <span>{t("thankYou.date")}: {formValues.appointment.selectedDay}</span>
+        <span>{t("thankYou.time")}: {formValues.appointment.selectedTime} EST</span>
+      </div>
+
       {renderFormValues()}
 
       <div className="assistance">

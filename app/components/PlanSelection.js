@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import "../styles/plan-selection.css";
 import "../styles/form.css";
 import Review from "./Review";
+import { currencyToNumber } from "../utils/currencyUtils";
 
 const PlanSelection = ({ nextStep, prevStep, handleChange, values, cartitem2 }) => {
   const { t } = useTranslation();
@@ -28,7 +29,7 @@ const PlanSelection = ({ nextStep, prevStep, handleChange, values, cartitem2 }) 
         ...formData.stepTwo,
         price: cleanedPrice,
         description,
-        monthPlan: selectedPlan === '1-month supply' ? '1-month supply' : '3-month supply',
+        monthPlan: selectedPlan === 'monthly supply' ? 'monthly supply' : '3-month supply',
       },
     };
     setFormData(newFormData);
@@ -53,22 +54,22 @@ const PlanSelection = ({ nextStep, prevStep, handleChange, values, cartitem2 }) 
 
     if (productTitle === t("stepTwo.cards.0.title")) {
       return {
-        oneMonthPrice: `$296 / ${t("planSelection.month")}`,
-        threeMonthPrice: `$279 / ${t("planSelection.month")}`,
+        oneMonthPrice: `$296 ${t("planSelection.month")}`,
+        threeMonthPrice: `$279 ${t("planSelection.month")}`,
         oneMonthDescription: t("stepTwo.cards.0.description"),
         threeMonthDescription: t("stepTwo.cards.0.description2"),
       };
     } else if (productTitle === t("stepTwo.cards.1.title")) {
       return {
-        oneMonthPrice: `$425 / ${t("planSelection.month")}`,
-        threeMonthPrice: `$399 / ${t("planSelection.month")}`,
+        oneMonthPrice: `$425 ${t("planSelection.month")}`,
+        threeMonthPrice: `$399 ${t("planSelection.month")}`,
         oneMonthDescription: t("stepTwo.cards.1.description"),
         threeMonthDescription: t("stepTwo.cards.1.description2"),
       };
     } else {
       return {
-        oneMonthPrice: `$296 / ${t("planSelection.month")}`,
-        threeMonthPrice: `$279 / ${t("planSelection.month")}`,
+        oneMonthPrice: `$296 ${t("planSelection.month")}`,
+        threeMonthPrice: `$279 ${t("planSelection.month")}`,
         oneMonthDescription: t("stepTwo.cards.0.description"),
         threeMonthDescription: t("stepTwo.cards.0.description2"),
       };
@@ -76,6 +77,10 @@ const PlanSelection = ({ nextStep, prevStep, handleChange, values, cartitem2 }) 
   };
 
   const { oneMonthPrice, threeMonthPrice, oneMonthPounds, threeMonthPounds, oneMonthDescription, threeMonthDescription } = getProductDetails();
+
+
+  const threeMonthPriceNumber = currencyToNumber(threeMonthPrice);
+  const totalThreeMonthPrice = threeMonthPriceNumber * 3;
 
   return (
     <div className="formContainer step-form">
@@ -85,13 +90,13 @@ const PlanSelection = ({ nextStep, prevStep, handleChange, values, cartitem2 }) 
       </div>
       <form className="input-form">
         <div className="plan-select">
-          <div className="plan-option" onClick={() => handlePlanSelection('1-month supply', oneMonthPrice, oneMonthPounds, oneMonthDescription)}>
+          <div className="plan-option" onClick={() => handlePlanSelection('monthly supply', oneMonthPrice, oneMonthPounds, oneMonthDescription)}>
             <input
               type="radio"
               id="one-month"
               name="plan"
-              value="1-month supply"
-              checked={formData.plan === '1-month supply'}
+              value="monthly supply"
+              checked={formData.plan === 'monthly supply'}
               onChange={() => {}}
             />
             <label className="plan-selection-text" htmlFor="one-month">
@@ -112,6 +117,9 @@ const PlanSelection = ({ nextStep, prevStep, handleChange, values, cartitem2 }) 
               <span className="month">{t('planSelection.threeMonthPlan')}</span>
               <div className="price">
                 <span className="original-price">{oneMonthPrice}</span> <span>{threeMonthPrice}</span>
+              </div>
+              <div className="price-total">
+                <span>{t('planSelection.total')} ${totalThreeMonthPrice} {t('planSelection.equivalentTo')} {threeMonthPrice} {t('planSelection.month')})</span>
               </div>
             </label>
           </div>

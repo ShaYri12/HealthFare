@@ -4,6 +4,7 @@ import StepOne from './components/StepOne';
 import StepTwo from './components/StepTwo';
 import PlanSelection from './components/PlanSelection';
 import Suppliments from './components/Suppliments';
+import AddAddonsStep from './components/AddAddonsStep';
 import StepFour from './components/StepFour';
 import StepFive from './components/StepFive';
 import StepSix from './components/StepSix';
@@ -138,7 +139,7 @@ const Home = () => {
   };
 
   const handleOrignalStep = () => {
-    goToStep(14);
+    goToStep(15);
     setShowAddSuppliment(false);
     setShowAvailableAddons(false);
   };
@@ -148,6 +149,7 @@ const Home = () => {
     <StepTwo nextStep={nextStep} prevStep={prevStep} handleChange={handleChange('stepTwo')} values={formValues} cartitem2={cartitem2} />,
     <PlanSelection nextStep={nextStep} prevStep={prevStep} handleChange={handleChange} values={formValues} cartitem2={cartitem2} />,
     <Suppliments prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('suppliments')} values={formValues} cartitem={cartitem} />,
+    <AddAddonsStep prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepTen')} formValues={formValues} />,
     <StepFour prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepFour')} values={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} setLoading={setLoading} />,
     <StepFive prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepFive')} values={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} />,
     <StepSix prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepSix')} formValues={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} currentQuestion={currentStepSixQuestion} setCurrentQuestion={setCurrentStepSixQuestion} />,
