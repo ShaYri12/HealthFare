@@ -5,16 +5,18 @@ import SuppimentsCard from './SupplimentsCard';
 import { useTranslation } from 'react-i18next'; // Import useTranslation hook
 import React, { useState } from 'react';
 
-const Suppliments = ({ prevStep, nextStep,  handleChange, values, cartitem }) => {
+const Suppliments = ({ prevStep, nextStep,  handleChange, values, setCartItem, cartitem }) => {
   const [cart, setCart] = useState([]);
   const { t } = useTranslation();
 
   const addToCart = (item) => {
-    setCart(prevCart => [...prevCart, item]);
-    cartitem(item)
-    console.log('Cart:', [...cart, item]); // Log the updated cart for debugging
+    setCart([item]);
+    setCartItem([item]);
+    console.log('Cart:', [item]); // Log the updated cart for debugging
     handleChange(item);
-  };
+};
+
+
 
   const cardsData = [
     // {

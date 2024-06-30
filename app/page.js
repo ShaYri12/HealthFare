@@ -148,7 +148,7 @@ const Home = () => {
     <StepOne nextStep={nextStep} handleChange={handleChange('stepOne')} values={formValues} />,
     <StepTwo nextStep={nextStep} prevStep={prevStep} handleChange={handleChange('stepTwo')} values={formValues} cartitem2={cartitem2} />,
     <PlanSelection nextStep={nextStep} prevStep={prevStep} handleChange={handleChange} values={formValues} cartitem2={cartitem2} />,
-    <Suppliments prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('suppliments')} values={formValues} cartitem={cartitem} />,
+    <Suppliments prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('suppliments')} values={formValues} setCartItem={setCart} />,
     <AddAddonsStep prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepTen')} formValues={formValues} />,
     <StepFour prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepFour')} values={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} setLoading={setLoading} />,
     <StepFive prevStep={prevStep} nextStep={nextStep} handleChange={handleChange('stepFive')} values={formValues} updateNotEligibleData={updateNotEligibleData} handleNotEligible={handleNotEligible} />,
