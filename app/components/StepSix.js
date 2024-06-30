@@ -391,7 +391,7 @@ const StepSix = ({
           </div>
           <div>
             <label>{t("stepSix.question1.dob")}</label>
-            <div className="input-group">
+            <div className="input-group input-dob">
               <div className="input-label">
                 <input
                   type="text"

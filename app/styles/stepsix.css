@@ -19,6 +19,34 @@
     }
 }
 
+.input-dob{
+    flex-direction: row !important;
+}
+
+@media screen and (max-width: 576px){
+    .input-dob .input-label input{
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 370px){
+    .input-dob .input-label input{
+        border-radius: 15px !important;
+    }
+}
+
+@media screen and (max-width: 350px){
+    .input-dob .input-label input{
+        padding: 0 15px;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .input-dob .input-label input{
+        padding: 0 10px;
+    }
+}
+
 .input-label {
     flex: 1
 }
@@ -94,3 +122,5 @@
     align-items: center;
     gap: 8px;
  }
+
+ 
