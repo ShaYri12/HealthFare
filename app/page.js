@@ -170,7 +170,7 @@ const Home = () => {
           <div className="formContainer step-container">
             <div className='form-header'>
               <ProgressBar step={step} totalSteps={15} />
-              {step >= 10 && step !== 16 && (
+              {step >= 11 && step !== 16 && (
                 <Timer />
               )}
             </div>
