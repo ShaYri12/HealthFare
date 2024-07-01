@@ -33,11 +33,11 @@ const StepSeven = ({
   });
 
   // State to manage whether each question should be displayed
-  const [showQuestion1, setShowQuestion1] = useState(false);
-  const [showQuestion2, setShowQuestion2] = useState(false);
-  const [showQuestion3, setShowQuestion3] = useState(false);
-  const [showQuestion4, setShowQuestion4] = useState(false);
-  const [showQuestion5, setShowQuestion5] = useState(false);
+  const [showQuestion1, setShowQuestion1] = useState(null);
+  const [showQuestion2, setShowQuestion2] = useState(null);
+  const [showQuestion3, setShowQuestion3] = useState(null);
+  const [showQuestion4, setShowQuestion4] = useState(null);
+  const [showQuestion5, setShowQuestion5] = useState(null);
 
   const handleInputChange = (field) => (e) => {
     const value = e.target.value;
@@ -55,37 +55,76 @@ const StepSeven = ({
     switch (field) {
       case "question1":
         if (value == "yes") {
-          setShowQuestion1(value === "yes");
+          setShowQuestion1(true);
         } else {
-          nextInfo();
+          setShowQuestion1(false);
+          setTimeout(() => {
+            if (currentQuestion < questions.length - 1) {
+              setCurrentQuestion(currentQuestion + 1);
+              window.scrollTo(0, 0);
+            } else {
+              nextStep();
+            }
+          }, 400);
         }
         break;
       case "question2":
         if (value == "yes") {
-          setShowQuestion2(value === "yes");
+          setShowQuestion2(true);
         } else {
-          nextInfo();
+          setTimeout(() => {
+            if (currentQuestion < questions.length - 1) {
+              setCurrentQuestion(currentQuestion + 1);
+              window.scrollTo(0, 0);
+            } else {
+              nextStep();
+            }
+          }, 400);
         }
         break;
       case "question3":
         if (value == "yes") {
-          setShowQuestion3(value === "yes");
+          setShowQuestion3(true);
         } else {
-          nextInfo();
+          setShowQuestion3(false);
+          setTimeout(() => {
+            if (currentQuestion < questions.length - 1) {
+              setCurrentQuestion(currentQuestion + 1);
+              window.scrollTo(0, 0);
+            } else {
+              nextStep();
+            }
+          }, 400);
         }
         break;
       case "question4":
         if (value == "yes") {
-          setShowQuestion4(value === "yes");
+          setShowQuestion4(true);
         } else {
-          nextInfo();
+          setShowQuestion4(false);
+          setTimeout(() => {
+            if (currentQuestion < questions.length - 1) {
+              setCurrentQuestion(currentQuestion + 1);
+              window.scrollTo(0, 0);
+            } else {
+              nextStep();
+            }
+          }, 400);
         }
         break;
       case "question5":
         if (value == "yes") {
-          setShowQuestion5(value === "yes");
+          setShowQuestion5(true);
         } else {
-          nextInfo();
+          setShowQuestion5(false);
+          setTimeout(() => {
+            if (currentQuestion < questions.length - 1) {
+              setCurrentQuestion(currentQuestion + 1);
+              window.scrollTo(0, 0);
+            } else {
+              nextStep();
+            }
+          }, 400);
         }
         break;
       default:
@@ -216,27 +255,33 @@ const StepSeven = ({
             <h2>{t("stepSeven.question1.title")}</h2>
             <p className="question">{t("stepSeven.question1.label")}</p>
           </div>
+          <div className="yes-no-buttons">
+            <div className="yes-no-radio">
+              <input
+                type="radio"
+                id="question1_yes"
+                name="question1"
+                value="yes"
+                checked={showQuestion1 === true}
+                onChange={() => handleYesNoChange("question1", "yes")}
+              />
+              <label htmlFor="question1_yes">{t("stepSeven.yes")}</label>
+            </div>
+            <div className="yes-no-radio">
+              <input
+                type="radio"
+                id="question1_no"
+                name="question1"
+                value="no"
+                checked={showQuestion1 === false}
+                onChange={() => handleYesNoChange("question1", "no")}
+              />
+              <label htmlFor="question1_no">{t("stepSeven.no")}</label>
+            </div>
+          </div>
           <form onSubmit={handleSubmit} className="input-form">
-            <div className="input-label-full input-label">
-              {!showQuestion1 && (
-                <div className="yes-no-buttons">
-                  <button
-                    type="button"
-                    onClick={() => handleYesNoChange("question1", "yes")}
-                    className={`yes-btn ${showQuestion1 ? "active" : ""}`}
-                  >
-                    {t("stepSeven.yes")}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => handleYesNoChange("question1", "no")}
-                    className={`no-btn ${!showQuestion1 ? "active" : ""}`}
-                  >
-                    {t("stepSeven.no")}
-                  </button>
-                </div>
-              )}
-              {showQuestion1 && (
+            {showQuestion1 && (
+              <div className="input-label-full input-label">
                 <input
                   className="input-border"
                   type="text"
@@ -244,28 +289,27 @@ const StepSeven = ({
                   onChange={handleInputChange("question1")}
                   placeholder={t("stepSeven.question1.placeholder")}
                 />
-              )}
-              {errors.question1 && (
-                <span className="error">{errors.question1}</span>
-              )}
-            </div>
-              <div className="btn-group btn-group-stepthree">
-                <button
-                  type="button"
-                  className={`back-btn back-btn-stepthree ${!showQuestion1 ? "back-btn-grow" : "" }`}
-                  onClick={prevInfo}
-                >
-                  <img src="/assets/arrow.svg" alt="arrow" />{" "}
-                  {t("stepSeven.back")}
-                </button>
-                {showQuestion1 && (
+                {errors.question1 && (
+                  <span className="error">{errors.question1}</span>
+                )}
+              </div>
+            )}
+            <div className="btn-group btn-group-stepthree">
+              <button
+                type="button"
+                className={`back-btn back-btn-stepthree ${!showQuestion1 ? "back-btn-grow" : ""}`}
+                onClick={prevInfo}
+              >
+                <img src="/assets/arrow.svg" alt="arrow" /> {t("stepSeven.back")}
+              </button>
+              {showQuestion1 && (
                 <div className="forward-btns">
                   <button type="submit" className="long-btn long-btn-stepthree">
                     {t("stepSeven.continueJourney")}
                   </button>
                 </div>
               )}
-              </div>
+            </div>
           </form>
         </div>
       ),
@@ -277,27 +321,33 @@ const StepSeven = ({
             <h2>{t("stepSeven.question2.title")}</h2>
             <p className="question">{t("stepSeven.question2.label")}</p>
           </div>
+          <div className="yes-no-buttons">
+            <div className="yes-no-radio">
+              <input
+                type="radio"
+                id="question2_yes"
+                name="question2"
+                value="yes"
+                checked={showQuestion2 === true}
+                onChange={() => handleYesNoChange("question2", "yes")}
+              />
+              <label htmlFor="question2_yes">{t("stepSeven.yes")}</label>
+            </div>
+            <div className="yes-no-radio">
+              <input
+                type="radio"
+                id="question2_no"
+                name="question2"
+                value="no"
+                checked={showQuestion2 === false}
+                onChange={() => handleYesNoChange("question2", "no")}
+              />
+              <label htmlFor="question2_no">{t("stepSeven.no")}</label>
+            </div>
+          </div>
           <form onSubmit={handleSubmit} className="input-form">
-            <div className="input-label-full input-label">
-              {!showQuestion2 && (
-                <div className="yes-no-buttons">
-                  <button
-                    type="button"
-                    onClick={() => handleYesNoChange("question2", "yes")}
-                    className={`yes-btn ${showQuestion2 ? "active" : ""}`}
-                  >
-                    {t("stepSeven.yes")}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => handleYesNoChange("question2", "no")}
-                    className={`no-btn ${!showQuestion2 ? "active" : ""}`}
-                  >
-                    {t("stepSeven.no")}
-                  </button>
-                </div>
-              )}
-              {showQuestion2 && (
+            {showQuestion2 && (
+              <div className="input-label-full input-label">
                 <input
                   className="input-border"
                   type="text"
@@ -305,28 +355,27 @@ const StepSeven = ({
                   onChange={handleInputChange("question2")}
                   placeholder={t("stepSeven.question2.placeholder")}
                 />
-              )}
-              {errors.question2 && (
-                <span className="error">{errors.question2}</span>
-              )}
-            </div>
+                {errors.question2 && (
+                  <span className="error">{errors.question2}</span>
+                )}
+              </div>
+            )}
             <div className="btn-group btn-group-stepthree">
-                <button
-                  type="button"
-                  className={`back-btn back-btn-stepthree ${!showQuestion2 ? "back-btn-grow" : "" }`}
-                  onClick={prevInfo}
-                >
-                  <img src="/assets/arrow.svg" alt="arrow" />{" "}
-                  {t("stepSeven.back")}
-                </button>
-                {showQuestion2 && (
+              <button
+                type="button"
+                className={`back-btn back-btn-stepthree ${!showQuestion2 ? "back-btn-grow" : ""}`}
+                onClick={prevInfo}
+              >
+                <img src="/assets/arrow.svg" alt="arrow" /> {t("stepSeven.back")}
+              </button>
+              {showQuestion2 && (
                 <div className="forward-btns">
                   <button type="submit" className="long-btn long-btn-stepthree">
                     {t("stepSeven.continueJourney")}
                   </button>
                 </div>
               )}
-              </div>
+            </div>
           </form>
         </div>
       ),
@@ -338,27 +387,33 @@ const StepSeven = ({
             <h2>{t("stepSeven.question3.title")}</h2>
             <p className="question">{t("stepSeven.question3.label")}</p>
           </div>
+          <div className="yes-no-buttons">
+            <div className="yes-no-radio">
+              <input
+                type="radio"
+                id="question3_yes"
+                name="question3"
+                value="yes"
+                checked={showQuestion3 === true}
+                onChange={() => handleYesNoChange("question3", "yes")}
+              />
+              <label htmlFor="question3_yes">{t("stepSeven.yes")}</label>
+            </div>
+            <div className="yes-no-radio">
+              <input
+                type="radio"
+                id="question3_no"
+                name="question3"
+                value="no"
+                checked={showQuestion3 === false}
+                onChange={() => handleYesNoChange("question3", "no")}
+              />
+              <label htmlFor="question3_no">{t("stepSeven.no")}</label>
+            </div>
+          </div>
           <form onSubmit={handleSubmit} className="input-form">
-            <div className="input-label-full input-label">
-              {!showQuestion3 && (
-                <div className="yes-no-buttons">
-                  <button
-                    type="button"
-                    onClick={() => handleYesNoChange("question3", "yes")}
-                    className={`yes-btn ${showQuestion3 ? "active" : ""}`}
-                  >
-                    {t("stepSeven.yes")}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => handleYesNoChange("question3", "no")}
-                    className={`no-btn ${!showQuestion3 ? "active" : ""}`}
-                  >
-                    {t("stepSeven.no")}
-                  </button>
-                </div>
-              )}
-              {showQuestion3 && (
+            {showQuestion3 && (
+              <div className="input-label-full input-label">
                 <input
                   className="input-border"
                   type="text"
@@ -366,28 +421,27 @@ const StepSeven = ({
                   onChange={handleInputChange("question3")}
                   placeholder={t("stepSeven.question3.placeholder")}
                 />
-              )}
-              {errors.question3 && (
-                <span className="error">{errors.question3}</span>
-              )}
-            </div>
+                {errors.question3 && (
+                  <span className="error">{errors.question3}</span>
+                )}
+              </div>
+            )}
             <div className="btn-group btn-group-stepthree">
-                <button
-                  type="button"
-                  className={`back-btn back-btn-stepthree ${!showQuestion3 ? "back-btn-grow" : "" }`}
-                  onClick={prevInfo}
-                >
-                  <img src="/assets/arrow.svg" alt="arrow" />{" "}
-                  {t("stepSeven.back")}
-                </button>
-                {showQuestion3 && (
+              <button
+                type="button"
+                className={`back-btn back-btn-stepthree ${!showQuestion3 ? "back-btn-grow" : ""}`}
+                onClick={prevInfo}
+              >
+                <img src="/assets/arrow.svg" alt="arrow" /> {t("stepSeven.back")}
+              </button>
+              {showQuestion3 && (
                 <div className="forward-btns">
                   <button type="submit" className="long-btn long-btn-stepthree">
                     {t("stepSeven.continueJourney")}
                   </button>
                 </div>
               )}
-              </div>
+            </div>
           </form>
         </div>
       ),
@@ -399,27 +453,33 @@ const StepSeven = ({
             <h2>{t("stepSeven.question4.title")}</h2>
             <p className="question">{t("stepSeven.question4.label")}</p>
           </div>
+          <div className="yes-no-buttons">
+            <div className="yes-no-radio">
+              <input
+                type="radio"
+                id="question4_yes"
+                name="question4"
+                value="yes"
+                checked={showQuestion4 === true}
+                onChange={() => handleYesNoChange("question4", "yes")}
+              />
+              <label htmlFor="question4_yes">{t("stepSeven.yes")}</label>
+            </div>
+            <div className="yes-no-radio">
+              <input
+                type="radio"
+                id="question4_no"
+                name="question4"
+                value="no"
+                checked={showQuestion4 === false}
+                onChange={() => handleYesNoChange("question4", "no")}
+              />
+              <label htmlFor="question4_no">{t("stepSeven.no")}</label>
+            </div>
+          </div>
           <form onSubmit={handleSubmit} className="input-form">
-            <div className="input-label-full input-label">
-              {!showQuestion4 && (
-                <div className="yes-no-buttons">
-                  <button
-                    type="button"
-                    onClick={() => handleYesNoChange("question4", "yes")}
-                    className={`yes-btn ${showQuestion4 ? "active" : ""}`}
-                  >
-                    {t("stepSeven.yes")}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => handleYesNoChange("question4", "no")}
-                    className={`no-btn ${!showQuestion4 ? "active" : ""}`}
-                  >
-                    {t("stepSeven.no")}
-                  </button>
-                </div>
-              )}
-              {showQuestion4 && (
+            {showQuestion4 && (
+              <div className="input-label-full input-label">
                 <input
                   className="input-border"
                   type="text"
@@ -427,95 +487,100 @@ const StepSeven = ({
                   onChange={handleInputChange("question4")}
                   placeholder={t("stepSeven.question4.placeholder")}
                 />
-              )}
-              {errors.question4 && (
-                <span className="error">{errors.question4}</span>
-              )}
-            </div>
-            <div className="btn-group btn-group-stepthree">
-                <button
-                  type="button"
-                  className={`back-btn back-btn-stepthree ${!showQuestion4 ? "back-btn-grow" : "" }`}
-                  onClick={prevInfo}
-                >
-                  <img src="/assets/arrow.svg" alt="arrow" />{" "}
-                  {t("stepSeven.back")}
-                </button>
-                {showQuestion4 && (
-                <div className="forward-btns">
-                  <button type="submit" className="long-btn long-btn-stepthree">
-                    {t("stepSeven.continueJourney")}
-                  </button>
-                </div>
-              )}
+                {errors.question4 && (
+                  <span className="error">{errors.question4}</span>
+                )}
               </div>
-          </form>
-        </div>
-      ),
-    },
-    {
-      form: (
-        <div className="medication-questions">
-          <div className="label-info">
-            <h2>{t("stepSeven.question5.title")}</h2>
-            <p className="question">{t("stepSeven.question5.label")}</p>
+            )}
+            <div className="btn-group btn-group-stepthree">
+              <button
+                type="button"
+                className={`back-btn back-btn-stepthree ${!showQuestion4 ? "back-btn-grow" : ""}`}
+                onClick={prevInfo}
+              >
+                <img src="/assets/arrow.svg" alt="arrow" /> {t("stepSeven.back")}
+              </button>
+              {showQuestion4 && (
+                <div className="forward-btns">
+                  <button type="submit" class                Name="long-btn long-btn-stepthree">
+                  {t("stepSeven.continueJourney")}
+                </button>
+              </div>
+            )}
           </div>
-          <form onSubmit={handleSubmit} className="input-form">
+        </form>
+      </div>
+    ),
+  },
+  {
+    form: (
+      <div className="medication-questions">
+        <div className="label-info">
+          <h2>{t("stepSeven.question5.title")}</h2>
+          <p className="question">{t("stepSeven.question5.label")}</p>
+        </div>
+        <div className="yes-no-buttons">
+          <div className="yes-no-radio">
+            <input
+              type="radio"
+              id="question5_yes"
+              name="question5"
+              value="yes"
+              checked={showQuestion5 === true}
+              onChange={() => handleYesNoChange("question5", "yes")}
+            />
+            <label htmlFor="question5_yes">{t("stepSeven.yes")}</label>
+          </div>
+          <div className="yes-no-radio">
+            <input
+              type="radio"
+              id="question5_no"
+              name="question5"
+              value="no"
+              checked={showQuestion5 === false}
+              onChange={() => handleYesNoChange("question5", "no")}
+            />
+            <label htmlFor="question5_no">{t("stepSeven.no")}</label>
+          </div>
+        </div>
+        <form onSubmit={handleSubmit} className="input-form">
+          {showQuestion5 && (
             <div className="input-label-full input-label">
-              {!showQuestion5 && (
-                <div className="yes-no-buttons">
-                  <button
-                    type="button"
-                    onClick={() => handleYesNoChange("question5", "yes")}
-                    className={`yes-btn ${showQuestion5 ? "active" : ""}`}
-                  >
-                    {t("stepSeven.yes")}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => handleYesNoChange("question5", "no")}
-                    className={`no-btn ${!showQuestion5 ? "active" : ""}`}
-                  >
-                    {t("stepSeven.no")}
-                  </button>
-                </div>
-              )}
-              {showQuestion5 && (
-                <input
-                  className="input-border"
-                  type="text"
-                  value={formData.question5}
-                  onChange={handleInputChange("question5")}
-                  placeholder={t("stepSeven.question5.placeholder")}
-                />
-              )}
+              <input
+                className="input-border"
+                type="text"
+                value={formData.question5}
+                onChange={handleInputChange("question5")}
+                placeholder={t("stepSeven.question5.placeholder")}
+              />
               {errors.question5 && (
                 <span className="error">{errors.question5}</span>
               )}
             </div>
-            <div className="btn-group btn-group-stepthree">
-                <button
-                  type="button"
-                  className={`back-btn back-btn-stepthree ${!showQuestion5 ? "back-btn-grow" : "" }`}
-                  onClick={prevInfo}
-                >
-                  <img src="/assets/arrow.svg" alt="arrow" />{" "}
-                  {t("stepSeven.back")}
+          )}
+          <div className="btn-group btn-group-stepthree">
+            <button
+              type="button"
+              className={`back-btn back-btn-stepthree ${!showQuestion5 ? "back-btn-grow" : ""}`}
+              onClick={prevInfo}
+            >
+              <img src="/assets/arrow.svg" alt="arrow" /> {t("stepSeven.back")}
+            </button>
+            {showQuestion5 && (
+              <div className="forward-btns">
+                <button type="submit" className="long-btn long-btn-stepthree">
+                  {t("stepSeven.continueJourney")}
                 </button>
-                {showQuestion5 && (
-                <div className="forward-btns">
-                  <button type="submit" className="long-btn long-btn-stepthree">
-                    {t("stepSeven.continueJourney")}
-                  </button>
-                </div>
-              )}
               </div>
-          </form>
-        </div>
-      ),
-    },
-    // Add more question forms as needed
-  ];
+            )}
+          </div>
+        </form>
+      </div>
+    ),
+  },
+  // Add more question forms as needed
+];
+  
 
   return (
     <div className="formContainer step-form">
