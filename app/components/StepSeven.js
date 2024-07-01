@@ -58,6 +58,14 @@ const StepSeven = ({
           setShowQuestion1(true);
         } else {
           setShowQuestion1(false);
+          setFormData({
+            ...formData,
+            question1: ""
+          })
+          handleChange({
+            ...values.stepSeven,
+            question1: ""
+          });
           setTimeout(() => {
             if (currentQuestion < questions.length - 1) {
               setCurrentQuestion(currentQuestion + 1);
@@ -72,6 +80,15 @@ const StepSeven = ({
         if (value == "yes") {
           setShowQuestion2(true);
         } else {
+          setShowQuestion2(false);
+          setFormData({
+            ...formData,
+            question2: ""
+          })
+          handleChange({
+            ...values.stepSeven,
+            question2: ""
+          });
           setTimeout(() => {
             if (currentQuestion < questions.length - 1) {
               setCurrentQuestion(currentQuestion + 1);
@@ -87,6 +104,14 @@ const StepSeven = ({
           setShowQuestion3(true);
         } else {
           setShowQuestion3(false);
+          setFormData({
+            ...formData,
+            question3: ""
+          })
+          handleChange({
+            ...values.stepSeven,
+            question3: ""
+          });
           setTimeout(() => {
             if (currentQuestion < questions.length - 1) {
               setCurrentQuestion(currentQuestion + 1);
@@ -102,6 +127,14 @@ const StepSeven = ({
           setShowQuestion4(true);
         } else {
           setShowQuestion4(false);
+          setFormData({
+            ...formData,
+            question4: ""
+          })
+          handleChange({
+            ...values.stepSeven,
+            question4: ""
+          });
           setTimeout(() => {
             if (currentQuestion < questions.length - 1) {
               setCurrentQuestion(currentQuestion + 1);
@@ -117,6 +150,14 @@ const StepSeven = ({
           setShowQuestion5(true);
         } else {
           setShowQuestion5(false);
+          setFormData({
+            ...formData,
+            question5: ""
+          })
+          handleChange({
+            ...values.stepSeven,
+            question5: ""
+          });
           setTimeout(() => {
             if (currentQuestion < questions.length - 1) {
               setCurrentQuestion(currentQuestion + 1);
@@ -275,6 +316,7 @@ const StepSeven = ({
                 value="no"
                 checked={showQuestion1 === false}
                 onChange={() => handleYesNoChange("question1", "no")}
+                onClick={() => handleYesNoChange("question1", "no")}
               />
               <label htmlFor="question1_no">{t("stepSeven.no")}</label>
             </div>
@@ -341,6 +383,7 @@ const StepSeven = ({
                 value="no"
                 checked={showQuestion2 === false}
                 onChange={() => handleYesNoChange("question2", "no")}
+                onClick={() => handleYesNoChange("question2", "no")}
               />
               <label htmlFor="question2_no">{t("stepSeven.no")}</label>
             </div>
@@ -407,6 +450,7 @@ const StepSeven = ({
                 value="no"
                 checked={showQuestion3 === false}
                 onChange={() => handleYesNoChange("question3", "no")}
+                onClick={() => handleYesNoChange("question3", "no")}
               />
               <label htmlFor="question3_no">{t("stepSeven.no")}</label>
             </div>
@@ -473,6 +517,7 @@ const StepSeven = ({
                 value="no"
                 checked={showQuestion4 === false}
                 onChange={() => handleYesNoChange("question4", "no")}
+                onClick={() => handleYesNoChange("question4", "no")}
               />
               <label htmlFor="question4_no">{t("stepSeven.no")}</label>
             </div>
@@ -502,7 +547,7 @@ const StepSeven = ({
               </button>
               {showQuestion4 && (
                 <div className="forward-btns">
-                  <button type="submit" class                Name="long-btn long-btn-stepthree">
+                  <button type="submit" className="long-btn long-btn-stepthree">
                   {t("stepSeven.continueJourney")}
                 </button>
               </div>
@@ -539,6 +584,7 @@ const StepSeven = ({
               value="no"
               checked={showQuestion5 === false}
               onChange={() => handleYesNoChange("question5", "no")}
+              onClick={() => handleYesNoChange("question5", "no")}
             />
             <label htmlFor="question5_no">{t("stepSeven.no")}</label>
           </div>
