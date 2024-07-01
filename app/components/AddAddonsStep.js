@@ -108,7 +108,7 @@ const AvailableAddons = ({ prevStep, nextStep, handleChange, formValues }) => {
           <img src="/assets/star.png" alt="star" />
         </div>
         <p className="reviews">
-          456 <span>{t("review.reviewsOn")}</span>
+          712 <span>{t("review.reviewsOn")}</span>
         </p>
         <div className="trustpilot">
           <img src="/assets/star-trustpilot.svg" alt="trust" /> <span>Trustpilot</span>

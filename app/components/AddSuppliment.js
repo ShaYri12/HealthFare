@@ -139,7 +139,7 @@ const Suppliments = ({ handleOrignalStep, handleChange, values, cartitem }) => {
                     <img src="/assets/star.png" alt="star" />
                     <img src="/assets/star.png" alt="star" />
                 </div>
-                <p className='reviews'>456 <span>{t('review.reviewsOn')}</span></p>
+                <p className='reviews'>712 <span>{t('review.reviewsOn')}</span></p>
                 <div className='trustpilot'>
                     <img src="/assets/star-trustpilot.svg" alt="trust" /> <span>Trustpilot</span>
                 </div>

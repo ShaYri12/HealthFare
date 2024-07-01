@@ -118,10 +118,10 @@ const PlanSelection = ({ nextStep, prevStep, handleChange, values, cartitem2 }) 
               <div className="price">
                 <span className="original-price">{oneMonthPrice}</span> <span>{threeMonthPrice}</span>
               </div>
-              <div className="price-total">
-                <span>{t('planSelection.total')} ${totalThreeMonthPrice} {t('planSelection.equivalentTo')} {threeMonthPrice} {t('planSelection.month')})</span>
-              </div>
             </label>
+          </div>
+          <div className="price-total">
+            <span>{t('planSelection.note')} {threeMonthPrice}, {t('planSelection.billed')} ${totalThreeMonthPrice}</span>
           </div>
         </div>
         {error && <span className="error">{error}</span>}
