@@ -17,11 +17,11 @@ const StepSeven = ({
 
   // State to manage form data and visibility of questions
   const [formData, setFormData] = useState({
-    question1: values.question1 || "",
-    question2: values.question2 || "",
-    question3: values.question3 || "",
-    question4: values.question4 || "",
-    question5: values.question5 || "",
+    question1: values.stepSeven.question1 || "",
+    question2: values.stepSeven.question2 || "",
+    question3: values.stepSeven.question3 || "",
+    question4: values.stepSeven.question4 || "",
+    question5: values.stepSeven.question5 || "",
   });
 
   const [errors, setErrors] = useState({
@@ -31,13 +31,33 @@ const StepSeven = ({
     question4: "",
     question5: "",
   });
-
+console.log(values.stepSeven)
   // State to manage whether each question should be displayed
-  const [showQuestion1, setShowQuestion1] = useState(null);
-  const [showQuestion2, setShowQuestion2] = useState(null);
-  const [showQuestion3, setShowQuestion3] = useState(null);
-  const [showQuestion4, setShowQuestion4] = useState(null);
-  const [showQuestion5, setShowQuestion5] = useState(null);
+  const [showQuestion1, setShowQuestion1] = useState(() => {
+    const answer = values.stepSeven.question1;
+    return answer === 'yes' ? true : answer === 'no' ? false : null;
+  });
+  
+  const [showQuestion2, setShowQuestion2] = useState(() => {
+    const answer = values.stepSeven.question2;
+    return answer === 'yes' ? true : answer === 'no' ? false : null;
+  });
+  
+  const [showQuestion3, setShowQuestion3] = useState(() => {
+    const answer = values.stepSeven.question3;
+    return answer === 'yes' ? true : answer === 'no' ? false : null;
+  });
+  
+  const [showQuestion4, setShowQuestion4] = useState(() => {
+    const answer = values.stepSeven.question4;
+    return answer === 'yes' ? true : answer === 'no' ? false : null;
+  });
+  
+  const [showQuestion5, setShowQuestion5] = useState(() => {
+    const answer = values.stepSeven.question5;
+    return answer === 'yes' ? true : answer === 'no' ? false : null;
+  });
+  
 
   const handleInputChange = (field) => (e) => {
     const value = e.target.value;
@@ -56,6 +76,10 @@ const StepSeven = ({
       case "question1":
         if (value == "yes") {
           setShowQuestion1(true);
+          handleChange({
+            ...values.stepSeven,
+            question1: "yes"
+          });
         } else {
           setShowQuestion1(false);
           setFormData({
@@ -64,21 +88,23 @@ const StepSeven = ({
           })
           handleChange({
             ...values.stepSeven,
-            question1: ""
+            question1: "no"
           });
-          setTimeout(() => {
             if (currentQuestion < questions.length - 1) {
               setCurrentQuestion(currentQuestion + 1);
               window.scrollTo(0, 0);
             } else {
               nextStep();
             }
-          }, 400);
         }
         break;
       case "question2":
         if (value == "yes") {
           setShowQuestion2(true);
+          handleChange({
+            ...values.stepSeven,
+            question2: "yes"
+          });
         } else {
           setShowQuestion2(false);
           setFormData({
@@ -87,21 +113,23 @@ const StepSeven = ({
           })
           handleChange({
             ...values.stepSeven,
-            question2: ""
+            question2: "no"
           });
-          setTimeout(() => {
             if (currentQuestion < questions.length - 1) {
               setCurrentQuestion(currentQuestion + 1);
               window.scrollTo(0, 0);
             } else {
               nextStep();
             }
-          }, 400);
         }
         break;
       case "question3":
         if (value == "yes") {
           setShowQuestion3(true);
+          handleChange({
+            ...values.stepSeven,
+            question3: "yes"
+          });
         } else {
           setShowQuestion3(false);
           setFormData({
@@ -110,21 +138,23 @@ const StepSeven = ({
           })
           handleChange({
             ...values.stepSeven,
-            question3: ""
+            question3: "no"
           });
-          setTimeout(() => {
             if (currentQuestion < questions.length - 1) {
               setCurrentQuestion(currentQuestion + 1);
               window.scrollTo(0, 0);
             } else {
               nextStep();
             }
-          }, 400);
         }
         break;
       case "question4":
         if (value == "yes") {
           setShowQuestion4(true);
+          handleChange({
+            ...values.stepSeven,
+            question4: "yes"
+          });
         } else {
           setShowQuestion4(false);
           setFormData({
@@ -133,21 +163,23 @@ const StepSeven = ({
           })
           handleChange({
             ...values.stepSeven,
-            question4: ""
+            question4: "no"
           });
-          setTimeout(() => {
             if (currentQuestion < questions.length - 1) {
               setCurrentQuestion(currentQuestion + 1);
               window.scrollTo(0, 0);
             } else {
               nextStep();
             }
-          }, 400);
         }
         break;
       case "question5":
         if (value == "yes") {
           setShowQuestion5(true);
+          handleChange({
+            ...values.stepSeven,
+            question5: "yes"
+          });
         } else {
           setShowQuestion5(false);
           setFormData({
@@ -156,16 +188,14 @@ const StepSeven = ({
           })
           handleChange({
             ...values.stepSeven,
-            question5: ""
+            question5: "no"
           });
-          setTimeout(() => {
             if (currentQuestion < questions.length - 1) {
               setCurrentQuestion(currentQuestion + 1);
               window.scrollTo(0, 0);
             } else {
               nextStep();
             }
-          }, 400);
         }
         break;
       default:
@@ -316,7 +346,6 @@ const StepSeven = ({
                 value="no"
                 checked={showQuestion1 === false}
                 onChange={() => handleYesNoChange("question1", "no")}
-                onClick={() => handleYesNoChange("question1", "no")}
               />
               <label htmlFor="question1_no">{t("stepSeven.no")}</label>
             </div>
@@ -339,12 +368,12 @@ const StepSeven = ({
             <div className="btn-group btn-group-stepthree">
               <button
                 type="button"
-                className={`back-btn back-btn-stepthree ${!showQuestion1 ? "back-btn-grow" : ""}`}
+                className={`back-btn back-btn-stepthree ${showQuestion1 === null ? "back-btn-grow" : ""}`}
                 onClick={prevInfo}
               >
                 <img src="/assets/arrow.svg" alt="arrow" /> {t("stepSeven.back")}
               </button>
-              {showQuestion1 && (
+              {showQuestion1 !== null && (
                 <div className="forward-btns">
                   <button type="submit" className="long-btn long-btn-stepthree">
                     {t("stepSeven.continueJourney")}
@@ -383,7 +412,6 @@ const StepSeven = ({
                 value="no"
                 checked={showQuestion2 === false}
                 onChange={() => handleYesNoChange("question2", "no")}
-                onClick={() => handleYesNoChange("question2", "no")}
               />
               <label htmlFor="question2_no">{t("stepSeven.no")}</label>
             </div>
@@ -406,12 +434,12 @@ const StepSeven = ({
             <div className="btn-group btn-group-stepthree">
               <button
                 type="button"
-                className={`back-btn back-btn-stepthree ${!showQuestion2 ? "back-btn-grow" : ""}`}
+                className={`back-btn back-btn-stepthree ${showQuestion2 === null ? "back-btn-grow" : ""}`}
                 onClick={prevInfo}
               >
                 <img src="/assets/arrow.svg" alt="arrow" /> {t("stepSeven.back")}
               </button>
-              {showQuestion2 && (
+              {showQuestion2 !== null && (
                 <div className="forward-btns">
                   <button type="submit" className="long-btn long-btn-stepthree">
                     {t("stepSeven.continueJourney")}
@@ -450,7 +478,6 @@ const StepSeven = ({
                 value="no"
                 checked={showQuestion3 === false}
                 onChange={() => handleYesNoChange("question3", "no")}
-                onClick={() => handleYesNoChange("question3", "no")}
               />
               <label htmlFor="question3_no">{t("stepSeven.no")}</label>
             </div>
@@ -473,12 +500,12 @@ const StepSeven = ({
             <div className="btn-group btn-group-stepthree">
               <button
                 type="button"
-                className={`back-btn back-btn-stepthree ${!showQuestion3 ? "back-btn-grow" : ""}`}
+                className={`back-btn back-btn-stepthree ${showQuestion3 === null ? "back-btn-grow" : ""}`}
                 onClick={prevInfo}
               >
                 <img src="/assets/arrow.svg" alt="arrow" /> {t("stepSeven.back")}
               </button>
-              {showQuestion3 && (
+              {showQuestion3 !== null && (
                 <div className="forward-btns">
                   <button type="submit" className="long-btn long-btn-stepthree">
                     {t("stepSeven.continueJourney")}
@@ -517,7 +544,6 @@ const StepSeven = ({
                 value="no"
                 checked={showQuestion4 === false}
                 onChange={() => handleYesNoChange("question4", "no")}
-                onClick={() => handleYesNoChange("question4", "no")}
               />
               <label htmlFor="question4_no">{t("stepSeven.no")}</label>
             </div>
@@ -540,19 +566,19 @@ const StepSeven = ({
             <div className="btn-group btn-group-stepthree">
               <button
                 type="button"
-                className={`back-btn back-btn-stepthree ${!showQuestion4 ? "back-btn-grow" : ""}`}
+                className={`back-btn back-btn-stepthree ${showQuestion4 === null ? "back-btn-grow" : ""}`}
                 onClick={prevInfo}
               >
                 <img src="/assets/arrow.svg" alt="arrow" /> {t("stepSeven.back")}
               </button>
-              {showQuestion4 && (
+              {showQuestion4 !== null && (
                 <div className="forward-btns">
                   <button type="submit" className="long-btn long-btn-stepthree">
-                  {t("stepSeven.continueJourney")}
-                </button>
-              </div>
-            )}
-          </div>
+                    {t("stepSeven.continueJourney")}
+                  </button>
+                </div>
+              )}
+            </div>
         </form>
       </div>
     ),
@@ -584,7 +610,6 @@ const StepSeven = ({
               value="no"
               checked={showQuestion5 === false}
               onChange={() => handleYesNoChange("question5", "no")}
-              onClick={() => handleYesNoChange("question5", "no")}
             />
             <label htmlFor="question5_no">{t("stepSeven.no")}</label>
           </div>
@@ -607,12 +632,12 @@ const StepSeven = ({
           <div className="btn-group btn-group-stepthree">
             <button
               type="button"
-              className={`back-btn back-btn-stepthree ${!showQuestion5 ? "back-btn-grow" : ""}`}
+              className={`back-btn back-btn-stepthree ${showQuestion5 === null ? "back-btn-grow" : ""}`}
               onClick={prevInfo}
             >
               <img src="/assets/arrow.svg" alt="arrow" /> {t("stepSeven.back")}
             </button>
-            {showQuestion5 && (
+            {showQuestion5 !== null && (
               <div className="forward-btns">
                 <button type="submit" className="long-btn long-btn-stepthree">
                   {t("stepSeven.continueJourney")}
