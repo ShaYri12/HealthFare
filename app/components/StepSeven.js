@@ -76,6 +76,10 @@ console.log(values.stepSeven)
       case "question1":
         if (value == "yes") {
           setShowQuestion1(true);
+          setFormData({
+            ...formData,
+            question1: ""
+          })
           handleChange({
             ...values.stepSeven,
             question1: "yes"
@@ -101,6 +105,10 @@ console.log(values.stepSeven)
       case "question2":
         if (value == "yes") {
           setShowQuestion2(true);
+          setFormData({
+            ...formData,
+            question2: ""
+          })
           handleChange({
             ...values.stepSeven,
             question2: "yes"
@@ -126,6 +134,10 @@ console.log(values.stepSeven)
       case "question3":
         if (value == "yes") {
           setShowQuestion3(true);
+          setFormData({
+            ...formData,
+            question3: ""
+          })
           handleChange({
             ...values.stepSeven,
             question3: "yes"
@@ -151,6 +163,10 @@ console.log(values.stepSeven)
       case "question4":
         if (value == "yes") {
           setShowQuestion4(true);
+          setFormData({
+            ...formData,
+            question4: ""
+          })
           handleChange({
             ...values.stepSeven,
             question4: "yes"
@@ -176,6 +192,10 @@ console.log(values.stepSeven)
       case "question5":
         if (value == "yes") {
           setShowQuestion5(true);
+          setFormData({
+            ...formData,
+            question5: ""
+          })
           handleChange({
             ...values.stepSeven,
             question5: "yes"
